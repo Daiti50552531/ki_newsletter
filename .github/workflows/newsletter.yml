@@ -1,0 +1,28 @@
+name: Täglicher KI-Newsletter
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # 05:00 UTC = 07:00 MESZ / 06:00 MEZ
+  workflow_dispatch:       # Manueller Test-Run jederzeit möglich
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Newsletter versenden
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: python newsletter.py
