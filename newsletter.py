@@ -10,6 +10,7 @@ import os
 import re
 import smtplib
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime
@@ -95,7 +96,7 @@ REGELN:
 """
 
 
-# ── Gemini API Call ───────────────────────────────────────────────────────────
+# ── Gemini API Call (mit Retry bei 503) ───────────────────────────────────────
 def call_gemini() -> dict:
     payload = {
         "tools": [{"google_search": {}}],
@@ -106,14 +107,24 @@ def call_gemini() -> dict:
         },
     }
     data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        GEMINI_URL,
-        data=data,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+
+    for attempt in range(3):
+        req = urllib.request.Request(
+            GEMINI_URL,
+            data=data,
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            if e.code == 503 and attempt < 2:
+                wait = 20 * (attempt + 1)  # 20s, dann 40s
+                print(f"Gemini API 503 – warte {wait}s, Versuch {attempt + 2}/3 ...")
+                time.sleep(wait)
+            else:
+                raise
 
 
 def extract_json(text: str) -> dict:
@@ -174,7 +185,7 @@ def build_html(data: dict) -> str:
 
     def news_block(item: dict, idx: int) -> str:
         return f"""
-        <tr><td style="padding:0 0 24px;border-bottom:1px solid {C_BORDER};margin-bottom:24px;">
+        <tr><td style="padding:0 0 24px;border-bottom:1px solid {C_BORDER};">
           <p style="margin:0 0 6px;font-family:{FONT};font-size:12px;color:{C_MUTED};">
             <strong style="color:{C_ACCENT};">#{idx}</strong>
             &nbsp;&middot;&nbsp;{item.get('datum','')} &middot; {item.get('quelle','')}
@@ -190,7 +201,7 @@ def build_html(data: dict) -> str:
           <a href="{item.get('url','#')}" style="font-family:{FONT};font-size:13px;
              color:{C_ACCENT};font-weight:600;text-decoration:none;">Weiterlesen &rarr;</a>
         </td></tr>
-        <tr><td style="padding:0 0 24px;"></td></tr>"""
+        <tr><td style="padding:0 0 4px;"></td></tr>"""
 
     def inspiration_block(item: dict) -> str:
         return f"""
@@ -210,7 +221,7 @@ def build_html(data: dict) -> str:
           <a href="{item.get('url','#')}" style="font-family:{FONT};font-size:13px;
              color:{C_ACCENT};font-weight:600;text-decoration:none;">Mehr erfahren &rarr;</a>
         </td></tr>
-        <tr><td style="padding:0 0 24px;"></td></tr>"""
+        <tr><td style="padding:0 0 4px;"></td></tr>"""
 
     news_rows = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
     insp_rows = "".join(inspiration_block(n) for n in inspiration)
@@ -245,7 +256,8 @@ def build_html(data: dict) -> str:
 
       <!-- BODY -->
       <tr>
-        <td style="background:{C_CARD};padding:8px 36px 32px;border-radius:0 0 12px 12px;
+        <td style="background:{C_CARD};padding:8px 36px 32px;
+                   border-radius:0 0 12px 12px;
                    box-shadow:0 4px 20px rgba(0,0,0,0.07);">
           <table width="100%" cellpadding="0" cellspacing="0">
 
