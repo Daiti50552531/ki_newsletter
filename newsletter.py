@@ -39,6 +39,8 @@ PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters.
 Heute ist der {TODAY}. Recherchiere mit Google Search aktuelle KI-Nachrichten.
 
 WICHTIG: Verwende NUR Quellen, die maximal 3 Tage alt sind (Ausnahme: Podcast-Empfehlungen).
+Recherchiere AKTIV auf englischsprachigen Quellen – die relevantesten KI-News erscheinen
+zuerst auf US-amerikanischen und internationalen Fachmedien. Zusammenfassungen immer auf Deutsch.
 
 BLACKLIST – diese Quellen NIEMALS verwenden:
 - AInauten (Newsletter/Podcast)
@@ -46,10 +48,21 @@ BLACKLIST – diese Quellen NIEMALS verwenden:
 - Doppelgänger (Newsletter/Podcast)
 - AI Daily Brief (Podcast/Newsletter)
 
-BEVORZUGTE QUELLEN: TechCrunch, The Verge, Ars Technica, MIT Technology Review,
-Reddit (r/artificial, r/machinelearning), Hacker News, DEV Community, Indie Hackers,
-Product Hunt, Ben's Bites, The Rundown AI, Import AI, Papers With Code,
-Hugging Face Blog, VentureBeat, Nischen-Blogs.
+BEVORZUGTE NACHRICHTENQUELLEN (bevorzuge englischsprachige!):
+TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review, Bloomberg Technology,
+The Information, VentureBeat, 9to5Google, Reuters Technology, Associated Press Tech,
+Hacker News (ycombinator.com), Reddit (r/artificial, r/machinelearning, r/LocalLLaMA),
+Papers With Code, Hugging Face Blog, DEV Community, Indie Hackers, Product Hunt,
+Ben's Bites, The Rundown AI, Import AI, Stratechery
+
+BEVORZUGTE PODCAST-QUELLEN (für Sektion 2 und als Quellen für News):
+Lex Fridman Podcast, Hard Fork (NYT / The New York Times), Practical AI (Changelog),
+Latent Space Podcast, No Priors (Sequoia), The Gradient Podcast,
+TWIML AI Podcast (This Week in Machine Learning), Eye on AI,
+Dwarkesh Podcast, 20VC with Harry Stebbings, BG2 Pod
+
+Podcast-Episoden dürfen auch als Quellen für News-Einträge genutzt werden –
+dann mit Angabe: Podcast-Name, Episode-Titel, Datum.
 
 Erstelle einen Newsletter mit EXAKT dieser JSON-Struktur (nur JSON, kein Markdown-Wrapper):
 
@@ -57,8 +70,8 @@ Erstelle einen Newsletter mit EXAKT dieser JSON-Struktur (nur JSON, kein Markdow
   "top_news": [
     {{
       "titel": "...",
-      "zusammenfassung": "2-3 Sätze auf Deutsch",
-      "quelle": "Name der Quelle",
+      "zusammenfassung": "2-3 Sätze auf Deutsch – informiert, einordnend, kein Buzzword-Bingo",
+      "quelle": "Name der Quelle (z.B. TechCrunch, Lex Fridman Podcast, Hacker News)",
       "url": "https://...",
       "datum": "TT.MM.YYYY"
     }}
@@ -66,14 +79,14 @@ Erstelle einen Newsletter mit EXAKT dieser JSON-Struktur (nur JSON, kein Markdow
   "podcast": {{
     "episoden_titel": "...",
     "podcast_name": "...",
-    "warum_hoeren": "2-3 Sätze auf Deutsch",
+    "warum_hoeren": "2-3 Sätze auf Deutsch – warum ist diese Episode gerade relevant?",
     "url": "https://...",
     "datum": "TT.MM.YYYY"
   }},
   "inspiration": [
     {{
       "projekt_name": "...",
-      "beschreibung": "2-3 Sätze (Was, Wie gebaut, was verdient) auf Deutsch",
+      "beschreibung": "2-3 Sätze auf Deutsch: Was macht es, wie gebaut, was verdient es?",
       "tools": "...",
       "quelle": "Name der Quelle",
       "url": "https://...",
@@ -88,9 +101,10 @@ Erstelle einen Newsletter mit EXAKT dieser JSON-Struktur (nur JSON, kein Markdow
 }}
 
 REGELN:
-- top_news: GENAU 5 Einträge (Themen: Technik, Strategie, Open Source, Hardware)
+- top_news: GENAU 5 Einträge – Mix aus Technik, Strategie, Open Source, Hardware
+- Mindestens 3 der 5 News aus englischsprachigen internationalen Quellen
 - inspiration: GENAU 4 Einträge, mindestens 1 Projekt das mit Google Gemini gebaut wurde
-- Stil: Deutsch, knackig, informiert, mit Einordnung – kein Marketing-Sprech, kein Buzzword-Bingo
+- Stil: Deutsch, knackig, informiert, mit Einordnung – kein Marketing-Sprech
 - ALLE URLs müssen echte, funktionierende Links sein
 - ALLE Daten im Format TT.MM.YYYY
 """
@@ -120,7 +134,7 @@ def call_gemini() -> dict:
                 return json.loads(resp.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
             if e.code == 503 and attempt < 2:
-                wait = 20 * (attempt + 1)  # 20s, dann 40s
+                wait = 20 * (attempt + 1)
                 print(f"Gemini API 503 – warte {wait}s, Versuch {attempt + 2}/3 ...")
                 time.sleep(wait)
             else:
@@ -149,17 +163,23 @@ def get_newsletter_data() -> dict:
     return extract_json(raw_text)
 
 
-# ── Design-Konstanten (Ainauten-Style) ────────────────────────────────────────
-FONT       = "system-ui,-apple-system,'Segoe UI',Arial,sans-serif"
-C_BG       = "#f4f4f5"
-C_CARD     = "#ffffff"
-C_HEADER   = "#18181b"
-C_ACCENT   = "#f59e0b"
-C_TEXT     = "#18181b"
-C_MUTED    = "#71717a"
-C_BORDER   = "#e4e4e7"
-C_LABEL_BG = "#fef3c7"
-C_LABEL_TX = "#92400e"
+# ── Design-Konstanten (Modern Playful) ────────────────────────────────────────
+FONT   = "'Helvetica Neue',Helvetica,Arial,sans-serif"
+C_BG   = "#eef2ff"          # Helles Indigo-Blau
+C_CARD = "#ffffff"
+C_H1   = "#4f46e5"          # Indigo-Header-Akzent
+C_HDR  = "#1e1b4b"          # Sehr dunkles Indigo für Header-BG
+C_TEXT = "#1e293b"
+C_MUTE = "#64748b"
+C_BDR  = "#e2e8f0"
+
+# Sektionsfarben
+SEC = {
+    "news":    {"emoji": "🚀", "color": "#4f46e5", "light": "#eef2ff"},
+    "podcast": {"emoji": "🎙️", "color": "#f43f5e", "light": "#fff1f2"},
+    "insp":    {"emoji": "💡", "color": "#059669", "light": "#ecfdf5"},
+    "tipp":    {"emoji": "✨", "color": "#d97706", "light": "#fffbeb"},
+}
 
 
 def build_html(data: dict) -> str:
@@ -168,64 +188,101 @@ def build_html(data: dict) -> str:
     inspiration = data.get("inspiration", [])
     tipp        = data.get("gemini_tipp", {})
 
-    def label(text: str) -> str:
-        return (f'<span style="display:inline-block;background:{C_LABEL_BG};color:{C_LABEL_TX};'
-                f'font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;'
-                f'padding:2px 8px;border-radius:4px;font-family:{FONT};">{text}</span>')
+    def badge(text: str, color: str, bg: str) -> str:
+        return (f'<span style="display:inline-block;background:{bg};color:{color};'
+                f'font-family:{FONT};font-size:11px;font-weight:700;letter-spacing:.5px;'
+                f'text-transform:uppercase;padding:3px 10px;border-radius:20px;">{text}</span>')
 
-    def section_header(num: str, title: str) -> str:
+    def section_title(s: dict, title: str) -> str:
         return f"""
-        <tr><td style="padding:36px 0 18px;">
-          <p style="margin:0 0 4px;font-family:{FONT};font-size:11px;font-weight:700;
-                    color:{C_ACCENT};letter-spacing:1.5px;text-transform:uppercase;
-                    border-top:2px solid {C_ACCENT};padding-top:12px;">{num}</p>
-          <h2 style="margin:4px 0 0;font-family:{FONT};font-size:22px;font-weight:800;
-                     color:{C_TEXT};letter-spacing:-.3px;">{title}</h2>
+        <tr><td style="padding:36px 0 20px;">
+          <table cellpadding="0" cellspacing="0"><tr>
+            <td style="background:{s['color']};border-radius:12px;
+                       padding:6px 14px;vertical-align:middle;">
+              <span style="font-family:{FONT};font-size:13px;font-weight:800;
+                           color:#fff;letter-spacing:.5px;text-transform:uppercase;">
+                {s['emoji']}&nbsp; {title}
+              </span>
+            </td>
+          </tr></table>
         </td></tr>"""
 
     def news_block(item: dict, idx: int) -> str:
         return f"""
-        <tr><td style="padding:0 0 24px;border-bottom:1px solid {C_BORDER};">
-          <p style="margin:0 0 6px;font-family:{FONT};font-size:12px;color:{C_MUTED};">
-            <strong style="color:{C_ACCENT};">#{idx}</strong>
-            &nbsp;&middot;&nbsp;{item.get('datum','')} &middot; {item.get('quelle','')}
-          </p>
-          <h3 style="margin:0 0 8px;font-family:{FONT};font-size:16px;font-weight:700;
-                     line-height:1.4;">
-            <a href="{item.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
-              {item.get('titel','')}
-            </a>
-          </h3>
-          <p style="margin:0 0 10px;font-family:{FONT};font-size:14px;color:#3f3f46;
-                    line-height:1.7;">{item.get('zusammenfassung','')}</p>
-          <a href="{item.get('url','#')}" style="font-family:{FONT};font-size:13px;
-             color:{C_ACCENT};font-weight:600;text-decoration:none;">Weiterlesen &rarr;</a>
+        <tr><td style="padding:0 0 20px;">
+          <table width="100%" cellpadding="0" cellspacing="0"
+                 style="border-left:3px solid {SEC['news']['color']};padding-left:14px;">
+            <tr><td style="padding:0 0 5px;">
+              <span style="font-family:{FONT};font-size:22px;font-weight:900;
+                           color:{SEC['news']['color']};opacity:.25;line-height:1;">
+                {str(idx).zfill(2)}
+              </span>
+              &nbsp;
+              <span style="font-family:{FONT};font-size:11px;color:{C_MUTE};">
+                {item.get('datum','')} &middot; {item.get('quelle','')}
+              </span>
+            </td></tr>
+            <tr><td style="padding:0 0 7px;">
+              <a href="{item.get('url','#')}"
+                 style="font-family:{FONT};font-size:16px;font-weight:700;
+                        color:{C_TEXT};text-decoration:none;line-height:1.4;">
+                {item.get('titel','')}
+              </a>
+            </td></tr>
+            <tr><td style="padding:0 0 8px;">
+              <span style="font-family:{FONT};font-size:14px;color:#475569;line-height:1.7;">
+                {item.get('zusammenfassung','')}
+              </span>
+            </td></tr>
+            <tr><td style="padding:0 0 20px;border-bottom:1px solid {C_BDR};">
+              <a href="{item.get('url','#')}"
+                 style="font-family:{FONT};font-size:12px;font-weight:700;
+                        color:{SEC['news']['color']};text-decoration:none;">
+                Weiterlesen &rarr;
+              </a>
+            </td></tr>
+          </table>
         </td></tr>
         <tr><td style="padding:0 0 4px;"></td></tr>"""
 
-    def inspiration_block(item: dict) -> str:
+    def insp_block(item: dict, idx: int) -> str:
         return f"""
-        <tr><td style="padding:0 0 24px;border-bottom:1px solid {C_BORDER};">
-          <p style="margin:0 0 6px;font-family:{FONT};font-size:12px;color:{C_MUTED};">
-            {item.get('datum','')} &middot; {item.get('quelle','')}
-          </p>
-          <h3 style="margin:0 0 6px;font-family:{FONT};font-size:16px;font-weight:700;
-                     line-height:1.4;">
-            <a href="{item.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
-              {item.get('projekt_name','')}
-            </a>
-          </h3>
-          <p style="margin:0 0 8px;">{label('Tools: ' + item.get('tools',''))}</p>
-          <p style="margin:0 0 10px;font-family:{FONT};font-size:14px;color:#3f3f46;
-                    line-height:1.7;">{item.get('beschreibung','')}</p>
-          <a href="{item.get('url','#')}" style="font-family:{FONT};font-size:13px;
-             color:{C_ACCENT};font-weight:600;text-decoration:none;">Mehr erfahren &rarr;</a>
-        </td></tr>
-        <tr><td style="padding:0 0 4px;"></td></tr>"""
+        <tr><td style="padding:0 0 20px;">
+          <table width="100%" cellpadding="0" cellspacing="0"
+                 style="background:{SEC['insp']['light']};border-radius:10px;">
+            <tr><td style="padding:16px 18px 0;">
+              <span style="font-family:{FONT};font-size:11px;color:{C_MUTE};">
+                {item.get('datum','')} &middot; {item.get('quelle','')}
+              </span>
+            </td></tr>
+            <tr><td style="padding:6px 18px 4px;">
+              <a href="{item.get('url','#')}"
+                 style="font-family:{FONT};font-size:15px;font-weight:700;
+                        color:{C_TEXT};text-decoration:none;line-height:1.4;">
+                {item.get('projekt_name','')}
+              </a>
+            </td></tr>
+            <tr><td style="padding:0 18px 8px;">
+              {badge('Tools: ' + item.get('tools',''), SEC['insp']['color'], '#d1fae5')}
+            </td></tr>
+            <tr><td style="padding:0 18px 8px;">
+              <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.7;">
+                {item.get('beschreibung','')}
+              </span>
+            </td></tr>
+            <tr><td style="padding:0 18px 16px;">
+              <a href="{item.get('url','#')}"
+                 style="font-family:{FONT};font-size:12px;font-weight:700;
+                        color:{SEC['insp']['color']};text-decoration:none;">
+                Mehr erfahren &rarr;
+              </a>
+            </td></tr>
+          </table>
+        </td></tr>"""
 
     news_rows = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
-    insp_rows = "".join(inspiration_block(n) for n in inspiration)
-    kat_badge = label(tipp.get('kategorie', ''))
+    insp_rows = "".join(insp_block(n, i+1) for i, n in enumerate(inspiration))
+    kat_badge = badge(tipp.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
 
     return f"""<!DOCTYPE html>
 <html lang="de">
@@ -236,91 +293,97 @@ def build_html(data: dict) -> str:
 </head>
 <body style="margin:0;padding:0;background:{C_BG};">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:{C_BG};">
-  <tr><td align="center" style="padding:24px 16px 40px;">
-    <table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
+<tr><td align="center" style="padding:28px 16px 48px;">
+<table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
 
-      <!-- HEADER -->
-      <tr>
-        <td style="background:{C_HEADER};border-radius:12px 12px 0 0;padding:28px 36px 24px;">
-          <p style="margin:0 0 4px;font-family:{FONT};font-size:11px;color:#a1a1aa;
-                    letter-spacing:2px;text-transform:uppercase;">
-            {TODAY} &middot; Täglich kostenlos
-          </p>
-          <h1 style="margin:0;font-family:{FONT};font-size:26px;font-weight:800;
-                     color:#ffffff;letter-spacing:-.5px;">KI-Newsletter</h1>
-          <p style="margin:6px 0 0;font-family:{FONT};font-size:13px;color:#a1a1aa;">
-            Kuratiert von Gemini 2.5 Flash &middot; Das Wichtigste aus der KI-Welt
-          </p>
-        </td>
-      </tr>
+  <!-- HEADER -->
+  <tr><td style="background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 100%);
+                 border-radius:16px 16px 0 0;padding:32px 36px 28px;">
+    <p style="margin:0 0 6px;font-family:{FONT};font-size:11px;color:#a5b4fc;
+              letter-spacing:2px;text-transform:uppercase;">
+      {TODAY} &nbsp;&middot;&nbsp; Täglich &nbsp;&middot;&nbsp; Kostenlos
+    </p>
+    <h1 style="margin:0 0 6px;font-family:{FONT};font-size:28px;font-weight:900;
+               color:#ffffff;letter-spacing:-.5px;">
+      KI-Newsletter 🤖
+    </h1>
+    <p style="margin:0;font-family:{FONT};font-size:13px;color:#c7d2fe;line-height:1.5;">
+      Kuratiert von Gemini 2.5 Flash &middot; Internationale Quellen &middot; Täglich 07:00 Uhr
+    </p>
+  </td></tr>
 
-      <!-- BODY -->
-      <tr>
-        <td style="background:{C_CARD};padding:8px 36px 32px;
-                   border-radius:0 0 12px 12px;
-                   box-shadow:0 4px 20px rgba(0,0,0,0.07);">
-          <table width="100%" cellpadding="0" cellspacing="0">
+  <!-- BODY -->
+  <tr><td style="background:{C_CARD};padding:4px 36px 36px;
+                 border-radius:0 0 16px 16px;
+                 box-shadow:0 8px 30px rgba(79,70,229,.1);">
+    <table width="100%" cellpadding="0" cellspacing="0">
 
-            {section_header("Sektion 01", "Top News")}
-            {news_rows}
+      <!-- SEKTION 1: TOP NEWS -->
+      {section_title(SEC['news'], 'Top News')}
+      {news_rows}
 
-            {section_header("Sektion 02", "Podcast-Empfehlung des Tages")}
-            <tr><td style="padding:0 0 32px;">
-              <table width="100%" cellpadding="0" cellspacing="0"
-                     style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;">
-                <tr><td style="padding:20px 24px;">
-                  <p style="margin:0 0 6px;font-family:{FONT};font-size:12px;color:{C_MUTED};">
-                    {podcast.get('datum','')} &middot; {podcast.get('podcast_name','')}
-                  </p>
-                  <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
-                             line-height:1.4;">
-                    <a href="{podcast.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
-                      {podcast.get('episoden_titel','')}
-                    </a>
-                  </h3>
-                  <p style="margin:0 0 12px;font-family:{FONT};font-size:14px;color:#3f3f46;
-                            line-height:1.7;">{podcast.get('warum_hoeren','')}</p>
-                  <a href="{podcast.get('url','#')}" style="font-family:{FONT};font-size:13px;
-                     color:{C_ACCENT};font-weight:600;text-decoration:none;">
-                    Episode anhören &rarr;
-                  </a>
-                </td></tr>
-              </table>
-            </td></tr>
+      <!-- SEKTION 2: PODCAST -->
+      {section_title(SEC['podcast'], 'Podcast-Empfehlung des Tages')}
+      <tr><td style="padding:0 0 32px;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['podcast']['light']};border-radius:12px;
+                      border:1px solid #fecdd3;">
+          <tr><td style="padding:20px 22px;">
+            <p style="margin:0 0 5px;font-family:{FONT};font-size:11px;color:{C_MUTE};">
+              {podcast.get('datum','')} &middot; {podcast.get('podcast_name','')}
+            </p>
+            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
+                       color:{C_TEXT};line-height:1.4;">
+              <a href="{podcast.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
+                {podcast.get('episoden_titel','')}
+              </a>
+            </h3>
+            <p style="margin:0 0 12px;font-family:{FONT};font-size:14px;
+                      color:#374151;line-height:1.7;">
+              {podcast.get('warum_hoeren','')}
+            </p>
+            <a href="{podcast.get('url','#')}"
+               style="font-family:{FONT};font-size:12px;font-weight:700;
+                      color:{SEC['podcast']['color']};text-decoration:none;">
+              Episode anhören &rarr;
+            </a>
+          </td></tr>
+        </table>
+      </td></tr>
 
-            {section_header("Sektion 03", "Inspiration &amp; Monetarisierung")}
-            {insp_rows}
+      <!-- SEKTION 3: INSPIRATION -->
+      {section_title(SEC['insp'], 'Inspiration &amp; Monetarisierung')}
+      {insp_rows}
 
-            {section_header("Sektion 04", "Gemini Pro Tipp")}
-            <tr><td style="padding:0 0 16px;">
-              <table width="100%" cellpadding="0" cellspacing="0"
-                     style="background:{C_BG};border-radius:8px;">
-                <tr><td style="padding:20px 24px;">
-                  <div style="margin-bottom:10px;">{kat_badge}</div>
-                  <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
-                             color:{C_TEXT};">{tipp.get('titel','')}</h3>
-                  <p style="margin:0;font-family:{FONT};font-size:14px;color:#3f3f46;
-                            line-height:1.7;">{tipp.get('beschreibung','')}</p>
-                </td></tr>
-              </table>
-            </td></tr>
-
-          </table>
-        </td>
-      </tr>
-
-      <!-- FOOTER -->
-      <tr>
-        <td style="padding:20px 0 0;text-align:center;">
-          <p style="margin:0;font-family:{FONT};font-size:12px;color:#a1a1aa;line-height:1.8;">
-            Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions &middot; {TODAY}<br>
-            Vollständig kostenlos &middot; 0&thinsp;€/Monat
-          </p>
-        </td>
-      </tr>
+      <!-- SEKTION 4: GEMINI TIPP -->
+      {section_title(SEC['tipp'], 'Gemini Pro Tipp')}
+      <tr><td style="padding:0 0 16px;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['tipp']['light']};border-radius:12px;
+                      border:1px solid #fde68a;">
+          <tr><td style="padding:20px 22px;">
+            <div style="margin-bottom:10px;">{kat_badge}</div>
+            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
+                       color:{C_TEXT};">{tipp.get('titel','')}</h3>
+            <p style="margin:0;font-family:{FONT};font-size:14px;
+                      color:#374151;line-height:1.7;">{tipp.get('beschreibung','')}</p>
+          </td></tr>
+        </table>
+      </td></tr>
 
     </table>
   </td></tr>
+
+  <!-- FOOTER -->
+  <tr><td style="padding:20px 0 0;text-align:center;">
+    <p style="margin:0;font-family:{FONT};font-size:12px;color:#94a3b8;line-height:1.9;">
+      🤖 Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions<br>
+      Internationale Quellen &middot; Täglich 07:00 Uhr &middot; 0&thinsp;€/Monat
+    </p>
+  </td></tr>
+
+</table>
+</td></tr>
 </table>
 </body>
 </html>"""
@@ -343,7 +406,7 @@ def send_error_email(error: Exception):
     subject = f"[KI-Newsletter] Fehler am {TODAY}"
     html = f"""<!DOCTYPE html>
 <html><body style="font-family:{FONT};padding:24px;max-width:600px;">
-  <h2 style="color:{C_ACCENT};">KI-Newsletter: Fehler aufgetreten</h2>
+  <h2 style="color:#f43f5e;">KI-Newsletter: Fehler aufgetreten</h2>
   <p><strong>Datum:</strong> {TODAY}</p>
   <p><strong>Fehler:</strong> {type(error).__name__} – {str(error)[:500]}</p>
   <p><a href="https://github.com/daiti50552531/ki_newsletter/actions">GitHub Actions Logs</a></p>
@@ -362,7 +425,7 @@ def main():
         data = get_newsletter_data()
         print("Gemini-Antwort erhalten. Baue HTML-E-Mail ...")
         html = build_html(data)
-        subject = f"KI-Newsletter {TODAY} – Top News, Podcast & Gemini-Tipp"
+        subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & Gemini-Tipp"
         print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
         for recipient in RECIPIENTS:
             send_email(subject, html, recipient)
