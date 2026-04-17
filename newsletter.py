@@ -17,10 +17,12 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # ── Credentials aus Umgebungsvariablen ────────────────────────────────────────
-GEMINI_API_KEY    = os.environ["GEMINI_API_KEY"]
-GMAIL_ADDRESS     = os.environ["GMAIL_ADDRESS"]
+GEMINI_API_KEY     = os.environ["GEMINI_API_KEY"]
+GMAIL_ADDRESS      = os.environ["GMAIL_ADDRESS"]
 GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
-RECIPIENT_EMAIL   = os.environ["RECIPIENT_EMAIL"]
+
+# Mehrere Empfänger möglich: kommagetrennt, z.B. "a@gmail.com,b@web.de"
+RECIPIENTS = [e.strip() for e in os.environ["RECIPIENT_EMAIL"].split(",") if e.strip()]
 
 GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_URL   = (
@@ -115,7 +117,6 @@ def call_gemini() -> dict:
 
 
 def extract_json(text: str) -> dict:
-    """Robustes JSON-Parsing – funktioniert auch wenn Gemini Markdown-Blöcke mitschickt."""
     text = re.sub(r"```(?:json)?\s*", "", text).strip()
     text = text.rstrip("`").strip()
     match = re.search(r"\{[\s\S]*\}", text)
@@ -137,236 +138,206 @@ def get_newsletter_data() -> dict:
     return extract_json(raw_text)
 
 
-# ── HTML-E-Mail aufbauen ──────────────────────────────────────────────────────
+# ── Design-Konstanten (Ainauten-Style) ────────────────────────────────────────
+FONT       = "system-ui,-apple-system,'Segoe UI',Arial,sans-serif"
+C_BG       = "#f4f4f5"
+C_CARD     = "#ffffff"
+C_HEADER   = "#18181b"
+C_ACCENT   = "#f59e0b"
+C_TEXT     = "#18181b"
+C_MUTED    = "#71717a"
+C_BORDER   = "#e4e4e7"
+C_LABEL_BG = "#fef3c7"
+C_LABEL_TX = "#92400e"
+
+
 def build_html(data: dict) -> str:
     top_news    = data.get("top_news", [])
     podcast     = data.get("podcast", {})
     inspiration = data.get("inspiration", [])
     tipp        = data.get("gemini_tipp", {})
 
-    def news_block(item: dict) -> str:
+    def label(text: str) -> str:
+        return (f'<span style="display:inline-block;background:{C_LABEL_BG};color:{C_LABEL_TX};'
+                f'font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;'
+                f'padding:2px 8px;border-radius:4px;font-family:{FONT};">{text}</span>')
+
+    def section_header(num: str, title: str) -> str:
         return f"""
-        <div style="margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid #e8e0d4;">
-          <p style="margin:0 0 6px; font-size:12px; color:#9e8e7e;
-                    letter-spacing:1px; text-transform:uppercase;">
-            {item.get('datum', '')} &nbsp;·&nbsp; {item.get('quelle', '')}
+        <tr><td style="padding:36px 0 18px;">
+          <p style="margin:0 0 4px;font-family:{FONT};font-size:11px;font-weight:700;
+                    color:{C_ACCENT};letter-spacing:1.5px;text-transform:uppercase;
+                    border-top:2px solid {C_ACCENT};padding-top:12px;">{num}</p>
+          <h2 style="margin:4px 0 0;font-family:{FONT};font-size:22px;font-weight:800;
+                     color:{C_TEXT};letter-spacing:-.3px;">{title}</h2>
+        </td></tr>"""
+
+    def news_block(item: dict, idx: int) -> str:
+        return f"""
+        <tr><td style="padding:0 0 24px;border-bottom:1px solid {C_BORDER};margin-bottom:24px;">
+          <p style="margin:0 0 6px;font-family:{FONT};font-size:12px;color:{C_MUTED};">
+            <strong style="color:{C_ACCENT};">#{idx}</strong>
+            &nbsp;&middot;&nbsp;{item.get('datum','')} &middot; {item.get('quelle','')}
           </p>
-          <h3 style="margin:0 0 8px; font-size:18px; color:#2c2416;
-                     font-family:Georgia,serif; line-height:1.35;">
-            <a href="{item.get('url', '#')}" style="color:#2c2416; text-decoration:none;">
-              {item.get('titel', '')}
+          <h3 style="margin:0 0 8px;font-family:{FONT};font-size:16px;font-weight:700;
+                     line-height:1.4;">
+            <a href="{item.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
+              {item.get('titel','')}
             </a>
           </h3>
-          <p style="margin:0; font-size:15px; color:#4a3f35; line-height:1.7;">
-            {item.get('zusammenfassung', '')}
-          </p>
-          <p style="margin:8px 0 0;">
-            <a href="{item.get('url', '#')}"
-               style="font-size:13px; color:#c45d3e; text-decoration:none; font-weight:600;">
-              → Artikel lesen
-            </a>
-          </p>
-        </div>"""
+          <p style="margin:0 0 10px;font-family:{FONT};font-size:14px;color:#3f3f46;
+                    line-height:1.7;">{item.get('zusammenfassung','')}</p>
+          <a href="{item.get('url','#')}" style="font-family:{FONT};font-size:13px;
+             color:{C_ACCENT};font-weight:600;text-decoration:none;">Weiterlesen &rarr;</a>
+        </td></tr>
+        <tr><td style="padding:0 0 24px;"></td></tr>"""
 
     def inspiration_block(item: dict) -> str:
         return f"""
-        <div style="margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid #e8e0d4;">
-          <p style="margin:0 0 6px; font-size:12px; color:#9e8e7e;
-                    letter-spacing:1px; text-transform:uppercase;">
-            {item.get('datum', '')} &nbsp;·&nbsp; {item.get('quelle', '')}
-            &nbsp;·&nbsp; Tools: {item.get('tools', '')}
+        <tr><td style="padding:0 0 24px;border-bottom:1px solid {C_BORDER};">
+          <p style="margin:0 0 6px;font-family:{FONT};font-size:12px;color:{C_MUTED};">
+            {item.get('datum','')} &middot; {item.get('quelle','')}
           </p>
-          <h3 style="margin:0 0 8px; font-size:18px; color:#2c2416;
-                     font-family:Georgia,serif; line-height:1.35;">
-            <a href="{item.get('url', '#')}" style="color:#2c2416; text-decoration:none;">
-              {item.get('projekt_name', '')}
+          <h3 style="margin:0 0 6px;font-family:{FONT};font-size:16px;font-weight:700;
+                     line-height:1.4;">
+            <a href="{item.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
+              {item.get('projekt_name','')}
             </a>
           </h3>
-          <p style="margin:0; font-size:15px; color:#4a3f35; line-height:1.7;">
-            {item.get('beschreibung', '')}
-          </p>
-          <p style="margin:8px 0 0;">
-            <a href="{item.get('url', '#')}"
-               style="font-size:13px; color:#c45d3e; text-decoration:none; font-weight:600;">
-              → Mehr erfahren
-            </a>
-          </p>
-        </div>"""
+          <p style="margin:0 0 8px;">{label('Tools: ' + item.get('tools',''))}</p>
+          <p style="margin:0 0 10px;font-family:{FONT};font-size:14px;color:#3f3f46;
+                    line-height:1.7;">{item.get('beschreibung','')}</p>
+          <a href="{item.get('url','#')}" style="font-family:{FONT};font-size:13px;
+             color:{C_ACCENT};font-weight:600;text-decoration:none;">Mehr erfahren &rarr;</a>
+        </td></tr>
+        <tr><td style="padding:0 0 24px;"></td></tr>"""
 
-    news_html  = "".join(news_block(n) for n in top_news)
-    insp_html  = "".join(inspiration_block(n) for n in inspiration)
-    badge      = (f'<span style="background:#c45d3e; color:#fff; font-size:11px; '
-                  f'padding:2px 8px; border-radius:3px; letter-spacing:1px; '
-                  f'text-transform:uppercase;">{tipp.get("kategorie", "")}</span>')
+    news_rows = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
+    insp_rows = "".join(inspiration_block(n) for n in inspiration)
+    kat_badge = label(tipp.get('kategorie', ''))
 
     return f"""<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>KI-Newsletter – {TODAY}</title>
 </head>
-<body style="margin:0; padding:0; background:#f0ebe3; font-family:Georgia,serif;">
+<body style="margin:0;padding:0;background:{C_BG};">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:{C_BG};">
+  <tr><td align="center" style="padding:24px 16px 40px;">
+    <table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
 
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0ebe3;">
-    <tr><td align="center" style="padding:32px 16px;">
+      <!-- HEADER -->
+      <tr>
+        <td style="background:{C_HEADER};border-radius:12px 12px 0 0;padding:28px 36px 24px;">
+          <p style="margin:0 0 4px;font-family:{FONT};font-size:11px;color:#a1a1aa;
+                    letter-spacing:2px;text-transform:uppercase;">
+            {TODAY} &middot; Täglich kostenlos
+          </p>
+          <h1 style="margin:0;font-family:{FONT};font-size:26px;font-weight:800;
+                     color:#ffffff;letter-spacing:-.5px;">KI-Newsletter</h1>
+          <p style="margin:6px 0 0;font-family:{FONT};font-size:13px;color:#a1a1aa;">
+            Kuratiert von Gemini 2.5 Flash &middot; Das Wichtigste aus der KI-Welt
+          </p>
+        </td>
+      </tr>
 
-      <table width="640" cellpadding="0" cellspacing="0"
-             style="max-width:640px; width:100%; background:#faf6f0;
-                    border-radius:8px; overflow:hidden;
-                    box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+      <!-- BODY -->
+      <tr>
+        <td style="background:{C_CARD};padding:8px 36px 32px;border-radius:0 0 12px 12px;
+                   box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+          <table width="100%" cellpadding="0" cellspacing="0">
 
-        <!-- HEADER -->
-        <tr>
-          <td style="background:#2c2416; padding:36px 40px 28px;">
-            <p style="margin:0 0 6px; font-size:12px; color:#9e8e7e;
-                      letter-spacing:2px; text-transform:uppercase;">
-              Täglich · {TODAY}
-            </p>
-            <h1 style="margin:0; font-size:30px; color:#faf6f0;
-                       font-family:Georgia,serif; letter-spacing:-0.5px;">
-              KI-Newsletter
-            </h1>
-            <p style="margin:8px 0 0; font-size:14px; color:#9e8e7e;">
-              Kuratiert von Gemini 2.5 Flash · Das Wichtigste aus der KI-Welt
-            </p>
-          </td>
-        </tr>
+            {section_header("Sektion 01", "Top News")}
+            {news_rows}
 
-        <!-- BODY -->
-        <tr>
-          <td style="padding:40px 40px 8px;">
+            {section_header("Sektion 02", "Podcast-Empfehlung des Tages")}
+            <tr><td style="padding:0 0 32px;">
+              <table width="100%" cellpadding="0" cellspacing="0"
+                     style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;">
+                <tr><td style="padding:20px 24px;">
+                  <p style="margin:0 0 6px;font-family:{FONT};font-size:12px;color:{C_MUTED};">
+                    {podcast.get('datum','')} &middot; {podcast.get('podcast_name','')}
+                  </p>
+                  <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
+                             line-height:1.4;">
+                    <a href="{podcast.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
+                      {podcast.get('episoden_titel','')}
+                    </a>
+                  </h3>
+                  <p style="margin:0 0 12px;font-family:{FONT};font-size:14px;color:#3f3f46;
+                            line-height:1.7;">{podcast.get('warum_hoeren','')}</p>
+                  <a href="{podcast.get('url','#')}" style="font-family:{FONT};font-size:13px;
+                     color:{C_ACCENT};font-weight:600;text-decoration:none;">
+                    Episode anhören &rarr;
+                  </a>
+                </td></tr>
+              </table>
+            </td></tr>
 
-            <!-- SEKTION 1: TOP NEWS -->
-            <p style="margin:0 0 4px; font-size:11px; color:#c45d3e;
-                      letter-spacing:2px; text-transform:uppercase;
-                      font-family:Arial,sans-serif;">Sektion 1</p>
-            <h2 style="margin:0 0 24px; font-size:24px; color:#2c2416;
-                       font-family:Georgia,serif;
-                       border-bottom:3px solid #c45d3e; padding-bottom:12px;">
-              Top News
-            </h2>
-            {news_html}
+            {section_header("Sektion 03", "Inspiration &amp; Monetarisierung")}
+            {insp_rows}
 
-            <!-- SEKTION 2: PODCAST -->
-            <p style="margin:32px 0 4px; font-size:11px; color:#c45d3e;
-                      letter-spacing:2px; text-transform:uppercase;
-                      font-family:Arial,sans-serif;">Sektion 2</p>
-            <h2 style="margin:0 0 24px; font-size:24px; color:#2c2416;
-                       font-family:Georgia,serif;
-                       border-bottom:3px solid #c45d3e; padding-bottom:12px;">
-              Podcast-Empfehlung des Tages
-            </h2>
-            <div style="background:#f0ebe3; border-left:4px solid #c45d3e;
-                        padding:20px 24px; border-radius:0 6px 6px 0; margin-bottom:32px;">
-              <p style="margin:0 0 6px; font-size:12px; color:#9e8e7e;
-                        letter-spacing:1px; text-transform:uppercase;">
-                {podcast.get('datum', '')} &nbsp;·&nbsp; {podcast.get('podcast_name', '')}
-              </p>
-              <h3 style="margin:0 0 10px; font-size:19px; color:#2c2416;
-                         font-family:Georgia,serif; line-height:1.35;">
-                <a href="{podcast.get('url', '#')}" style="color:#2c2416; text-decoration:none;">
-                  {podcast.get('episoden_titel', '')}
-                </a>
-              </h3>
-              <p style="margin:0 0 10px; font-size:15px; color:#4a3f35; line-height:1.7;">
-                {podcast.get('warum_hoeren', '')}
-              </p>
-              <a href="{podcast.get('url', '#')}"
-                 style="font-size:13px; color:#c45d3e; text-decoration:none; font-weight:600;">
-                → Episode anhören
-              </a>
-            </div>
+            {section_header("Sektion 04", "Gemini Pro Tipp")}
+            <tr><td style="padding:0 0 16px;">
+              <table width="100%" cellpadding="0" cellspacing="0"
+                     style="background:{C_BG};border-radius:8px;">
+                <tr><td style="padding:20px 24px;">
+                  <div style="margin-bottom:10px;">{kat_badge}</div>
+                  <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
+                             color:{C_TEXT};">{tipp.get('titel','')}</h3>
+                  <p style="margin:0;font-family:{FONT};font-size:14px;color:#3f3f46;
+                            line-height:1.7;">{tipp.get('beschreibung','')}</p>
+                </td></tr>
+              </table>
+            </td></tr>
 
-            <!-- SEKTION 3: INSPIRATION -->
-            <p style="margin:0 0 4px; font-size:11px; color:#c45d3e;
-                      letter-spacing:2px; text-transform:uppercase;
-                      font-family:Arial,sans-serif;">Sektion 3</p>
-            <h2 style="margin:0 0 24px; font-size:24px; color:#2c2416;
-                       font-family:Georgia,serif;
-                       border-bottom:3px solid #c45d3e; padding-bottom:12px;">
-              Inspiration &amp; Monetarisierung
-            </h2>
-            {insp_html}
+          </table>
+        </td>
+      </tr>
 
-            <!-- SEKTION 4: GEMINI TIPP -->
-            <p style="margin:0 0 4px; font-size:11px; color:#c45d3e;
-                      letter-spacing:2px; text-transform:uppercase;
-                      font-family:Arial,sans-serif;">Sektion 4</p>
-            <h2 style="margin:0 0 24px; font-size:24px; color:#2c2416;
-                       font-family:Georgia,serif;
-                       border-bottom:3px solid #c45d3e; padding-bottom:12px;">
-              Gemini Pro Tipp
-            </h2>
-            <div style="background:#fff8f0; border:1px solid #e8d8c8;
-                        border-radius:6px; padding:24px; margin-bottom:32px;">
-              <div style="margin-bottom:12px;">{badge}</div>
-              <h3 style="margin:0 0 12px; font-size:19px; color:#2c2416;
-                         font-family:Georgia,serif;">
-                {tipp.get('titel', '')}
-              </h3>
-              <p style="margin:0; font-size:15px; color:#4a3f35; line-height:1.7;">
-                {tipp.get('beschreibung', '')}
-              </p>
-            </div>
+      <!-- FOOTER -->
+      <tr>
+        <td style="padding:20px 0 0;text-align:center;">
+          <p style="margin:0;font-family:{FONT};font-size:12px;color:#a1a1aa;line-height:1.8;">
+            Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions &middot; {TODAY}<br>
+            Vollständig kostenlos &middot; 0&thinsp;€/Monat
+          </p>
+        </td>
+      </tr>
 
-          </td>
-        </tr>
-
-        <!-- FOOTER -->
-        <tr>
-          <td style="background:#2c2416; padding:24px 40px; text-align:center;">
-            <p style="margin:0; font-size:12px; color:#9e8e7e; line-height:1.8;">
-              Dieser Newsletter wird täglich automatisch von Gemini 2.5 Flash kuratiert.<br>
-              Betrieben auf GitHub Actions · Vollständig kostenlos · {TODAY}
-            </p>
-          </td>
-        </tr>
-
-      </table>
-    </td></tr>
-  </table>
-
+    </table>
+  </td></tr>
+</table>
 </body>
 </html>"""
 
 
 # ── E-Mail senden ─────────────────────────────────────────────────────────────
-def send_email(subject: str, html_body: str, to: str = RECIPIENT_EMAIL):
+def send_email(subject: str, html_body: str, to: str):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"]    = GMAIL_ADDRESS
     msg["To"]      = to
     msg.attach(MIMEText(html_body, "html", "utf-8"))
-
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
         smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
         smtp.sendmail(GMAIL_ADDRESS, to, msg.as_string())
-
-    print(f"E-Mail erfolgreich gesendet an {to}")
+    print(f"  ✓ Gesendet an {to}")
 
 
 def send_error_email(error: Exception):
     subject = f"[KI-Newsletter] Fehler am {TODAY}"
     html = f"""<!DOCTYPE html>
-<html><body style="font-family:Arial,sans-serif; padding:24px; max-width:600px;">
-  <h2 style="color:#c45d3e;">KI-Newsletter: Fehler aufgetreten</h2>
-  <table style="border-collapse:collapse; width:100%;">
-    <tr><td style="padding:6px 0; color:#666; width:120px;">Datum:</td>
-        <td style="padding:6px 0;"><strong>{TODAY}</strong></td></tr>
-    <tr><td style="padding:6px 0; color:#666;">Fehlertyp:</td>
-        <td style="padding:6px 0;"><strong>{type(error).__name__}</strong></td></tr>
-    <tr><td style="padding:6px 0; color:#666; vertical-align:top;">Nachricht:</td>
-        <td style="padding:6px 0;">{str(error)[:1000]}</td></tr>
-  </table>
-  <p style="margin-top:20px; color:#666;">
-    Bitte prüfe die
-    <a href="https://github.com/daiti50552531/ki_newsletter/actions">GitHub Actions Logs</a>
-    für Details.
-  </p>
+<html><body style="font-family:{FONT};padding:24px;max-width:600px;">
+  <h2 style="color:{C_ACCENT};">KI-Newsletter: Fehler aufgetreten</h2>
+  <p><strong>Datum:</strong> {TODAY}</p>
+  <p><strong>Fehler:</strong> {type(error).__name__} – {str(error)[:500]}</p>
+  <p><a href="https://github.com/daiti50552531/ki_newsletter/actions">GitHub Actions Logs</a></p>
 </body></html>"""
     try:
-        send_email(subject, html)
+        send_email(subject, html, RECIPIENTS[0])
     except Exception as mail_err:
         print(f"Fehler beim Senden der Fehler-Mail: {mail_err}", file=sys.stderr)
 
@@ -380,8 +351,9 @@ def main():
         print("Gemini-Antwort erhalten. Baue HTML-E-Mail ...")
         html = build_html(data)
         subject = f"KI-Newsletter {TODAY} – Top News, Podcast & Gemini-Tipp"
-        print("Sende E-Mail via Gmail SMTP ...")
-        send_email(subject, html)
+        print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
+        for recipient in RECIPIENTS:
+            send_email(subject, html, recipient)
         print("Fertig! Newsletter wurde erfolgreich versandt.")
     except Exception as e:
         print(f"FEHLER: {type(e).__name__}: {e}", file=sys.stderr)
