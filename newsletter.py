@@ -12,6 +12,7 @@ import smtplib
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
@@ -105,8 +106,14 @@ REGELN:
 - Mindestens 3 der 5 News aus englischsprachigen internationalen Quellen
 - inspiration: GENAU 4 Einträge, mindestens 1 Projekt das mit Google Gemini gebaut wurde
 - Stil: Deutsch, knackig, informiert, mit Einordnung – kein Marketing-Sprech
-- ALLE URLs müssen echte, funktionierende Links sein
 - ALLE Daten im Format TT.MM.YYYY
+
+URL-PFLICHT (sehr wichtig!):
+- Jede URL MUSS direkt zum Original-Artikel führen, NICHT zur Homepage
+- Falsch: https://techcrunch.com  →  Richtig: https://techcrunch.com/2026/04/17/artikel-titel/
+- Nur URLs verwenden, die du über Google Search tatsächlich gefunden und verifiziert hast
+- Keine URLs erfinden oder raten – lieber eine Suche-URL als eine falsche URL
+- Format für Suche-URL falls kein direkter Link bekannt: https://www.google.com/search?q=titel+quelle
 """
 
 
@@ -161,6 +168,49 @@ def get_newsletter_data() -> dict:
         raise ValueError("Gemini hat leeren Text zurückgegeben. Finish-Reason: "
                          + str(candidates[0].get("finishReason")))
     return extract_json(raw_text)
+
+
+# ── URL-Validierung ──────────────────────────────────────────────────────────
+def validate_url(url: str, title: str = "", source: str = "") -> str:
+    """Prüft ob eine URL erreichbar ist. Gibt Fallback-Suche-URL zurück falls nicht."""
+    if not url or not url.startswith("http"):
+        query = urllib.parse.quote(f"{title} {source}")
+        return f"https://www.google.com/search?q={query}"
+    try:
+        req = urllib.request.Request(url, method="HEAD",
+                                     headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=5) as r:
+            if r.status < 400:
+                return url
+    except Exception:
+        pass
+    # Fallback: Google-Suche nach Titel + Quelle
+    query = urllib.parse.quote(f"{title} {source}")
+    return f"https://www.google.com/search?q={query}"
+
+
+def validate_all_urls(data: dict) -> dict:
+    """Validiert alle URLs im Newsletter und ersetzt kaputte durch Suche-Links."""
+    print("Validiere URLs ...")
+    for item in data.get("top_news", []):
+        original = item.get("url", "")
+        fixed = validate_url(original, item.get("titel", ""), item.get("quelle", ""))
+        if fixed != original:
+            print(f"  ⚠ URL ersetzt: {original[:60]} → Google-Suche")
+        item["url"] = fixed
+
+    pod = data.get("podcast", {})
+    pod["url"] = validate_url(pod.get("url", ""),
+                               pod.get("episoden_titel", ""), pod.get("podcast_name", ""))
+
+    for item in data.get("inspiration", []):
+        original = item.get("url", "")
+        fixed = validate_url(original, item.get("projekt_name", ""), item.get("quelle", ""))
+        if fixed != original:
+            print(f"  ⚠ URL ersetzt: {original[:60]} → Google-Suche")
+        item["url"] = fixed
+
+    return data
 
 
 # ── Design-Konstanten (Modern Playful) ────────────────────────────────────────
@@ -423,7 +473,9 @@ def main():
     try:
         print("Rufe Gemini API auf (kann bis zu 60 Sekunden dauern) ...")
         data = get_newsletter_data()
-        print("Gemini-Antwort erhalten. Baue HTML-E-Mail ...")
+        print("Gemini-Antwort erhalten. Validiere URLs ...")
+        data = validate_all_urls(data)
+        print("Baue HTML-E-Mail ...")
         html = build_html(data)
         subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & Gemini-Tipp"
         print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
