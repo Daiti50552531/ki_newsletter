@@ -26,11 +26,13 @@ GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
 # Mehrere Empfänger möglich: kommagetrennt, z.B. "a@gmail.com,b@web.de"
 RECIPIENTS = [e.strip() for e in os.environ["RECIPIENT_EMAIL"].split(",") if e.strip()]
 
-GEMINI_MODEL = "gemini-2.5-flash"
-GEMINI_URL   = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    f"{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
-)
+GEMINI_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+
+def gemini_url(model: str) -> str:
+    return (
+        "https://generativelanguage.googleapis.com/v1beta/models/"
+        f"{model}:generateContent?key={GEMINI_API_KEY}"
+    )
 
 TODAY = datetime.now().strftime("%d.%m.%Y")
 
@@ -105,35 +107,37 @@ REGELN:
 """
 
 
-# ── Gemini API Call (mit Retry bei 503) ───────────────────────────────────────
+# ── Gemini API Call (mit Retry + Model-Fallback bei 503) ─────────────────────
 def call_gemini() -> dict:
     payload = {
         "tools": [{"google_search": {}}],
         "contents": [{"role": "user", "parts": [{"text": PROMPT}]}],
-        "generationConfig": {
-            "temperature": 0.7,
-            "maxOutputTokens": 8192,
-        },
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 8192},
     }
     data = json.dumps(payload).encode("utf-8")
 
-    for attempt in range(3):
-        req = urllib.request.Request(
-            GEMINI_URL,
-            data=data,
-            headers={"Content-Type": "application/json"},
-            method="POST",
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
-                return json.loads(resp.read().decode("utf-8"))
-        except urllib.error.HTTPError as e:
-            if e.code == 503 and attempt < 2:
-                wait = 20 * (attempt + 1)
-                print(f"Gemini API 503 – warte {wait}s, Versuch {attempt + 2}/3 ...")
-                time.sleep(wait)
-            else:
-                raise
+    for model in GEMINI_MODELS:
+        print(f"Versuche Modell: {model} ...")
+        for attempt in range(3):
+            req = urllib.request.Request(
+                gemini_url(model), data=data,
+                headers={"Content-Type": "application/json"}, method="POST",
+            )
+            try:
+                with urllib.request.urlopen(req, timeout=120) as resp:
+                    print(f"  ✓ Antwort von {model}")
+                    return json.loads(resp.read().decode("utf-8"))
+            except urllib.error.HTTPError as e:
+                if e.code == 503 and attempt < 2:
+                    wait = 20 * (attempt + 1)
+                    print(f"  503 – warte {wait}s, Versuch {attempt + 2}/3 ...")
+                    time.sleep(wait)
+                elif e.code == 503:
+                    print(f"  {model} dauerhaft nicht erreichbar – wechsle Modell.")
+                    break
+                else:
+                    raise
+    raise RuntimeError("Alle Gemini-Modelle nicht erreichbar (503).")
 
 
 def extract_json(text: str) -> dict:
