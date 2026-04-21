@@ -36,97 +36,55 @@ TODAY = datetime.now().strftime("%d.%m.%Y")
 
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
-PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters für technisch versierte
-Builder, Entwickler und Indie-Hacker. Heute ist der {TODAY}.
+PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters für Builder, Entwickler und Indie-Hacker.
+Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Zusammenfassungen auf Deutsch.
 
-Recherchiere mit Google Search nach aktuellen KI-Nachrichten und Builder-Projekten.
-Zusammenfassungen immer auf Deutsch. Quelltexte dürfen englisch sein.
+--- AKTUALITAET ---
+Keine Quelle darf aelter als 3 Tage sein. Ausnahme: Podcast-Empfehlungen duerfen aelter sein wenn hochrelevant.
 
-═══════════════════════════════════════════
-SCHRITT 1: QUELLEN & AKTUALITÄT
-═══════════════════════════════════════════
+--- BLACKLIST (niemals verwenden) ---
+AInauten, TAAFT, Doppelgaenger Newsletter/Podcast, AI Daily Brief
 
-Zeitfenster: KEINE Quelle und kein Artikel darf älter als 3 Tage (72h) sein.
-Ausnahme: Podcast-Empfehlungen dürfen älter sein, wenn das Thema hochrelevant bleibt.
+--- QUELLEN (englischsprachige bevorzugen) ---
+News: TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review, Bloomberg Technology, The Information, VentureBeat, Reuters Technology
+Communities: Hacker News, Reddit (r/LocalLLaMA, r/machinelearning, r/artificial, r/SaaS), DEV Community, GitHub Trending
+Builder: Indie Hackers, Product Hunt, Papers With Code, Hugging Face Blog, Import AI, Stratechery
+Asien: Quellen zu DeepSeek, Qwen und anderen asiatischen Open-Source-Modellen
+Podcasts (fuer Sektion 2 und als News-Quellen): Lex Fridman, Hard Fork NYT, Practical AI, Latent Space, No Priors, TWIML, Dwarkesh Podcast, BG2 Pod
 
-BLACKLIST – niemals verwenden:
-- AInauten (Newsletter/Podcast)
-- TAAFT (Newsletter)
-- Doppelgänger (Newsletter/Podcast)
-- AI Daily Brief (Podcast/Newsletter)
+--- NEWS SCORING (nur aufnehmen wenn Builder-relevant) ---
+AUFNEHMEN: Neue Modell-Releases, Open-Source-Durchbrueche, Agenten-Framework-Updates, neue API-Faehigkeiten, Hardware fuer KI, strategische Moves die das Oekosystem verschieben
+ABLEHNEN: Reine Aktienkurse und Finanzmeldungen, oberflaechliches PR ohne techn. Substanz
 
-PRIMÄRE SUCHZIELE (englischsprachig bevorzugt – KI-News erscheinen dort Wochen früher):
-• News: TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review,
-  Bloomberg Technology, The Information, VentureBeat, Reuters Technology
-• Communities: Hacker News (news.ycombinator.com), Reddit (r/LocalLLaMA,
-  r/machinelearning, r/artificial, r/SaaS, r/OpenAI), DEV Community
-• Builder & Indie: Indie Hackers, Product Hunt, GitHub Trending Repositories
-• KI-Research: Papers With Code, Hugging Face Blog, Import AI, Stratechery
-• Asiatische Quellen für Hardware & Open-Source-Modelle (DeepSeek, Qwen, etc.)
+--- BUILDER-PROJEKTE SUCHEN (fuer Sektion 3) ---
+Suche aktiv nach: "MRR", "Micro-SaaS", "built with Gemini", "built with Claude Code", "API integration", "Automated workflow", "indie hacker", "side project"
+Pro Projekt extrahieren: Was ist das Problem? Wie wurde es gebaut (Tech-Stack)? Was wird verdient?
 
-PODCAST-QUELLEN (für Sektion 2 und als News-Quellen mit Episodenangabe):
-Lex Fridman Podcast, Hard Fork (NYT), Practical AI (Changelog), Latent Space,
-No Priors (Sequoia), The Gradient, TWIML AI Podcast, Eye on AI, Dwarkesh Podcast,
-BG2 Pod, 20VC with Harry Stebbings
-
-═══════════════════════════════════════════
-SCHRITT 2: SCORING – NEWS FILTERN
-═══════════════════════════════════════════
-
-Bewerte jede gefundene News nach Builder-Relevanz:
-
-AUSSCHLUSSKRITERIEN (nicht aufnehmen):
-✗ Reine Finanznachrichten (Aktienkurse, Quartalszahlen, M&A ohne techn. Substanz)
-✗ Oberflächliches PR-Material und Marketing-Ankündigungen ohne konkreten Inhalt
-✗ Wiederholungen von bereits bekannten Infos ohne neue Erkenntnisse
-
-EINSCHLUSSKRITERIEN (aufnehmen):
-✓ Neue Modell-Releases oder signifikante Updates (GPT, Claude, Gemini, Llama, etc.)
-✓ Open-Source-Durchbrüche die das Bauen von Software verändern
-✓ Updates bei Agenten-Frameworks (LangChain, AutoGen, CrewAI, etc.)
-✓ Neue API-Fähigkeiten die direkt Builder betreffen
-✓ Hardware-Entwicklungen mit direktem Einfluss auf KI-Training oder -Inference
-✓ Strategie-Moves großer Player die das Ökosystem verschieben
-
-═══════════════════════════════════════════
-SCHRITT 3: REVERSE-ENGINEERING FÜR SEKTION 3
-═══════════════════════════════════════════
-
-Suche aktiv nach Keywords: "MRR", "Micro-SaaS", "built with Gemini", "built with Claude",
-"Claude Code", "API integration", "Automated workflow", "indie hacker", "side project".
-
-Wenn du ein Projekt findest (auch rohe Forum-Posts oder GitHub-Repos):
-- Extrahiere: Kernproblem → technische Lösung (Tech-Stack) → Monetarisierungspotenzial
-- Bereite es strukturiert auf als konkretes Geschäftsmodell
-
-═══════════════════════════════════════════
-AUSGABE: JSON-STRUKTUR
-═══════════════════════════════════════════
-
-Gib NUR dieses JSON zurück (kein Markdown-Wrapper, kein Text davor/danach):
+--- AUSGABE ---
+Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erklaerungen:
 
 {{
   "top_news": [
     {{
-      "titel": "Prägnanter deutscher Titel",
-      "zusammenfassung": "2-3 Sätze auf Deutsch – informiert, einordnend, Builder-Perspektive",
-      "quelle": "Name der Quelle (z.B. TechCrunch, Hacker News, Lex Fridman Podcast Ep. 123)",
-      "url": "https://direktlink-zum-artikel.com/pfad/artikel",
+      "titel": "Praegnanter deutscher Titel",
+      "zusammenfassung": "2-3 Saetze auf Deutsch, Builder-Perspektive, keine Buzzwords",
+      "quelle": "Name der Quelle",
+      "url": "https://direktlink-zum-artikel/nicht-zur-homepage",
       "datum": "TT.MM.YYYY"
     }}
   ],
   "podcast": {{
     "episoden_titel": "...",
     "podcast_name": "...",
-    "warum_hoeren": "2-3 Sätze auf Deutsch – warum gerade jetzt hörenswert?",
+    "warum_hoeren": "2-3 Saetze auf Deutsch",
     "url": "https://...",
     "datum": "TT.MM.YYYY"
   }},
   "inspiration": [
     {{
       "projekt_name": "...",
-      "beschreibung": "2-3 Sätze: Was ist das Problem, wie wurde es gebaut, was wird verdient?",
-      "tools": "z.B. Gemini API + Python, Claude Code + Zapier",
+      "beschreibung": "2-3 Saetze: Problem, Tech-Stack, Monetarisierung",
+      "tools": "z.B. Gemini API + Python oder Claude Code + Zapier",
       "quelle": "Name der Quelle",
       "url": "https://...",
       "datum": "TT.MM.YYYY"
@@ -134,22 +92,16 @@ Gib NUR dieses JSON zurück (kein Markdown-Wrapper, kein Text davor/danach):
   ],
   "gemini_tipp": {{
     "titel": "...",
-    "kategorie": "Produktivität|Coding|Recherche|Content",
-    "beschreibung": "3-5 Sätze mit konkretem Beispiel und Prompt-Vorlage auf Deutsch"
+    "kategorie": "Produktivitaet|Coding|Recherche|Content",
+    "beschreibung": "3-5 Saetze mit konkretem Beispiel und Prompt-Vorlage"
   }}
 }}
 
-PFLICHTREGELN:
-- top_news: GENAU 5 Einträge, mindestens 3 aus englischsprachigen Quellen
-- inspiration: 3 BIS 5 Einträge, mindestens 1 mit Gemini gebaut, mindestens 1 mit Claude Code
-- Stil: Deutsch, knackig, informiert – kein Marketing-Sprech, kein Buzzword-Bingo
-- ALLE Daten im Format TT.MM.YYYY
-
-URL-PFLICHT:
-- Jede URL MUSS direkt zum Artikel führen, NICHT zur Homepage
-- Falsch: https://techcrunch.com  →  Richtig: https://techcrunch.com/2026/04/21/artikel/
-- Nur URLs die du via Google Search verifiziert hast – keine erfundenen URLs
-- Fallback wenn kein Direktlink: https://www.google.com/search?q=titel+quelle
+REGELN:
+- top_news: GENAU 5 Eintraege, mindestens 3 aus englischsprachigen Quellen
+- inspiration: 3 BIS 5 Eintraege, mindestens 1 mit Gemini gebaut, mindestens 1 mit Claude Code
+- Alle Daten im Format TT.MM.YYYY
+- URLs direkt zum Artikel (nicht Homepage), nur verifizierte URLs, Fallback: https://www.google.com/search?q=titel+quelle
 """
 
 
@@ -194,16 +146,22 @@ def extract_json(text: str) -> dict:
 
 
 def get_newsletter_data() -> dict:
-    response = call_gemini()
-    candidates = response.get("candidates", [])
-    if not candidates:
-        raise ValueError(f"Keine Candidates in der Gemini-Antwort: {json.dumps(response)[:500]}")
-    parts = candidates[0].get("content", {}).get("parts", [])
-    raw_text = "".join(p.get("text", "") for p in parts)
-    if not raw_text.strip():
-        raise ValueError("Gemini hat leeren Text zurückgegeben. Finish-Reason: "
-                         + str(candidates[0].get("finishReason")))
-    return extract_json(raw_text)
+    for attempt in range(3):
+        response = call_gemini()
+        candidates = response.get("candidates", [])
+        if not candidates:
+            raise ValueError(f"Keine Candidates: {json.dumps(response)[:300]}")
+        parts = candidates[0].get("content", {}).get("parts", [])
+        raw_text = "".join(p.get("text", "") for p in parts)
+        if raw_text.strip():
+            return extract_json(raw_text)
+        # Leere Antwort trotz STOP – nochmal versuchen
+        reason = candidates[0].get("finishReason", "?")
+        if attempt < 2:
+            print(f"Gemini leere Antwort (Finish: {reason}) – Versuch {attempt + 2}/3 ...")
+            time.sleep(15)
+        else:
+            raise ValueError(f"Gemini liefert nach 3 Versuchen keinen Text. Finish-Reason: {reason}")
 
 
 # ── URL-Validierung ──────────────────────────────────────────────────────────
