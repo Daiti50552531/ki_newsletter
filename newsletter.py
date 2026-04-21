@@ -36,59 +36,97 @@ TODAY = datetime.now().strftime("%d.%m.%Y")
 
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
-PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters.
-Heute ist der {TODAY}. Recherchiere mit Google Search aktuelle KI-Nachrichten.
+PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters für technisch versierte
+Builder, Entwickler und Indie-Hacker. Heute ist der {TODAY}.
 
-WICHTIG: Verwende NUR Quellen, die maximal 3 Tage alt sind (Ausnahme: Podcast-Empfehlungen).
-Recherchiere AKTIV auf englischsprachigen Quellen – die relevantesten KI-News erscheinen
-zuerst auf US-amerikanischen und internationalen Fachmedien. Zusammenfassungen immer auf Deutsch.
+Recherchiere mit Google Search nach aktuellen KI-Nachrichten und Builder-Projekten.
+Zusammenfassungen immer auf Deutsch. Quelltexte dürfen englisch sein.
 
-BLACKLIST – diese Quellen NIEMALS verwenden:
+═══════════════════════════════════════════
+SCHRITT 1: QUELLEN & AKTUALITÄT
+═══════════════════════════════════════════
+
+Zeitfenster: KEINE Quelle und kein Artikel darf älter als 3 Tage (72h) sein.
+Ausnahme: Podcast-Empfehlungen dürfen älter sein, wenn das Thema hochrelevant bleibt.
+
+BLACKLIST – niemals verwenden:
 - AInauten (Newsletter/Podcast)
 - TAAFT (Newsletter)
 - Doppelgänger (Newsletter/Podcast)
 - AI Daily Brief (Podcast/Newsletter)
 
-BEVORZUGTE NACHRICHTENQUELLEN (bevorzuge englischsprachige!):
-TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review, Bloomberg Technology,
-The Information, VentureBeat, 9to5Google, Reuters Technology, Associated Press Tech,
-Hacker News (ycombinator.com), Reddit (r/artificial, r/machinelearning, r/LocalLLaMA),
-Papers With Code, Hugging Face Blog, DEV Community, Indie Hackers, Product Hunt,
-Ben's Bites, The Rundown AI, Import AI, Stratechery
+PRIMÄRE SUCHZIELE (englischsprachig bevorzugt – KI-News erscheinen dort Wochen früher):
+• News: TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review,
+  Bloomberg Technology, The Information, VentureBeat, Reuters Technology
+• Communities: Hacker News (news.ycombinator.com), Reddit (r/LocalLLaMA,
+  r/machinelearning, r/artificial, r/SaaS, r/OpenAI), DEV Community
+• Builder & Indie: Indie Hackers, Product Hunt, GitHub Trending Repositories
+• KI-Research: Papers With Code, Hugging Face Blog, Import AI, Stratechery
+• Asiatische Quellen für Hardware & Open-Source-Modelle (DeepSeek, Qwen, etc.)
 
-BEVORZUGTE PODCAST-QUELLEN (für Sektion 2 und als Quellen für News):
-Lex Fridman Podcast, Hard Fork (NYT / The New York Times), Practical AI (Changelog),
-Latent Space Podcast, No Priors (Sequoia), The Gradient Podcast,
-TWIML AI Podcast (This Week in Machine Learning), Eye on AI,
-Dwarkesh Podcast, 20VC with Harry Stebbings, BG2 Pod
+PODCAST-QUELLEN (für Sektion 2 und als News-Quellen mit Episodenangabe):
+Lex Fridman Podcast, Hard Fork (NYT), Practical AI (Changelog), Latent Space,
+No Priors (Sequoia), The Gradient, TWIML AI Podcast, Eye on AI, Dwarkesh Podcast,
+BG2 Pod, 20VC with Harry Stebbings
 
-Podcast-Episoden dürfen auch als Quellen für News-Einträge genutzt werden –
-dann mit Angabe: Podcast-Name, Episode-Titel, Datum.
+═══════════════════════════════════════════
+SCHRITT 2: SCORING – NEWS FILTERN
+═══════════════════════════════════════════
 
-Erstelle einen Newsletter mit EXAKT dieser JSON-Struktur (nur JSON, kein Markdown-Wrapper):
+Bewerte jede gefundene News nach Builder-Relevanz:
+
+AUSSCHLUSSKRITERIEN (nicht aufnehmen):
+✗ Reine Finanznachrichten (Aktienkurse, Quartalszahlen, M&A ohne techn. Substanz)
+✗ Oberflächliches PR-Material und Marketing-Ankündigungen ohne konkreten Inhalt
+✗ Wiederholungen von bereits bekannten Infos ohne neue Erkenntnisse
+
+EINSCHLUSSKRITERIEN (aufnehmen):
+✓ Neue Modell-Releases oder signifikante Updates (GPT, Claude, Gemini, Llama, etc.)
+✓ Open-Source-Durchbrüche die das Bauen von Software verändern
+✓ Updates bei Agenten-Frameworks (LangChain, AutoGen, CrewAI, etc.)
+✓ Neue API-Fähigkeiten die direkt Builder betreffen
+✓ Hardware-Entwicklungen mit direktem Einfluss auf KI-Training oder -Inference
+✓ Strategie-Moves großer Player die das Ökosystem verschieben
+
+═══════════════════════════════════════════
+SCHRITT 3: REVERSE-ENGINEERING FÜR SEKTION 3
+═══════════════════════════════════════════
+
+Suche aktiv nach Keywords: "MRR", "Micro-SaaS", "built with Gemini", "built with Claude",
+"Claude Code", "API integration", "Automated workflow", "indie hacker", "side project".
+
+Wenn du ein Projekt findest (auch rohe Forum-Posts oder GitHub-Repos):
+- Extrahiere: Kernproblem → technische Lösung (Tech-Stack) → Monetarisierungspotenzial
+- Bereite es strukturiert auf als konkretes Geschäftsmodell
+
+═══════════════════════════════════════════
+AUSGABE: JSON-STRUKTUR
+═══════════════════════════════════════════
+
+Gib NUR dieses JSON zurück (kein Markdown-Wrapper, kein Text davor/danach):
 
 {{
   "top_news": [
     {{
-      "titel": "...",
-      "zusammenfassung": "2-3 Sätze auf Deutsch – informiert, einordnend, kein Buzzword-Bingo",
-      "quelle": "Name der Quelle (z.B. TechCrunch, Lex Fridman Podcast, Hacker News)",
-      "url": "https://...",
+      "titel": "Prägnanter deutscher Titel",
+      "zusammenfassung": "2-3 Sätze auf Deutsch – informiert, einordnend, Builder-Perspektive",
+      "quelle": "Name der Quelle (z.B. TechCrunch, Hacker News, Lex Fridman Podcast Ep. 123)",
+      "url": "https://direktlink-zum-artikel.com/pfad/artikel",
       "datum": "TT.MM.YYYY"
     }}
   ],
   "podcast": {{
     "episoden_titel": "...",
     "podcast_name": "...",
-    "warum_hoeren": "2-3 Sätze auf Deutsch – warum ist diese Episode gerade relevant?",
+    "warum_hoeren": "2-3 Sätze auf Deutsch – warum gerade jetzt hörenswert?",
     "url": "https://...",
     "datum": "TT.MM.YYYY"
   }},
   "inspiration": [
     {{
       "projekt_name": "...",
-      "beschreibung": "2-3 Sätze auf Deutsch: Was macht es, wie gebaut, was verdient es?",
-      "tools": "...",
+      "beschreibung": "2-3 Sätze: Was ist das Problem, wie wurde es gebaut, was wird verdient?",
+      "tools": "z.B. Gemini API + Python, Claude Code + Zapier",
       "quelle": "Name der Quelle",
       "url": "https://...",
       "datum": "TT.MM.YYYY"
@@ -97,23 +135,21 @@ Erstelle einen Newsletter mit EXAKT dieser JSON-Struktur (nur JSON, kein Markdow
   "gemini_tipp": {{
     "titel": "...",
     "kategorie": "Produktivität|Coding|Recherche|Content",
-    "beschreibung": "3-5 Sätze mit konkretem Beispiel auf Deutsch"
+    "beschreibung": "3-5 Sätze mit konkretem Beispiel und Prompt-Vorlage auf Deutsch"
   }}
 }}
 
-REGELN:
-- top_news: GENAU 5 Einträge – Mix aus Technik, Strategie, Open Source, Hardware
-- Mindestens 3 der 5 News aus englischsprachigen internationalen Quellen
-- inspiration: GENAU 4 Einträge, mindestens 1 Projekt das mit Google Gemini gebaut wurde
-- Stil: Deutsch, knackig, informiert, mit Einordnung – kein Marketing-Sprech
+PFLICHTREGELN:
+- top_news: GENAU 5 Einträge, mindestens 3 aus englischsprachigen Quellen
+- inspiration: 3 BIS 5 Einträge, mindestens 1 mit Gemini gebaut, mindestens 1 mit Claude Code
+- Stil: Deutsch, knackig, informiert – kein Marketing-Sprech, kein Buzzword-Bingo
 - ALLE Daten im Format TT.MM.YYYY
 
-URL-PFLICHT (sehr wichtig!):
-- Jede URL MUSS direkt zum Original-Artikel führen, NICHT zur Homepage
-- Falsch: https://techcrunch.com  →  Richtig: https://techcrunch.com/2026/04/17/artikel-titel/
-- Nur URLs verwenden, die du über Google Search tatsächlich gefunden und verifiziert hast
-- Keine URLs erfinden oder raten – lieber eine Suche-URL als eine falsche URL
-- Format für Suche-URL falls kein direkter Link bekannt: https://www.google.com/search?q=titel+quelle
+URL-PFLICHT:
+- Jede URL MUSS direkt zum Artikel führen, NICHT zur Homepage
+- Falsch: https://techcrunch.com  →  Richtig: https://techcrunch.com/2026/04/21/artikel/
+- Nur URLs die du via Google Search verifiziert hast – keine erfundenen URLs
+- Fallback wenn kein Direktlink: https://www.google.com/search?q=titel+quelle
 """
 
 
