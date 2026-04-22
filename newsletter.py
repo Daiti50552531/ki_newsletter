@@ -132,7 +132,7 @@ def call_gemini() -> dict:
                     return json.loads(resp.read().decode("utf-8"))
             except urllib.error.HTTPError as e:
                 body = e.read().decode("utf-8", errors="replace")
-                print(f"  HTTP {e.code} von {model}: {body[:500]}")
+                print(f"  HTTP {e.code} von {model}: {body[:800]}")
                 if e.code == 503 and attempt < 2:
                     wait = 20 * (attempt + 1)
                     print(f"  warte {wait}s, Versuch {attempt + 2}/3 ...")
@@ -140,11 +140,9 @@ def call_gemini() -> dict:
                 elif e.code == 503:
                     print(f"  {model} dauerhaft nicht erreichbar – wechsle Modell.")
                     break
-                elif e.code == 400:
-                    break  # 400 ist kein temporärer Fehler – nächstes Modell
                 else:
-                    raise
-    raise RuntimeError("Alle Gemini-Modelle nicht erreichbar (503).")
+                    raise RuntimeError(f"Gemini {model} HTTP {e.code}: {body[:600]}")
+    raise RuntimeError("Alle Gemini-Modelle nicht erreichbar.")
 
 
 def extract_json(text: str) -> dict:
