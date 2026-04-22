@@ -112,7 +112,11 @@ def call_gemini() -> dict:
     payload = {
         "tools": [{"google_search": {}}],
         "contents": [{"role": "user", "parts": [{"text": PROMPT}]}],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 8192},
+        "generationConfig": {
+            "temperature": 0.7,
+            "maxOutputTokens": 8192,
+            "responseMimeType": "application/json",
+        },
     }
     data = json.dumps(payload).encode("utf-8")
 
@@ -141,12 +145,24 @@ def call_gemini() -> dict:
 
 
 def extract_json(text: str) -> dict:
-    text = re.sub(r"```(?:json)?\s*", "", text).strip()
-    text = text.rstrip("`").strip()
+    # Markdown-Wrapper entfernen
+    text = re.sub(r"```(?:json)?\s*", "", text).strip().rstrip("`").strip()
+    # JSON-Block extrahieren
     match = re.search(r"\{[\s\S]*\}", text)
-    if match:
-        return json.loads(match.group(0))
-    raise ValueError("Kein JSON in der Gemini-Antwort gefunden.\n\nAntwort war:\n" + text[:500])
+    if not match:
+        raise ValueError("Kein JSON gefunden. Antwort-Anfang:\n" + text[:300])
+    json_str = match.group(0)
+    # Direkt parsen
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError:
+        pass
+    # Steuerzeichen entfernen die JSON brechen
+    json_str = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', json_str)
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"JSON-Fehler nach Bereinigung: {e}\nJSON-Anfang:\n{json_str[:400]}")
 
 
 def get_newsletter_data() -> dict:
