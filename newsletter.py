@@ -26,7 +26,13 @@ GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
 # Mehrere Empfänger möglich: kommagetrennt, z.B. "a@gmail.com,b@web.de"
 RECIPIENTS = [e.strip() for e in os.environ["RECIPIENT_EMAIL"].split(",") if e.strip()]
 
-GEMINI_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+GEMINI_MODELS = [
+    "gemini-2.5-flash-preview-04-17",
+    "gemini-2.5-flash",
+    "gemini-2.0-flash",
+    "gemini-2.0-flash-001",
+    "gemini-1.5-flash",
+]
 
 def gemini_url(model: str) -> str:
     return (
@@ -110,7 +116,7 @@ REGELN:
 # ── Gemini API Call (mit Retry + Model-Fallback bei 503) ─────────────────────
 def call_gemini() -> dict:
     payload = {
-        "tools": [{"google_search": {}}],
+        "tools": [{"googleSearch": {}}],
         "contents": [{"role": "user", "parts": [{"text": PROMPT}]}],
         "generationConfig": {
             "temperature": 0.7,
