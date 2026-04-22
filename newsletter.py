@@ -140,7 +140,7 @@ def call_gemini() -> dict:
                 body = e.read().decode("utf-8", errors="replace")
                 print(f"  HTTP {e.code} von {model}: {body[:400]}")
                 if e.code in (503, 429) and attempt < 2:
-                    wait = 20 * (attempt + 1)
+                    wait = 120 * (attempt + 1)  # 2 Min, dann 4 Min
                     print(f"  warte {wait}s, Versuch {attempt + 2}/3 ...")
                     time.sleep(wait)
                 elif e.code in (503, 429):
