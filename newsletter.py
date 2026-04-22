@@ -115,7 +115,6 @@ def call_gemini() -> dict:
         "generationConfig": {
             "temperature": 0.7,
             "maxOutputTokens": 8192,
-            "responseMimeType": "application/json",
         },
     }
     data = json.dumps(payload).encode("utf-8")
