@@ -8,7 +8,7 @@ on:
 jobs:
   newsletter:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
 
     steps:
       - name: Repository auschecken
