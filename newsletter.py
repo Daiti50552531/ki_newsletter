@@ -27,7 +27,6 @@ GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
 RECIPIENTS = [e.strip() for e in os.environ["RECIPIENT_EMAIL"].split(",") if e.strip()]
 
 GEMINI_MODELS = [
-    "gemini-2.5-flash-preview-04-17",
     "gemini-2.5-flash",
     "gemini-2.0-flash",
     "gemini-2.0-flash-001",
@@ -145,6 +144,9 @@ def call_gemini() -> dict:
                     time.sleep(wait)
                 elif e.code in (503, 429):
                     print(f"  {model} nicht verfügbar (HTTP {e.code}) – wechsle Modell.")
+                    break
+                elif e.code == 404:
+                    print(f"  {model} nicht gefunden – wechsle Modell.")
                     break
                 else:
                     raise RuntimeError(f"Gemini {model} HTTP {e.code}: {body[:600]}")
