@@ -241,10 +241,8 @@ def validate_all_urls(data: dict) -> dict:
 
 # ── Design-Konstanten (Modern Playful) ────────────────────────────────────────
 FONT   = "'Helvetica Neue',Helvetica,Arial,sans-serif"
-C_BG   = "#eef2ff"          # Helles Indigo-Blau
+C_BG   = "#eef2ff"
 C_CARD = "#ffffff"
-C_H1   = "#4f46e5"          # Indigo-Header-Akzent
-C_HDR  = "#1e1b4b"          # Sehr dunkles Indigo für Header-BG
 C_TEXT = "#1e293b"
 C_MUTE = "#64748b"
 C_BDR  = "#e2e8f0"
@@ -384,7 +382,7 @@ def build_html(data: dict) -> str:
       KI-Newsletter 🤖
     </h1>
     <p style="margin:0;font-family:{FONT};font-size:13px;color:#c7d2fe;line-height:1.5;">
-      Kuratiert von Gemini 2.5 Flash &middot; Internationale Quellen &middot; Täglich 07:00 Uhr
+      Kuratiert von Gemini 2.5 Flash &middot; Internationale Quellen &middot; Täglich 04:00 Uhr
     </p>
   </td></tr>
 
@@ -454,7 +452,7 @@ def build_html(data: dict) -> str:
   <tr><td style="padding:20px 0 0;text-align:center;">
     <p style="margin:0;font-family:{FONT};font-size:12px;color:#94a3b8;line-height:1.9;">
       🤖 Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions<br>
-      Internationale Quellen &middot; Täglich 07:00 Uhr &middot; 0&thinsp;€/Monat
+      Internationale Quellen &middot; Täglich 04:00 Uhr &middot; 0&thinsp;€/Monat
     </p>
   </td></tr>
 
