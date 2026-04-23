@@ -2,7 +2,7 @@ name: Täglicher KI-Newsletter
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # 05:00 UTC = 07:00 MESZ / 06:00 MEZ
+    - cron: '0 2 * * *'  # 05:00 UTC = 07:00 MESZ / 06:00 MEZ
   workflow_dispatch:       # Manueller Test-Run jederzeit möglich
 
 jobs:
