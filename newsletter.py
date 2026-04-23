@@ -28,9 +28,7 @@ RECIPIENTS = [e.strip() for e in os.environ["RECIPIENT_EMAIL"].split(",") if e.s
 
 GEMINI_MODELS = [
     "gemini-2.5-flash",
-    "gemini-2.0-flash",
-    "gemini-2.0-flash-001",
-    "gemini-1.5-flash",
+    "gemini-2.0-flash-lite",
 ]
 
 def gemini_url(model: str) -> str:
@@ -124,9 +122,10 @@ def call_gemini() -> dict:
     }
     data = json.dumps(payload).encode("utf-8")
 
+    max_attempts = 5
     for model in GEMINI_MODELS:
         print(f"Versuche Modell: {model} ...")
-        for attempt in range(3):
+        for attempt in range(max_attempts):
             req = urllib.request.Request(
                 gemini_url(model), data=data,
                 headers={"Content-Type": "application/json"}, method="POST",
@@ -137,20 +136,24 @@ def call_gemini() -> dict:
                     return json.loads(resp.read().decode("utf-8"))
             except urllib.error.HTTPError as e:
                 body = e.read().decode("utf-8", errors="replace")
-                print(f"  HTTP {e.code} von {model}: {body[:400]}")
-                if e.code in (503, 429) and attempt < 2:
-                    wait = 120 * (attempt + 1)  # 2 Min, dann 4 Min
-                    print(f"  warte {wait}s, Versuch {attempt + 2}/3 ...")
+                print(f"  HTTP {e.code} von {model} (Versuch {attempt+1}/{max_attempts}): {body[:200]}")
+                if e.code == 503 and attempt < max_attempts - 1:
+                    wait = min(120 * (attempt + 1), 300)  # 2/4/5/5 Min
+                    print(f"  warte {wait}s ...")
                     time.sleep(wait)
-                elif e.code in (503, 429):
-                    print(f"  {model} nicht verfügbar (HTTP {e.code}) – wechsle Modell.")
+                elif e.code == 503:
+                    print(f"  {model} dauerhaft überlastet – wechsle Modell.")
+                    break
+                elif e.code == 429:
+                    # limit: 0 = Modell nicht im Free Tier – sofort weiter
+                    print(f"  {model} Quota erschöpft – wechsle Modell.")
                     break
                 elif e.code == 404:
                     print(f"  {model} nicht gefunden – wechsle Modell.")
                     break
                 else:
                     raise RuntimeError(f"Gemini {model} HTTP {e.code}: {body[:600]}")
-    raise RuntimeError("Alle Gemini-Modelle nicht verfügbar (503/429).")
+    raise RuntimeError("Alle Gemini-Modelle nicht verfügbar.")
 
 
 def extract_json(text: str) -> dict:
