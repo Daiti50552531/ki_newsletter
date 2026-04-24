@@ -251,7 +251,7 @@ def validate_all_urls(data: dict) -> dict:
 
 # ── Design-Konstanten (Modern Playful) ────────────────────────────────────────
 FONT   = "'Helvetica Neue',Helvetica,Arial,sans-serif"
-C_BG   = "#eef2ff"
+C_BG   = "#f4f4f4"
 C_CARD = "#ffffff"
 C_TEXT = "#1e293b"
 C_MUTE = "#64748b"
