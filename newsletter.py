@@ -45,7 +45,11 @@ PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters für B
 Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Zusammenfassungen auf Deutsch.
 
 --- AKTUALITAET ---
-Keine Quelle darf aelter als 3 Tage sein. Ausnahme: Podcast-Empfehlungen duerfen aelter sein wenn hochrelevant.
+Bevorzuge Nachrichten der letzten 24-48 Stunden. Keine Quelle darf aelter als 3 Tage sein.
+Ausnahme: Podcast-Empfehlungen duerfen aelter sein wenn hochrelevant.
+TOP-PRIORITAET: Neue Modell-Releases (ChatGPT, Claude, Gemini, Llama, DeepSeek, Mistral usw.),
+neue APIs und SDK-Versionen – diese IMMER aufnehmen wenn in den letzten 48h veroeffentlicht,
+auch wenn andere News mehr Builder-Bezug haben. Nutze aktuelle Suche um Erscheinungsdatum zu pruefen.
 
 --- BLACKLIST (niemals verwenden) ---
 AInauten, TAAFT, Doppelgaenger Newsletter/Podcast, AI Daily Brief
@@ -99,12 +103,18 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
     "titel": "...",
     "kategorie": "Produktivitaet|Coding|Recherche|Content",
     "beschreibung": "3-5 Saetze mit konkretem Beispiel und Prompt-Vorlage"
+  }},
+  "claude_code_tipp": {{
+    "titel": "...",
+    "anwendungsfall": "Projektueberblick|Selbstorganisation|Dokumente|Automatisierung|Recherche",
+    "beschreibung": "3-5 Saetze: konkreter Tipp wie Wissensarbeiter in Projekten Claude Code einsetzen koennen – Ueberblick behalten, Selbstorganisation, kleine Automatisierungshelfer bauen. Mit Prompt-Vorlage oder Schritt-fuer-Schritt-Beispiel."
   }}
 }}
 
 REGELN:
 - top_news: GENAU 5 Eintraege, mindestens 3 aus englischsprachigen Quellen
 - inspiration: 3 BIS 5 Eintraege, mindestens 1 mit Gemini gebaut, mindestens 1 mit Claude Code
+- claude_code_tipp: 1 Eintrag, praxisnaher Tipp fuer Wissensarbeiter (Projektarbeit in Unternehmen, Ueberblick behalten, Selbstorganisation mit LLMs) – kein Tipp fuer Entwickler, sondern fuer jemanden der mit Claude Code arbeitet ohne Programmierer zu sein
 - Alle Daten im Format TT.MM.YYYY
 - URLs direkt zum Artikel (nicht Homepage), nur verifizierte URLs, Fallback: https://www.google.com/search?q=titel+quelle
 """
@@ -252,6 +262,7 @@ SEC = {
     "news":    {"emoji": "🚀", "color": "#4f46e5", "light": "#eef2ff"},
     "podcast": {"emoji": "🎙️", "color": "#f43f5e", "light": "#fff1f2"},
     "insp":    {"emoji": "💡", "color": "#059669", "light": "#ecfdf5"},
+    "claude":  {"emoji": "🤖", "color": "#7c3aed", "light": "#f5f3ff"},
     "tipp":    {"emoji": "✨", "color": "#d97706", "light": "#fffbeb"},
 }
 
@@ -260,6 +271,7 @@ def build_html(data: dict) -> str:
     top_news    = data.get("top_news", [])
     podcast     = data.get("podcast", {})
     inspiration = data.get("inspiration", [])
+    claude_tipp = data.get("claude_code_tipp", {})
     tipp        = data.get("gemini_tipp", {})
 
     def badge(text: str, color: str, bg: str) -> str:
@@ -354,9 +366,10 @@ def build_html(data: dict) -> str:
           </table>
         </td></tr>"""
 
-    news_rows = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
-    insp_rows = "".join(insp_block(n, i+1) for i, n in enumerate(inspiration))
-    kat_badge = badge(tipp.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
+    news_rows  = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
+    insp_rows  = "".join(insp_block(n, i+1) for i, n in enumerate(inspiration))
+    anw_badge  = badge(claude_tipp.get('anwendungsfall', ''), SEC['claude']['color'], '#ede9fe')
+    kat_badge  = badge(tipp.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
 
     return f"""<!DOCTYPE html>
 <html lang="de">
@@ -429,7 +442,23 @@ def build_html(data: dict) -> str:
       {section_title(SEC['insp'], 'Inspiration &amp; Monetarisierung')}
       {insp_rows}
 
-      <!-- SEKTION 4: GEMINI TIPP -->
+      <!-- SEKTION 4: CLAUDE CODE TIPP -->
+      {section_title(SEC['claude'], 'Claude Code im Projektalltag')}
+      <tr><td style="padding:0 0 32px;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['claude']['light']};border-radius:12px;
+                      border:1px solid #ddd6fe;">
+          <tr><td style="padding:20px 22px;">
+            <div style="margin-bottom:10px;">{anw_badge}</div>
+            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
+                       color:{C_TEXT};">{claude_tipp.get('titel','')}</h3>
+            <p style="margin:0;font-family:{FONT};font-size:14px;
+                      color:#374151;line-height:1.7;">{claude_tipp.get('beschreibung','')}</p>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- SEKTION 5: GEMINI TIPP -->
       {section_title(SEC['tipp'], 'Gemini Pro Tipp')}
       <tr><td style="padding:0 0 16px;">
         <table width="100%" cellpadding="0" cellspacing="0"
