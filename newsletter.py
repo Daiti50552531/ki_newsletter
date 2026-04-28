@@ -67,11 +67,11 @@ Ueberschriften: Spezifisch, zeigen was sich aendert – nicht nur was passiert i
   GUT: "Gemini direkt im Browser: Was das fuer alle bedeutet, die kein Claude-Abo haben"
 
 --- AKTUALITAET ---
-Bevorzuge Nachrichten der letzten 24-48 Stunden. Keine Quelle darf aelter als 3 Tage sein.
+Nur Nachrichten der letzten 24 Stunden. Keine Quelle darf aelter als 24h sein.
 Ausnahme: Podcast-Empfehlungen duerfen aelter sein wenn hochrelevant.
 TOP-PRIORITAET: Neue Modell-Releases (ChatGPT, Claude, Gemini, Llama, DeepSeek, Mistral usw.),
-neue APIs und SDK-Versionen – diese IMMER aufnehmen wenn in den letzten 48h veroeffentlicht,
-auch wenn andere News mehr Praxisbezug haben. Nutze aktuelle Suche um Erscheinungsdatum zu pruefen.
+neue APIs und SDK-Versionen – diese IMMER aufnehmen wenn in den letzten 24h veroeffentlicht.
+Nutze aktuelle Suche mit Datumsfilter um Erscheinungsdatum zu verifizieren. Im Zweifel weglassen.
 
 --- BLACKLIST (niemals verwenden) ---
 AInauten, TAAFT, Doppelgaenger Newsletter/Podcast, AI Daily Brief
