@@ -41,33 +41,54 @@ TODAY = datetime.now().strftime("%d.%m.%Y")
 
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
-PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters für Builder, Entwickler und Indie-Hacker.
-Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Zusammenfassungen auf Deutsch.
+PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters fuer Wissensarbeiter.
+Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Texte auf Deutsch.
+
+--- ZIELGRUPPE ---
+Wissensarbeiter und Projektverantwortliche in deutschen Unternehmen. Keine Entwickler, keine Investoren, keine Startup-Gruender.
+Jemand der: (1) den Ueberblick ueber KI-Entwicklungen behalten will die seinen Arbeitsalltag beeinflussen;
+(2) KI praktisch fuer Selbstorganisation, Projektarbeit und Dokumentation nutzen moechte;
+(3) sich kleine KI-Helfer bauen oder entdecken will – auch ohne tiefe Programmierkenntnisse.
+
+--- STIL ---
+Ton: Wie ein gut informierter, meinungsfreudiger Kollege. Nicht neutral – einordnen, bewerten, eine klare Perspektive bieten.
+Keine Buzzwords ("revolutionaer", "disruptiv", "bahnbrechend") – konkret statt Hype.
+Jede Meldung muss einen Praxisbezug haben: Was aendert sich konkret fuer mich im Arbeitsalltag?
+Ueberschriften: Spezifisch und neugierig-machend, nie generisch.
+  SCHLECHT: "OpenAI veroeffentlicht neues Modell"
+  GUT: "GPT-5 uebertrifft Claude bei komplexen Aufgaben – das aendert sich fuer alle die taeglich mit KI arbeiten"
+  SCHLECHT: "Neue KI-Tools verfuegbar"
+  GUT: "Dieses Tool erledigt Meeting-Protokolle in 30 Sekunden – so funktioniert es"
 
 --- AKTUALITAET ---
 Bevorzuge Nachrichten der letzten 24-48 Stunden. Keine Quelle darf aelter als 3 Tage sein.
 Ausnahme: Podcast-Empfehlungen duerfen aelter sein wenn hochrelevant.
 TOP-PRIORITAET: Neue Modell-Releases (ChatGPT, Claude, Gemini, Llama, DeepSeek, Mistral usw.),
 neue APIs und SDK-Versionen – diese IMMER aufnehmen wenn in den letzten 48h veroeffentlicht,
-auch wenn andere News mehr Builder-Bezug haben. Nutze aktuelle Suche um Erscheinungsdatum zu pruefen.
+auch wenn andere News mehr Praxisbezug haben. Nutze aktuelle Suche um Erscheinungsdatum zu pruefen.
 
 --- BLACKLIST (niemals verwenden) ---
 AInauten, TAAFT, Doppelgaenger Newsletter/Podcast, AI Daily Brief
 
 --- QUELLEN (englischsprachige bevorzugen) ---
 News: TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review, Bloomberg Technology, The Information, VentureBeat, Reuters Technology
-Communities: Hacker News, Reddit (r/LocalLLaMA, r/machinelearning, r/artificial, r/SaaS), DEV Community, GitHub Trending
-Builder: Indie Hackers, Product Hunt, Papers With Code, Hugging Face Blog, Import AI, Stratechery
+Communities: Hacker News, Reddit (r/LocalLLaMA, r/machinelearning, r/artificial), DEV Community, GitHub Trending
+Analyse: Hugging Face Blog, Import AI, Stratechery, Papers With Code
 Asien: Quellen zu DeepSeek, Qwen und anderen asiatischen Open-Source-Modellen
-Podcasts (fuer Sektion 2 und als News-Quellen): Lex Fridman, Hard Fork NYT, Practical AI, Latent Space, No Priors, TWIML, Dwarkesh Podcast, BG2 Pod
+Podcasts: Lex Fridman, Hard Fork NYT, Practical AI, Latent Space, No Priors, TWIML, Dwarkesh Podcast, BG2 Pod
 
---- NEWS SCORING (nur aufnehmen wenn Builder-relevant) ---
-AUFNEHMEN: Neue Modell-Releases, Open-Source-Durchbrueche, Agenten-Framework-Updates, neue API-Faehigkeiten, Hardware fuer KI, strategische Moves die das Oekosystem verschieben
-ABLEHNEN: Reine Aktienkurse und Finanzmeldungen, oberflaechliches PR ohne techn. Substanz
+--- NEWS SCORING (nur aufnehmen wenn fuer Wissensarbeiter relevant) ---
+AUFNEHMEN: Neue Modell-Releases, Open-Source-Durchbrueche, Agenten-Updates, neue APIs und KI-Tools
+die Wissensarbeiter direkt nutzen koennen, strategische Marktverschiebungen mit Auswirkung auf den Arbeitsalltag
+ABLEHNEN: Reine Aktienkurse und Finanzmeldungen, oberflaechliches PR ohne Substanz,
+akademische Forschung ohne praktischen Anwendungsfall, Startup-Finanzierungsnews ohne technischen Kern
 
---- BUILDER-PROJEKTE SUCHEN (fuer Sektion 3) ---
-Suche aktiv nach: "MRR", "Micro-SaaS", "built with Gemini", "built with Claude Code", "API integration", "Automated workflow", "indie hacker", "side project"
-Pro Projekt extrahieren: Was ist das Problem? Wie wurde es gebaut (Tech-Stack)? Was wird verdient?
+--- PRAXISBEISPIELE SUCHEN (fuer Sektion 3) ---
+Suche nach: Menschen die KI in ihrer taeglichen Arbeit einsetzen, Workflow-Automatisierungen,
+KI-Tools fuer Selbstorganisation/Projektmanagement/Dokumentation, "built with Claude", "built with Gemini",
+einfache KI-Helfer auch fuer Nicht-Entwickler, produktive KI-Anwendungen im Unternehmenskontext.
+Pro Beispiel: Was war das Problem? Wie wurde es mit KI geloest? Was kann ich davon direkt uebernehmen?
+KEIN Fokus auf Umsatz oder MRR – Fokus auf praktischen Nutzen und Uebertragbarkeit auf den eigenen Arbeitsalltag.
 
 --- AUSGABE ---
 Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erklaerungen:
@@ -75,8 +96,9 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
 {{
   "top_news": [
     {{
-      "titel": "Praegnanter deutscher Titel",
-      "zusammenfassung": "2-3 Saetze auf Deutsch, Builder-Perspektive, keine Buzzwords",
+      "titel": "Spezifischer Titel der zeigt was sich aendert – nicht nur was passiert ist",
+      "zusammenfassung": "2-3 Saetze auf Deutsch: Was ist passiert? Was aendert sich konkret? Kein Fuelltext.",
+      "einordnung": "1 Satz persoenliche Einschaetzung: Warum ist das wichtig oder was bedeutet es? Meinung und Wertung ausdruecklich erlaubt.",
       "quelle": "Name der Quelle",
       "url": "https://direktlink-zum-artikel/nicht-zur-homepage",
       "datum": "TT.MM.YYYY"
@@ -92,29 +114,29 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
   "inspiration": [
     {{
       "projekt_name": "...",
-      "beschreibung": "2-3 Saetze: Problem, Tech-Stack, Monetarisierung",
-      "tools": "z.B. Gemini API + Python oder Claude Code + Zapier",
+      "beschreibung": "2-3 Saetze: Welches Problem loest das? Wie wurde KI eingesetzt? Was kann ich direkt uebernehmen oder daraus lernen?",
+      "tools": "z.B. Claude Code + Python oder ChatGPT + Zapier",
       "quelle": "Name der Quelle",
       "url": "https://...",
       "datum": "TT.MM.YYYY"
     }}
   ],
+  "claude_code_tipp": {{
+    "titel": "...",
+    "anwendungsfall": "Projektueberblick|Selbstorganisation|Dokumente|Automatisierung|Recherche",
+    "beschreibung": "3-5 Saetze: konkreter Tipp fuer Wissensarbeiter in Projekten, wie Claude Code den Arbeitsalltag erleichtert. Mit Prompt-Vorlage oder Schritt-fuer-Schritt-Beispiel. Kein Entwickler-Jargon."
+  }},
   "gemini_tipp": {{
     "titel": "...",
     "kategorie": "Produktivitaet|Coding|Recherche|Content",
     "beschreibung": "3-5 Saetze mit konkretem Beispiel und Prompt-Vorlage"
-  }},
-  "claude_code_tipp": {{
-    "titel": "...",
-    "anwendungsfall": "Projektueberblick|Selbstorganisation|Dokumente|Automatisierung|Recherche",
-    "beschreibung": "3-5 Saetze: konkreter Tipp wie Wissensarbeiter in Projekten Claude Code einsetzen koennen – Ueberblick behalten, Selbstorganisation, kleine Automatisierungshelfer bauen. Mit Prompt-Vorlage oder Schritt-fuer-Schritt-Beispiel."
   }}
 }}
 
 REGELN:
 - top_news: GENAU 5 Eintraege, mindestens 3 aus englischsprachigen Quellen
 - inspiration: 3 BIS 5 Eintraege, mindestens 1 mit Gemini gebaut, mindestens 1 mit Claude Code
-- claude_code_tipp: 1 Eintrag, praxisnaher Tipp fuer Wissensarbeiter (Projektarbeit in Unternehmen, Ueberblick behalten, Selbstorganisation mit LLMs) – kein Tipp fuer Entwickler, sondern fuer jemanden der mit Claude Code arbeitet ohne Programmierer zu sein
+- claude_code_tipp: 1 praxisnaher Tipp fuer Wissensarbeiter (kein Entwickler-Tipp)
 - Alle Daten im Format TT.MM.YYYY
 - URLs direkt zum Artikel (nicht Homepage), nur verifizierte URLs, Fallback: https://www.google.com/search?q=titel+quelle
 """
@@ -294,6 +316,13 @@ def build_html(data: dict) -> str:
         </td></tr>"""
 
     def news_block(item: dict, idx: int) -> str:
+        einordnung = item.get('einordnung', '')
+        einordnung_html = (
+            f'<tr><td style="padding:0 0 10px;">'
+            f'<span style="font-family:{FONT};font-size:13px;font-style:italic;'
+            f'color:{SEC["news"]["color"]};line-height:1.6;opacity:.9;">'
+            f'&#128172; {einordnung}</span></td></tr>'
+        ) if einordnung else ''
         return f"""
         <tr><td style="padding:0 0 20px;">
           <table width="100%" cellpadding="0" cellspacing="0"
@@ -320,6 +349,7 @@ def build_html(data: dict) -> str:
                 {item.get('zusammenfassung','')}
               </span>
             </td></tr>
+            {einordnung_html}
             <tr><td style="padding:0 0 20px;border-bottom:1px solid {C_BDR};">
               <a href="{item.get('url','#')}"
                  style="font-family:{FONT};font-size:12px;font-weight:700;
@@ -439,7 +469,7 @@ def build_html(data: dict) -> str:
       </td></tr>
 
       <!-- SEKTION 3: INSPIRATION -->
-      {section_title(SEC['insp'], 'Inspiration &amp; Monetarisierung')}
+      {section_title(SEC['insp'], 'KI im Einsatz &amp; Praxisbeispiele')}
       {insp_rows}
 
       <!-- SEKTION 4: CLAUDE CODE TIPP -->
