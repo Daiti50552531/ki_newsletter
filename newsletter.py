@@ -50,15 +50,21 @@ Jemand der: (1) den Ueberblick ueber KI-Entwicklungen behalten will die seinen A
 (2) KI praktisch fuer Selbstorganisation, Projektarbeit und Dokumentation nutzen moechte;
 (3) sich kleine KI-Helfer bauen oder entdecken will – auch ohne tiefe Programmierkenntnisse.
 
---- STIL ---
-Ton: Wie ein gut informierter, meinungsfreudiger Kollege. Nicht neutral – einordnen, bewerten, eine klare Perspektive bieten.
-Keine Buzzwords ("revolutionaer", "disruptiv", "bahnbrechend") – konkret statt Hype.
-Jede Meldung muss einen Praxisbezug haben: Was aendert sich konkret fuer mich im Arbeitsalltag?
-Ueberschriften: Spezifisch und neugierig-machend, nie generisch.
+--- STIL (AInauten-Stil als Vorbild) ---
+Ton: Wie ein gut informierter Kollege der die Tools selbst kennt und getestet hat. Nicht neutral –
+einordnen, bewerten, klare Perspektive bieten. Auch Schwaechen und Einschraenkungen benennen,
+das schafft mehr Vertrauen als reines Loben.
+Schreibweise: Direkte Ansprache ("du"), aktive Sprache, keine Passivsaetze.
+Keine Buzzwords ("revolutionaer", "disruptiv", "bahnbrechend", "KI-Zeitalter") – konkret statt Hype.
+Struktur pro News: (1) Kontext/Warum passiert das gerade? (2) Was ist passiert + konkrete Details.
+(3) Take: Ausprobieren? Abwarten? Wichtig oder Hype? Balanced – Schwaechen duerfen genannt werden.
+Ueberschriften: Spezifisch, zeigen was sich aendert – nicht nur was passiert ist.
   SCHLECHT: "OpenAI veroeffentlicht neues Modell"
-  GUT: "GPT-5 uebertrifft Claude bei komplexen Aufgaben – das aendert sich fuer alle die taeglich mit KI arbeiten"
+  GUT: "GPT-5 schlaegt Claude bei komplexen Texten – lohnt sich der Wechsel fuer dich?"
   SCHLECHT: "Neue KI-Tools verfuegbar"
-  GUT: "Dieses Tool erledigt Meeting-Protokolle in 30 Sekunden – so funktioniert es"
+  GUT: "Dieses Tool erledigt Meeting-Protokolle in 30 Sekunden – und es ist kostenlos"
+  SCHLECHT: "Google kuendigt Update an"
+  GUT: "Gemini direkt im Browser: Was das fuer alle bedeutet, die kein Claude-Abo haben"
 
 --- AKTUALITAET ---
 Bevorzuge Nachrichten der letzten 24-48 Stunden. Keine Quelle darf aelter als 3 Tage sein.
@@ -97,8 +103,8 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
   "top_news": [
     {{
       "titel": "Spezifischer Titel der zeigt was sich aendert – nicht nur was passiert ist",
-      "zusammenfassung": "2-3 Saetze auf Deutsch: Was ist passiert? Was aendert sich konkret? Kein Fuelltext.",
-      "einordnung": "1 Satz persoenliche Einschaetzung: Warum ist das wichtig oder was bedeutet es? Meinung und Wertung ausdruecklich erlaubt.",
+      "zusammenfassung": "3-5 Saetze auf Deutsch: Erst kurzer Kontext (warum passiert das gerade?), dann was genau passiert ist, dann konkrete Details und erste Auswirkungen. Nicht nur berichten – einordnen. Keine generischen Saetze wie 'Dies ist ein wichtiger Schritt'.",
+      "take": "1-2 Saetze klare Empfehlung: Lohnt sich das Ausprobieren? Abwarten? Wirklich wichtig oder Hype? Schwaechen und Einschraenkungen koennen und sollen genannt werden wenn vorhanden.",
       "quelle": "Name der Quelle",
       "url": "https://direktlink-zum-artikel/nicht-zur-homepage",
       "datum": "TT.MM.YYYY"
@@ -316,13 +322,17 @@ def build_html(data: dict) -> str:
         </td></tr>"""
 
     def news_block(item: dict, idx: int) -> str:
-        einordnung = item.get('einordnung', '')
-        einordnung_html = (
-            f'<tr><td style="padding:0 0 10px;">'
-            f'<span style="font-family:{FONT};font-size:13px;font-style:italic;'
-            f'color:{SEC["news"]["color"]};line-height:1.6;opacity:.9;">'
-            f'&#128172; {einordnung}</span></td></tr>'
-        ) if einordnung else ''
+        take = item.get('take', '')
+        take_html = (
+            f'<tr><td style="padding:0 0 12px;">'
+            f'<table width="100%" cellpadding="0" cellspacing="0">'
+            f'<tr><td style="background:{SEC["news"]["light"]};border-left:3px solid {SEC["news"]["color"]};'
+            f'border-radius:0 6px 6px 0;padding:8px 12px;">'
+            f'<span style="font-family:{FONT};font-size:11px;font-weight:800;'
+            f'color:{SEC["news"]["color"]};letter-spacing:.5px;text-transform:uppercase;">Take &nbsp;</span>'
+            f'<span style="font-family:{FONT};font-size:13px;color:#374151;font-style:italic;line-height:1.6;">'
+            f'{take}</span></td></tr></table></td></tr>'
+        ) if take else ''
         return f"""
         <tr><td style="padding:0 0 20px;">
           <table width="100%" cellpadding="0" cellspacing="0"
@@ -349,7 +359,7 @@ def build_html(data: dict) -> str:
                 {item.get('zusammenfassung','')}
               </span>
             </td></tr>
-            {einordnung_html}
+            {take_html}
             <tr><td style="padding:0 0 20px;border-bottom:1px solid {C_BDR};">
               <a href="{item.get('url','#')}"
                  style="font-family:{FONT};font-size:12px;font-weight:700;
