@@ -155,7 +155,7 @@ def call_gemini() -> dict:
         "contents": [{"role": "user", "parts": [{"text": PROMPT}]}],
         "generationConfig": {
             "temperature": 0.7,
-            "maxOutputTokens": 8192,
+            "maxOutputTokens": 16384,
         },
     }
     data = json.dumps(payload).encode("utf-8")
