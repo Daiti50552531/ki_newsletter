@@ -40,6 +40,116 @@ def gemini_url(model: str) -> str:
 TODAY = datetime.now().strftime("%d.%m.%Y")
 
 
+# ── Statische Claude-Code-Tipp-Bibliothek (rotiert täglich) ──────────────────
+CLAUDE_CODE_TIPPS = [
+    {
+        "titel": "Meeting-Protokoll in 30 Sekunden strukturieren",
+        "anwendungsfall": "Dokumente",
+        "beschreibung": "Kopiere deine Rohnotizen aus dem Meeting in Claude und nutze diesen Prompt: 'Strukturiere diese Meeting-Notizen in: (1) Besprochene Punkte, (2) Entscheidungen, (3) Offene Aufgaben mit Verantwortlichen und Deadline. Formuliere präzise, keine Füllsätze.' Du erhältst in Sekunden ein sauberes Protokoll, das du direkt versenden kannst.",
+    },
+    {
+        "titel": "Status-Report in 5 Minuten statt 45",
+        "anwendungsfall": "Selbstorganisation",
+        "beschreibung": "Prompt: 'Ich bin Projektverantwortlicher und muss einen wöchentlichen Status-Report schreiben. Hier sind meine Stichpunkte: [deine Notizen]. Schreibe daraus einen professionellen Status-Report mit: Zusammenfassung, Stand der Meilensteine, Risiken/Blocker, nächste Schritte.' Du lieferst die Fakten, Claude den Text.",
+    },
+    {
+        "titel": "Langen E-Mail-Thread auf Kern destillieren",
+        "anwendungsfall": "Projektueberblick",
+        "beschreibung": "Kopiere einen unübersichtlichen E-Mail-Verlauf in Claude: 'Destilliere aus diesem Thread: (1) Worum geht es wirklich? (2) Welche Positionen gibt es? (3) Was ist noch ungeklärt? (4) Was wäre ein konkreter nächster Schritt?' Du bekommst die Essenz in 5 Bullet Points statt 30 E-Mails lesen zu müssen.",
+    },
+    {
+        "titel": "Langes Dokument auf Handlungsrelevanz scannen",
+        "anwendungsfall": "Recherche",
+        "beschreibung": "Statt ein 40-seitiges Konzept komplett zu lesen: Kopiere es in Claude mit: 'Ich bin [deine Rolle]. Was muss ich aus diesem Dokument wissen und wo muss ich handeln? Nenne nur die für mich relevanten Stellen, ignoriere den Rest.' Claude liest für dich und filtert was zählt.",
+    },
+    {
+        "titel": "Schwierige E-Mail professionell formulieren",
+        "anwendungsfall": "Dokumente",
+        "beschreibung": "Vor einer heiklen E-Mail (Eskalation, Absage, kritisches Feedback): 'Ich muss folgendes kommunizieren: [Kernaussage in Stichpunkten]. Ton: sachlich, respektvoll, lösungsorientiert. Schreibe eine kurze E-Mail die direkt ist ohne zu verletzen.' Beschreibe Empfänger und Kontext für bessere Ergebnisse.",
+    },
+    {
+        "titel": "Projektrisiken systematisch identifizieren",
+        "anwendungsfall": "Projektueberblick",
+        "beschreibung": "Prompt: 'Hier ist die Kurzbeschreibung meines Projekts: [Beschreibung]. Welche typischen Risiken treten bei solchen Projekten auf? Strukturiere nach Wahrscheinlichkeit und Auswirkung. Fokus auf Risiken die ich als Projektverantwortlicher beeinflussen kann.' Gut als Startpunkt für deine eigene Risikoanalyse.",
+    },
+    {
+        "titel": "Präsentationsstruktur in Minuten entwickeln",
+        "anwendungsfall": "Dokumente",
+        "beschreibung": "Vor dem nächsten Deck: 'Ich halte eine 15-minütige Präsentation zu [Thema] vor [Zielgruppe]. Ziel: [Entscheidung/Information/Überzeugung]. Entwickle eine Gliederung mit 5-7 Folien und für jede Folie einen Satz Kernaussage.' Spar dir die leere-Folie-Starrstunde.",
+    },
+    {
+        "titel": "Widersprüche in Anforderungsdokumenten aufdecken",
+        "anwendungsfall": "Projektueberblick",
+        "beschreibung": "Kopiere dein Lastenheft in Claude: 'Analysiere auf: (1) Widersprüche zwischen Anforderungen, (2) Unklare Formulierungen, (3) Fehlende Informationen die für Umsetzung notwendig wären.' Damit gehst du in Reviews mit konkreten Fragen statt vagen Bauchgefühlen.",
+    },
+    {
+        "titel": "Retrospektive strukturiert vorbereiten",
+        "anwendungsfall": "Selbstorganisation",
+        "beschreibung": "Vor einer Projektretrospektive: 'Hier sind meine unsortierten Notizen zum Projektverlauf: [Notizen]. Strukturiere in: Was lief gut (Keep), was lief schlecht (Stop), was ändern wir (Start). Formuliere konkret, nicht allgemein.' Du gehst vorbereitet rein statt in der Retro erst nachzudenken.",
+    },
+    {
+        "titel": "Aufgaben aus voller Inbox priorisieren",
+        "anwendungsfall": "Selbstorganisation",
+        "beschreibung": "Wenn deine Aufgabenliste überquillt: 'Hier sind meine aktuellen Aufgaben: [Liste]. Ich habe heute noch 3 Stunden. Priorisiere nach Eisenhower-Matrix und schlage vor, was ich heute erledige, was delegiere und was verschiebe.' Funktioniert auch mit kopierten E-Mails.",
+    },
+    {
+        "titel": "Zahlen und KPIs in Management-Sprache übersetzen",
+        "anwendungsfall": "Dokumente",
+        "beschreibung": "Wenn du Kennzahlen kommunizieren musst: 'Hier sind die Zahlen unseres Projekts: [Zahlen]. Formuliere daraus 3-4 verständliche Sätze für ein Management-Update. Kein Fachjargon, klarer Trend, Bedeutung für unser Projektziel.' Ideal für kurze Steering-Committee-Updates.",
+    },
+    {
+        "titel": "Lessons Learned Bericht halbautomatisch erstellen",
+        "anwendungsfall": "Dokumente",
+        "beschreibung": "Nach Projektabschluss: 'Hier sind meine Notizen zu was gut und schlecht lief: [Notizen]. Schreibe daraus einen Lessons-Learned-Bericht für unser Wiki. Format: Kontext, was passierte, warum, was wir beim nächsten Mal anders machen.' Statt dem Bericht den alle aufschieben – in 10 Minuten fertig.",
+    },
+    {
+        "titel": "Schwierige Abstimmung vorbereiten",
+        "anwendungsfall": "Selbstorganisation",
+        "beschreibung": "Vor einem heiklen Gespräch: 'Ich möchte mit [Rolle] über [Thema] sprechen. Mein Ziel: [Ergebnis]. Mögliche Einwände: [deine Vermutungen]. Hilf mir meine Argumente zu strukturieren und auf typische Gegenargumente vorbereitet zu sein.' Geht auch für Gehaltsverhandlungen.",
+    },
+    {
+        "titel": "Technisches Konzept für Nicht-Techniker vereinfachen",
+        "anwendungsfall": "Dokumente",
+        "beschreibung": "Wenn du ein technisches Thema vor Nicht-Technikern präsentieren musst: 'Erkläre [Konzept/Tool] in maximal 3 Sätzen so, dass ein CFO versteht warum es relevant ist und was es kostet. Keine Abkürzungen, kein Fachjargon, aber präzise.' Perfekt für die Folie die alle verstehen müssen.",
+    },
+    {
+        "titel": "Change Request strukturiert bewerten",
+        "anwendungsfall": "Projektueberblick",
+        "beschreibung": "Wenn ein Änderungswunsch ins Projekt kommt: 'Hier ist unser Projektstand: [Beschreibung]. Jemand möchte folgendes ändern: [Change Request]. Welche typischen Auswirkungen auf Zeit, Aufwand und Risiko hätte das? Was sollte ich vor einer Entscheidung klären?' Hilft dir den CR sachlich zu bewerten statt bauchgefühlsbasiert.",
+    },
+    {
+        "titel": "Fragenkatalog für Dienstleister-Gespräche erstellen",
+        "anwendungsfall": "Recherche",
+        "beschreibung": "Bevor du einen Anbieter briefst: 'Ich möchte [Leistung] von einem externen Dienstleister einkaufen. Welche Fragen sollte ich im Erstgespräch stellen um Qualität, Risiken und Eignung zu beurteilen? Fokus auf praktische Projekterfahrung, nicht Hochglanz-Präsentationen.' Damit kommst du informiert ins Gespräch.",
+    },
+    {
+        "titel": "Eigene Arbeit auf Lücken prüfen lassen",
+        "anwendungsfall": "Projektueberblick",
+        "beschreibung": "Bevor du ein Konzept abgibst: 'Hier ist mein Entwurf: [Text]. Übernimm die Rolle eines kritischen Reviewers. Was fehlt? Wo ist die Argumentation schwach? Was würde ein erfahrener Kollege als erstes beanstanden?' Besser Claude findet die Lücken als dein Chef.",
+    },
+    {
+        "titel": "Wöchentliche Selbstreflexion in 5 Minuten",
+        "anwendungsfall": "Selbstorganisation",
+        "beschreibung": "Jeden Freitag: 'Ich war diese Woche an folgenden Dingen beteiligt: [Liste]. Was waren meine größten Fortschritte? Wo habe ich Zeit verloren? Was nehme ich mir für nächste Woche vor? Formuliere das als kurzen Rückblick für mein Arbeitsjournal.' Nach 4 Wochen siehst du Muster die dir vorher nie aufgefallen wären.",
+    },
+    {
+        "titel": "Unbekannte Fachbegriffe im eigenen Kontext erklären",
+        "anwendungsfall": "Recherche",
+        "beschreibung": "Wenn du in Dokumenten oder Meetings auf unbekannte Begriffe stößt: 'Erkläre mir [Begriff] so, als würde ich in der Projektleitung eines deutschen Großunternehmens arbeiten. Kein Fachjargon, praktisches Beispiel aus dem Unternehmensalltag.' Claude erklärt nicht abstrakt, sondern in deinem Kontext.",
+    },
+    {
+        "titel": "Stakeholder für ein neues Projekt identifizieren",
+        "anwendungsfall": "Projektueberblick",
+        "beschreibung": "Prompt: 'Mein Projekt ist [Kurzbeschreibung] in einem deutschen Großunternehmen. Welche typischen Stakeholder sollte ich einbinden? Strukturiere nach: Wer ist betroffen, welche Interessen haben sie, wie kommuniziere ich am besten mit ihnen?' Als Checkliste damit du niemanden vergisst.",
+    },
+]
+
+
+def get_claude_code_tipp() -> dict:
+    day_of_year = datetime.now().timetuple().tm_yday
+    return CLAUDE_CODE_TIPPS[(day_of_year - 1) % len(CLAUDE_CODE_TIPPS)]
+
+
 # ── Prompt ────────────────────────────────────────────────────────────────────
 PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters fuer Wissensarbeiter.
 Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Texte auf Deutsch.
@@ -68,7 +178,7 @@ Ueberschriften: Spezifisch, zeigen was sich aendert – nicht nur was passiert i
 
 --- AKTUALITAET ---
 Nur Nachrichten der letzten 24 Stunden. Keine Quelle darf aelter als 24h sein.
-Ausnahme: Podcast-Empfehlungen duerfen aelter sein wenn hochrelevant.
+Podcast-Empfehlung: Die aktuellste Episode eines der gelisteten Podcasts aus den letzten 7 Tagen.
 TOP-PRIORITAET: Neue Modell-Releases (ChatGPT, Claude, Gemini, Llama, DeepSeek, Mistral usw.),
 neue APIs und SDK-Versionen – diese IMMER aufnehmen wenn in den letzten 24h veroeffentlicht.
 Nutze aktuelle Suche mit Datumsfilter um Erscheinungsdatum zu verifizieren. Im Zweifel weglassen.
@@ -91,10 +201,11 @@ akademische Forschung ohne praktischen Anwendungsfall, Startup-Finanzierungsnews
 
 --- PRAXISBEISPIELE SUCHEN (fuer Sektion 3) ---
 Suche nach: Menschen die KI in ihrer taeglichen Arbeit einsetzen, Workflow-Automatisierungen,
-KI-Tools fuer Selbstorganisation/Projektmanagement/Dokumentation, "built with Claude", "built with Gemini",
+KI-Tools fuer Selbstorganisation/Projektmanagement/Dokumentation,
 einfache KI-Helfer auch fuer Nicht-Entwickler, produktive KI-Anwendungen im Unternehmenskontext.
 Pro Beispiel: Was war das Problem? Wie wurde es mit KI geloest? Was kann ich davon direkt uebernehmen?
-KEIN Fokus auf Umsatz oder MRR – Fokus auf praktischen Nutzen und Uebertragbarkeit auf den eigenen Arbeitsalltag.
+WICHTIG: Nur real existierende Projekte mit verifizierbarer Quelle. Keine erfundenen Beispiele.
+KEIN Fokus auf Umsatz oder MRR – Fokus auf praktischen Nutzen und Uebertragbarkeit.
 
 --- AUSGABE ---
 Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erklaerungen:
@@ -127,11 +238,6 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
       "datum": "TT.MM.YYYY"
     }}
   ],
-  "claude_code_tipp": {{
-    "titel": "...",
-    "anwendungsfall": "Projektueberblick|Selbstorganisation|Dokumente|Automatisierung|Recherche",
-    "beschreibung": "3-5 Saetze: konkreter Tipp fuer Wissensarbeiter in Projekten, wie Claude Code den Arbeitsalltag erleichtert. Mit Prompt-Vorlage oder Schritt-fuer-Schritt-Beispiel. Kein Entwickler-Jargon."
-  }},
   "gemini_tipp": {{
     "titel": "...",
     "kategorie": "Produktivitaet|Coding|Recherche|Content",
@@ -140,11 +246,10 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
 }}
 
 REGELN:
-- top_news: GENAU 5 Eintraege, mindestens 3 aus englischsprachigen Quellen
-- inspiration: 3 BIS 5 Eintraege, mindestens 1 mit Gemini gebaut, mindestens 1 mit Claude Code
-- claude_code_tipp: 1 praxisnaher Tipp fuer Wissensarbeiter (kein Entwickler-Tipp)
+- top_news: 3 BIS 5 Eintraege, mindestens 3 aus englischsprachigen Quellen, lieber 3 echte als 5 aufgefuellte
+- inspiration: 2 BIS 4 Eintraege, nur real existierende Projekte mit verifizierbarer Quelle
 - Alle Daten im Format TT.MM.YYYY
-- URLs direkt zum Artikel (nicht Homepage), nur verifizierte URLs, Fallback: https://www.google.com/search?q=titel+quelle
+- URLs direkt zum Artikel (nicht Homepage), Fallback: https://www.google.com/search?q=titel+quelle
 """
 
 
@@ -160,7 +265,7 @@ def call_gemini() -> dict:
     }
     data = json.dumps(payload).encode("utf-8")
 
-    max_attempts = 5
+    max_attempts = 3  # max 2+4 Min Wartezeit pro Modell → passt sicher in 30-Min-Timeout
     for model in GEMINI_MODELS:
         print(f"Versuche Modell: {model} ...")
         for attempt in range(max_attempts):
@@ -176,14 +281,13 @@ def call_gemini() -> dict:
                 body = e.read().decode("utf-8", errors="replace")
                 print(f"  HTTP {e.code} von {model} (Versuch {attempt+1}/{max_attempts}): {body[:200]}")
                 if e.code == 503 and attempt < max_attempts - 1:
-                    wait = min(120 * (attempt + 1), 300)  # 2/4/5/5 Min
+                    wait = 120 * (attempt + 1)  # 2 Min, 4 Min
                     print(f"  warte {wait}s ...")
                     time.sleep(wait)
                 elif e.code == 503:
                     print(f"  {model} dauerhaft überlastet – wechsle Modell.")
                     break
                 elif e.code == 429:
-                    # limit: 0 = Modell nicht im Free Tier – sofort weiter
                     print(f"  {model} Quota erschöpft – wechsle Modell.")
                     break
                 elif e.code == 404:
@@ -224,7 +328,9 @@ def get_newsletter_data() -> dict:
         parts = candidates[0].get("content", {}).get("parts", [])
         raw_text = "".join(p.get("text", "") for p in parts)
         if raw_text.strip():
-            return extract_json(raw_text)
+            data = extract_json(raw_text)
+            data["claude_code_tipp"] = get_claude_code_tipp()
+            return data
         # Leere Antwort trotz STOP – nochmal versuchen
         reason = candidates[0].get("finishReason", "?")
         if attempt < 2:
@@ -234,46 +340,22 @@ def get_newsletter_data() -> dict:
             raise ValueError(f"Gemini liefert nach 3 Versuchen keinen Text. Finish-Reason: {reason}")
 
 
-# ── URL-Validierung ──────────────────────────────────────────────────────────
+# ── URL-Validierung (nur syntaktisch – kein HTTP, News-Sites blockieren HEAD) ─
 def validate_url(url: str, title: str = "", source: str = "") -> str:
-    """Prüft ob eine URL erreichbar ist. Gibt Fallback-Suche-URL zurück falls nicht."""
-    if not url or not url.startswith("http"):
-        query = urllib.parse.quote(f"{title} {source}")
-        return f"https://www.google.com/search?q={query}"
-    try:
-        req = urllib.request.Request(url, method="HEAD",
-                                     headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=5) as r:
-            if r.status < 400:
-                return url
-    except Exception:
-        pass
-    # Fallback: Google-Suche nach Titel + Quelle
+    if url and url.startswith("http") and len(url) > 15:
+        return url
     query = urllib.parse.quote(f"{title} {source}")
     return f"https://www.google.com/search?q={query}"
 
 
 def validate_all_urls(data: dict) -> dict:
-    """Validiert alle URLs im Newsletter und ersetzt kaputte durch Suche-Links."""
-    print("Validiere URLs ...")
+    print("Validiere URLs (syntaktisch) ...")
     for item in data.get("top_news", []):
-        original = item.get("url", "")
-        fixed = validate_url(original, item.get("titel", ""), item.get("quelle", ""))
-        if fixed != original:
-            print(f"  ⚠ URL ersetzt: {original[:60]} → Google-Suche")
-        item["url"] = fixed
-
+        item["url"] = validate_url(item.get("url", ""), item.get("titel", ""), item.get("quelle", ""))
     pod = data.get("podcast", {})
-    pod["url"] = validate_url(pod.get("url", ""),
-                               pod.get("episoden_titel", ""), pod.get("podcast_name", ""))
-
+    pod["url"] = validate_url(pod.get("url", ""), pod.get("episoden_titel", ""), pod.get("podcast_name", ""))
     for item in data.get("inspiration", []):
-        original = item.get("url", "")
-        fixed = validate_url(original, item.get("projekt_name", ""), item.get("quelle", ""))
-        if fixed != original:
-            print(f"  ⚠ URL ersetzt: {original[:60]} → Google-Suche")
-        item["url"] = fixed
-
+        item["url"] = validate_url(item.get("url", ""), item.get("projekt_name", ""), item.get("quelle", ""))
     return data
 
 
@@ -570,7 +652,7 @@ def main():
         data = validate_all_urls(data)
         print("Baue HTML-E-Mail ...")
         html = build_html(data)
-        subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & Gemini-Tipp"
+        subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & KI-Tipps"
         print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
         for recipient in RECIPIENTS:
             send_email(subject, html, recipient)
