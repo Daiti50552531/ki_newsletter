@@ -150,6 +150,197 @@ def get_claude_code_tipp() -> dict:
     return CLAUDE_CODE_TIPPS[(day_of_year - 1) % len(CLAUDE_CODE_TIPPS)]
 
 
+# ── Prompt-des-Tages-Bibliothek (rotiert täglich, versetzt zu Claude-Tipps) ───
+PROMPTS_DES_TAGES = [
+    {
+        "titel": "Meeting-Agenda die wirklich funktioniert",
+        "kategorie": "Meetings",
+        "prompt": "Ich habe ein [30-minütiges] Meeting zu [Thema] mit [Teilnehmer-Rollen, z.B. Projektleiter, IT, Fachbereich]. Erstelle eine strukturierte Agenda mit Zeitblöcken, einem klaren Meetingziel und einer konkreten Entscheidungsfrage am Ende.",
+        "tipp": "Schick die Agenda 24h vorher an alle – das spart die ersten 10 Minuten Orientierungszeit.",
+    },
+    {
+        "titel": "E-Mail-Thread in 3 Bullet Points",
+        "kategorie": "Kommunikation",
+        "prompt": "Hier ist ein E-Mail-Verlauf: [Thread einfügen]. Fasse ihn in genau 3 Bullet Points zusammen: (1) Worum geht es? (2) Was wurde entschieden oder ist offen? (3) Was ist mein nächster Schritt?",
+        "tipp": "Ideal bevor du in ein Gespräch gehst – du brauchst keine 20 E-Mails mehr zu lesen.",
+    },
+    {
+        "titel": "Entscheidung zwischen zwei Optionen durchdenken",
+        "kategorie": "Analyse",
+        "prompt": "Ich muss zwischen zwei Optionen entscheiden: Option A ist [Beschreibung], Option B ist [Beschreibung]. Meine wichtigsten Kriterien sind [z.B. Kosten, Zeit, Risiko]. Erstelle eine sachliche Pro/Contra-Analyse und empfehle eine Option mit Begründung.",
+        "tipp": "Ergänze am Ende: 'Was würde ein erfahrener Kollege in meiner Situation wählen?' – das gibt eine zweite Perspektive.",
+    },
+    {
+        "titel": "Kompliziertes Thema in 3 Sätzen erklären",
+        "kategorie": "Kommunikation",
+        "prompt": "Erkläre [kompliziertes Thema/Konzept/Tool] in maximal 3 Sätzen so, dass [Zielgruppe, z.B. Vorstand ohne IT-Kenntnisse] sofort versteht warum es relevant ist. Kein Fachjargon, kein Passiv, ein konkretes Beispiel.",
+        "tipp": "Perfekt als Einstiegssatz für Präsentationen oder den ersten Absatz einer Entscheidungsvorlage.",
+    },
+    {
+        "titel": "Wochenplanung in 5 Minuten",
+        "kategorie": "Selbstorganisation",
+        "prompt": "Hier sind alle meine Aufgaben und Termine für diese Woche: [Liste]. Meine wichtigsten Ziele bis Freitag sind: [Ziele]. Erstelle einen realistischen Wochenplan mit Prioritäten. Markiere was ich delegieren oder verschieben könnte.",
+        "tipp": "Montagmorgen, 10 Minuten – spart dir täglich Entscheidungsfatigue.",
+    },
+    {
+        "titel": "Feedback geben ohne zu verletzen",
+        "kategorie": "Kommunikation",
+        "prompt": "Ich muss folgendes Feedback an [Rolle, z.B. Kollege, Dienstleister] geben: [Kernkritik in Stichpunkten]. Formuliere das als konstruktives, lösungsorientiertes Feedback. Ton: direkt und respektvoll, nicht beschönigend.",
+        "tipp": "Ergänze deinen eigenen Kontext: 'Die Person reagiert empfindlich auf X' – dann wird der Ton noch passender.",
+    },
+    {
+        "titel": "Projektstand in einem Absatz",
+        "kategorie": "Berichte",
+        "prompt": "Mein Projekt [Projektname] hat folgenden Status: [Stichpunkte zu Stand, Verzögerungen, Risiken]. Schreibe daraus einen knappen Management-Update-Absatz (max. 5 Sätze): Was läuft, was ist kritisch, was ist der nächste Meilenstein.",
+        "tipp": "Für wöchentliche Steering-Committee-Updates – spart das Formulieren und wirkt trotzdem professionell.",
+    },
+    {
+        "titel": "Anforderungen auf Lücken prüfen",
+        "kategorie": "Analyse",
+        "prompt": "Hier sind die Anforderungen für [Projekt/Feature/Prozess]: [Anforderungen einfügen]. Prüfe auf: (1) Widersprüche, (2) unklare Formulierungen, (3) fehlende Informationen die für die Umsetzung notwendig wären. Sei konkret, nicht allgemein.",
+        "tipp": "Vor dem nächsten Review-Meeting einsetzen – du gehst mit echten Fragen rein statt vagen Bauchgefühlen.",
+    },
+    {
+        "titel": "Schwierige Situation im Gespräch vorbereiten",
+        "kategorie": "Kommunikation",
+        "prompt": "Ich muss [Situation, z.B. Verzögerung kommunizieren / Eskalation ansprechen / Nein sagen] in einem Gespräch mit [Rolle]. Mein Ziel ist [konkretes Ergebnis]. Bereite mich vor: Welche Einstiegssätze wirken deeskalierend? Welche Einwände kommen wahrscheinlich und wie reagiere ich?",
+        "tipp": "5 Minuten vor dem Gespräch lesen – gibt Sicherheit ohne Skript auswendig lernen zu müssen.",
+    },
+    {
+        "titel": "Lessons Learned strukturieren",
+        "kategorie": "Berichte",
+        "prompt": "Hier sind meine unsortierten Notizen zu Projekt [Name]: [Notizen]. Strukturiere daraus einen Lessons-Learned-Bericht mit: Was lief gut (und warum), was lief schlecht (und warum), was machen wir beim nächsten Mal konkret anders.",
+        "tipp": "Direkt nach Projektabschluss – bevor alle Details verblasst sind. Dauert 15 Minuten statt 2 Stunden.",
+    },
+    {
+        "titel": "Dienstleister-Angebot kritisch bewerten",
+        "kategorie": "Analyse",
+        "prompt": "Ich habe ein Angebot von [Dienstleister] für [Leistung] erhalten: [Angebot in Stichpunkten]. Was fehlt in diesem Angebot? Welche versteckten Risiken und Kosten könnte es geben? Welche 5 Fragen muss ich unbedingt stellen bevor ich unterschreibe?",
+        "tipp": "Vor der Entscheidung einsetzen – du erkennst Lücken die im Angebot bewusst offen gelassen werden.",
+    },
+    {
+        "titel": "Präsentation für Nicht-Experten bauen",
+        "kategorie": "Präsentationen",
+        "prompt": "Ich präsentiere [Thema] vor [Zielgruppe, z.B. Führungskräfte ohne Fachkenntnisse]. Dauer: [X Minuten]. Ziel: [Entscheidung herbeiführen / informieren / überzeugen]. Erstelle eine Gliederung mit max. 6 Folien und für jede Folie eine Kernaussage in einem Satz.",
+        "tipp": "Eine Kernaussage pro Folie ist das wichtigste Prinzip guter Managementpräsentationen.",
+    },
+    {
+        "titel": "Aufgaben nach Eisenhower priorisieren",
+        "kategorie": "Selbstorganisation",
+        "prompt": "Hier ist meine aktuelle Aufgabenliste: [Liste]. Sortiere nach Eisenhower-Matrix (dringend/wichtig). Markiere was ich heute erledige, was ich delegieren kann und was ich streichen sollte. Ich habe heute noch [X Stunden] zur Verfügung.",
+        "tipp": "Wenn die Liste zu lang wirkt: Alles was nicht dringend UND wichtig ist, hat meist keine echte Deadline.",
+    },
+    {
+        "titel": "Prozess für neue Kollegen dokumentieren",
+        "kategorie": "Berichte",
+        "prompt": "Ich möchte folgenden Prozess dokumentieren damit neue Kollegen ihn selbständig durchführen können: [Prozessbeschreibung in Stichpunkten]. Schreibe eine klare Schritt-für-Schritt-Anleitung. Markiere Stellen wo Fehler passieren und wie man sie vermeidet.",
+        "tipp": "Füge am Ende hinzu: 'Was ist der häufigste Fehler an Schritt X?' – dann wird die Anleitung wirklich praxistauglich.",
+    },
+    {
+        "titel": "Stakeholder identifizieren und priorisieren",
+        "kategorie": "Projektmanagement",
+        "prompt": "Mein Projekt: [Kurzbeschreibung]. Wer sind die typischen Stakeholder in einem deutschen Großunternehmen für so ein Vorhaben? Für jeden: Welche Interessen hat er, wie stark ist sein Einfluss, wie oft und wie kommuniziere ich mit ihm?",
+        "tipp": "Am Anfang eines Projekts einsetzen – die häufigste Ursache für Projektprobleme ist ein vergessener Stakeholder.",
+    },
+    {
+        "titel": "Change-Request-Auswirkung schnell einschätzen",
+        "kategorie": "Projektmanagement",
+        "prompt": "Mein Projekt ist [Kurzbeschreibung, aktueller Stand]. Jemand möchte folgende Änderung: [Change Request]. Welche Auswirkungen hat das typischerweise auf Zeit, Aufwand und Qualität? Was muss ich klären bevor ich ja oder nein sage?",
+        "tipp": "Nie spontan einem Change Request zustimmen – mit diesem Prompt kommst du in 2 Minuten zu einer fundierten Antwort.",
+    },
+    {
+        "titel": "Executive Summary schreiben",
+        "kategorie": "Berichte",
+        "prompt": "Hier ist mein vollständiges Dokument / mein Bericht: [Text einfügen]. Schreibe eine Executive Summary von max. einer halben Seite: Ausgangslage, Kernerkenntnisse, Empfehlung, nächste Schritte. Entscheider lesen nur die Summary – sie muss für sich allein verständlich sein.",
+        "tipp": "Schreib die Executive Summary immer zuletzt, aber platziere sie ganz oben im Dokument.",
+    },
+    {
+        "titel": "Workshop-Agenda vorbereiten",
+        "kategorie": "Meetings",
+        "prompt": "Ich moderiere einen [halbtägigen] Workshop zum Thema [Ziel des Workshops] mit [Anzahl] Teilnehmern aus [Bereichen]. Erstelle eine Agenda mit Timebox, Methoden und klarem Ziel für jeden Block. Das Endergebnis soll [konkretes Ergebnis, z.B. eine Entscheidung / ein Aktionsplan] sein.",
+        "tipp": "Plane immer 20% Pufferzeit ein – Workshops dauern fast immer länger als geplant.",
+    },
+    {
+        "titel": "Eigenen Text auf Schwächen prüfen",
+        "kategorie": "Analyse",
+        "prompt": "Hier ist mein Entwurf: [Text]. Übernimm die Rolle eines kritischen Reviewers. Was fehlt? Wo ist die Argumentation schwach oder nicht belegt? Was würde ein skeptischer Leser sofort hinterfragen? Formuliere 3-5 konkrete Verbesserungsvorschläge.",
+        "tipp": "Besser Claude findet die Lücken als dein Chef. Direkt vor dem Abgeben einsetzen.",
+    },
+    {
+        "titel": "Wochenrückblick und nächste Woche planen",
+        "kategorie": "Selbstorganisation",
+        "prompt": "Diese Woche habe ich folgendes erledigt / erlebt: [Stichpunkte]. Offene Punkte: [Liste]. Formuliere einen kurzen Wochenrückblick mit: (1) Top 3 Erfolge, (2) Was bremst mich noch, (3) Meine 3 wichtigsten Ziele für nächste Woche.",
+        "tipp": "Freitagsnachmittag, 5 Minuten – gibt dir einen sauberen Wochenabschluss und einen klaren Montagsstart.",
+    },
+    {
+        "titel": "Projektauftrag formulieren",
+        "kategorie": "Projektmanagement",
+        "prompt": "Ich starte ein neues Projekt: [Projektidee in Stichpunkten]. Erstelle einen einseitigen Projektauftrag mit: Ziel (SMART), Scope (was gehört dazu / was nicht), Stakeholder, grobe Meilensteine, offene Fragen die ich noch klären muss.",
+        "tipp": "Ein guter Projektauftrag verhindert die 3 häufigsten Probleme: unklares Ziel, Scope Creep, vergessene Stakeholder.",
+    },
+    {
+        "titel": "Eskalations-E-Mail professionell formulieren",
+        "kategorie": "Kommunikation",
+        "prompt": "Ich muss ein Problem eskalieren: [Problembeschreibung, was bereits versucht wurde, warum es steckt]. Empfänger: [Rolle, z.B. Abteilungsleiter]. Schreibe eine sachliche Eskalations-E-Mail: Problem klar benennen, bisherige Schritte, was ich jetzt brauche, konkreter Vorschlag für nächsten Schritt.",
+        "tipp": "Ton: faktenbasiert, lösungsorientiert – keine Schuldzuweisungen. Führungskräfte eskalieren Probleme, nicht Personen.",
+    },
+    {
+        "titel": "Onboarding-Plan für neue Kollegen",
+        "kategorie": "Berichte",
+        "prompt": "Ein neuer Kollege [Rolle] startet in meinem Team / Projekt. Erstelle einen 4-Wochen-Onboarding-Plan: Was muss er wissen, wen muss er kennenlernen, welche Aufgaben kann er in Woche 1/2/3/4 übernehmen? Kontext: [kurze Team-/Projektbeschreibung].",
+        "tipp": "Guter Onboarding spart 2-3 Monate bis zur vollen Produktivität. Einmal erstellen, immer wieder nutzen.",
+    },
+    {
+        "titel": "Verhandlung vorbereiten",
+        "kategorie": "Kommunikation",
+        "prompt": "Ich verhandle mit [Gegenüber, z.B. Lieferant, interner Bereich] über [Thema, z.B. Budget, Liefertermin, Ressourcen]. Meine Zielposition ist [X], meine Untergrenze ist [Y]. Was sind typische Verhandlungstaktiken die hier angewendet werden? Welche Argumente und Gegenargumente muss ich vorbereiten?",
+        "tipp": "Kenne dein BATNA (Best Alternative to a Negotiated Agreement) bevor du verhandelst – dann verhandelst du aus einer Position der Stärke.",
+    },
+    {
+        "titel": "Prozessfehler analysieren",
+        "kategorie": "Analyse",
+        "prompt": "Folgender Fehler ist in unserem Prozess aufgetreten: [Fehlerbeschreibung]. Führe eine 5-Why-Analyse durch: Warum ist es passiert? (5x Warum fragen bis zur Wurzelursache). Schlage dann 2-3 konkrete Maßnahmen vor die das Problem dauerhaft beheben.",
+        "tipp": "Die erste Antwort auf 'Warum?' ist fast nie die echte Ursache – erst beim 4. oder 5. Warum wird es interessant.",
+    },
+    {
+        "titel": "Team-Update formulieren das gelesen wird",
+        "kategorie": "Kommunikation",
+        "prompt": "Ich muss mein Team über folgenden Sachverhalt informieren: [Sachverhalt]. Die wichtigste Botschaft ist: [Kernaussage]. Was bedeutet das konkret für das Team? Schreibe ein kurzes Team-Update (max. 150 Wörter) das klar, direkt und handlungsorientiert ist.",
+        "tipp": "Updates unter 150 Wörter werden gelesen. Updates über 300 Wörter werden überflogen oder ignoriert.",
+    },
+    {
+        "titel": "Besprechungsprotokoll aus Stichpunkten",
+        "kategorie": "Meetings",
+        "prompt": "Hier sind meine Rohnotizen vom Meeting am [Datum] zum Thema [Thema]: [Notizen]. Erstelle ein sauberes Protokoll mit: Teilnehmer, Besprochene Punkte, Entscheidungen (mit Datum), Aufgaben (Wer macht Was bis Wann).",
+        "tipp": "Versende das Protokoll innerhalb von 24h – danach erinnert sich kaum noch jemand an Details.",
+    },
+    {
+        "titel": "Komplexes Dokument auf 1 Seite kürzen",
+        "kategorie": "Berichte",
+        "prompt": "Hier ist ein langes Dokument: [Text einfügen]. Destilliere es auf maximal eine DIN-A4-Seite (ca. 400 Wörter). Behalte: Ziel, Kernaussagen, Empfehlungen. Streiche: Wiederholungen, Füllsätze, Details die keine Entscheidungsrelevanz haben.",
+        "tipp": "Wenn du nicht auf eine Seite kürzen kannst, ist das Dokument noch nicht fertig gedacht.",
+    },
+    {
+        "titel": "Jahresgespräch vorbereiten",
+        "kategorie": "Selbstorganisation",
+        "prompt": "Ich bereite mein Jahresgespräch mit meiner Führungskraft vor. Meine wichtigsten Leistungen dieses Jahr: [Liste]. Meine Entwicklungswünsche: [Stichpunkte]. Erstelle eine strukturierte Vorbereitung: Was präsentiere ich, welche Ziele schlage ich vor, wie formuliere ich meine Gehaltsforderung sachlich?",
+        "tipp": "Jahresgespräch ist eine Verhandlung – wer unvorbereitet reingeht, verlässt es meist mit dem gleichen Gehalt.",
+    },
+    {
+        "titel": "Projekt-Kickoff-Fragen vorbereiten",
+        "kategorie": "Projektmanagement",
+        "prompt": "Ich nehme am Kickoff für Projekt [Kurzbeschreibung] teil. Welche 10 Fragen muss ich im Kickoff unbedingt stellen um später keine bösen Überraschungen zu erleben? Fokus auf: Ziele, Erwartungen, Ressourcen, Risiken, Entscheidungswege.",
+        "tipp": "Im Kickoff gestellte Fragen sind immer akzeptiert – 3 Monate später gelten sie als Unwissenheit.",
+    },
+]
+
+
+def get_prompt_des_tages() -> dict:
+    day_of_year = datetime.now().timetuple().tm_yday
+    # Versatz von 7 damit Prompt und Claude-Tipp nicht synchron rotieren
+    return PROMPTS_DES_TAGES[(day_of_year + 6) % len(PROMPTS_DES_TAGES)]
+
+
 # ── Prompt ────────────────────────────────────────────────────────────────────
 PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters fuer Wissensarbeiter.
 Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Texte auf Deutsch.
@@ -330,6 +521,7 @@ def get_newsletter_data() -> dict:
         if raw_text.strip():
             data = extract_json(raw_text)
             data["claude_code_tipp"] = get_claude_code_tipp()
+            data["prompt_des_tages"] = get_prompt_des_tages()
             return data
         # Leere Antwort trotz STOP – nochmal versuchen
         reason = candidates[0].get("finishReason", "?")
@@ -373,6 +565,7 @@ SEC = {
     "podcast": {"emoji": "🎙️", "color": "#f43f5e", "light": "#fff1f2"},
     "insp":    {"emoji": "💡", "color": "#059669", "light": "#ecfdf5"},
     "claude":  {"emoji": "🤖", "color": "#7c3aed", "light": "#f5f3ff"},
+    "prompt":  {"emoji": "🎯", "color": "#0891b2", "light": "#ecfeff"},
     "tipp":    {"emoji": "✨", "color": "#d97706", "light": "#fffbeb"},
 }
 
@@ -381,8 +574,9 @@ def build_html(data: dict) -> str:
     top_news    = data.get("top_news", [])
     podcast     = data.get("podcast", {})
     inspiration = data.get("inspiration", [])
-    claude_tipp = data.get("claude_code_tipp", {})
-    tipp        = data.get("gemini_tipp", {})
+    claude_tipp  = data.get("claude_code_tipp", {})
+    prompt_tages = data.get("prompt_des_tages", {})
+    tipp         = data.get("gemini_tipp", {})
 
     def badge(text: str, color: str, bg: str) -> str:
         return (f'<span style="display:inline-block;background:{bg};color:{color};'
@@ -492,6 +686,7 @@ def build_html(data: dict) -> str:
     insp_rows  = "".join(insp_block(n, i+1) for i, n in enumerate(inspiration))
     anw_badge  = badge(claude_tipp.get('anwendungsfall', ''), SEC['claude']['color'], '#ede9fe')
     kat_badge  = badge(tipp.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
+    pdt_badge  = badge(prompt_tages.get('kategorie', ''), SEC['prompt']['color'], '#cffafe')
 
     return f"""<!DOCTYPE html>
 <html lang="de">
@@ -580,7 +775,37 @@ def build_html(data: dict) -> str:
         </table>
       </td></tr>
 
-      <!-- SEKTION 5: GEMINI TIPP -->
+      <!-- SEKTION 5: PROMPT DES TAGES -->
+      {section_title(SEC['prompt'], 'Prompt des Tages')}
+      <tr><td style="padding:0 0 32px;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['prompt']['light']};border-radius:12px;
+                      border:1px solid #a5f3fc;">
+          <tr><td style="padding:20px 22px 12px;">
+            <div style="margin-bottom:10px;">{pdt_badge}</div>
+            <h3 style="margin:0 0 14px;font-family:{FONT};font-size:16px;font-weight:700;
+                       color:{C_TEXT};">{prompt_tages.get('titel','')}</h3>
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr><td style="background:#ffffff;border-left:4px solid {SEC['prompt']['color']};
+                             border-radius:0 8px 8px 0;padding:14px 16px;">
+                <p style="margin:0 0 4px;font-family:{FONT};font-size:10px;font-weight:700;
+                           color:{SEC['prompt']['color']};letter-spacing:1px;text-transform:uppercase;">
+                  Prompt kopieren &amp; einsetzen
+                </p>
+                <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;
+                           color:#1e293b;line-height:1.7;">{prompt_tages.get('prompt','')}</p>
+              </td></tr>
+            </table>
+          </td></tr>
+          <tr><td style="padding:0 22px 16px;">
+            <span style="font-family:{FONT};font-size:13px;color:#0e7490;line-height:1.6;">
+              💡 {prompt_tages.get('tipp','')}
+            </span>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- SEKTION 6: GEMINI TIPP -->
       {section_title(SEC['tipp'], 'Gemini Pro Tipp')}
       <tr><td style="padding:0 0 16px;">
         <table width="100%" cellpadding="0" cellspacing="0"
