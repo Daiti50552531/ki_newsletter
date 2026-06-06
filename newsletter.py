@@ -580,6 +580,7 @@ def build_html(data: dict) -> str:
     claude_tipp  = data.get("claude_code_tipp", {})
     prompt_tages = data.get("prompt_des_tages", {})
     tipp         = data.get("gemini_tipp", {})
+    day_of_year  = datetime.now().timetuple().tm_yday
 
     def badge(text: str, color: str, bg: str) -> str:
         return (f'<span style="display:inline-block;background:{bg};color:{color};'
@@ -588,58 +589,60 @@ def build_html(data: dict) -> str:
 
     def section_title(s: dict, title: str) -> str:
         return f"""
-        <tr><td style="padding:36px 0 20px;">
-          <table cellpadding="0" cellspacing="0"><tr>
-            <td style="background:{s['color']};border-radius:12px;
-                       padding:6px 14px;vertical-align:middle;">
-              <span style="font-family:{FONT};font-size:13px;font-weight:800;
-                           color:#fff;letter-spacing:.5px;text-transform:uppercase;">
-                {s['emoji']}&nbsp; {title}
-              </span>
-            </td>
-          </tr></table>
+        <tr><td style="padding:32px 0 18px;">
+          <span style="font-family:{FONT};font-size:10px;font-weight:900;
+                       color:{s['color']};letter-spacing:2.5px;text-transform:uppercase;
+                       border-bottom:2px solid {s['color']};padding-bottom:6px;">
+            {s['emoji']}&ensp;{title}
+          </span>
         </td></tr>"""
 
     def news_block(item: dict, idx: int) -> str:
         take = item.get('take', '')
-        take_html = (
-            f'<tr><td style="padding:0 0 12px;">'
-            f'<table width="100%" cellpadding="0" cellspacing="0">'
-            f'<tr><td style="background:{SEC["news"]["light"]};border-left:3px solid {SEC["news"]["color"]};'
-            f'border-radius:0 6px 6px 0;padding:8px 12px;">'
-            f'<span style="font-family:{FONT};font-size:11px;font-weight:800;'
-            f'color:{SEC["news"]["color"]};letter-spacing:.5px;text-transform:uppercase;">Take &nbsp;</span>'
-            f'<span style="font-family:{FONT};font-size:13px;color:#374151;font-style:italic;line-height:1.6;">'
-            f'{take}</span></td></tr></table></td></tr>'
-        ) if take else ''
+        take_row = f"""
+          <tr><td colspan="2" style="padding:0 18px 14px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr><td style="background:{SEC['news']['light']};border-left:4px solid {SEC['news']['color']};
+                             border-radius:0 8px 8px 0;padding:10px 14px;">
+                <span style="font-family:{FONT};font-size:10px;font-weight:900;
+                      color:{SEC['news']['color']};letter-spacing:1.5px;text-transform:uppercase;">
+                  TAKE&ensp;</span>
+                <span style="font-family:{FONT};font-size:13px;color:#1e293b;line-height:1.65;">
+                  {take}</span>
+              </td></tr>
+            </table>
+          </td></tr>""" if take else ''
         return f"""
-        <tr><td style="padding:0 0 20px;">
+        <tr><td style="padding:0 0 14px;">
           <table width="100%" cellpadding="0" cellspacing="0"
-                 style="border-left:3px solid {SEC['news']['color']};padding-left:14px;">
-            <tr><td style="padding:0 0 5px;">
-              <span style="font-family:{FONT};font-size:22px;font-weight:900;
-                           color:{SEC['news']['color']};opacity:.25;line-height:1;">
-                {str(idx).zfill(2)}
-              </span>
-              &nbsp;
-              <span style="font-family:{FONT};font-size:11px;color:{C_MUTE};">
-                {item.get('datum','')} &middot; {item.get('quelle','')}
-              </span>
-            </td></tr>
-            <tr><td style="padding:0 0 7px;">
+                 style="border-radius:12px;border:1px solid #eaecf2;background:#f9fafb;">
+            <tr>
+              <td style="padding:16px 18px 0;vertical-align:middle;">
+                <span style="font-family:{FONT};font-size:11px;font-weight:600;color:{C_MUTE};">
+                  {item.get('datum','')} &middot; {item.get('quelle','')}
+                </span>
+              </td>
+              <td style="padding:12px 16px 0;text-align:right;vertical-align:top;width:36px;">
+                <span style="font-family:{FONT};font-size:22px;font-weight:900;
+                             color:{SEC['news']['color']};opacity:.18;line-height:1;">
+                  {str(idx).zfill(2)}
+                </span>
+              </td>
+            </tr>
+            <tr><td colspan="2" style="padding:6px 18px 10px;">
               <a href="{item.get('url','#')}"
-                 style="font-family:{FONT};font-size:16px;font-weight:700;
+                 style="font-family:{FONT};font-size:17px;font-weight:800;
                         color:{C_TEXT};text-decoration:none;line-height:1.4;">
                 {item.get('titel','')}
               </a>
             </td></tr>
-            <tr><td style="padding:0 0 8px;">
-              <span style="font-family:{FONT};font-size:14px;color:#475569;line-height:1.7;">
+            <tr><td colspan="2" style="padding:0 18px 14px;">
+              <span style="font-family:{FONT};font-size:14px;color:#475569;line-height:1.75;">
                 {item.get('zusammenfassung','')}
               </span>
             </td></tr>
-            {take_html}
-            <tr><td style="padding:0 0 20px;border-bottom:1px solid {C_BDR};">
+            {take_row}
+            <tr><td colspan="2" style="padding:10px 18px 14px;border-top:1px solid #eaecf2;">
               <a href="{item.get('url','#')}"
                  style="font-family:{FONT};font-size:12px;font-weight:700;
                         color:{SEC['news']['color']};text-decoration:none;">
@@ -647,35 +650,35 @@ def build_html(data: dict) -> str:
               </a>
             </td></tr>
           </table>
-        </td></tr>
-        <tr><td style="padding:0 0 4px;"></td></tr>"""
+        </td></tr>"""
 
     def insp_block(item: dict, idx: int) -> str:
         return f"""
-        <tr><td style="padding:0 0 20px;">
+        <tr><td style="padding:0 0 14px;">
           <table width="100%" cellpadding="0" cellspacing="0"
-                 style="background:{SEC['insp']['light']};border-radius:10px;">
-            <tr><td style="padding:16px 18px 0;">
+                 style="background:{SEC['insp']['light']};border-radius:12px;
+                        border:1px solid #a7f3d0;">
+            <tr><td style="padding:16px 18px 4px;">
               <span style="font-family:{FONT};font-size:11px;color:{C_MUTE};">
                 {item.get('datum','')} &middot; {item.get('quelle','')}
               </span>
             </td></tr>
-            <tr><td style="padding:6px 18px 4px;">
+            <tr><td style="padding:4px 18px 8px;">
               <a href="{item.get('url','#')}"
                  style="font-family:{FONT};font-size:15px;font-weight:700;
                         color:{C_TEXT};text-decoration:none;line-height:1.4;">
                 {item.get('projekt_name','')}
               </a>
             </td></tr>
-            <tr><td style="padding:0 18px 8px;">
+            <tr><td style="padding:0 18px 10px;">
               {badge('Tools: ' + item.get('tools',''), SEC['insp']['color'], '#d1fae5')}
             </td></tr>
-            <tr><td style="padding:0 18px 8px;">
-              <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.7;">
+            <tr><td style="padding:0 18px 12px;">
+              <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.75;">
                 {item.get('beschreibung','')}
               </span>
             </td></tr>
-            <tr><td style="padding:0 18px 16px;">
+            <tr><td style="padding:10px 18px 14px;border-top:1px solid #a7f3d0;">
               <a href="{item.get('url','#')}"
                  style="font-family:{FONT};font-size:12px;font-weight:700;
                         color:{SEC['insp']['color']};text-decoration:none;">
@@ -700,44 +703,50 @@ def build_html(data: dict) -> str:
 </head>
 <body style="margin:0;padding:0;background:{C_BG};">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:{C_BG};">
-<tr><td align="center" style="padding:28px 16px 48px;">
+<tr><td align="center" style="padding:24px 16px 48px;">
 <table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
 
   <!-- HEADER -->
-  <tr><td style="background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 100%);
-                 border-radius:16px 16px 0 0;padding:32px 36px 28px;">
-    <p style="margin:0 0 6px;font-family:{FONT};font-size:11px;color:#a5b4fc;
-              letter-spacing:2px;text-transform:uppercase;">
-      {TODAY} &nbsp;&middot;&nbsp; Täglich &nbsp;&middot;&nbsp; Kostenlos
+  <tr><td style="background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 60%,#6d28d9 100%);
+                 border-radius:16px 16px 0 0;padding:30px 36px 26px;">
+    <p style="margin:0 0 8px;font-family:{FONT};font-size:10px;color:#818cf8;
+              letter-spacing:3px;text-transform:uppercase;">
+      TÄGLICH &nbsp;·&nbsp; KOSTENLOS &nbsp;·&nbsp; AUSGABE&thinsp;#{day_of_year}
     </p>
-    <h1 style="margin:0 0 6px;font-family:{FONT};font-size:28px;font-weight:900;
-               color:#ffffff;letter-spacing:-.5px;">
+    <h1 style="margin:0 0 8px;font-family:{FONT};font-size:30px;font-weight:900;
+               color:#ffffff;letter-spacing:-.5px;line-height:1.15;">
       KI-Newsletter 🤖
     </h1>
     <p style="margin:0;font-family:{FONT};font-size:13px;color:#c7d2fe;line-height:1.5;">
-      Kuratiert von Gemini 2.5 Flash &middot; Internationale Quellen &middot; Täglich 04:00 Uhr
+      {TODAY} &nbsp;&middot;&nbsp; Kuratiert von Gemini 2.5 Flash &nbsp;&middot;&nbsp; Täglich 04:00 Uhr
     </p>
   </td></tr>
 
   <!-- BODY -->
-  <tr><td style="background:{C_CARD};padding:4px 36px 36px;
+  <tr><td style="background:{C_CARD};padding:4px 36px 40px;
                  border-radius:0 0 16px 16px;
-                 box-shadow:0 8px 30px rgba(79,70,229,.1);">
+                 box-shadow:0 8px 30px rgba(79,70,229,.08);">
     <table width="100%" cellpadding="0" cellspacing="0">
 
       <!-- SEKTION 1: TOP NEWS -->
-      {section_title(SEC['news'], 'Top News')}
+      {section_title(SEC['news'], 'Top News des Tages')}
       {news_rows}
 
       <!-- SEKTION 2: PODCAST -->
-      {section_title(SEC['podcast'], 'Podcast-Empfehlung des Tages')}
-      <tr><td style="padding:0 0 32px;">
+      {section_title(SEC['podcast'], 'Podcast-Empfehlung')}
+      <tr><td style="padding:0 0 0;">
         <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:{SEC['podcast']['light']};border-radius:12px;
-                      border:1px solid #fecdd3;">
-          <tr><td style="padding:20px 22px;">
-            <p style="margin:0 0 5px;font-family:{FONT};font-size:11px;color:{C_MUTE};">
-              {podcast.get('datum','')} &middot; {podcast.get('podcast_name','')}
+               style="border-radius:12px;border:1px solid #fecdd3;">
+          <tr><td style="background:{SEC['podcast']['light']};border-radius:12px 12px 0 0;
+                         padding:9px 18px 8px;border-bottom:1px solid #fecdd3;">
+            <span style="font-family:{FONT};font-size:10px;font-weight:700;
+                         color:{SEC['podcast']['color']};letter-spacing:2px;text-transform:uppercase;">
+              {SEC['podcast']['emoji']}&ensp;{podcast.get('podcast_name','')}
+            </span>
+          </td></tr>
+          <tr><td style="padding:14px 18px 16px;">
+            <p style="margin:0 0 3px;font-family:{FONT};font-size:11px;color:{C_MUTE};">
+              {podcast.get('datum','')}
             </p>
             <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
                        color:{C_TEXT};line-height:1.4;">
@@ -760,27 +769,40 @@ def build_html(data: dict) -> str:
 
       <!-- SEKTION 3: PROMPT DES TAGES -->
       {section_title(SEC['prompt'], 'Prompt des Tages')}
-      <tr><td style="padding:0 0 32px;">
+      <tr><td style="padding:0 0 0;">
         <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:{SEC['prompt']['light']};border-radius:12px;
-                      border:1px solid #a5f3fc;">
-          <tr><td style="padding:20px 22px 12px;">
+               style="border-radius:12px;border:1px solid #a5f3fc;">
+          <tr><td style="background:{SEC['prompt']['light']};border-radius:12px 12px 0 0;
+                         padding:16px 18px 14px;">
             <div style="margin-bottom:10px;">{pdt_badge}</div>
             <h3 style="margin:0 0 14px;font-family:{FONT};font-size:16px;font-weight:700;
                        color:{C_TEXT};">{prompt_tages.get('titel','')}</h3>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr><td style="background:#ffffff;border-left:4px solid {SEC['prompt']['color']};
-                             border-radius:0 8px 8px 0;padding:14px 16px;">
-                <p style="margin:0 0 4px;font-family:{FONT};font-size:10px;font-weight:700;
-                           color:{SEC['prompt']['color']};letter-spacing:1px;text-transform:uppercase;">
-                  Prompt kopieren &amp; einsetzen
-                </p>
+            <table width="100%" cellpadding="0" cellspacing="0"
+                   style="background:#0f172a;border-radius:8px;">
+              <tr><td style="padding:10px 14px 6px;">
+                <table cellpadding="0" cellspacing="0"><tr>
+                  <td style="width:10px;height:10px;background:#ef4444;border-radius:50%;
+                             font-size:0;line-height:0;">&thinsp;</td>
+                  <td width="5">&thinsp;</td>
+                  <td style="width:10px;height:10px;background:#fbbf24;border-radius:50%;
+                             font-size:0;line-height:0;">&thinsp;</td>
+                  <td width="5">&thinsp;</td>
+                  <td style="width:10px;height:10px;background:#22c55e;border-radius:50%;
+                             font-size:0;line-height:0;">&thinsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-family:{FONT};font-size:10px;color:#475569;
+                                 letter-spacing:1px;text-transform:uppercase;">prompt</span>
+                  </td>
+                </tr></table>
+              </td></tr>
+              <tr><td style="padding:4px 16px 16px;">
                 <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;
-                           color:#1e293b;line-height:1.7;">{prompt_tages.get('prompt','')}</p>
+                           color:#e2e8f0;line-height:1.7;">{prompt_tages.get('prompt','')}</p>
               </td></tr>
             </table>
           </td></tr>
-          <tr><td style="padding:0 22px 16px;">
+          <tr><td style="background:{SEC['prompt']['light']};padding:10px 18px 16px;
+                         border-top:1px solid #a5f3fc;border-radius:0 0 12px 12px;">
             <span style="font-family:{FONT};font-size:13px;color:#0e7490;line-height:1.6;">
               💡 {prompt_tages.get('tipp','')}
             </span>
@@ -794,32 +816,32 @@ def build_html(data: dict) -> str:
 
       <!-- SEKTION 5: CLAUDE CODE TIPP -->
       {section_title(SEC['claude'], 'Claude Code im Projektalltag')}
-      <tr><td style="padding:0 0 32px;">
+      <tr><td style="padding:0 0 0;">
         <table width="100%" cellpadding="0" cellspacing="0"
                style="background:{SEC['claude']['light']};border-radius:12px;
                       border:1px solid #ddd6fe;">
-          <tr><td style="padding:20px 22px;">
+          <tr><td style="padding:18px 20px;">
             <div style="margin-bottom:10px;">{anw_badge}</div>
             <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
                        color:{C_TEXT};">{claude_tipp.get('titel','')}</h3>
             <p style="margin:0;font-family:{FONT};font-size:14px;
-                      color:#374151;line-height:1.7;">{claude_tipp.get('beschreibung','')}</p>
+                      color:#374151;line-height:1.75;">{claude_tipp.get('beschreibung','')}</p>
           </td></tr>
         </table>
       </td></tr>
 
       <!-- SEKTION 6: GEMINI TIPP -->
       {section_title(SEC['tipp'], 'Gemini Pro Tipp')}
-      <tr><td style="padding:0 0 16px;">
+      <tr><td style="padding:0 0 0;">
         <table width="100%" cellpadding="0" cellspacing="0"
                style="background:{SEC['tipp']['light']};border-radius:12px;
                       border:1px solid #fde68a;">
-          <tr><td style="padding:20px 22px;">
+          <tr><td style="padding:18px 20px;">
             <div style="margin-bottom:10px;">{kat_badge}</div>
             <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
                        color:{C_TEXT};">{tipp.get('titel','')}</h3>
             <p style="margin:0;font-family:{FONT};font-size:14px;
-                      color:#374151;line-height:1.7;">{tipp.get('beschreibung','')}</p>
+                      color:#374151;line-height:1.75;">{tipp.get('beschreibung','')}</p>
           </td></tr>
         </table>
       </td></tr>
@@ -828,11 +850,17 @@ def build_html(data: dict) -> str:
   </td></tr>
 
   <!-- FOOTER -->
-  <tr><td style="padding:20px 0 0;text-align:center;">
-    <p style="margin:0;font-family:{FONT};font-size:12px;color:#94a3b8;line-height:1.9;">
-      🤖 Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions<br>
-      Internationale Quellen &middot; Täglich 04:00 Uhr &middot; 0&thinsp;€/Monat
-    </p>
+  <tr><td style="padding:22px 0 0;">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr><td style="border-top:1px solid #e2e8f0;padding:18px 0 0;text-align:center;">
+        <p style="margin:0 0 4px;font-family:{FONT};font-size:12px;color:#94a3b8;line-height:1.8;">
+          🤖 Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions
+        </p>
+        <p style="margin:0;font-family:{FONT};font-size:11px;color:#cbd5e1;">
+          Täglich 04:00 Uhr &middot; 0&thinsp;€/Monat &middot; Ausgabe&thinsp;#{day_of_year}
+        </p>
+      </td></tr>
+    </table>
   </td></tr>
 
 </table>
