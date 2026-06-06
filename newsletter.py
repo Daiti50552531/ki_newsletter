@@ -368,11 +368,14 @@ Ueberschriften: Spezifisch, zeigen was sich aendert – nicht nur was passiert i
   GUT: "Gemini direkt im Browser: Was das fuer alle bedeutet, die kein Claude-Abo haben"
 
 --- AKTUALITAET ---
-Nur Nachrichten der letzten 24 Stunden. Keine Quelle darf aelter als 24h sein.
+STRIKTE REGEL: Nur Nachrichten der letzten 24 Stunden. Artikel aelter als 24h sind VERBOTEN.
+Pruefe das Veroeffentlichungsdatum jedes Artikels explizit per Suche bevor du ihn aufnimmst.
+Wenn du das Datum eines Artikels nicht mit Sicherheit bestaetigen kannst – lass ihn weg.
+Lieber 3 frische Nachrichten als 5 mit alten dabei. Qualitaet vor Quantitaet.
 Podcast-Empfehlung: Die aktuellste Episode eines der gelisteten Podcasts aus den letzten 7 Tagen.
 TOP-PRIORITAET: Neue Modell-Releases (ChatGPT, Claude, Gemini, Llama, DeepSeek, Mistral usw.),
 neue APIs und SDK-Versionen – diese IMMER aufnehmen wenn in den letzten 24h veroeffentlicht.
-Nutze aktuelle Suche mit Datumsfilter um Erscheinungsdatum zu verifizieren. Im Zweifel weglassen.
+Suche explizit nach: "site:techcrunch.com after:{TODAY}" oder aehnlichen Datumsfiltern.
 
 --- BLACKLIST (niemals verwenden) ---
 AInauten, TAAFT, Doppelgaenger Newsletter/Podcast, AI Daily Brief
@@ -755,27 +758,7 @@ def build_html(data: dict) -> str:
         </table>
       </td></tr>
 
-      <!-- SEKTION 3: INSPIRATION -->
-      {section_title(SEC['insp'], 'KI im Einsatz &amp; Praxisbeispiele')}
-      {insp_rows}
-
-      <!-- SEKTION 4: CLAUDE CODE TIPP -->
-      {section_title(SEC['claude'], 'Claude Code im Projektalltag')}
-      <tr><td style="padding:0 0 32px;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:{SEC['claude']['light']};border-radius:12px;
-                      border:1px solid #ddd6fe;">
-          <tr><td style="padding:20px 22px;">
-            <div style="margin-bottom:10px;">{anw_badge}</div>
-            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
-                       color:{C_TEXT};">{claude_tipp.get('titel','')}</h3>
-            <p style="margin:0;font-family:{FONT};font-size:14px;
-                      color:#374151;line-height:1.7;">{claude_tipp.get('beschreibung','')}</p>
-          </td></tr>
-        </table>
-      </td></tr>
-
-      <!-- SEKTION 5: PROMPT DES TAGES -->
+      <!-- SEKTION 3: PROMPT DES TAGES -->
       {section_title(SEC['prompt'], 'Prompt des Tages')}
       <tr><td style="padding:0 0 32px;">
         <table width="100%" cellpadding="0" cellspacing="0"
@@ -801,6 +784,26 @@ def build_html(data: dict) -> str:
             <span style="font-family:{FONT};font-size:13px;color:#0e7490;line-height:1.6;">
               💡 {prompt_tages.get('tipp','')}
             </span>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- SEKTION 4: INSPIRATION -->
+      {section_title(SEC['insp'], 'KI im Einsatz &amp; Praxisbeispiele')}
+      {insp_rows}
+
+      <!-- SEKTION 5: CLAUDE CODE TIPP -->
+      {section_title(SEC['claude'], 'Claude Code im Projektalltag')}
+      <tr><td style="padding:0 0 32px;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['claude']['light']};border-radius:12px;
+                      border:1px solid #ddd6fe;">
+          <tr><td style="padding:20px 22px;">
+            <div style="margin-bottom:10px;">{anw_badge}</div>
+            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
+                       color:{C_TEXT};">{claude_tipp.get('titel','')}</h3>
+            <p style="margin:0;font-family:{FONT};font-size:14px;
+                      color:#374151;line-height:1.7;">{claude_tipp.get('beschreibung','')}</p>
           </td></tr>
         </table>
       </td></tr>
