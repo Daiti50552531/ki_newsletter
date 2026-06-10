@@ -341,6 +341,185 @@ def get_prompt_des_tages() -> dict:
     return PROMPTS_DES_TAGES[(day_of_year + 6) % len(PROMPTS_DES_TAGES)]
 
 
+# ── Statische Tool-Bibliothek (rotiert täglich, TAAFT-Stil) ───────────────────
+TOOL_TIPPS = [
+    {
+        "name": "NotebookLM",
+        "kategorie": "Recherche",
+        "preis": "Kostenlos",
+        "url": "https://notebooklm.google.com",
+        "beschreibung": "Lade bis zu 50 Dokumente, PDFs oder YouTube-Links hoch und stelle Fragen direkt an deine Quellen – jede Antwort mit Zitatnachweis. Das Killer-Feature: Audio Overviews verwandeln deine Unterlagen in einen Podcast-Dialog, ideal fürs Pendeln. Für Projektdokumentation und Einarbeitung in neue Themen aktuell kaum zu schlagen.",
+        "take": "Das unterschätzteste Gratis-Tool von Google. Wenn du nur ein neues Tool diese Woche testest: dieses.",
+    },
+    {
+        "name": "Perplexity",
+        "kategorie": "Recherche",
+        "preis": "Freemium",
+        "url": "https://www.perplexity.ai",
+        "beschreibung": "Suchmaschine mit KI-Antworten und klickbaren Quellenangaben – statt zehn Tabs öffnest du eine Antwort mit Belegen. Besonders stark bei aktuellen Themen und Faktenrecherche, wo ChatGPT gern halluziniert. Die kostenlose Version reicht für den Alltag völlig aus.",
+        "take": "Mein Standard für jede Recherche, bei der ich Quellen brauche. Google nutze ich fast nur noch für Navigation.",
+    },
+    {
+        "name": "Gamma",
+        "kategorie": "Präsentationen",
+        "preis": "Freemium",
+        "url": "https://gamma.app",
+        "beschreibung": "Beschreibe dein Thema in zwei Sätzen oder füge deine Gliederung ein – Gamma baut daraus ein komplettes, ansehnliches Deck mit Layout und Bildern. Export nach PowerPoint funktioniert. Die Designs sind besser als das, was die meisten von uns manuell bauen.",
+        "take": "Für interne Decks und erste Entwürfe ein massiver Zeitgewinn. Für das Vorstands-Deck danach manuell verfeinern.",
+    },
+    {
+        "name": "Napkin AI",
+        "kategorie": "Visualisierung",
+        "preis": "Kostenlos (Beta)",
+        "url": "https://www.napkin.ai",
+        "beschreibung": "Du fügst Text ein, Napkin schlägt passende Visualisierungen vor: Diagramme, Flowcharts, Prozessgrafiken. Mit einem Klick eingefügt und anpassbar, Export als PNG oder SVG. Verwandelt Textwüsten in Folien, die Leute tatsächlich verstehen.",
+        "take": "Genau das Tool für alle, die keine Designer sind, aber ständig Konzepte erklären müssen.",
+    },
+    {
+        "name": "tl;dv",
+        "kategorie": "Meetings",
+        "preis": "Freemium",
+        "url": "https://tldv.io",
+        "beschreibung": "Zeichnet Teams-, Meet- und Zoom-Calls auf, transkribiert sie und erstellt automatisch Zusammenfassungen mit Action Items. Du kannst Momente im Meeting taggen und später per Suche wiederfinden. DSGVO-konform mit EU-Hosting-Option – wichtig fürs Unternehmensumfeld.",
+        "take": "Wer viele Meetings hat und danach Protokolle schreiben muss, spart hier echte Stunden pro Woche.",
+    },
+    {
+        "name": "DeepL Write",
+        "kategorie": "Schreiben",
+        "preis": "Kostenlos",
+        "url": "https://www.deepl.com/write",
+        "beschreibung": "Verbessert deutsche und englische Texte stilistisch: präziser, professioneller oder lockerer – du wählst den Ton. Anders als ChatGPT schreibt es deinen Text nicht komplett um, sondern schlägt gezielte Verbesserungen vor. Vom deutschen Anbieter, läuft komplett im Browser.",
+        "take": "Für wichtige E-Mails der schnellste Qualitäts-Boost überhaupt. 30 Sekunden, merklich besserer Text.",
+    },
+    {
+        "name": "Claude Projects",
+        "kategorie": "Wissensarbeit",
+        "preis": "Ab 18€/Monat (Pro)",
+        "url": "https://claude.ai",
+        "beschreibung": "Lege pro Thema ein Projekt an und hinterlege Kontext-Dokumente und Anweisungen, die in jedem Chat automatisch verfügbar sind. Statt jedes Mal alles neu zu erklären, kennt Claude dein Projekt, deine Rolle und deinen Stil. Ideal für wiederkehrende Aufgaben wie Status-Reports oder Kundenkommunikation.",
+        "take": "Das Feature, das aus Claude ein echtes Arbeitswerkzeug macht. Der Unterschied zu losen Chats ist enorm.",
+    },
+    {
+        "name": "Notion AI",
+        "kategorie": "Organisation",
+        "preis": "Add-on, ca. 10€/Monat",
+        "url": "https://www.notion.com/product/ai",
+        "beschreibung": "KI direkt in deinem Wiki und deinen Notizen: Zusammenfassen, Übersetzen, Action Items extrahieren, Datenbanken befragen. Der Vorteil gegenüber externen Chatbots: Die KI kennt deinen gesamten Workspace und durchsucht ihn. Q&A über alle Team-Dokumente hinweg ist der eigentliche Mehrwert.",
+        "take": "Lohnt sich erst, wenn dein Team Notion wirklich als zentrale Wissensbasis nutzt – dann aber richtig.",
+    },
+    {
+        "name": "Zapier",
+        "kategorie": "Automatisierung",
+        "preis": "Freemium",
+        "url": "https://zapier.com",
+        "beschreibung": "Verbindet über 7.000 Apps ohne Code: E-Mail-Anhänge automatisch in Ablagen sortieren, Formular-Antworten in Tabellen schreiben, Slack-Benachrichtigungen bei neuen Einträgen. Mit den KI-Schritten kannst du mittlerweile auch Texte klassifizieren oder zusammenfassen lassen – mitten in der Automatisierung.",
+        "take": "Fang mit einem nervigen, wiederkehrenden Handgriff an und automatisiere genau den. Der Rest kommt von allein.",
+    },
+    {
+        "name": "Lovable",
+        "kategorie": "Eigene Tools bauen",
+        "preis": "Freemium",
+        "url": "https://lovable.dev",
+        "beschreibung": "Beschreibe eine kleine Web-App auf Deutsch oder Englisch – Lovable baut sie komplett: Oberfläche, Logik, Datenbank. Ein Urlaubsplaner fürs Team, ein Feedback-Formular, ein internes Dashboard: in Minuten statt Wochen. Kein Entwickler nötig, Ergebnis direkt teilbar per Link.",
+        "take": "Die schnellste Art zu erleben, was 'eigene KI-Helfer bauen' heute bedeutet. Erster Prototyp in 15 Minuten.",
+    },
+    {
+        "name": "Google AI Studio",
+        "kategorie": "Experimentieren",
+        "preis": "Kostenlos",
+        "url": "https://aistudio.google.com",
+        "beschreibung": "Der direkte Zugang zu Googles Gemini-Modellen ohne Abo: lange Dokumente analysieren, Videos befragen, Bildschirm teilen und live Fragen stellen. Bis zu eine Million Token Kontext – ganze Bücher oder Projektordner passen in einen Prompt. Versteckt sich hinter einem Entwickler-Look, ist aber für jeden bedienbar.",
+        "take": "Das großzügigste Gratis-Angebot im KI-Markt. Perfekt um Gemini zu testen, bevor du irgendwas abonnierst.",
+    },
+    {
+        "name": "Le Chat (Mistral)",
+        "kategorie": "Chat-Assistent",
+        "preis": "Freemium",
+        "url": "https://chat.mistral.ai",
+        "beschreibung": "Der ChatGPT-Konkurrent aus Frankreich: schnelle Antworten, Websuche, Dokumenten-Analyse und Bildgenerierung. Für Unternehmen interessant, weil europäisch gehostet und DSGVO-freundlicher als US-Anbieter. Qualitativ nicht ganz auf GPT- oder Claude-Niveau, aber näher dran als viele denken.",
+        "take": "Wenn dein Unternehmen bei US-Clouds zögert: Das hier ist das Argument, trotzdem mit KI zu arbeiten.",
+    },
+    {
+        "name": "ElevenLabs",
+        "kategorie": "Audio",
+        "preis": "Freemium",
+        "url": "https://elevenlabs.io",
+        "beschreibung": "Verwandelt Text in natürlich klingende Sprache – auch auf Deutsch und in deiner eigenen geklonten Stimme. Praktisch für Schulungsvideos, Produkt-Demos oder um lange Dokumente unterwegs als Audio zu hören. Die Qualität ist von echten Sprechern kaum zu unterscheiden.",
+        "take": "Für E-Learning und interne Videos ein Gamechanger. Niemand muss mehr selbst einsprechen oder Sprecher buchen.",
+    },
+    {
+        "name": "Canva Magic Studio",
+        "kategorie": "Design",
+        "preis": "Freemium",
+        "url": "https://www.canva.com/magic",
+        "beschreibung": "Canvas KI-Werkzeuge: Bilder generieren und bearbeiten, Texte umschreiben, ganze Designs aus einer Beschreibung erstellen. Magic Resize passt ein Design automatisch für alle Formate an – ein Social-Post wird zu Folie, Banner und Story. Für alle, die Design-Aufgaben haben, aber keine Designer sind.",
+        "take": "Wenn du eh Canva nutzt, schalte die Magic-Features frei – die sparen mehr Zeit als die meisten Einzeltools.",
+    },
+    {
+        "name": "LanguageTool",
+        "kategorie": "Schreiben",
+        "preis": "Freemium",
+        "url": "https://languagetool.org",
+        "beschreibung": "Grammatik- und Stilprüfung speziell stark im Deutschen – deutlich gründlicher als die Word-Rechtschreibprüfung. Als Browser-Extension prüft es überall: E-Mails, Wiki-Einträge, Formulare. Die KI-Umformulierung schlägt bessere Satzvarianten vor, ohne den Sinn zu verändern.",
+        "take": "Die Browser-Extension einmal installieren und nie wieder peinliche Tippfehler in wichtigen Mails.",
+    },
+    {
+        "name": "Granola",
+        "kategorie": "Meetings",
+        "preis": "Freemium",
+        "url": "https://www.granola.ai",
+        "beschreibung": "Meeting-Notiz-Tool mit anderem Ansatz: Es tritt nicht als Bot ins Meeting ein, sondern hört lokal mit und veredelt deine eigenen Stichpunkte zu vollständigen Notizen. Niemand sieht einen Aufnahme-Hinweis, die Notizen bleiben deine. Aktuell eines der gehyptesten Produktivitäts-Tools – zu Recht.",
+        "take": "Eleganter als Bot-Lösungen, weil deine eigenen Gedanken die Struktur vorgeben und die KI nur auffüllt.",
+    },
+    {
+        "name": "Ideogram",
+        "kategorie": "Bilder",
+        "preis": "Freemium",
+        "url": "https://ideogram.ai",
+        "beschreibung": "Bildgenerator mit einer Spezialität, an der andere scheitern: lesbarer Text im Bild. Poster, Slide-Hintergründe, Diagramm-Headers mit korrekt geschriebenen Wörtern. Für Arbeitsgrafiken oft nützlicher als Midjourney, weil Beschriftungen einfach stimmen.",
+        "take": "Sobald Text im Bild vorkommen soll, ist das hier die erste Wahl – nicht DALL-E, nicht Midjourney.",
+    },
+    {
+        "name": "Goblin Tools",
+        "kategorie": "Selbstorganisation",
+        "preis": "Kostenlos",
+        "url": "https://goblin.tools",
+        "beschreibung": "Eine Sammlung kleiner KI-Helfer: 'Magic ToDo' zerlegt überwältigende Aufgaben in machbare Schritte, der 'Formalizer' übersetzt zwischen locker und förmlich, der 'Judge' prüft den Tonfall deiner Nachricht. Ursprünglich für Menschen mit ADHS gebaut, hilft aber jedem mit voller Aufgabenliste.",
+        "take": "Klingt unscheinbar, aber Magic ToDo ist die beste Anti-Prokrastinations-Hilfe, die ich kenne.",
+    },
+    {
+        "name": "Krisp",
+        "kategorie": "Meetings",
+        "preis": "Freemium",
+        "url": "https://krisp.ai",
+        "beschreibung": "KI-Geräuschunterdrückung für alle Calls: Hundebellen, Baustelle, Großraumbüro – weg. Funktioniert mit jedem Meeting-Tool, weil es sich als virtuelles Mikrofon dazwischenschaltet. Inzwischen auch mit Transkription und Meeting-Zusammenfassungen.",
+        "take": "Für alle im Homeoffice mit Nebengeräuschen die 5-Minuten-Installation, die jede Call-Qualität rettet.",
+    },
+    {
+        "name": "Suno",
+        "kategorie": "Kreativ",
+        "preis": "Freemium",
+        "url": "https://suno.com",
+        "beschreibung": "Erstellt komplette Songs aus einer Textbeschreibung – Musik, Gesang, Text, fertig produziert. Im Arbeitskontext überraschend nützlich: Jingles für interne Videos, ein Teamsong fürs Offsite, Audio-Branding für Präsentationen. Und ehrlich: Es macht einfach Spaß.",
+        "take": "Kein Pflicht-Tool, aber der sicherste Weg, Kollegen in 2 Minuten zum Staunen zu bringen, was KI heute kann.",
+    },
+    {
+        "name": "Excalidraw",
+        "kategorie": "Visualisierung",
+        "preis": "Kostenlos",
+        "url": "https://excalidraw.com",
+        "beschreibung": "Whiteboard-Tool im Handskizzen-Look, das mit KI-Unterstützung Diagramme aus Textbeschreibungen generiert ('Text to Diagram'). Architektur-Skizzen, Prozessabläufe, Mindmaps – ohne Anmeldung direkt im Browser. Der Skizzen-Stil signalisiert 'Entwurf' und lädt zu Feedback ein, statt fertig zu wirken.",
+        "take": "Perfekt für frühe Konzeptphasen, wo Hochglanz-Diagramme falsche Verbindlichkeit suggerieren würden.",
+    },
+]
+
+
+def get_tool_tipp() -> dict:
+    day_of_year = datetime.now().timetuple().tm_yday
+    # Versatz von 13 damit Tool, Prompt und Claude-Tipp nicht synchron rotieren
+    return TOOL_TIPPS[(day_of_year + 13) % len(TOOL_TIPPS)]
+
+
 # ── Prompt ────────────────────────────────────────────────────────────────────
 PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters fuer Wissensarbeiter.
 Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Texte auf Deutsch.
@@ -393,18 +572,11 @@ die Wissensarbeiter direkt nutzen koennen, strategische Marktverschiebungen mit 
 ABLEHNEN: Reine Aktienkurse und Finanzmeldungen, oberflaechliches PR ohne Substanz,
 akademische Forschung ohne praktischen Anwendungsfall, Startup-Finanzierungsnews ohne technischen Kern
 
---- PRAXISBEISPIELE SUCHEN (fuer Sektion 3) ---
-Suche nach: Menschen die KI in ihrer taeglichen Arbeit einsetzen, Workflow-Automatisierungen,
-KI-Tools fuer Selbstorganisation/Projektmanagement/Dokumentation,
-einfache KI-Helfer auch fuer Nicht-Entwickler, produktive KI-Anwendungen im Unternehmenskontext.
-Pro Beispiel: Was war das Problem? Wie wurde es mit KI geloest? Was kann ich davon direkt uebernehmen?
-WICHTIG: Nur real existierende Projekte mit verifizierbarer Quelle. Keine erfundenen Beispiele.
-KEIN Fokus auf Umsatz oder MRR – Fokus auf praktischen Nutzen und Uebertragbarkeit.
-
 --- AUSGABE ---
 Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erklaerungen:
 
 {{
+  "intro": "2-3 Saetze lockere Begruessung im Stil eines Newsletters von einem Kollegen. Beginne mit etwas wie 'Moin!' oder 'Hey!'. Teasere die wichtigste News des Tages an, gern mit einer Prise Humor oder einer pointierten Beobachtung. KEINE Floskeln wie 'Willkommen zur neuen Ausgabe'.",
   "top_news": [
     {{
       "titel": "Spezifischer Titel der zeigt was sich aendert – nicht nur was passiert ist",
@@ -422,16 +594,6 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
     "url": "https://...",
     "datum": "TT.MM.YYYY"
   }},
-  "inspiration": [
-    {{
-      "projekt_name": "...",
-      "beschreibung": "2-3 Saetze: Welches Problem loest das? Wie wurde KI eingesetzt? Was kann ich direkt uebernehmen oder daraus lernen?",
-      "tools": "z.B. Claude Code + Python oder ChatGPT + Zapier",
-      "quelle": "Name der Quelle",
-      "url": "https://...",
-      "datum": "TT.MM.YYYY"
-    }}
-  ],
   "gemini_tipp": {{
     "titel": "...",
     "kategorie": "Produktivitaet|Coding|Recherche|Content",
@@ -441,7 +603,6 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
 
 REGELN:
 - top_news: 3 BIS 5 Eintraege, mindestens 3 aus englischsprachigen Quellen, lieber 3 echte als 5 aufgefuellte
-- inspiration: 2 BIS 4 Eintraege, nur real existierende Projekte mit verifizierbarer Quelle
 - Alle Daten im Format TT.MM.YYYY
 - URLs direkt zum Artikel (nicht Homepage), Fallback: https://www.google.com/search?q=titel+quelle
 """
@@ -525,6 +686,7 @@ def get_newsletter_data() -> dict:
             data = extract_json(raw_text)
             data["claude_code_tipp"] = get_claude_code_tipp()
             data["prompt_des_tages"] = get_prompt_des_tages()
+            data["tool_tipp"] = get_tool_tipp()
             return data
         # Leere Antwort trotz STOP – nochmal versuchen
         reason = candidates[0].get("finishReason", "?")
@@ -549,8 +711,6 @@ def validate_all_urls(data: dict) -> dict:
         item["url"] = validate_url(item.get("url", ""), item.get("titel", ""), item.get("quelle", ""))
     pod = data.get("podcast", {})
     pod["url"] = validate_url(pod.get("url", ""), pod.get("episoden_titel", ""), pod.get("podcast_name", ""))
-    for item in data.get("inspiration", []):
-        item["url"] = validate_url(item.get("url", ""), item.get("projekt_name", ""), item.get("quelle", ""))
     return data
 
 
@@ -566,7 +726,7 @@ C_BDR  = "#e2e8f0"
 SEC = {
     "news":    {"emoji": "🚀", "color": "#4f46e5", "light": "#eef2ff"},
     "podcast": {"emoji": "🎙️", "color": "#f43f5e", "light": "#fff1f2"},
-    "insp":    {"emoji": "💡", "color": "#059669", "light": "#ecfdf5"},
+    "tool":    {"emoji": "🧰", "color": "#059669", "light": "#ecfdf5"},
     "claude":  {"emoji": "🤖", "color": "#7c3aed", "light": "#f5f3ff"},
     "prompt":  {"emoji": "🎯", "color": "#0891b2", "light": "#ecfeff"},
     "tipp":    {"emoji": "✨", "color": "#d97706", "light": "#fffbeb"},
@@ -576,9 +736,10 @@ SEC = {
 def build_html(data: dict) -> str:
     top_news    = data.get("top_news", [])
     podcast     = data.get("podcast", {})
-    inspiration = data.get("inspiration", [])
+    intro       = data.get("intro", "")
     claude_tipp  = data.get("claude_code_tipp", {})
     prompt_tages = data.get("prompt_des_tages", {})
+    tool_tipp    = data.get("tool_tipp", {})
     tipp         = data.get("gemini_tipp", {})
     day_of_year  = datetime.now().timetuple().tm_yday
 
@@ -652,47 +813,32 @@ def build_html(data: dict) -> str:
           </table>
         </td></tr>"""
 
-    def insp_block(item: dict, idx: int) -> str:
-        return f"""
-        <tr><td style="padding:0 0 14px;">
-          <table width="100%" cellpadding="0" cellspacing="0"
-                 style="background:{SEC['insp']['light']};border-radius:12px;
-                        border:1px solid #a7f3d0;">
-            <tr><td style="padding:16px 18px 4px;">
-              <span style="font-family:{FONT};font-size:11px;color:{C_MUTE};">
-                {item.get('datum','')} &middot; {item.get('quelle','')}
-              </span>
-            </td></tr>
-            <tr><td style="padding:4px 18px 8px;">
-              <a href="{item.get('url','#')}"
-                 style="font-family:{FONT};font-size:15px;font-weight:700;
-                        color:{C_TEXT};text-decoration:none;line-height:1.4;">
-                {item.get('projekt_name','')}
-              </a>
-            </td></tr>
-            <tr><td style="padding:0 18px 10px;">
-              {badge('Tools: ' + item.get('tools',''), SEC['insp']['color'], '#d1fae5')}
-            </td></tr>
-            <tr><td style="padding:0 18px 12px;">
-              <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.75;">
-                {item.get('beschreibung','')}
-              </span>
-            </td></tr>
-            <tr><td style="padding:10px 18px 14px;border-top:1px solid #a7f3d0;">
-              <a href="{item.get('url','#')}"
-                 style="font-family:{FONT};font-size:12px;font-weight:700;
-                        color:{SEC['insp']['color']};text-decoration:none;">
-                Mehr erfahren &rarr;
-              </a>
-            </td></tr>
-          </table>
-        </td></tr>"""
+    def overview_row(emoji: str, text: str, url: str = "") -> str:
+        inner = (f'<a href="{url}" style="color:{C_TEXT};text-decoration:none;">{text}</a>'
+                 if url else text)
+        return (f'<tr><td style="padding:0 0 8px;vertical-align:top;width:24px;">'
+                f'<span style="font-size:14px;">{emoji}</span></td>'
+                f'<td style="padding:0 0 8px 8px;">'
+                f'<span style="font-family:{FONT};font-size:13px;font-weight:600;'
+                f'color:{C_TEXT};line-height:1.5;">{inner}</span></td></tr>')
+
+    overview_rows = "".join(
+        overview_row("🚀", n.get("titel", ""), n.get("url", "")) for n in top_news[:5]
+    )
+    if tool_tipp.get("name"):
+        overview_rows += overview_row("🧰", f"Tool des Tages: {tool_tipp['name']}")
+    if prompt_tages.get("titel"):
+        overview_rows += overview_row("🎯", f"Prompt des Tages: {prompt_tages['titel']}")
 
     news_rows  = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
-    insp_rows  = "".join(insp_block(n, i+1) for i, n in enumerate(inspiration))
     anw_badge  = badge(claude_tipp.get('anwendungsfall', ''), SEC['claude']['color'], '#ede9fe')
     kat_badge  = badge(tipp.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
     pdt_badge  = badge(prompt_tages.get('kategorie', ''), SEC['prompt']['color'], '#cffafe')
+    tool_kat_badge   = badge(tool_tipp.get('kategorie', ''), SEC['tool']['color'], '#d1fae5')
+    tool_preis_badge = badge(tool_tipp.get('preis', ''), '#475569', '#e2e8f0')
+
+    top_titel = top_news[0].get("titel", "") if top_news else ""
+    preheader = f"{top_titel} – und mehr in der heutigen Ausgabe."
 
     return f"""<!DOCTYPE html>
 <html lang="de">
@@ -702,6 +848,10 @@ def build_html(data: dict) -> str:
   <title>KI-Newsletter – {TODAY}</title>
 </head>
 <body style="margin:0;padding:0;background:{C_BG};">
+<!-- Preheader: unsichtbar, erscheint in der Inbox-Vorschau -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+  {preheader}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
 <table width="100%" cellpadding="0" cellspacing="0" style="background:{C_BG};">
 <tr><td align="center" style="padding:24px 16px 48px;">
 <table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
@@ -727,6 +877,31 @@ def build_html(data: dict) -> str:
                  border-radius:0 0 16px 16px;
                  box-shadow:0 8px 30px rgba(79,70,229,.08);">
     <table width="100%" cellpadding="0" cellspacing="0">
+
+      <!-- INTRO -->
+      <tr><td style="padding:26px 0 0;">
+        <p style="margin:0;font-family:{FONT};font-size:15px;color:#334155;line-height:1.75;">
+          {intro}
+        </p>
+      </td></tr>
+
+      <!-- AUF EINEN BLICK -->
+      <tr><td style="padding:20px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
+          <tr><td style="padding:14px 18px 6px;">
+            <span style="font-family:{FONT};font-size:10px;font-weight:900;color:{C_MUTE};
+                         letter-spacing:2px;text-transform:uppercase;">
+              ⚡ Heute für dich drin
+            </span>
+          </td></tr>
+          <tr><td style="padding:6px 18px 12px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              {overview_rows}
+            </table>
+          </td></tr>
+        </table>
+      </td></tr>
 
       <!-- SEKTION 1: TOP NEWS -->
       {section_title(SEC['news'], 'Top News des Tages')}
@@ -810,9 +985,55 @@ def build_html(data: dict) -> str:
         </table>
       </td></tr>
 
-      <!-- SEKTION 4: INSPIRATION -->
-      {section_title(SEC['insp'], 'KI im Einsatz &amp; Praxisbeispiele')}
-      {insp_rows}
+      <!-- SEKTION 4: TOOL DES TAGES -->
+      {section_title(SEC['tool'], 'Tool des Tages')}
+      <tr><td style="padding:0 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['tool']['light']};border-radius:12px;
+                      border:1px solid #a7f3d0;">
+          <tr><td style="padding:18px 20px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0"><tr>
+              <td>
+                <a href="{tool_tipp.get('url','#')}"
+                   style="font-family:{FONT};font-size:18px;font-weight:800;
+                          color:{C_TEXT};text-decoration:none;">
+                  {tool_tipp.get('name','')}
+                </a>
+              </td>
+              <td style="text-align:right;vertical-align:top;">
+                {tool_preis_badge}
+              </td>
+            </tr></table>
+          </td></tr>
+          <tr><td style="padding:8px 20px 10px;">
+            {tool_kat_badge}
+          </td></tr>
+          <tr><td style="padding:0 20px 12px;">
+            <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.75;">
+              {tool_tipp.get('beschreibung','')}
+            </span>
+          </td></tr>
+          <tr><td style="padding:0 20px 14px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr><td style="background:#ffffff;border-left:4px solid {SEC['tool']['color']};
+                             border-radius:0 8px 8px 0;padding:10px 14px;">
+                <span style="font-family:{FONT};font-size:10px;font-weight:900;
+                      color:{SEC['tool']['color']};letter-spacing:1.5px;text-transform:uppercase;">
+                  TAKE&ensp;</span>
+                <span style="font-family:{FONT};font-size:13px;color:#1e293b;line-height:1.65;">
+                  {tool_tipp.get('take','')}</span>
+              </td></tr>
+            </table>
+          </td></tr>
+          <tr><td style="padding:10px 20px 16px;border-top:1px solid #a7f3d0;">
+            <a href="{tool_tipp.get('url','#')}"
+               style="font-family:{FONT};font-size:12px;font-weight:700;
+                      color:{SEC['tool']['color']};text-decoration:none;">
+              Tool ausprobieren &rarr;
+            </a>
+          </td></tr>
+        </table>
+      </td></tr>
 
       <!-- SEKTION 5: CLAUDE CODE TIPP -->
       {section_title(SEC['claude'], 'Claude Code im Projektalltag')}
@@ -908,7 +1129,15 @@ def main():
         data = validate_all_urls(data)
         print("Baue HTML-E-Mail ...")
         html = build_html(data)
-        subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & KI-Tipps"
+        # Betreff: Top-Story als Aufhänger (AInauten/Finimize-Stil), Fallback generisch
+        top_news = data.get("top_news", [])
+        top_titel = top_news[0].get("titel", "").strip() if top_news else ""
+        if top_titel:
+            if len(top_titel) > 70:
+                top_titel = top_titel[:67].rstrip() + "..."
+            subject = f"🤖 {top_titel}"
+        else:
+            subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & KI-Tipps"
         print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
         for recipient in RECIPIENTS:
             send_email(subject, html, recipient)
