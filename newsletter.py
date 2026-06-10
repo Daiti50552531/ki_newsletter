@@ -586,7 +586,7 @@ akademische Forschung ohne praktischen Anwendungsfall, Startup-Finanzierungsnews
 Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erklaerungen:
 
 {{
-  "intro": "2-3 Saetze lockere Begruessung im Stil eines Newsletters von einem Kollegen. Beginne mit etwas wie 'Moin!' oder 'Hey!'. Teasere die wichtigste News des Tages an, gern mit einer Prise Humor oder einer pointierten Beobachtung. KEINE Floskeln wie 'Willkommen zur neuen Ausgabe'.",
+  "intro": "3-4 Saetze Einleitung im Stil eines Kollegen der den Newsletter selbst liest. Beginne mit 'Moin!' oder einer konkreten Beobachtung. PFLICHT: Nenne eine spezifische Zahl, ein konkretes Faktum oder eine ueberraschende Wendung aus den heutigen News – keine vagen Teaser wie 'interessante Entwicklungen'. Schliesse mit einem kurzen Hinweis was heute noch drin ist. KEINE Floskeln wie 'Willkommen zur neuen Ausgabe' oder 'Im heutigen Newsletter'.",
   "top_news": [
     {{
       "titel": "Spezifischer Titel der zeigt was sich aendert – nicht nur was passiert ist",
@@ -610,11 +610,6 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
     "warum_hoeren": "2-3 Saetze auf Deutsch",
     "url": "https://...",
     "datum": "TT.MM.YYYY"
-  }},
-  "gemini_tipp": {{
-    "titel": "...",
-    "kategorie": "Produktivitaet|Coding|Recherche|Content",
-    "beschreibung": "3-5 Saetze mit konkretem Beispiel und Prompt-Vorlage"
   }}
 }}
 
@@ -763,8 +758,18 @@ def build_html(data: dict) -> str:
     claude_tipp  = data.get("claude_code_tipp", {})
     prompt_tages = data.get("prompt_des_tages", {})
     tool_tipp    = data.get("tool_tipp", {})
-    tipp         = data.get("gemini_tipp", {})
     day_of_year  = datetime.now().timetuple().tm_yday
+
+    # Lesezeit-Schätzung (200 Wörter/Min)
+    _words = sum(
+        len((n.get('zusammenfassung','') + ' ' + n.get('take','')).split())
+        for n in top_news
+    )
+    _words += sum(len(s.get('text','').split()) for s in schnell)
+    _words += len(podcast.get('warum_hoeren','').split())
+    _words += len(claude_tipp.get('beschreibung','').split())
+    _words += len(tool_tipp.get('beschreibung','').split())
+    read_min = max(2, round(_words / 200))
 
     def badge(text: str, color: str, bg: str) -> str:
         return (f'<span style="display:inline-block;background:{bg};color:{color};'
@@ -882,7 +887,6 @@ def build_html(data: dict) -> str:
 
     news_rows  = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
     anw_badge  = badge(claude_tipp.get('anwendungsfall', ''), SEC['claude']['color'], '#ede9fe')
-    kat_badge  = badge(tipp.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
     pdt_badge  = badge(prompt_tages.get('kategorie', ''), SEC['prompt']['color'], '#cffafe')
     tool_kat_badge   = badge(tool_tipp.get('kategorie', ''), SEC['tool']['color'], '#d1fae5')
     tool_preis_badge = badge(tool_tipp.get('preis', ''), '#475569', '#e2e8f0')
@@ -911,7 +915,7 @@ def build_html(data: dict) -> str:
                  border-radius:16px 16px 0 0;padding:30px 36px 26px;">
     <p style="margin:0 0 8px;font-family:{FONT};font-size:10px;color:#818cf8;
               letter-spacing:3px;text-transform:uppercase;">
-      TÄGLICH &nbsp;·&nbsp; KOSTENLOS &nbsp;·&nbsp; AUSGABE&thinsp;#{day_of_year}
+      TÄGLICH &nbsp;·&nbsp; KOSTENLOS &nbsp;·&nbsp; {read_min}&thinsp;MIN &nbsp;·&nbsp; AUSGABE&thinsp;#{day_of_year}
     </p>
     <h1 style="margin:0 0 8px;font-family:{FONT};font-size:30px;font-weight:900;
                color:#ffffff;letter-spacing:-.5px;line-height:1.15;">
@@ -930,9 +934,13 @@ def build_html(data: dict) -> str:
 
       <!-- INTRO -->
       <tr><td style="padding:26px 0 0;">
-        <p style="margin:0;font-family:{FONT};font-size:15px;color:#334155;line-height:1.75;">
-          {intro}
-        </p>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="border-left:3px solid #4338ca;padding:4px 0 4px 14px;">
+            <p style="margin:0;font-family:{FONT};font-size:15px;color:#334155;line-height:1.8;">
+              {intro}
+            </p>
+          </td></tr>
+        </table>
       </td></tr>
 
       <!-- AUF EINEN BLICK -->
@@ -1104,29 +1112,22 @@ def build_html(data: dict) -> str:
         </table>
       </td></tr>
 
-      <!-- SEKTION 6: GEMINI TIPP -->
-      {section_title(SEC['tipp'], 'Gemini Pro Tipp')}
-      <tr><td style="padding:0 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:{SEC['tipp']['light']};border-radius:12px;
-                      border:1px solid #fde68a;">
-          <tr><td style="padding:18px 20px;">
-            <div style="margin-bottom:10px;">{kat_badge}</div>
-            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
-                       color:{C_TEXT};">{tipp.get('titel','')}</h3>
-            <p style="margin:0;font-family:{FONT};font-size:14px;
-                      color:#374151;line-height:1.75;">{tipp.get('beschreibung','')}</p>
-          </td></tr>
-        </table>
-      </td></tr>
-
     </table>
   </td></tr>
 
   <!-- FOOTER -->
-  <tr><td style="padding:22px 0 0;">
+  <tr><td style="padding:28px 0 0;">
     <table width="100%" cellpadding="0" cellspacing="0">
-      <tr><td style="border-top:1px solid #e2e8f0;padding:18px 0 0;text-align:center;">
+      <tr><td style="background:#f8fafc;border-radius:12px;padding:16px 20px;
+                     border:1px solid #e2e8f0;text-align:center;">
+        <p style="margin:0 0 6px;font-family:{FONT};font-size:14px;font-weight:700;color:{C_TEXT};">
+          Gefällt dir der Newsletter? 📨
+        </p>
+        <p style="margin:0;font-family:{FONT};font-size:13px;color:#64748b;line-height:1.6;">
+          Leite ihn einfach an Kollegen weiter, die KI-Entwicklungen im Blick behalten wollen.
+        </p>
+      </td></tr>
+      <tr><td style="padding:18px 0 0;text-align:center;">
         <p style="margin:0 0 4px;font-family:{FONT};font-size:12px;color:#94a3b8;line-height:1.8;">
           🤖 Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions
         </p>
