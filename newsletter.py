@@ -559,16 +559,26 @@ Suche explizit nach: "site:techcrunch.com after:{TODAY}" oder aehnlichen Datumsf
 --- BLACKLIST (niemals verwenden) ---
 AInauten, TAAFT, Doppelgaenger Newsletter/Podcast, AI Daily Brief
 
---- QUELLEN (englischsprachige bevorzugen) ---
-News: TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review, Bloomberg Technology, The Information, VentureBeat, Reuters Technology
+--- QUELLEN ---
+News (englisch): TechCrunch, The Verge, Wired, Ars Technica, MIT Technology Review, Bloomberg Technology, The Information, VentureBeat, Reuters Technology
+News (deutsch): The Decoder (the-decoder.de), heise online, t3n
 Communities: Hacker News, Reddit (r/LocalLLaMA, r/machinelearning, r/artificial), DEV Community, GitHub Trending
 Analyse: Hugging Face Blog, Import AI, Stratechery, Papers With Code
 Asien: Quellen zu DeepSeek, Qwen und anderen asiatischen Open-Source-Modellen
 Podcasts: Lex Fridman, Hard Fork NYT, Practical AI, Latent Space, No Priors, TWIML, Dwarkesh Podcast, BG2 Pod
 
---- NEWS SCORING (nur aufnehmen wenn fuer Wissensarbeiter relevant) ---
-AUFNEHMEN: Neue Modell-Releases, Open-Source-Durchbrueche, Agenten-Updates, neue APIs und KI-Tools
-die Wissensarbeiter direkt nutzen koennen, strategische Marktverschiebungen mit Auswirkung auf den Arbeitsalltag
+--- NEWS SCORING (Rangfolge – der wichtigste Filter) ---
+Der zentrale Test fuer jede News: "Kann der Leser damit HEUTE etwas anfangen?"
+PRIORITAET 1: Neue Features die AB SOFORT verfuegbar sind, in Tools die Wissensarbeiter
+taeglich nutzen (ChatGPT, Gemini, Claude, Microsoft Copilot/Office, Notion, Teams, DeepL).
+Ein kleines Feature das gestern fuer alle ausgerollt wurde schlaegt eine grosse Ankuendigung
+mit Warteliste oder "coming soon".
+PRIORITAET 2: Neue Modell-Releases und Open-Source-Durchbrueche (GPT, Claude, Gemini, Llama,
+DeepSeek, Mistral usw.), neue APIs und Agenten-Faehigkeiten.
+PRIORITAET 3: Strategische Marktverschiebungen mit direkter Auswirkung auf den Arbeitsalltag.
+LIMIT: Maximal EINE reine Strategie-/Branchen-News pro Ausgabe. Der Rest muss praktisch nutzbar sein.
+EU-CHECK: Pruefe bei jedem Feature ob es in der EU/Deutschland verfuegbar ist. Wenn nicht
+oder erst spaeter, MUSS das im Take stehen (z.B. "In der EU noch nicht verfuegbar").
 ABLEHNEN: Reine Aktienkurse und Finanzmeldungen, oberflaechliches PR ohne Substanz,
 akademische Forschung ohne praktischen Anwendungsfall, Startup-Finanzierungsnews ohne technischen Kern
 
@@ -587,6 +597,13 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
       "datum": "TT.MM.YYYY"
     }}
   ],
+  "schnelldurchlauf": [
+    {{
+      "text": "Ein einziger pointierter Satz der die Meldung komplett erfasst – konkret, kein Clickbait",
+      "quelle": "Name der Quelle",
+      "url": "https://direktlink-zum-artikel"
+    }}
+  ],
   "podcast": {{
     "episoden_titel": "...",
     "podcast_name": "...",
@@ -602,7 +619,9 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
 }}
 
 REGELN:
-- top_news: 3 BIS 5 Eintraege, mindestens 3 aus englischsprachigen Quellen, lieber 3 echte als 5 aufgefuellte
+- top_news: 3 BIS 4 Eintraege – nur die staerksten Stories, streng kuratiert
+- schnelldurchlauf: 4 BIS 6 Einzeiler – interessante Meldungen die keine Top-Story sind, ebenfalls max. 24h alt
+- Eine Meldung erscheint ENTWEDER in top_news ODER im schnelldurchlauf, nie in beiden
 - Alle Daten im Format TT.MM.YYYY
 - URLs direkt zum Artikel (nicht Homepage), Fallback: https://www.google.com/search?q=titel+quelle
 """
@@ -709,6 +728,8 @@ def validate_all_urls(data: dict) -> dict:
     print("Validiere URLs (syntaktisch) ...")
     for item in data.get("top_news", []):
         item["url"] = validate_url(item.get("url", ""), item.get("titel", ""), item.get("quelle", ""))
+    for item in data.get("schnelldurchlauf", []):
+        item["url"] = validate_url(item.get("url", ""), item.get("text", ""), item.get("quelle", ""))
     pod = data.get("podcast", {})
     pod["url"] = validate_url(pod.get("url", ""), pod.get("episoden_titel", ""), pod.get("podcast_name", ""))
     return data
@@ -725,6 +746,7 @@ C_BDR  = "#e2e8f0"
 # Sektionsfarben
 SEC = {
     "news":    {"emoji": "🚀", "color": "#4f46e5", "light": "#eef2ff"},
+    "blitz":   {"emoji": "⚡", "color": "#ea580c", "light": "#fff7ed"},
     "podcast": {"emoji": "🎙️", "color": "#f43f5e", "light": "#fff1f2"},
     "tool":    {"emoji": "🧰", "color": "#059669", "light": "#ecfdf5"},
     "claude":  {"emoji": "🤖", "color": "#7c3aed", "light": "#f5f3ff"},
@@ -735,6 +757,7 @@ SEC = {
 
 def build_html(data: dict) -> str:
     top_news    = data.get("top_news", [])
+    schnell     = data.get("schnelldurchlauf", [])
     podcast     = data.get("podcast", {})
     intro       = data.get("intro", "")
     claude_tipp  = data.get("claude_code_tipp", {})
@@ -830,6 +853,33 @@ def build_html(data: dict) -> str:
     if prompt_tages.get("titel"):
         overview_rows += overview_row("🎯", f"Prompt des Tages: {prompt_tages['titel']}")
 
+    def blitz_row(item: dict, is_last: bool) -> str:
+        quelle = item.get('quelle', '')
+        link = (f'&ensp;<a href="{item.get("url","#")}" style="font-family:{FONT};font-size:12px;'
+                f'font-weight:700;color:{SEC["blitz"]["color"]};text-decoration:none;'
+                f'white-space:nowrap;">{quelle} &rarr;</a>') if quelle else ''
+        border = '' if is_last else f'border-bottom:1px solid #fed7aa;'
+        return (f'<tr><td style="padding:10px 0;vertical-align:top;width:22px;{border}">'
+                f'<span style="font-size:13px;">⚡</span></td>'
+                f'<td style="padding:10px 0 10px 8px;{border}">'
+                f'<span style="font-family:{FONT};font-size:13px;color:#334155;line-height:1.6;">'
+                f'{item.get("text","")}</span>{link}</td></tr>')
+
+    blitz_rows = "".join(blitz_row(b, i == len(schnell[:6]) - 1) for i, b in enumerate(schnell[:6]))
+    blitz_section = f"""
+      {section_title(SEC['blitz'], 'Schnelldurchlauf')}
+      <tr><td style="padding:0 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['blitz']['light']};border-radius:12px;
+                      border:1px solid #fed7aa;">
+          <tr><td style="padding:6px 18px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              {blitz_rows}
+            </table>
+          </td></tr>
+        </table>
+      </td></tr>""" if blitz_rows else ""
+
     news_rows  = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
     anw_badge  = badge(claude_tipp.get('anwendungsfall', ''), SEC['claude']['color'], '#ede9fe')
     kat_badge  = badge(tipp.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
@@ -906,6 +956,9 @@ def build_html(data: dict) -> str:
       <!-- SEKTION 1: TOP NEWS -->
       {section_title(SEC['news'], 'Top News des Tages')}
       {news_rows}
+
+      <!-- SEKTION 1B: SCHNELLDURCHLAUF -->
+      {blitz_section}
 
       <!-- SEKTION 2: PODCAST -->
       {section_title(SEC['podcast'], 'Podcast-Empfehlung')}
