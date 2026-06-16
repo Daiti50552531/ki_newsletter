@@ -1,1 +1,21 @@
-{"editions": []}
+{
+  "editions": [
+    {
+      "date": "16.06.2026",
+      "titles": [
+        "Google Workspace integriert Gemini tiefer und spart Nutzern 105 Minuten pro Woche",
+        "Anthropic Mythos/Fable 5 global gesperrt – Was der US-Bann für Europa bedeutet",
+        "Neue SDKs vereinfachen den Bau eigener KI-Agenten – auch ohne tiefe Programmierkenntnisse",
+        "System-Prompt gegen KI-Halluzinationen für verlässlichere Ergebnisse im Büroalltag"
+      ],
+      "schnell": [
+        "Das deutsche KI-Modell 'Soofi S' mit 30 Milliarden Parametern ist bereit für erste Industrietests und soll international im Deutschen und bei der Codegenerierung mithalten können.",
+        "Microsoft hat seine Dokumentation zur Data Loss Prevention (DLP) aktualisiert, um KI-gesteuerte Desktop-Flows in Power Automate Desktop besser zu kontrollieren und die Einhaltung von Unternehmensrichtlinien zu gewährleisten.",
+        "In Südwestfalen startet ein kommunales KI-Kooperationsprojekt, das Pilotanwendungen zur KI-gestützten Transkription und Dokumentation sensibler Bürgerdaten in mehreren Städten umfasst.",
+        "Österreichische Gemeinden vereinfachen ihre Aufgaben mit neuen 'GemeindeKI'-Tools wie 'Willi' für Wissenssicherung, 'Thea' für Texterstellung und 'Sam' für Plattform-Support.",
+        "BitBuddy v0.1.0 wurde veröffentlicht: eine selbst hostbare lokale KI-Schicht für persönliche Daten, die Gedächtnis, Projektkontext und sichere Autonomie bietet.",
+        "Celoxis bietet mit KI-gestützten Funktionen wie prädiktiver Analyse und intelligenter Aufgabenpriorisierung eine umfassende Alternative zu Microsoft Project für Projekt- und Portfoliomanagement."
+      ]
+    }
+  ]
+}
