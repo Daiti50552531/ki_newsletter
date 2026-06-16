@@ -31,9 +31,7 @@ GEMINI_MODELS = [
     "gemini-2.0-flash-lite",
 ]
 
-GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
-REPO           = "Daiti50552531/ki_newsletter"
-HISTORY_FILE   = "newsletter_history.json"
+HISTORY_FILE     = "newsletter_history.json"
 HISTORY_MAX_DAYS = 3
 
 def gemini_url(model: str) -> str:
@@ -526,27 +524,15 @@ def get_tool_tipp() -> dict:
 
 
 # ── Newsletter-Verlauf (Duplikat-Schutz) ──────────────────────────────────────
-def _gh_headers() -> dict:
-    return {
-        "Authorization": f"token {GITHUB_TOKEN}",
-        "Accept": "application/vnd.github.v3+json",
-        "Content-Type": "application/json",
-    }
-
-
 def load_published_titles() -> list:
-    """Lädt Schlagzeilen der letzten Ausgaben aus dem Repo – verhindert Doppelungen."""
-    if not GITHUB_TOKEN:
+    """Liest Schlagzeilen der letzten Ausgaben aus der lokalen History-Datei."""
+    if not os.path.exists(HISTORY_FILE):
         return []
     try:
-        url = f"https://api.github.com/repos/{REPO}/contents/{HISTORY_FILE}?ref=main"
-        req = urllib.request.Request(url, headers=_gh_headers())
-        with urllib.request.urlopen(req) as r:
-            info = json.loads(r.read())
-        import base64 as _b64
-        content = json.loads(_b64.b64decode(info["content"]).decode())
+        with open(HISTORY_FILE) as f:
+            history = json.load(f)
         titles = []
-        for edition in content.get("editions", [])[-HISTORY_MAX_DAYS:]:
+        for edition in history.get("editions", [])[-HISTORY_MAX_DAYS:]:
             titles.extend(edition.get("titles", []))
             titles.extend(edition.get("schnell", []))
         return [t for t in titles if t]
@@ -556,48 +542,32 @@ def load_published_titles() -> list:
 
 
 def save_published_titles(data: dict) -> None:
-    """Speichert heutige Schlagzeilen in newsletter_history.json im Repo."""
-    if not GITHUB_TOKEN:
-        return
-    import base64 as _b64
+    """Schreibt heutige Schlagzeilen in newsletter_history.json und pusht via git."""
+    import subprocess
     try:
         today_entry = {
             "date": TODAY,
             "titles": [n.get("titel", "") for n in data.get("top_news", [])],
             "schnell": [s.get("text", "") for s in data.get("schnelldurchlauf", [])],
         }
-        # Bisherige History lesen
-        history, sha = {"editions": []}, None
-        try:
-            url = f"https://api.github.com/repos/{REPO}/contents/{HISTORY_FILE}?ref=main"
-            with urllib.request.urlopen(urllib.request.Request(url, headers=_gh_headers())) as r:
-                info = json.loads(r.read())
-            sha = info["sha"]
-            history = json.loads(_b64.b64decode(info["content"]).decode())
-        except Exception:
-            pass  # Datei existiert noch nicht
-        # Heutigen Tag eintragen (doppelte Einträge für heute entfernen)
+        history = {"editions": []}
+        if os.path.exists(HISTORY_FILE):
+            with open(HISTORY_FILE) as f:
+                history = json.load(f)
         editions = [e for e in history.get("editions", []) if e.get("date") != TODAY]
         editions.append(today_entry)
         history["editions"] = editions[-HISTORY_MAX_DAYS:]
-        # Zurückschreiben
-        payload: dict = {
-            "message": f"chore: newsletter history {TODAY} [skip ci]",
-            "content": _b64.b64encode(
-                json.dumps(history, ensure_ascii=False, indent=2).encode()
-            ).decode(),
-            "branch": "main",
-        }
-        if sha:
-            payload["sha"] = sha
-        put_req = urllib.request.Request(
-            f"https://api.github.com/repos/{REPO}/contents/{HISTORY_FILE}",
-            data=json.dumps(payload).encode(),
-            headers=_gh_headers(),
-            method="PUT",
-        )
-        with urllib.request.urlopen(put_req) as r:
-            json.loads(r.read())
+        with open(HISTORY_FILE, "w") as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+        # Git commit + push (funktioniert in GitHub Actions via checkout@v4)
+        subprocess.run(["git", "config", "user.email", "action@github.com"], check=True)
+        subprocess.run(["git", "config", "user.name", "Newsletter Bot"], check=True)
+        subprocess.run(["git", "add", HISTORY_FILE], check=True)
+        staged = subprocess.run(["git", "diff", "--cached", "--quiet"])
+        if staged.returncode != 0:
+            subprocess.run(["git", "commit", "-m",
+                            f"chore: newsletter history {TODAY} [skip ci]"], check=True)
+            subprocess.run(["git", "push"], check=True)
         n = len(today_entry["titles"]) + len(today_entry["schnell"])
         print(f"  ✓ History gespeichert ({n} Meldungen für morgen geblockt)")
     except Exception as e:
