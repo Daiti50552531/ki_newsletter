@@ -31,6 +31,11 @@ GEMINI_MODELS = [
     "gemini-2.0-flash-lite",
 ]
 
+GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
+REPO           = "Daiti50552531/ki_newsletter"
+HISTORY_FILE   = "newsletter_history.json"
+HISTORY_MAX_DAYS = 3
+
 def gemini_url(model: str) -> str:
     return (
         "https://generativelanguage.googleapis.com/v1beta/models/"
@@ -520,8 +525,87 @@ def get_tool_tipp() -> dict:
     return TOOL_TIPPS[(day_of_year + 13) % len(TOOL_TIPPS)]
 
 
+# ── Newsletter-Verlauf (Duplikat-Schutz) ──────────────────────────────────────
+def _gh_headers() -> dict:
+    return {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+    }
+
+
+def load_published_titles() -> list:
+    """Lädt Schlagzeilen der letzten Ausgaben aus dem Repo – verhindert Doppelungen."""
+    if not GITHUB_TOKEN:
+        return []
+    try:
+        url = f"https://api.github.com/repos/{REPO}/contents/{HISTORY_FILE}?ref=main"
+        req = urllib.request.Request(url, headers=_gh_headers())
+        with urllib.request.urlopen(req) as r:
+            info = json.loads(r.read())
+        import base64 as _b64
+        content = json.loads(_b64.b64decode(info["content"]).decode())
+        titles = []
+        for edition in content.get("editions", [])[-HISTORY_MAX_DAYS:]:
+            titles.extend(edition.get("titles", []))
+            titles.extend(edition.get("schnell", []))
+        return [t for t in titles if t]
+    except Exception as e:
+        print(f"  History-Load übersprungen: {e}")
+        return []
+
+
+def save_published_titles(data: dict) -> None:
+    """Speichert heutige Schlagzeilen in newsletter_history.json im Repo."""
+    if not GITHUB_TOKEN:
+        return
+    import base64 as _b64
+    try:
+        today_entry = {
+            "date": TODAY,
+            "titles": [n.get("titel", "") for n in data.get("top_news", [])],
+            "schnell": [s.get("text", "") for s in data.get("schnelldurchlauf", [])],
+        }
+        # Bisherige History lesen
+        history, sha = {"editions": []}, None
+        try:
+            url = f"https://api.github.com/repos/{REPO}/contents/{HISTORY_FILE}?ref=main"
+            with urllib.request.urlopen(urllib.request.Request(url, headers=_gh_headers())) as r:
+                info = json.loads(r.read())
+            sha = info["sha"]
+            history = json.loads(_b64.b64decode(info["content"]).decode())
+        except Exception:
+            pass  # Datei existiert noch nicht
+        # Heutigen Tag eintragen (doppelte Einträge für heute entfernen)
+        editions = [e for e in history.get("editions", []) if e.get("date") != TODAY]
+        editions.append(today_entry)
+        history["editions"] = editions[-HISTORY_MAX_DAYS:]
+        # Zurückschreiben
+        payload: dict = {
+            "message": f"chore: newsletter history {TODAY} [skip ci]",
+            "content": _b64.b64encode(
+                json.dumps(history, ensure_ascii=False, indent=2).encode()
+            ).decode(),
+            "branch": "main",
+        }
+        if sha:
+            payload["sha"] = sha
+        put_req = urllib.request.Request(
+            f"https://api.github.com/repos/{REPO}/contents/{HISTORY_FILE}",
+            data=json.dumps(payload).encode(),
+            headers=_gh_headers(),
+            method="PUT",
+        )
+        with urllib.request.urlopen(put_req) as r:
+            json.loads(r.read())
+        n = len(today_entry["titles"]) + len(today_entry["schnell"])
+        print(f"  ✓ History gespeichert ({n} Meldungen für morgen geblockt)")
+    except Exception as e:
+        print(f"  History-Save übersprungen (non-fatal): {e}")
+
+
 # ── Prompt ────────────────────────────────────────────────────────────────────
-PROMPT = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters fuer Wissensarbeiter.
+PROMPT_BASE = f"""Du bist Chefredakteur eines deutschsprachigen KI-Newsletters fuer Wissensarbeiter.
 Heute ist der {TODAY}. Nutze Google Search zur Recherche. Alle Texte auf Deutsch.
 
 --- ZIELGRUPPE ---
@@ -619,14 +703,29 @@ REGELN:
 - Eine Meldung erscheint ENTWEDER in top_news ODER im schnelldurchlauf, nie in beiden
 - Alle Daten im Format TT.MM.YYYY
 - URLs direkt zum Artikel (nicht Homepage), Fallback: https://www.google.com/search?q=titel+quelle
+- Lieber 2 starke Meldungen als 3 bei der eine ein Lueckenbuesser ist
+"""
+
+
+def build_prompt(published_titles: list) -> str:
+    """Baut den finalen Prompt – injiziert ggf. bereits veröffentlichte Schlagzeilen."""
+    if not published_titles:
+        return PROMPT_BASE
+    block = "\n".join(f"  - {t}" for t in published_titles[:40])
+    return PROMPT_BASE + f"""
+--- BEREITS VEROEFFENTLICHT – ABSOLUTES DUPLIKAT-VERBOT ---
+Diese Meldungen liefen in den letzten {HISTORY_MAX_DAYS} Ausgaben.
+Weder in top_news noch im schnelldurchlauf duerfen sie – auch inhaltlich aehnlich – erneut erscheinen.
+Waehle konsequent andere Themen:
+{block}
 """
 
 
 # ── Gemini API Call (mit Retry + Model-Fallback bei 503) ─────────────────────
-def call_gemini() -> dict:
+def call_gemini(prompt: str) -> dict:
     payload = {
         "tools": [{"googleSearch": {}}],
-        "contents": [{"role": "user", "parts": [{"text": PROMPT}]}],
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.7,
             "maxOutputTokens": 16384,
@@ -689,8 +788,12 @@ def extract_json(text: str) -> dict:
 
 
 def get_newsletter_data() -> dict:
+    published_titles = load_published_titles()
+    if published_titles:
+        print(f"  {len(published_titles)} Meldungen aus Vorausgaben werden geblockt")
+    prompt = build_prompt(published_titles)
     for attempt in range(3):
-        response = call_gemini()
+        response = call_gemini(prompt)
         candidates = response.get("candidates", [])
         if not candidates:
             raise ValueError(f"Keine Candidates: {json.dumps(response)[:300]}")
@@ -1196,6 +1299,7 @@ def main():
         for recipient in RECIPIENTS:
             send_email(subject, html, recipient)
         print("Fertig! Newsletter wurde erfolgreich versandt.")
+        save_published_titles(data)
     except Exception as e:
         print(f"FEHLER: {type(e).__name__}: {e}", file=sys.stderr)
         send_error_email(e)
