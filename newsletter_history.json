@@ -16,6 +16,22 @@
         "BitBuddy v0.1.0 wurde veröffentlicht: eine selbst hostbare lokale KI-Schicht für persönliche Daten, die Gedächtnis, Projektkontext und sichere Autonomie bietet.",
         "Celoxis bietet mit KI-gestützten Funktionen wie prädiktiver Analyse und intelligenter Aufgabenpriorisierung eine umfassende Alternative zu Microsoft Project für Projekt- und Portfoliomanagement."
       ]
+    },
+    {
+      "date": "18.06.2026",
+      "titles": [
+        "Microsoft 365 Copilot Cowork: Jetzt allgemein verfügbar, aber die Kosten ändern sich drastisch",
+        "Anthropic veröffentlicht Claude 3.5 mit Echtzeit-Videoanalyse und erweitertem Gedächtnis",
+        "Claude Design und Code arbeiten jetzt nahtlos zusammen – und halten deine Marke ein",
+        "Google Gemini App versteht jetzt über 70 Sprachen und Sprachmix ohne Umstellung"
+      ],
+      "schnell": [
+        "Gerüchte verdichten sich, dass OpenAI GPT-5.6 Ende Juni veröffentlichen könnte, was eine 'bedeutende Verbesserung' gegenüber GPT-5.5 darstellen soll, auch wenn es noch keine offizielle Ankündigung gibt.",
+        "Notion hat 'Notion Workers' eingeführt, eine Beta-Funktion, die es ermöglicht, KI-Agenten mit externen Diensten über APIs zu verbinden und so 'AI-Mitarbeiter' für automatisierte Aufgaben zu erstellen.",
+        "Eine 'kritische' Sicherheitslücke namens 'SearchLeak' in Microsoft Copilot wurde entdeckt, die es Angreifern ermöglichen könnte, sensible Unternehmensdaten wie 2FA-Codes und E-Mails zu stehlen.",
+        "Mistral positioniert sich als europäische Alternative zu US-Modellen, nachdem Anthropic den Zugang zu einigen seiner Modelle für Nicht-US-Bürger aufgrund einer US-Regierungsanordnung einschränken musste.",
+        "Die Gemini-Oberfläche auf Android nutzt jetzt 'Bubbles', um Chats auch beim Multitasking sichtbar zu halten, sodass du Unterhaltungen fortsetzen kannst, ohne die App vollständig geöffnet zu lassen."
+      ]
     }
   ]
 }
