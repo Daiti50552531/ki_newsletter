@@ -32,6 +32,23 @@
         "Mistral positioniert sich als europäische Alternative zu US-Modellen, nachdem Anthropic den Zugang zu einigen seiner Modelle für Nicht-US-Bürger aufgrund einer US-Regierungsanordnung einschränken musste.",
         "Die Gemini-Oberfläche auf Android nutzt jetzt 'Bubbles', um Chats auch beim Multitasking sichtbar zu halten, sodass du Unterhaltungen fortsetzen kannst, ohne die App vollständig geöffnet zu lassen."
       ]
+    },
+    {
+      "date": "19.06.2026",
+      "titles": [
+        "Microsoft Copilot Cowork: Dein neuer KI-Kollege übernimmt komplexe Aufgaben in Office 365",
+        "Gemini räumt auf: Projekt-Notizbücher und Live-Übersetzung erleichtern den Arbeitsalltag",
+        "DeepL kauft Mixhalo: Echtzeit-Übersetzung für Live-Events und hybride Meetings",
+        "ChatGPT lernt 'Skills' und speichert mehr Kontext: Weniger Wiederholungen, mehr Effizienz"
+      ],
+      "schnell": [
+        "Gemini in Google Sheets unterstützt jetzt 28 weitere Sprachen, darunter Deutsch, was die Zusammenarbeit in globalen Teams bei der Tabellenkalkulation deutlich vereinfacht.",
+        "Die ChatGPT App erhält Updates mit interaktiven Diagrammen in Antworten und einem Inhaltsverzeichnis für längere Konversationen, was die Übersichtlichkeit verbessert.",
+        "Claude Design wurde mit erweiterten Designsystem-Kontrollen und engeren Verbindungen zu Claude Code aktualisiert, um die Einhaltung von Markenrichtlinien zu gewährleisten, befindet sich aber noch in der Beta-Phase für kostenpflichtige Abos.",
+        "Microsoft Agent 365 bietet neue Governance-Kontrollen, einschließlich Data Loss Prevention (DLP) für Web-Suchen von Copilot-Agenten, um sensible Unternehmensdaten zu schützen.",
+        "Claude Code kann jetzt interaktive, sich selbst aktualisierende Webseiten ('Artifacts') aus deinen KI-Arbeiten erstellen, um Fortschritte im Team besser zu teilen, ist aber noch in Beta für Team- und Enterprise-Kunden.",
+        "Google Chrome ermöglicht Workspace-Nutzern jetzt, ihre besten Prompt-Vorlagen als 'Skills' zu speichern und mit einem Klick in der Browser-Seitenleiste auf jeder Webseite oder in Dokumenten auszuführen."
+      ]
     }
   ]
 }
