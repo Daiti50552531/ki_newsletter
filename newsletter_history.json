@@ -1,22 +1,6 @@
 {
   "editions": [
     {
-      "date": "18.06.2026",
-      "titles": [
-        "Microsoft 365 Copilot Cowork: Jetzt allgemein verfügbar, aber die Kosten ändern sich drastisch",
-        "Anthropic veröffentlicht Claude 3.5 mit Echtzeit-Videoanalyse und erweitertem Gedächtnis",
-        "Claude Design und Code arbeiten jetzt nahtlos zusammen – und halten deine Marke ein",
-        "Google Gemini App versteht jetzt über 70 Sprachen und Sprachmix ohne Umstellung"
-      ],
-      "schnell": [
-        "Gerüchte verdichten sich, dass OpenAI GPT-5.6 Ende Juni veröffentlichen könnte, was eine 'bedeutende Verbesserung' gegenüber GPT-5.5 darstellen soll, auch wenn es noch keine offizielle Ankündigung gibt.",
-        "Notion hat 'Notion Workers' eingeführt, eine Beta-Funktion, die es ermöglicht, KI-Agenten mit externen Diensten über APIs zu verbinden und so 'AI-Mitarbeiter' für automatisierte Aufgaben zu erstellen.",
-        "Eine 'kritische' Sicherheitslücke namens 'SearchLeak' in Microsoft Copilot wurde entdeckt, die es Angreifern ermöglichen könnte, sensible Unternehmensdaten wie 2FA-Codes und E-Mails zu stehlen.",
-        "Mistral positioniert sich als europäische Alternative zu US-Modellen, nachdem Anthropic den Zugang zu einigen seiner Modelle für Nicht-US-Bürger aufgrund einer US-Regierungsanordnung einschränken musste.",
-        "Die Gemini-Oberfläche auf Android nutzt jetzt 'Bubbles', um Chats auch beim Multitasking sichtbar zu halten, sodass du Unterhaltungen fortsetzen kannst, ohne die App vollständig geöffnet zu lassen."
-      ]
-    },
-    {
       "date": "19.06.2026",
       "titles": [
         "Microsoft Copilot Cowork: Dein neuer KI-Kollege übernimmt komplexe Aufgaben in Office 365",
@@ -46,6 +30,23 @@
         "ChatGPT bietet jetzt einen 'Temporary Chat'-Modus für private Gespräche, der weder im Verlauf gespeichert noch zum Modelltraining verwendet wird – ideal für sensible Anfragen.",
         "KI-gestützte Notizgeräte wie Plaud gewinnen an Popularität und zeigen, wie Hardware-Helfer deinen Alltag beim Mitschreiben entlasten können.",
         "Ollama bietet weiterhin eine hervorragende Möglichkeit, Open-Source-LLMs wie Mistral Small lokal zu betreiben, was besonders für datenschutzsensible Anwendungen im deutschen Sprachraum interessant ist."
+      ]
+    },
+    {
+      "date": "21.06.2026",
+      "titles": [
+        "Gemini wird zum Alleskönner: NotebookLM schreibt Code und übersetzt live in Meetings – auch in der EU",
+        "ChatGPT plant jetzt deine Woche: Neue Funktion für automatisierte Aufgaben und Erinnerungen",
+        "Claude steuert jetzt deinen Computer: Maus und Tastatur für komplexe Aufgaben",
+        "Notion wird zur KI-Zentrale: So verbindest du deine Notizen direkt mit intelligenten Agenten"
+      ],
+      "schnell": [
+        "Google hat ein Update für Gemini 3.5 Flash ausgerollt, das ein Problem mit sich wiederholenden Textausgaben behebt und die Zuverlässigkeit deutlich verbessert.",
+        "Wichtiger Hinweis für macOS-Nutzer: Aktualisiere ChatGPT Desktop, Codex App und Atlas bis zum 26. Juni, sonst funktionieren sie aufgrund einer Zertifikatsänderung nicht mehr.",
+        "NotiZen, ein Widget für Notion auf Android, bietet jetzt einen AI-Planungs-Export an, mit dem du ausgewählte Ansichten und Kalenderereignisse als JSON für ChatGPT oder andere KI-Tools exportieren kannst.",
+        "Microsoft hat den Copilot-Button in Excel verschoben; er erscheint nun als schwebende Schaltfläche, die auch beim Wechsel zwischen Registerkarten sichtbar bleibt.",
+        "ChatGPT aktualisiert automatisch Teenager-Schutzmaßnahmen und Kontoeinstellungen, sobald ein Nutzer als 18 oder älter identifiziert wird, um den Zugriff auf Erwachsenenfunktionen zu ermöglichen.",
+        "Sprachchats in Microsoft 365 Copilot trennen sich jetzt nach einer Minute Inaktivität automatisch, um die Erfahrung wieder auf den Textmodus zurückzusetzen."
       ]
     }
   ]
