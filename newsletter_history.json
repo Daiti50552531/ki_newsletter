@@ -1,23 +1,6 @@
 {
   "editions": [
     {
-      "date": "19.06.2026",
-      "titles": [
-        "Microsoft Copilot Cowork: Dein neuer KI-Kollege übernimmt komplexe Aufgaben in Office 365",
-        "Gemini räumt auf: Projekt-Notizbücher und Live-Übersetzung erleichtern den Arbeitsalltag",
-        "DeepL kauft Mixhalo: Echtzeit-Übersetzung für Live-Events und hybride Meetings",
-        "ChatGPT lernt 'Skills' und speichert mehr Kontext: Weniger Wiederholungen, mehr Effizienz"
-      ],
-      "schnell": [
-        "Gemini in Google Sheets unterstützt jetzt 28 weitere Sprachen, darunter Deutsch, was die Zusammenarbeit in globalen Teams bei der Tabellenkalkulation deutlich vereinfacht.",
-        "Die ChatGPT App erhält Updates mit interaktiven Diagrammen in Antworten und einem Inhaltsverzeichnis für längere Konversationen, was die Übersichtlichkeit verbessert.",
-        "Claude Design wurde mit erweiterten Designsystem-Kontrollen und engeren Verbindungen zu Claude Code aktualisiert, um die Einhaltung von Markenrichtlinien zu gewährleisten, befindet sich aber noch in der Beta-Phase für kostenpflichtige Abos.",
-        "Microsoft Agent 365 bietet neue Governance-Kontrollen, einschließlich Data Loss Prevention (DLP) für Web-Suchen von Copilot-Agenten, um sensible Unternehmensdaten zu schützen.",
-        "Claude Code kann jetzt interaktive, sich selbst aktualisierende Webseiten ('Artifacts') aus deinen KI-Arbeiten erstellen, um Fortschritte im Team besser zu teilen, ist aber noch in Beta für Team- und Enterprise-Kunden.",
-        "Google Chrome ermöglicht Workspace-Nutzern jetzt, ihre besten Prompt-Vorlagen als 'Skills' zu speichern und mit einem Klick in der Browser-Seitenleiste auf jeder Webseite oder in Dokumenten auszuführen."
-      ]
-    },
-    {
       "date": "20.06.2026",
       "titles": [
         "ChatGPT merkt sich endlich mehr: Wie das neue Gedächtnissystem deinen Workflow vereinfacht",
@@ -47,6 +30,21 @@
         "Microsoft hat den Copilot-Button in Excel verschoben; er erscheint nun als schwebende Schaltfläche, die auch beim Wechsel zwischen Registerkarten sichtbar bleibt.",
         "ChatGPT aktualisiert automatisch Teenager-Schutzmaßnahmen und Kontoeinstellungen, sobald ein Nutzer als 18 oder älter identifiziert wird, um den Zugriff auf Erwachsenenfunktionen zu ermöglichen.",
         "Sprachchats in Microsoft 365 Copilot trennen sich jetzt nach einer Minute Inaktivität automatisch, um die Erfahrung wieder auf den Textmodus zurückzusetzen."
+      ]
+    },
+    {
+      "date": "22.06.2026",
+      "titles": [
+        "Dein PC installiert Copilot 365 automatisch – aber nicht in der EU",
+        "Gemini Omni macht dich zum Video-Editor – auch ohne Vorkenntnisse",
+        "Claude Code wird zuverlässiger: Weniger Frust, mehr Flow im KI-Coding",
+        "Dein eigener KI-Helfer: Die besten lokalen LLMs für deinen Laptop in 2026"
+      ],
+      "schnell": [
+        "Das Open-Source-Modell GLM-5.2 wird als leistungsstarker, textbasierter Konkurrent hervorgehoben, der auf Benchmarks gut abschneidet und kostengünstiger als viele kommerzielle APIs ist.",
+        "Liquid AI hat die LFM2.5 Retriever vorgestellt, kleine Open-Source-Modelle, die mehrsprachige Suchfunktionen für RAG-Anwendungen direkt auf Laptops und CPUs ermöglichen.",
+        "Der Copilot-Button in Microsoft 365 Apps kann aufgrund neuer Lizenzierungsregeln und Admin-Einstellungen verschwinden, besonders bei Basic- oder unlizenziertem Zugang.",
+        "Die neue Benutzeroberfläche von Google Gemini wird serverseitig ausgerollt, was bei einigen Nutzern zu Inkonsistenzen zwischen primären und sekundären Google-Konten führt."
       ]
     }
   ]
