@@ -1,21 +1,6 @@
 {
   "editions": [
     {
-      "date": "20.06.2026",
-      "titles": [
-        "ChatGPT merkt sich endlich mehr: Wie das neue Gedächtnissystem deinen Workflow vereinfacht",
-        "Google Gemini 3 Flash bringt bessere Argumentation – mit wichtigem Hinweis für EU-Nutzer",
-        "Notion und ChatGPT verbinden: So automatisierst du deinen Informationsfluss"
-      ],
-      "schnell": [
-        "Microsoft Copilot in Outlook unterstützt dich ab sofort noch besser beim Überarbeiten und Kürzen von E-Mail-Entwürfen, um deine Kommunikation prägnanter zu gestalten.",
-        "DeepL bleibt der Goldstandard für hochwertige KI-Übersetzungen, besonders im europäischen Sprachraum, und überzeugt weiterhin mit natürlichem Ton und kulturellem Kontext.",
-        "ChatGPT bietet jetzt einen 'Temporary Chat'-Modus für private Gespräche, der weder im Verlauf gespeichert noch zum Modelltraining verwendet wird – ideal für sensible Anfragen.",
-        "KI-gestützte Notizgeräte wie Plaud gewinnen an Popularität und zeigen, wie Hardware-Helfer deinen Alltag beim Mitschreiben entlasten können.",
-        "Ollama bietet weiterhin eine hervorragende Möglichkeit, Open-Source-LLMs wie Mistral Small lokal zu betreiben, was besonders für datenschutzsensible Anwendungen im deutschen Sprachraum interessant ist."
-      ]
-    },
-    {
       "date": "21.06.2026",
       "titles": [
         "Gemini wird zum Alleskönner: NotebookLM schreibt Code und übersetzt live in Meetings – auch in der EU",
@@ -45,6 +30,21 @@
         "Liquid AI hat die LFM2.5 Retriever vorgestellt, kleine Open-Source-Modelle, die mehrsprachige Suchfunktionen für RAG-Anwendungen direkt auf Laptops und CPUs ermöglichen.",
         "Der Copilot-Button in Microsoft 365 Apps kann aufgrund neuer Lizenzierungsregeln und Admin-Einstellungen verschwinden, besonders bei Basic- oder unlizenziertem Zugang.",
         "Die neue Benutzeroberfläche von Google Gemini wird serverseitig ausgerollt, was bei einigen Nutzern zu Inkonsistenzen zwischen primären und sekundären Google-Konten führt."
+      ]
+    },
+    {
+      "date": "24.06.2026",
+      "titles": [
+        "ChatGPT wird zum cross-platform Workflow-Wunder: Neue Features auf allen Geräten",
+        "Claude Tag revolutioniert Teamwork in Slack: Dein KI-Kollege für komplexe Aufgaben",
+        "Gemini rettet deine Google Sheets-Formeln: So verstehst du Excel endlich",
+        "Gemini lernt deinen Schreibstil: Google Docs speichert persönliche Anweisungen"
+      ],
+      "schnell": [
+        "Notion AI Connector für Linear macht Projekt-Updates smart: Verbinde Notion AI direkt mit Linear, um Projekt-Updates und Aufgabenstatus zu sehen, ohne Notion verlassen zu müssen – ideal für den schnellen Überblick im Projektmanagement.",
+        "Canva AI erstellt erste Entwürfe für Präsentationen und Videos in Minuten: Nutze die KI-Funktionen von Canva, um schnell erste Versionen von Präsentationen, PDFs oder Videos zu generieren und spare so wertvolle Startzeit bei kreativen Projekten.",
+        "Microsoft setzt bei neuen MAI-Modellen auf transparente Daten statt Synthetik: Microsoft hat sieben neue MAI-Modelle vorgestellt, darunter MAI-Thinking-1, und betont, dass sie bewusst auf synthetische Trainingsdaten verzichtet haben, was für mehr Vertrauen in die Herkunft der KI-Intelligenz sorgt.",
+        "ChatGPT-App von Upplai hilft bei ATS-optimierten Lebensläufen: Eine neue App im ChatGPT-Ökosystem, Upplai ATS Score Checker, analysiert deinen Lebenslauf auf Bewerber-Tracking-System (ATS)-Kompatibilität und gibt Empfehlungen zur Verbesserung direkt in ChatGPT."
       ]
     }
   ]
