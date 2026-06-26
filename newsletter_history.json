@@ -1,23 +1,6 @@
 {
   "editions": [
     {
-      "date": "21.06.2026",
-      "titles": [
-        "Gemini wird zum Alleskönner: NotebookLM schreibt Code und übersetzt live in Meetings – auch in der EU",
-        "ChatGPT plant jetzt deine Woche: Neue Funktion für automatisierte Aufgaben und Erinnerungen",
-        "Claude steuert jetzt deinen Computer: Maus und Tastatur für komplexe Aufgaben",
-        "Notion wird zur KI-Zentrale: So verbindest du deine Notizen direkt mit intelligenten Agenten"
-      ],
-      "schnell": [
-        "Google hat ein Update für Gemini 3.5 Flash ausgerollt, das ein Problem mit sich wiederholenden Textausgaben behebt und die Zuverlässigkeit deutlich verbessert.",
-        "Wichtiger Hinweis für macOS-Nutzer: Aktualisiere ChatGPT Desktop, Codex App und Atlas bis zum 26. Juni, sonst funktionieren sie aufgrund einer Zertifikatsänderung nicht mehr.",
-        "NotiZen, ein Widget für Notion auf Android, bietet jetzt einen AI-Planungs-Export an, mit dem du ausgewählte Ansichten und Kalenderereignisse als JSON für ChatGPT oder andere KI-Tools exportieren kannst.",
-        "Microsoft hat den Copilot-Button in Excel verschoben; er erscheint nun als schwebende Schaltfläche, die auch beim Wechsel zwischen Registerkarten sichtbar bleibt.",
-        "ChatGPT aktualisiert automatisch Teenager-Schutzmaßnahmen und Kontoeinstellungen, sobald ein Nutzer als 18 oder älter identifiziert wird, um den Zugriff auf Erwachsenenfunktionen zu ermöglichen.",
-        "Sprachchats in Microsoft 365 Copilot trennen sich jetzt nach einer Minute Inaktivität automatisch, um die Erfahrung wieder auf den Textmodus zurückzusetzen."
-      ]
-    },
-    {
       "date": "22.06.2026",
       "titles": [
         "Dein PC installiert Copilot 365 automatisch – aber nicht in der EU",
@@ -45,6 +28,22 @@
         "Canva AI erstellt erste Entwürfe für Präsentationen und Videos in Minuten: Nutze die KI-Funktionen von Canva, um schnell erste Versionen von Präsentationen, PDFs oder Videos zu generieren und spare so wertvolle Startzeit bei kreativen Projekten.",
         "Microsoft setzt bei neuen MAI-Modellen auf transparente Daten statt Synthetik: Microsoft hat sieben neue MAI-Modelle vorgestellt, darunter MAI-Thinking-1, und betont, dass sie bewusst auf synthetische Trainingsdaten verzichtet haben, was für mehr Vertrauen in die Herkunft der KI-Intelligenz sorgt.",
         "ChatGPT-App von Upplai hilft bei ATS-optimierten Lebensläufen: Eine neue App im ChatGPT-Ökosystem, Upplai ATS Score Checker, analysiert deinen Lebenslauf auf Bewerber-Tracking-System (ATS)-Kompatibilität und gibt Empfehlungen zur Verbesserung direkt in ChatGPT."
+      ]
+    },
+    {
+      "date": "26.06.2026",
+      "titles": [
+        "Copilot in Excel lernt neue Tricks: Finanzdaten importieren und Workflows automatisieren",
+        "Dein Computer wird zum KI-Agenten: Gemini 3.5 Flash kann jetzt deinen Bildschirm sehen und bedienen",
+        "Mistral AI's OCR 4 revolutioniert Dokumentenanalyse: Struktur statt nur Text",
+        "Notion Mail gibt auf: KI-Agenten übernehmen die E-Mail-Verwaltung"
+      ],
+      "schnell": [
+        "Apple hat Google Gemini als KI-Provider für die Coding-Assistenz in Xcode 26.6 integriert, neben Anthropic Claude Agent und OpenAI Codex.",
+        "Microsoft 365 Copilot soll ab Juli 2026 lange und komplexe Dokumente besser navigieren können und dabei klarere Quellenangaben liefern.",
+        "Mistral AI hat neue Konnektor-Kontrollen eingeführt, die detaillierte Berechtigungen und 'scoped API keys' für KI-Agenten in Arbeitsbereichen ermöglichen und so Sicherheit und Nachvollziehbarkeit verbessern.",
+        "Das chinesische KI-Unternehmen DeepSeek plant nach einer Finanzierungsrunde von 7,4 Milliarden US-Dollar eine massive Verdoppelung seiner Belegschaft, um seine Position im globalen KI-Wettbewerb zu stärken.",
+        "Anthropic beschuldigt Alibaba, durch den Einsatz von fast 25.000 gefälschten Accounts Fähigkeiten aus dem Claude AI-Modell 'destilliert' zu haben, was als größter bekannter Angriff dieser Art gilt."
       ]
     }
   ]
