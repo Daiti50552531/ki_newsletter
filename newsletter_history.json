@@ -1,21 +1,6 @@
 {
   "editions": [
     {
-      "date": "22.06.2026",
-      "titles": [
-        "Dein PC installiert Copilot 365 automatisch – aber nicht in der EU",
-        "Gemini Omni macht dich zum Video-Editor – auch ohne Vorkenntnisse",
-        "Claude Code wird zuverlässiger: Weniger Frust, mehr Flow im KI-Coding",
-        "Dein eigener KI-Helfer: Die besten lokalen LLMs für deinen Laptop in 2026"
-      ],
-      "schnell": [
-        "Das Open-Source-Modell GLM-5.2 wird als leistungsstarker, textbasierter Konkurrent hervorgehoben, der auf Benchmarks gut abschneidet und kostengünstiger als viele kommerzielle APIs ist.",
-        "Liquid AI hat die LFM2.5 Retriever vorgestellt, kleine Open-Source-Modelle, die mehrsprachige Suchfunktionen für RAG-Anwendungen direkt auf Laptops und CPUs ermöglichen.",
-        "Der Copilot-Button in Microsoft 365 Apps kann aufgrund neuer Lizenzierungsregeln und Admin-Einstellungen verschwinden, besonders bei Basic- oder unlizenziertem Zugang.",
-        "Die neue Benutzeroberfläche von Google Gemini wird serverseitig ausgerollt, was bei einigen Nutzern zu Inkonsistenzen zwischen primären und sekundären Google-Konten führt."
-      ]
-    },
-    {
       "date": "24.06.2026",
       "titles": [
         "ChatGPT wird zum cross-platform Workflow-Wunder: Neue Features auf allen Geräten",
@@ -44,6 +29,22 @@
         "Mistral AI hat neue Konnektor-Kontrollen eingeführt, die detaillierte Berechtigungen und 'scoped API keys' für KI-Agenten in Arbeitsbereichen ermöglichen und so Sicherheit und Nachvollziehbarkeit verbessern.",
         "Das chinesische KI-Unternehmen DeepSeek plant nach einer Finanzierungsrunde von 7,4 Milliarden US-Dollar eine massive Verdoppelung seiner Belegschaft, um seine Position im globalen KI-Wettbewerb zu stärken.",
         "Anthropic beschuldigt Alibaba, durch den Einsatz von fast 25.000 gefälschten Accounts Fähigkeiten aus dem Claude AI-Modell 'destilliert' zu haben, was als größter bekannter Angriff dieser Art gilt."
+      ]
+    },
+    {
+      "date": "27.06.2026",
+      "titles": [
+        "Copilot wird zum Workflow-Dirigenten: Deine eigenen KI-Agenten in Microsoft 365",
+        "Gemini 3.5 Flash kann jetzt deinen Bildschirm sehen und bedienen – dein PC wird zum KI-Agenten",
+        "GoSearch für ChatGPT: Dein Firmenwissen endlich direkt im Chat",
+        "ChatGPT Enterprise & Edu wird zum Gedächtniskünstler: Besserer Kontext, mehr Integration"
+      ],
+      "schnell": [
+        "Gerüchten zufolge plant Anthropic eine mobile Version von Claude Cowork, mit der du KI-Workflows von deinem Smartphone aus starten und verwalten kannst, während sie im Hintergrund weiterlaufen.",
+        "Microsoft Copilot in Excel erhält neue Finanzfunktionen, mit denen du wiederholbare 'Skills' für Routineaufgaben wie Finanzmodellierung oder Varianzanalysen erstellen kannst.",
+        "NLnet Labs hat seine Richtlinien für LLM-generierte Beiträge verschärft und verlangt nun die Offenlegung der KI-Nutzung bei Code- und Dokumentationsbeiträgen zu Open-Source-Projekten.",
+        "Reddit-Nutzer berichten von erhöhten Ratenlimits für die Claude API, was intensive Anwendungen und Entwicklungen mit Claude erleichtern könnte.",
+        "NVIDIA hat DFlash quelloffen gemacht, ein neues Block-Diffusionsmodell, das die Inferenz von autoregressiven LLMs um bis zu das 15-fache beschleunigt und sich in gängige Open-Source-Frameworks integriert."
       ]
     }
   ]
