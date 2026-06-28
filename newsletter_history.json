@@ -1,21 +1,6 @@
 {
   "editions": [
     {
-      "date": "24.06.2026",
-      "titles": [
-        "ChatGPT wird zum cross-platform Workflow-Wunder: Neue Features auf allen Geräten",
-        "Claude Tag revolutioniert Teamwork in Slack: Dein KI-Kollege für komplexe Aufgaben",
-        "Gemini rettet deine Google Sheets-Formeln: So verstehst du Excel endlich",
-        "Gemini lernt deinen Schreibstil: Google Docs speichert persönliche Anweisungen"
-      ],
-      "schnell": [
-        "Notion AI Connector für Linear macht Projekt-Updates smart: Verbinde Notion AI direkt mit Linear, um Projekt-Updates und Aufgabenstatus zu sehen, ohne Notion verlassen zu müssen – ideal für den schnellen Überblick im Projektmanagement.",
-        "Canva AI erstellt erste Entwürfe für Präsentationen und Videos in Minuten: Nutze die KI-Funktionen von Canva, um schnell erste Versionen von Präsentationen, PDFs oder Videos zu generieren und spare so wertvolle Startzeit bei kreativen Projekten.",
-        "Microsoft setzt bei neuen MAI-Modellen auf transparente Daten statt Synthetik: Microsoft hat sieben neue MAI-Modelle vorgestellt, darunter MAI-Thinking-1, und betont, dass sie bewusst auf synthetische Trainingsdaten verzichtet haben, was für mehr Vertrauen in die Herkunft der KI-Intelligenz sorgt.",
-        "ChatGPT-App von Upplai hilft bei ATS-optimierten Lebensläufen: Eine neue App im ChatGPT-Ökosystem, Upplai ATS Score Checker, analysiert deinen Lebenslauf auf Bewerber-Tracking-System (ATS)-Kompatibilität und gibt Empfehlungen zur Verbesserung direkt in ChatGPT."
-      ]
-    },
-    {
       "date": "26.06.2026",
       "titles": [
         "Copilot in Excel lernt neue Tricks: Finanzdaten importieren und Workflows automatisieren",
@@ -45,6 +30,22 @@
         "NLnet Labs hat seine Richtlinien für LLM-generierte Beiträge verschärft und verlangt nun die Offenlegung der KI-Nutzung bei Code- und Dokumentationsbeiträgen zu Open-Source-Projekten.",
         "Reddit-Nutzer berichten von erhöhten Ratenlimits für die Claude API, was intensive Anwendungen und Entwicklungen mit Claude erleichtern könnte.",
         "NVIDIA hat DFlash quelloffen gemacht, ein neues Block-Diffusionsmodell, das die Inferenz von autoregressiven LLMs um bis zu das 15-fache beschleunigt und sich in gängige Open-Source-Frameworks integriert."
+      ]
+    },
+    {
+      "date": "28.06.2026",
+      "titles": [
+        "Copilot in Excel lernt jetzt deine Finanz-Workflows und lässt dich jeden Schritt prüfen",
+        "Gemini Interactions API erreicht General Availability – dein Baustein für smarte KI-Agenten",
+        "DeepSeek V4 wird bis zu 85% schneller: DSpark beschleunigt KI-Inferenz massiv"
+      ],
+      "schnell": [
+        "OpenAI hat mit GPT-5.6 (Sol, Terra, Luna) eine neue Modellfamilie vorgestellt, die verbesserte Agenten-Fähigkeiten und Kosteneffizienz bietet, aber vorerst nur ausgewählten Partnern auf Wunsch der US-Regierung zur Verfügung steht.",
+        "ChatGPTs Standardmodell GPT-5.5 Instant wurde aktualisiert, um sich natürlicher und weniger wörtlich zu verhalten, was die Konversation angenehmer macht und die Fähigkeit verbessert, Absichten zu erkennen und sich anzupassen.",
+        "Llama 3.1, die neueste Open-Source-Modellreihe von Meta, bietet verbesserte Werkzeugnutzung und Argumentationsleistung, unterstützt die Generierung synthetischer Daten und die Modell-Destillation für effizientere Anwendungen.",
+        "Haimaker hat ein Unified AI API Gateway gestartet, das Entwicklern über 200 KI-Modelle über einen einzigen OpenAI-kompatiblen Endpunkt zugänglich macht und den Integrationsaufwand reduziert.",
+        "Zendesk bietet nun einen externen Wissensquellen-Konnektor für Notion an, der es ermöglicht, Notion-Inhalte direkt im Help Center, für generative Suchen und in KI-Agenten zu nutzen, ohne Daten migrieren zu müssen (GA April 2026, berichtet am 27.06.2026).",
+        "Mistral AI hat 'Vibe' (ehemals Le Chat) in Version 2.4.0 veröffentlicht, einen mobilen agentischen KI-Assistenten für komplexe und langfristige Aufgaben, der mit deinen Daten und Tools interagieren kann (Update vom 23.06.2026, berichtet am 27.06.2026)."
       ]
     }
   ]
