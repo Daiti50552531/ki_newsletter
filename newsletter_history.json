@@ -1,22 +1,6 @@
 {
   "editions": [
     {
-      "date": "26.06.2026",
-      "titles": [
-        "Copilot in Excel lernt neue Tricks: Finanzdaten importieren und Workflows automatisieren",
-        "Dein Computer wird zum KI-Agenten: Gemini 3.5 Flash kann jetzt deinen Bildschirm sehen und bedienen",
-        "Mistral AI's OCR 4 revolutioniert Dokumentenanalyse: Struktur statt nur Text",
-        "Notion Mail gibt auf: KI-Agenten übernehmen die E-Mail-Verwaltung"
-      ],
-      "schnell": [
-        "Apple hat Google Gemini als KI-Provider für die Coding-Assistenz in Xcode 26.6 integriert, neben Anthropic Claude Agent und OpenAI Codex.",
-        "Microsoft 365 Copilot soll ab Juli 2026 lange und komplexe Dokumente besser navigieren können und dabei klarere Quellenangaben liefern.",
-        "Mistral AI hat neue Konnektor-Kontrollen eingeführt, die detaillierte Berechtigungen und 'scoped API keys' für KI-Agenten in Arbeitsbereichen ermöglichen und so Sicherheit und Nachvollziehbarkeit verbessern.",
-        "Das chinesische KI-Unternehmen DeepSeek plant nach einer Finanzierungsrunde von 7,4 Milliarden US-Dollar eine massive Verdoppelung seiner Belegschaft, um seine Position im globalen KI-Wettbewerb zu stärken.",
-        "Anthropic beschuldigt Alibaba, durch den Einsatz von fast 25.000 gefälschten Accounts Fähigkeiten aus dem Claude AI-Modell 'destilliert' zu haben, was als größter bekannter Angriff dieser Art gilt."
-      ]
-    },
-    {
       "date": "27.06.2026",
       "titles": [
         "Copilot wird zum Workflow-Dirigenten: Deine eigenen KI-Agenten in Microsoft 365",
@@ -46,6 +30,18 @@
         "Haimaker hat ein Unified AI API Gateway gestartet, das Entwicklern über 200 KI-Modelle über einen einzigen OpenAI-kompatiblen Endpunkt zugänglich macht und den Integrationsaufwand reduziert.",
         "Zendesk bietet nun einen externen Wissensquellen-Konnektor für Notion an, der es ermöglicht, Notion-Inhalte direkt im Help Center, für generative Suchen und in KI-Agenten zu nutzen, ohne Daten migrieren zu müssen (GA April 2026, berichtet am 27.06.2026).",
         "Mistral AI hat 'Vibe' (ehemals Le Chat) in Version 2.4.0 veröffentlicht, einen mobilen agentischen KI-Assistenten für komplexe und langfristige Aufgaben, der mit deinen Daten und Tools interagieren kann (Update vom 23.06.2026, berichtet am 27.06.2026)."
+      ]
+    },
+    {
+      "date": "29.06.2026",
+      "titles": [
+        "Claude Design 2.0: Direktes Bearbeiten auf dem Canvas und intelligente Design-Systeme erleichtern deine Arbeit",
+        "Google Gemini integriert sich tiefer in den Play Store: Apps finden und installieren per Sprachbefehl",
+        "Claude Tag bringt KI als Teamkollegen direkt in deine Slack-Kanäle"
+      ],
+      "schnell": [
+        "Die nächste Generation von KI wird aus Agenten bestehen, die 'wirtschaftlich wertvolle' Arbeit über eine Vielzahl von realen Domänen hinweg leisten können, so die neue Vizepräsidentin für KI-Forschung bei Meta Platforms, Dawn Song.",
+        "Microsoft Copilot kann jetzt in Windows 11 Pro, Education und Enterprise dauerhaft deinstalliert oder deaktiviert werden, was Nutzern mehr Kontrolle über unerwünschte KI-Integrationen gibt."
       ]
     }
   ]
