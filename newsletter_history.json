@@ -1,22 +1,6 @@
 {
   "editions": [
     {
-      "date": "27.06.2026",
-      "titles": [
-        "Copilot wird zum Workflow-Dirigenten: Deine eigenen KI-Agenten in Microsoft 365",
-        "Gemini 3.5 Flash kann jetzt deinen Bildschirm sehen und bedienen – dein PC wird zum KI-Agenten",
-        "GoSearch für ChatGPT: Dein Firmenwissen endlich direkt im Chat",
-        "ChatGPT Enterprise & Edu wird zum Gedächtniskünstler: Besserer Kontext, mehr Integration"
-      ],
-      "schnell": [
-        "Gerüchten zufolge plant Anthropic eine mobile Version von Claude Cowork, mit der du KI-Workflows von deinem Smartphone aus starten und verwalten kannst, während sie im Hintergrund weiterlaufen.",
-        "Microsoft Copilot in Excel erhält neue Finanzfunktionen, mit denen du wiederholbare 'Skills' für Routineaufgaben wie Finanzmodellierung oder Varianzanalysen erstellen kannst.",
-        "NLnet Labs hat seine Richtlinien für LLM-generierte Beiträge verschärft und verlangt nun die Offenlegung der KI-Nutzung bei Code- und Dokumentationsbeiträgen zu Open-Source-Projekten.",
-        "Reddit-Nutzer berichten von erhöhten Ratenlimits für die Claude API, was intensive Anwendungen und Entwicklungen mit Claude erleichtern könnte.",
-        "NVIDIA hat DFlash quelloffen gemacht, ein neues Block-Diffusionsmodell, das die Inferenz von autoregressiven LLMs um bis zu das 15-fache beschleunigt und sich in gängige Open-Source-Frameworks integriert."
-      ]
-    },
-    {
       "date": "28.06.2026",
       "titles": [
         "Copilot in Excel lernt jetzt deine Finanz-Workflows und lässt dich jeden Schritt prüfen",
@@ -42,6 +26,22 @@
       "schnell": [
         "Die nächste Generation von KI wird aus Agenten bestehen, die 'wirtschaftlich wertvolle' Arbeit über eine Vielzahl von realen Domänen hinweg leisten können, so die neue Vizepräsidentin für KI-Forschung bei Meta Platforms, Dawn Song.",
         "Microsoft Copilot kann jetzt in Windows 11 Pro, Education und Enterprise dauerhaft deinstalliert oder deaktiviert werden, was Nutzern mehr Kontrolle über unerwünschte KI-Integrationen gibt."
+      ]
+    },
+    {
+      "date": "30.06.2026",
+      "titles": [
+        "Apple macht Siri zum intelligenten Alltagshelfer – mit On-Device-KI und Cloud-Power",
+        "GLM 5.2 von Z.ai: Dieses Open-Source-Modell macht deine Coding- und Agenten-Workflows günstiger",
+        "Gemini 3.5 Flash jetzt allgemein verfügbar: Dein schnellerer und günstigerer KI-Helfer auf Google Cloud",
+        "DeepSeek beschleunigt KI-Inferenz um bis zu 85% mit DSpark – Open-Source für alle"
+      ],
+      "schnell": [
+        "OpenAI verstärkt sein Hardware-Team mit einem ehemaligen Apple Vision Pro-Manager, was auf eine zukünftige Ausrichtung auf KI-Geräte und physische Produkte hindeutet.",
+        "Apple erhöht die Preise für Macs, iPads und andere Hardware weltweit, um die stark gestiegenen Kosten für Speicherchips auszugleichen, die durch die enorme KI-Nachfrage verursacht werden.",
+        "Ein SHRM-Bericht für 2026 zeigt, dass 41% der US-Mitarbeitenden KI bei der Arbeit nutzen und 33% in Unternehmen arbeiten, die KI implementiert haben, was eine offene KI-Kultur als Erfolgsfaktor hervorhebt.",
+        "Ornith-1.0, ein neues MIT-lizenziertes Open-Source-Modell von DeepReinforce, erzielt Bestleistungen bei Coding-Benchmarks und agentischen Aufgaben, basierend auf Gemma 4 und Qwen 3.5.",
+        "Plattformen wie n8n und Zapier zeigen zahlreiche Anwendungsfälle für KI-Agenten, die von intelligenten Chatbots bis zur automatisierten E-Mail-Zusammenfassung reichen und dabei helfen, komplexe Workflows zu automatisieren."
       ]
     }
   ]
