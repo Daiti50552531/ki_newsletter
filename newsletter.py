@@ -31,8 +31,9 @@ GEMINI_MODELS = [
     "gemini-2.0-flash-lite",
 ]
 
-HISTORY_FILE     = "newsletter_history.json"
-HISTORY_MAX_DAYS = 3
+HISTORY_FILE      = "newsletter_history.json"
+HISTORY_MAX_DAYS  = 5   # Duplikat-Blacklist: so viele Tage zurück sperren
+HISTORY_STORE_DAYS = 10  # Aufbewahrung in der Datei: für Wochenrückblick am Sonntag
 
 def gemini_url(model: str) -> str:
     return (
@@ -523,40 +524,96 @@ def get_tool_tipp() -> dict:
     return TOOL_TIPPS[(day_of_year + 13) % len(TOOL_TIPPS)]
 
 
-# ── Newsletter-Verlauf (Duplikat-Schutz) ──────────────────────────────────────
-def load_published_titles() -> list:
-    """Liest Schlagzeilen der letzten Ausgaben aus der lokalen History-Datei."""
+# ── Newsletter-Verlauf (Duplikat-Schutz + Wochenrückblick-Datenbasis) ─────────
+def _read_history() -> dict:
     if not os.path.exists(HISTORY_FILE):
-        return []
+        return {"editions": []}
     try:
         with open(HISTORY_FILE) as f:
-            history = json.load(f)
-        titles = []
-        for edition in history.get("editions", [])[-HISTORY_MAX_DAYS:]:
-            titles.extend(edition.get("titles", []))
-            titles.extend(edition.get("schnell", []))
-        return [t for t in titles if t]
+            return json.load(f)
     except Exception as e:
         print(f"  History-Load übersprungen: {e}")
-        return []
+        return {"editions": []}
+
+
+def _edition_headlines(edition: dict) -> list:
+    """Alle Schlagzeilen einer Ausgabe – unterstützt altes (titles/schnell als
+    Strings) UND neues Schema (top_news/schnelldurchlauf als Dicts)."""
+    out = []
+    # neues Schema
+    for n in edition.get("top_news", []):
+        if isinstance(n, dict) and n.get("titel"):
+            out.append(n["titel"])
+    for s in edition.get("schnelldurchlauf", []):
+        if isinstance(s, dict) and s.get("text"):
+            out.append(s["text"])
+    # altes Schema (Strings)
+    out.extend(t for t in edition.get("titles", []) if isinstance(t, str) and t)
+    out.extend(s for s in edition.get("schnell", []) if isinstance(s, str) and s)
+    return out
+
+
+def _edition_blobs(edition: dict) -> list:
+    """Reiches Vergleichsmaterial: Titel + Zusammenfassung zu einem Themen-Blob
+    zusammengefasst, damit der Filter Themen erkennt – nicht nur Wortgleichheit."""
+    out = []
+    for n in edition.get("top_news", []):
+        if isinstance(n, dict):
+            blob = (n.get("titel", "") + " " + n.get("zusammenfassung", "")).strip()
+            if blob:
+                out.append(blob)
+    for s in edition.get("schnelldurchlauf", []):
+        if isinstance(s, dict) and s.get("text"):
+            out.append(s["text"])
+    out.extend(t for t in edition.get("titles", []) if isinstance(t, str) and t)
+    out.extend(s for s in edition.get("schnell", []) if isinstance(s, str) and s)
+    return out
+
+
+def load_published_titles() -> list:
+    """Schlagzeilen der letzten HISTORY_MAX_DAYS Ausgaben – kompakte Blacklist für den Prompt."""
+    history = _read_history()
+    titles = []
+    for edition in history.get("editions", [])[-HISTORY_MAX_DAYS:]:
+        titles.extend(_edition_headlines(edition))
+    return [t for t in titles if t]
+
+
+def load_published_corpus() -> list:
+    """Titel + Zusammenfassungen der letzten HISTORY_MAX_DAYS Ausgaben –
+    Vergleichsbasis für den deterministischen Qualitäts-Filter."""
+    history = _read_history()
+    blobs = []
+    for edition in history.get("editions", [])[-HISTORY_MAX_DAYS:]:
+        blobs.extend(_edition_blobs(edition))
+    return [b for b in blobs if b]
+
+
+def load_week_editions() -> list:
+    """Liest die letzten HISTORY_STORE_DAYS Ausgaben (Basis für Wochenrückblick)."""
+    history = _read_history()
+    return history.get("editions", [])[-HISTORY_STORE_DAYS:]
 
 
 def save_published_titles(data: dict) -> None:
-    """Schreibt heutige Schlagzeilen in newsletter_history.json und pusht via git."""
+    """Schreibt heutige Ausgabe in newsletter_history.json und pusht via git."""
     import subprocess
     try:
         today_entry = {
             "date": TODAY,
-            "titles": [n.get("titel", "") for n in data.get("top_news", [])],
-            "schnell": [s.get("text", "") for s in data.get("schnelldurchlauf", [])],
+            "top_news": [
+                {k: n.get(k, "") for k in ("titel", "zusammenfassung", "take", "quelle", "url", "datum")}
+                for n in data.get("top_news", [])
+            ],
+            "schnelldurchlauf": [
+                {k: s.get(k, "") for k in ("text", "quelle", "url")}
+                for s in data.get("schnelldurchlauf", [])
+            ],
         }
-        history = {"editions": []}
-        if os.path.exists(HISTORY_FILE):
-            with open(HISTORY_FILE) as f:
-                history = json.load(f)
+        history = _read_history()
         editions = [e for e in history.get("editions", []) if e.get("date") != TODAY]
         editions.append(today_entry)
-        history["editions"] = editions[-HISTORY_MAX_DAYS:]
+        history["editions"] = editions[-HISTORY_STORE_DAYS:]
         with open(HISTORY_FILE, "w") as f:
             json.dump(history, f, ensure_ascii=False, indent=2)
         # Git commit + push (funktioniert in GitHub Actions via checkout@v4)
@@ -568,7 +625,7 @@ def save_published_titles(data: dict) -> None:
             subprocess.run(["git", "commit", "-m",
                             f"chore: newsletter history {TODAY} [skip ci]"], check=True)
             subprocess.run(["git", "push"], check=True)
-        n = len(today_entry["titles"]) + len(today_entry["schnell"])
+        n = len(today_entry["top_news"]) + len(today_entry["schnelldurchlauf"])
         print(f"  ✓ History gespeichert ({n} Meldungen für morgen geblockt)")
     except Exception as e:
         print(f"  History-Save übersprungen (non-fatal): {e}")
@@ -664,6 +721,11 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
     "warum_hoeren": "2-3 Saetze auf Deutsch",
     "url": "https://...",
     "datum": "TT.MM.YYYY"
+  }},
+  "zahl_des_tages": {{
+    "zahl": "Eine konkrete Zahl/Prozentangabe/Kennzahl aus den heutigen News, z.B. '40%' oder '2,3 Mio.'",
+    "kontext": "Ein einziger Satz der erklaert wofuer die Zahl steht und warum sie relevant ist",
+    "quelle": "Name der Quelle"
   }}
 }}
 
@@ -674,6 +736,7 @@ REGELN:
 - Alle Daten im Format TT.MM.YYYY
 - URLs direkt zum Artikel (nicht Homepage), Fallback: https://www.google.com/search?q=titel+quelle
 - Lieber 2 starke Meldungen als 3 bei der eine ein Lueckenbuesser ist
+- zahl_des_tages: Die einprägsamste Zahl aus dem heutigen Material – muss aus einer der News stammen, nicht erfunden
 """
 
 
@@ -681,11 +744,13 @@ def build_prompt(published_titles: list) -> str:
     """Baut den finalen Prompt – injiziert ggf. bereits veröffentlichte Schlagzeilen."""
     if not published_titles:
         return PROMPT_BASE
-    block = "\n".join(f"  - {t}" for t in published_titles[:40])
+    block = "\n".join(f"  - {t}" for t in published_titles[:50])
     return PROMPT_BASE + f"""
 --- BEREITS VEROEFFENTLICHT – ABSOLUTES DUPLIKAT-VERBOT ---
 Diese Meldungen liefen in den letzten {HISTORY_MAX_DAYS} Ausgaben.
 Weder in top_news noch im schnelldurchlauf duerfen sie – auch inhaltlich aehnlich – erneut erscheinen.
+Das gilt auch fuer dasselbe Thema aus einer ANDEREN Quelle oder mit anderer Formulierung
+(gleiches Modell-Update, gleiche Produktankuendigung, gleiche Kennzahl = verboten).
 Waehle konsequent andere Themen:
 {block}
 """
@@ -757,8 +822,178 @@ def extract_json(text: str) -> dict:
         raise ValueError(f"JSON-Fehler nach Bereinigung: {e}\nJSON-Anfang:\n{json_str[:400]}")
 
 
+# ── Redaktions-Check: zweiter Gemini-Durchlauf prüft den eigenen Entwurf ──────
+EDITOR_PROMPT_TEMPLATE = """Du bist der schaerfste Redaktionsleiter dieses KI-Newsletters und pruefst
+den Entwurf eines Kollegen, bevor er rausgeht. Heute ist der {today}.
+Nutze Google Search um Fakten und Daten zu verifizieren.
+
+Entwurf als JSON:
+{draft}
+
+PRUEFE UND KORRIGIERE:
+1. AKTUALITAET: Verifiziere per Suche, dass jeder Artikel in top_news und schnelldurchlauf tatsaechlich
+   aus den letzten 24-48 Stunden stammt. Entferne jeden Eintrag, den du nicht verifizieren kannst.
+2. DOPPLUNGEN: Wenn zwei Eintraege (auch top_news vs schnelldurchlauf) inhaltlich dasselbe Thema
+   behandeln, behalte nur den staerkeren und entferne den anderen komplett.
+3. SCHWAECHE: Streiche Floskeln, Buzzwords ("revolutionaer", "bahnbrechend", "KI-Zeitalter") und vage
+   Saetze. Ersetze sie durch konkrete Formulierungen.
+4. TAKE-QUALITAET: Jeder Take muss eine echte Meinung sein (ausprobieren/abwarten/Hype), keine
+   Wiederholung der Zusammenfassung.
+5. EU-CHECK: Wenn ein Feature nicht in der EU verfuegbar ist, muss das im Take stehen.
+6. ZAHL DES TAGES: Pruefe dass die Zahl wirklich aus einer der News stammt, nicht erfunden ist.
+7. Wenn nach der Pruefung weniger als 2 Eintraege in top_news uebrig bleiben, fuelle NICHT mit
+   schwachen Eintraegen auf – lieber kurz und stark als lang und schwach.
+
+Gib das KORRIGIERTE JSON in EXAKT demselben Format zurueck (Felder: intro, top_news,
+schnelldurchlauf, podcast, zahl_des_tages). Keine Erklaerungen, kein Markdown, nur das JSON.
+"""
+
+EDITOR_BLACKLIST_BLOCK = """
+8. BEREITS GELAUFEN – HARTES THEMEN-VERBOT: Die folgenden Meldungen liefen in den letzten
+   {days} Ausgaben. Entferne JEDEN Eintrag, der dasselbe Thema behandelt – auch wenn er aus
+   einer anderen Quelle stammt oder anders formuliert ist (gleiches Modell-Update, gleiche
+   Produktankuendigung, gleiche Kennzahl = Duplikat). Im Zweifel entfernen.
+{block}
+"""
+
+
+def run_editor_pass(data: dict, published_titles: list = None) -> dict:
+    """Zweiter Gemini-Durchlauf: prueft Aktualitaet, Dopplungen und Schreibqualitaet des Entwurfs."""
+    try:
+        keys = ("intro", "top_news", "schnelldurchlauf", "podcast", "zahl_des_tages")
+        draft_json = json.dumps({k: data[k] for k in keys if k in data}, ensure_ascii=False)
+        editor_prompt = EDITOR_PROMPT_TEMPLATE.format(today=TODAY, draft=draft_json)
+        if published_titles:
+            block = "\n".join(f"  - {t}" for t in published_titles[:50])
+            editor_prompt += EDITOR_BLACKLIST_BLOCK.format(days=HISTORY_MAX_DAYS, block=block)
+        response = call_gemini(editor_prompt)
+        candidates = response.get("candidates", [])
+        parts = candidates[0].get("content", {}).get("parts", []) if candidates else []
+        raw_text = "".join(p.get("text", "") for p in parts)
+        if not raw_text.strip():
+            print("  Editor-Pass: leere Antwort – Entwurf wird unverändert übernommen")
+            return data
+        edited = extract_json(raw_text)
+        if not edited.get("top_news"):
+            print("  Editor-Pass: keine top_news im Ergebnis – Entwurf wird unverändert übernommen")
+            return data
+        for key in keys:
+            if key in edited:
+                data[key] = edited[key]
+        print(f"  ✓ Editor-Pass abgeschlossen ({len(data.get('top_news', []))} Top-News übrig)")
+        return data
+    except Exception as e:
+        print(f"  Editor-Pass übersprungen (non-fatal): {e}")
+        return data
+
+
+# ── Qualitäts-Sicherheitsnetz: Aktualität & Dopplungen programmatisch prüfen ──
+# Häufige deutsche Funktionswörter – tragen nichts zur Themengleichheit bei.
+_STOPWORDS = {
+    "der", "die", "das", "den", "dem", "des", "ein", "eine", "einen", "einer",
+    "eines", "und", "oder", "aber", "auch", "noch", "nur", "schon", "mit", "ohne",
+    "fuer", "für", "von", "vom", "zum", "zur", "zu", "im", "in", "an", "am", "auf",
+    "aus", "bei", "bis", "nach", "vor", "ueber", "über", "unter", "durch", "gegen",
+    "ist", "sind", "war", "wird", "werden", "wurde", "wurden", "hat", "haben",
+    "kann", "koennen", "können", "soll", "sollen", "muss", "muessen", "müssen",
+    "sich", "dich", "dir", "dein", "deine", "deinen", "deiner", "du", "es", "er",
+    "sie", "wir", "ihr", "man", "als", "wie", "was", "wer", "wo", "wann", "warum",
+    "jetzt", "neu", "neue", "neuer", "neues", "neuen", "macht", "machen", "mehr",
+    "alle", "alles", "diese", "dieser", "dieses", "diesem", "ki", "ai", "the",
+    "lassen", "laesst", "lässt", "bringt", "bringen", "wird's", "so", "dann",
+}
+
+# Markante KI-Entitäten/Produktnamen, die ein Thema eindeutig kennzeichnen –
+# auch wenn sie kurz sind (würden sonst durch die Längenregel fallen).
+_AI_ENTITIES = {
+    "gpt", "glm", "qwen", "grok", "siri", "llama", "gemma", "gemini", "claude",
+    "openai", "deepseek", "copilot", "dspark", "mistral", "anthropic", "sora",
+    "veo", "flash", "opus", "sonnet", "haiku", "perplexity", "notebooklm",
+}
+
+# Zu breite Begriffe: Hersteller- und Sammelnamen, die in vielen verschiedenen
+# Stories auftauchen. Sie zählen NICHT als eigenständiges Themen-Signal, sonst
+# gilt jede zweite Google-/Apple-Meldung als Dopplung.
+_GENERIC_TOKENS = {
+    "google", "apple", "microsoft", "meta", "amazon", "nvidia", "samsung",
+    "cloud", "store", "update", "updates", "modell", "modelle", "version",
+    "launch", "release", "feature", "features", "tool", "tools", "app", "apps",
+    "unternehmen", "nutzer", "nutzern", "funktion", "funktionen", "milliarden",
+    "million", "millionen", "prozent", "studie", "bericht", "markt",
+}
+
+
+def _normalize_words(s: str) -> set:
+    words = re.findall(r"[a-zäöüß0-9]+", s.lower())
+    return {w for w in words if w not in _STOPWORDS and len(w) > 2}
+
+
+def _significant_tokens(s: str) -> set:
+    """Markante Tokens eines Textes: lange Inhaltswörter (Entitäten/Nomen) plus
+    bekannte KI-Produktnamen, OHNE breite Hersteller-/Sammelbegriffe.
+    Zwei geteilte markante Tokens = gleiches Thema."""
+    words = re.findall(r"[a-zäöüß0-9]+", s.lower())
+    return {w for w in words
+            if w not in _STOPWORDS and w not in _GENERIC_TOKENS
+            and (len(w) >= 5 or w in _AI_ENTITIES)}
+
+
+def _too_similar(a: str, b: str, threshold: float = 0.5) -> bool:
+    """Themengleichheit – greift auch bei unterschiedlicher Formulierung.
+    Blockiert, wenn entweder die Wortüberlappung hoch ist ODER zwei markante
+    Entitäten/Begriffe geteilt werden (z.B. 'deepseek' + 'dspark')."""
+    set_a, set_b = _normalize_words(a), _normalize_words(b)
+    if not set_a or not set_b:
+        return False
+    overlap = len(set_a & set_b) / min(len(set_a), len(set_b))
+    if overlap >= threshold:
+        return True
+    shared_sig = _significant_tokens(a) & _significant_tokens(b)
+    return len(shared_sig) >= 2
+
+
+def _is_fresh(datum: str, max_age_days: int = 2) -> bool:
+    try:
+        d = datetime.strptime(datum.strip(), "%d.%m.%Y")
+        age = (datetime.now() - d).days
+        return -1 <= age <= max_age_days  # leichte Toleranz für Zeitzonen-Versatz
+    except (ValueError, AttributeError):
+        return True  # Datum nicht parsebar – nicht blockieren
+
+
+def enforce_quality_gate(data: dict, published_corpus: list) -> dict:
+    """Letztes Sicherheitsnetz nach dem Editor-Pass: veraltete & (themen-)doppelte
+    Meldungen entfernen. Vergleicht Titel + Zusammenfassung gegen die Vorausgaben."""
+    seen_blobs = []
+    kept_top_news = []
+    for item in data.get("top_news", []):
+        titel = item.get("titel", "")
+        blob = (titel + " " + item.get("zusammenfassung", "")).strip()
+        if not _is_fresh(item.get("datum", "")):
+            print(f"  Qualitäts-Filter: '{titel[:50]}' zu alt – entfernt")
+            continue
+        if any(_too_similar(blob, t) for t in published_corpus + seen_blobs):
+            print(f"  Qualitäts-Filter: '{titel[:50]}' Themen-Duplikat – entfernt")
+            continue
+        seen_blobs.append(blob)
+        kept_top_news.append(item)
+    data["top_news"] = kept_top_news
+
+    kept_schnell = []
+    for item in data.get("schnelldurchlauf", []):
+        text = item.get("text", "")
+        if any(_too_similar(text, t) for t in published_corpus + seen_blobs):
+            print(f"  Qualitäts-Filter: '{text[:50]}' Themen-Duplikat – entfernt")
+            continue
+        seen_blobs.append(text)
+        kept_schnell.append(item)
+    data["schnelldurchlauf"] = kept_schnell
+    return data
+
+
 def get_newsletter_data() -> dict:
     published_titles = load_published_titles()
+    published_corpus = load_published_corpus()
     if published_titles:
         print(f"  {len(published_titles)} Meldungen aus Vorausgaben werden geblockt")
     prompt = build_prompt(published_titles)
@@ -771,6 +1006,9 @@ def get_newsletter_data() -> dict:
         raw_text = "".join(p.get("text", "") for p in parts)
         if raw_text.strip():
             data = extract_json(raw_text)
+            print("Entwurf steht. Lasse Redaktionsleiter (2. Gemini-Durchlauf) gegenprüfen ...")
+            data = run_editor_pass(data, published_titles)
+            data = enforce_quality_gate(data, published_corpus)
             data["claude_code_tipp"] = get_claude_code_tipp()
             data["prompt_des_tages"] = get_prompt_des_tages()
             data["tool_tipp"] = get_tool_tipp()
@@ -782,6 +1020,87 @@ def get_newsletter_data() -> dict:
             time.sleep(15)
         else:
             raise ValueError(f"Gemini liefert nach 3 Versuchen keinen Text. Finish-Reason: {reason}")
+
+
+# ── Wochenrückblick (jeden Sonntag statt der normalen Tagesausgabe) ──────────
+WEEKLY_PROMPT_TEMPLATE = """Du bist Chefredakteur und schreibst den woechentlichen Rueckblick fuer
+einen deutschsprachigen KI-Newsletter fuer Wissensarbeiter. Heute ist der {today}.
+
+Hier sind alle Meldungen, die diese Woche im Newsletter liefen:
+{week_items}
+
+AUFGABE:
+1. Waehle die 3 bis 5 wichtigsten Storys der Woche aus (nicht alle, nur die mit echtem Nachhall).
+2. Schreibe zu jeder einen kurzen Rueckblick-Absatz (2-3 Saetze): Was war der Stand, wie hat es sich
+   seither entwickelt oder eingeordnet, was bedeutet das fuer den Leser.
+3. Identifiziere einen uebergreifenden Trend der Woche – ein Muster das sich durch mehrere Meldungen zieht.
+4. Schreibe einen kurzen Ausblick: Was koennte naechste Woche wichtig werden.
+
+STIL: Wie ein Kollege der die Woche Revue passieren laesst. Direkt, konkret, keine Buzzwords.
+
+Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown:
+{{
+  "recap_intro": "2-3 Saetze Einstieg in den Wochenrueckblick, mit Bezug auf das auffaelligste Ereignis",
+  "trend_der_woche": {{
+    "titel": "Kurzer Name fuer den Trend, z.B. 'Agenten werden alltagstauglich'",
+    "beschreibung": "3-4 Saetze die den Trend an den Beispielen der Woche festmachen"
+  }},
+  "top_stories": [
+    {{
+      "titel": "Titel der Story",
+      "rueckblick": "2-3 Saetze Rueckblick/Einordnung",
+      "quelle": "Quelle",
+      "url": "https://..."
+    }}
+  ],
+  "ausblick": "1-2 Saetze was naechste Woche relevant werden koennte"
+}}
+"""
+
+
+def get_weekly_recap_data() -> dict:
+    editions = load_week_editions()
+    items = []
+    for ed in editions:
+        date = ed.get("date", "")
+        # neues Schema (Dicts mit Kontext)
+        for n in ed.get("top_news", []):
+            if isinstance(n, dict) and n.get("titel"):
+                items.append(f"- [{date}] {n['titel']} ({n.get('quelle','')}) "
+                             f"– {n.get('zusammenfassung','')[:200]}")
+        for s in ed.get("schnelldurchlauf", []):
+            if isinstance(s, dict) and s.get("text"):
+                items.append(f"- [{date}] {s['text']} ({s.get('quelle','')})")
+        # altes Schema (reine Strings)
+        for t in ed.get("titles", []):
+            if isinstance(t, str) and t:
+                items.append(f"- [{date}] {t}")
+        for s in ed.get("schnell", []):
+            if isinstance(s, str) and s:
+                items.append(f"- [{date}] {s}")
+    if not items:
+        raise ValueError("Keine Meldungen aus der Woche vorhanden – Wochenrückblick übersprungen.")
+    week_items = "\n".join(items[:60])
+    prompt = WEEKLY_PROMPT_TEMPLATE.format(today=TODAY, week_items=week_items)
+    response = call_gemini(prompt)
+    candidates = response.get("candidates", [])
+    if not candidates:
+        raise ValueError(f"Keine Candidates: {json.dumps(response)[:300]}")
+    parts = candidates[0].get("content", {}).get("parts", [])
+    raw_text = "".join(p.get("text", "") for p in parts)
+    if not raw_text.strip():
+        raise ValueError("Gemini liefert keinen Text für den Wochenrückblick.")
+    data = extract_json(raw_text)
+    data["claude_code_tipp"] = get_claude_code_tipp()
+    data["prompt_des_tages"] = get_prompt_des_tages()
+    data["tool_tipp"] = get_tool_tipp()
+    return data
+
+
+def validate_weekly_urls(data: dict) -> dict:
+    for item in data.get("top_stories", []):
+        item["url"] = validate_url(item.get("url", ""), item.get("titel", ""), item.get("quelle", ""))
+    return data
 
 
 # ── URL-Validierung (nur syntaktisch – kein HTTP, News-Sites blockieren HEAD) ─
@@ -820,6 +1139,8 @@ SEC = {
     "claude":  {"emoji": "🤖", "color": "#7c3aed", "light": "#f5f3ff"},
     "prompt":  {"emoji": "🎯", "color": "#0891b2", "light": "#ecfeff"},
     "tipp":    {"emoji": "✨", "color": "#d97706", "light": "#fffbeb"},
+    "zahl":    {"emoji": "📊", "color": "#be185d", "light": "#fdf2f8"},
+    "trend":   {"emoji": "📈", "color": "#9333ea", "light": "#faf5ff"},
 }
 
 
@@ -831,6 +1152,7 @@ def build_html(data: dict) -> str:
     claude_tipp  = data.get("claude_code_tipp", {})
     prompt_tages = data.get("prompt_des_tages", {})
     tool_tipp    = data.get("tool_tipp", {})
+    zahl_tages   = data.get("zahl_des_tages", {})
     day_of_year  = datetime.now().timetuple().tm_yday
 
     # Lesezeit-Schätzung (200 Wörter/Min)
@@ -931,6 +1253,32 @@ def build_html(data: dict) -> str:
     if prompt_tages.get("titel"):
         overview_rows += overview_row("🎯", f"Prompt des Tages: {prompt_tages['titel']}")
 
+    zahl_block = ""
+    if zahl_tages.get("zahl"):
+        zahl_block = f"""
+      <tr><td style="padding:18px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:linear-gradient(135deg,{SEC['zahl']['light']} 0%,#ffffff 100%);
+                      border:1px solid #fbcfe8;border-radius:12px;">
+          <tr>
+            <td style="padding:18px 8px 18px 20px;vertical-align:middle;width:1%;">
+              <span style="font-family:{FONT};font-size:34px;font-weight:900;
+                           color:{SEC['zahl']['color']};letter-spacing:-1px;white-space:nowrap;">
+                {zahl_tages.get('zahl','')}
+              </span>
+            </td>
+            <td style="padding:18px 20px 18px 10px;vertical-align:middle;">
+              <span style="font-family:{FONT};font-size:9px;font-weight:900;color:{SEC['zahl']['color']};
+                           letter-spacing:1.5px;text-transform:uppercase;">Zahl des Tages</span><br>
+              <span style="font-family:{FONT};font-size:13px;color:#374151;line-height:1.5;">
+                {zahl_tages.get('kontext','')}
+              </span>
+              <span style="font-family:{FONT};font-size:11px;color:{C_MUTE};"> &middot; {zahl_tages.get('quelle','')}</span>
+            </td>
+          </tr>
+        </table>
+      </td></tr>""" if zahl_tages.get("zahl") else ""
+
     def blitz_row(item: dict, is_last: bool) -> str:
         quelle = item.get('quelle', '')
         link = (f'&ensp;<a href="{item.get("url","#")}" style="font-family:{FONT};font-size:12px;'
@@ -1015,6 +1363,9 @@ def build_html(data: dict) -> str:
           </td></tr>
         </table>
       </td></tr>
+
+      <!-- ZAHL DES TAGES -->
+      {zahl_block}
 
       <!-- AUF EINEN BLICK -->
       <tr><td style="padding:20px 0 0;">
@@ -1194,10 +1545,11 @@ def build_html(data: dict) -> str:
       <tr><td style="background:#f8fafc;border-radius:12px;padding:16px 20px;
                      border:1px solid #e2e8f0;text-align:center;">
         <p style="margin:0 0 6px;font-family:{FONT};font-size:14px;font-weight:700;color:{C_TEXT};">
-          Gefällt dir der Newsletter? 📨
+          Was fehlt, was nervt, was willst du mehr davon? 💬
         </p>
         <p style="margin:0;font-family:{FONT};font-size:13px;color:#64748b;line-height:1.6;">
-          Leite ihn einfach an Kollegen weiter, die KI-Entwicklungen im Blick behalten wollen.
+          Antworte einfach auf diese E-Mail – ich lese jede Antwort persönlich.
+          Und wenn dir die Ausgabe gefallen hat: Leite sie an einen Kollegen weiter.
         </p>
       </td></tr>
       <tr><td style="padding:18px 0 0;text-align:center;">
@@ -1206,6 +1558,290 @@ def build_html(data: dict) -> str:
         </p>
         <p style="margin:0;font-family:{FONT};font-size:11px;color:#cbd5e1;">
           Täglich 04:00 Uhr &middot; 0&thinsp;€/Monat &middot; Ausgabe&thinsp;#{day_of_year}
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>"""
+
+
+def build_weekly_html(data: dict) -> str:
+    recap_intro  = data.get("recap_intro", "")
+    trend        = data.get("trend_der_woche", {})
+    top_stories  = data.get("top_stories", [])
+    ausblick     = data.get("ausblick", "")
+    claude_tipp  = data.get("claude_code_tipp", {})
+    prompt_tages = data.get("prompt_des_tages", {})
+    tool_tipp    = data.get("tool_tipp", {})
+    day_of_year  = datetime.now().timetuple().tm_yday
+
+    def badge(text: str, color: str, bg: str) -> str:
+        return (f'<span style="display:inline-block;background:{bg};color:{color};'
+                f'font-family:{FONT};font-size:11px;font-weight:700;letter-spacing:.5px;'
+                f'text-transform:uppercase;padding:3px 10px;border-radius:20px;">{text}</span>')
+
+    def section_title(s: dict, title: str) -> str:
+        return f"""
+        <tr><td style="padding:32px 0 18px;">
+          <span style="font-family:{FONT};font-size:10px;font-weight:900;
+                       color:{s['color']};letter-spacing:2.5px;text-transform:uppercase;
+                       border-bottom:2px solid {s['color']};padding-bottom:6px;">
+            {s['emoji']}&ensp;{title}
+          </span>
+        </td></tr>"""
+
+    def story_block(item: dict, idx: int) -> str:
+        return f"""
+        <tr><td style="padding:0 0 14px;">
+          <table width="100%" cellpadding="0" cellspacing="0"
+                 style="border-radius:12px;border:1px solid #eaecf2;background:#f9fafb;">
+            <tr>
+              <td style="padding:16px 18px 0;vertical-align:middle;">
+                <span style="font-family:{FONT};font-size:11px;font-weight:600;color:{C_MUTE};">
+                  {item.get('quelle','')}
+                </span>
+              </td>
+              <td style="padding:12px 16px 0;text-align:right;vertical-align:top;width:36px;">
+                <span style="font-family:{FONT};font-size:22px;font-weight:900;
+                             color:{SEC['news']['color']};opacity:.18;line-height:1;">
+                  {str(idx).zfill(2)}
+                </span>
+              </td>
+            </tr>
+            <tr><td colspan="2" style="padding:6px 18px 0;">
+              <a href="{item.get('url','#')}" style="font-family:{FONT};font-size:17px;
+                 font-weight:700;color:{C_TEXT};text-decoration:none;line-height:1.4;">
+                {item.get('titel','')}
+              </a>
+            </td></tr>
+            <tr><td colspan="2" style="padding:8px 18px 16px;">
+              <span style="font-family:{FONT};font-size:14px;color:#475569;line-height:1.75;">
+                {item.get('rueckblick','')}
+              </span>
+            </td></tr>
+            <tr><td colspan="2" style="padding:0 18px 14px;border-top:1px solid #eaecf2;padding-top:10px;">
+              <a href="{item.get('url','#')}"
+                 style="font-family:{FONT};font-size:12px;font-weight:700;
+                        color:{SEC['news']['color']};text-decoration:none;">
+                Weiterlesen &rarr;
+              </a>
+            </td></tr>
+          </table>
+        </td></tr>"""
+
+    story_rows = "".join(story_block(s, i + 1) for i, s in enumerate(top_stories))
+    anw_badge  = badge(claude_tipp.get('anwendungsfall', ''), SEC['claude']['color'], '#ede9fe')
+    pdt_badge  = badge(prompt_tages.get('kategorie', ''), SEC['prompt']['color'], '#cffafe')
+    tool_kat_badge   = badge(tool_tipp.get('kategorie', ''), SEC['tool']['color'], '#d1fae5')
+    tool_preis_badge = badge(tool_tipp.get('preis', ''), '#475569', '#e2e8f0')
+    preheader = f"{trend.get('titel','')} – der Trend dieser Woche, plus die wichtigsten Storys."
+
+    trend_block = f"""
+      <tr><td style="padding:18px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:linear-gradient(135deg,{SEC['trend']['light']} 0%,#ffffff 100%);
+                      border:1px solid #e9d5ff;border-radius:12px;">
+          <tr><td style="padding:18px 20px 6px;">
+            <span style="font-family:{FONT};font-size:10px;font-weight:900;color:{SEC['trend']['color']};
+                         letter-spacing:1.5px;text-transform:uppercase;">
+              {SEC['trend']['emoji']}&ensp;Trend der Woche
+            </span>
+          </td></tr>
+          <tr><td style="padding:0 20px 6px;">
+            <h3 style="margin:0;font-family:{FONT};font-size:18px;font-weight:800;color:{C_TEXT};">
+              {trend.get('titel','')}
+            </h3>
+          </td></tr>
+          <tr><td style="padding:0 20px 18px;">
+            <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.75;">
+              {trend.get('beschreibung','')}
+            </span>
+          </td></tr>
+        </table>
+      </td></tr>""" if trend.get("titel") else ""
+
+    ausblick_block = f"""
+      <tr><td style="padding:18px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
+          <tr><td style="padding:16px 20px;">
+            <span style="font-family:{FONT};font-size:10px;font-weight:900;color:{C_MUTE};
+                         letter-spacing:1.5px;text-transform:uppercase;">
+              🔭&ensp;Ausblick
+            </span><br><br>
+            <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.75;">
+              {ausblick}
+            </span>
+          </td></tr>
+        </table>
+      </td></tr>""" if ausblick else ""
+
+    return f"""<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KI-Wochenrückblick – {TODAY}</title>
+</head>
+<body style="margin:0;padding:0;background:{C_BG};">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+  {preheader}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:{C_BG};">
+<tr><td align="center" style="padding:24px 16px 48px;">
+<table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
+
+  <!-- HEADER -->
+  <tr><td style="background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 60%,#6d28d9 100%);
+                 border-radius:16px 16px 0 0;padding:30px 36px 26px;">
+    <p style="margin:0 0 8px;font-family:{FONT};font-size:10px;color:#818cf8;
+              letter-spacing:3px;text-transform:uppercase;">
+      WÖCHENTLICH &nbsp;·&nbsp; KOSTENLOS &nbsp;·&nbsp; WOCHENRÜCKBLICK
+    </p>
+    <h1 style="margin:0 0 8px;font-family:{FONT};font-size:30px;font-weight:900;
+               color:#ffffff;letter-spacing:-.5px;line-height:1.15;">
+      Diese Woche in der KI-Welt 🗞️
+    </h1>
+    <p style="margin:0;font-family:{FONT};font-size:13px;color:#c7d2fe;line-height:1.5;">
+      {TODAY} &nbsp;&middot;&nbsp; Kuratiert von Gemini 2.5 Flash
+    </p>
+  </td></tr>
+
+  <!-- BODY -->
+  <tr><td style="background:{C_CARD};padding:4px 36px 40px;
+                 border-radius:0 0 16px 16px;
+                 box-shadow:0 8px 30px rgba(79,70,229,.08);">
+    <table width="100%" cellpadding="0" cellspacing="0">
+
+      <!-- INTRO -->
+      <tr><td style="padding:26px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="border-left:3px solid #4338ca;padding:4px 0 4px 14px;">
+            <p style="margin:0;font-family:{FONT};font-size:15px;color:#334155;line-height:1.8;">
+              {recap_intro}
+            </p>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- TREND DER WOCHE -->
+      {trend_block}
+
+      <!-- TOP STORYS DER WOCHE -->
+      {section_title(SEC['news'], 'Die wichtigsten Storys')}
+      {story_rows}
+
+      <!-- AUSBLICK -->
+      {ausblick_block}
+
+      <!-- PROMPT DES TAGES -->
+      {section_title(SEC['prompt'], 'Prompt des Tages')}
+      <tr><td style="padding:0 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="border-radius:12px;border:1px solid #a5f3fc;">
+          <tr><td style="background:{SEC['prompt']['light']};border-radius:12px 12px 0 0;
+                         padding:16px 18px 14px;">
+            <div style="margin-bottom:10px;">{pdt_badge}</div>
+            <h3 style="margin:0 0 14px;font-family:{FONT};font-size:16px;font-weight:700;
+                       color:{C_TEXT};">{prompt_tages.get('titel','')}</h3>
+            <table width="100%" cellpadding="0" cellspacing="0"
+                   style="background:#0f172a;border-radius:8px;">
+              <tr><td style="padding:4px 16px 16px;">
+                <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;
+                           color:#e2e8f0;line-height:1.7;padding-top:12px;">{prompt_tages.get('prompt','')}</p>
+              </td></tr>
+            </table>
+          </td></tr>
+          <tr><td style="background:{SEC['prompt']['light']};padding:10px 18px 16px;
+                         border-top:1px solid #a5f3fc;border-radius:0 0 12px 12px;">
+            <span style="font-family:{FONT};font-size:13px;color:#0e7490;line-height:1.6;">
+              💡 {prompt_tages.get('tipp','')}
+            </span>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- TOOL DES TAGES -->
+      {section_title(SEC['tool'], 'Tool des Tages')}
+      <tr><td style="padding:0 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['tool']['light']};border-radius:12px;
+                      border:1px solid #a7f3d0;">
+          <tr><td style="padding:18px 20px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0"><tr>
+              <td>
+                <a href="{tool_tipp.get('url','#')}"
+                   style="font-family:{FONT};font-size:18px;font-weight:800;
+                          color:{C_TEXT};text-decoration:none;">
+                  {tool_tipp.get('name','')}
+                </a>
+              </td>
+              <td style="text-align:right;vertical-align:top;">
+                {tool_preis_badge}
+              </td>
+            </tr></table>
+          </td></tr>
+          <tr><td style="padding:8px 20px 10px;">
+            {tool_kat_badge}
+          </td></tr>
+          <tr><td style="padding:0 20px 14px;">
+            <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.75;">
+              {tool_tipp.get('beschreibung','')}
+            </span>
+          </td></tr>
+          <tr><td style="padding:10px 20px 16px;border-top:1px solid #a7f3d0;">
+            <a href="{tool_tipp.get('url','#')}"
+               style="font-family:{FONT};font-size:12px;font-weight:700;
+                      color:{SEC['tool']['color']};text-decoration:none;">
+              Tool ausprobieren &rarr;
+            </a>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- CLAUDE CODE TIPP -->
+      {section_title(SEC['claude'], 'Claude Code im Projektalltag')}
+      <tr><td style="padding:0 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:{SEC['claude']['light']};border-radius:12px;
+                      border:1px solid #ddd6fe;">
+          <tr><td style="padding:18px 20px;">
+            <div style="margin-bottom:10px;">{anw_badge}</div>
+            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
+                       color:{C_TEXT};">{claude_tipp.get('titel','')}</h3>
+            <p style="margin:0;font-family:{FONT};font-size:14px;
+                      color:#374151;line-height:1.75;">{claude_tipp.get('beschreibung','')}</p>
+          </td></tr>
+        </table>
+      </td></tr>
+
+    </table>
+  </td></tr>
+
+  <!-- FOOTER -->
+  <tr><td style="padding:28px 0 0;">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr><td style="background:#f8fafc;border-radius:12px;padding:16px 20px;
+                     border:1px solid #e2e8f0;text-align:center;">
+        <p style="margin:0 0 6px;font-family:{FONT};font-size:14px;font-weight:700;color:{C_TEXT};">
+          War der Wochenrückblick hilfreich? 💬
+        </p>
+        <p style="margin:0;font-family:{FONT};font-size:13px;color:#64748b;line-height:1.6;">
+          Antworte einfach auf diese E-Mail – ich lese jede Antwort persönlich.
+          Morgen geht's wieder im Tages-Rhythmus weiter.
+        </p>
+      </td></tr>
+      <tr><td style="padding:18px 0 0;text-align:center;">
+        <p style="margin:0 0 4px;font-family:{FONT};font-size:12px;color:#94a3b8;line-height:1.8;">
+          🤖 Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions
+        </p>
+        <p style="margin:0;font-family:{FONT};font-size:11px;color:#cbd5e1;">
+          Jeden Sonntag &middot; 0&thinsp;€/Monat &middot; Ausgabe&thinsp;#{day_of_year}
         </p>
       </td></tr>
     </table>
@@ -1248,28 +1884,45 @@ def send_error_email(error: Exception):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
-    print(f"Starte KI-Newsletter für {TODAY} ...")
+    is_sunday = datetime.now().weekday() == 6
+    print(f"Starte KI-Newsletter für {TODAY} ({'Wochenrückblick' if is_sunday else 'Tagesausgabe'}) ...")
     try:
-        print("Rufe Gemini API auf (kann bis zu 60 Sekunden dauern) ...")
-        data = get_newsletter_data()
-        print("Gemini-Antwort erhalten. Validiere URLs ...")
-        data = validate_all_urls(data)
-        print("Baue HTML-E-Mail ...")
-        html = build_html(data)
-        # Betreff: Top-Story als Aufhänger (AInauten/Finimize-Stil), Fallback generisch
-        top_news = data.get("top_news", [])
-        top_titel = top_news[0].get("titel", "").strip() if top_news else ""
-        if top_titel:
-            if len(top_titel) > 70:
-                top_titel = top_titel[:67].rstrip() + "..."
-            subject = f"🤖 {top_titel}"
+        if is_sunday:
+            print("Sonntag: baue Wochenrückblick aus den letzten Tagen ...")
+            data = get_weekly_recap_data()
+            data = validate_weekly_urls(data)
+            print("Baue HTML-E-Mail ...")
+            html = build_weekly_html(data)
+            trend_titel = data.get("trend_der_woche", {}).get("titel", "").strip()
+            if trend_titel:
+                subject = f"🗞️ Wochenrückblick: {trend_titel}"
+            else:
+                subject = f"🗞️ KI-Wochenrückblick {TODAY}"
+            print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
+            for recipient in RECIPIENTS:
+                send_email(subject, html, recipient)
+            print("Fertig! Wochenrückblick wurde erfolgreich versandt.")
         else:
-            subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & KI-Tipps"
-        print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
-        for recipient in RECIPIENTS:
-            send_email(subject, html, recipient)
-        print("Fertig! Newsletter wurde erfolgreich versandt.")
-        save_published_titles(data)
+            print("Rufe Gemini API auf (kann bis zu 60 Sekunden dauern) ...")
+            data = get_newsletter_data()
+            print("Gemini-Antwort erhalten. Validiere URLs ...")
+            data = validate_all_urls(data)
+            print("Baue HTML-E-Mail ...")
+            html = build_html(data)
+            # Betreff: Top-Story als Aufhänger (AInauten/Finimize-Stil), Fallback generisch
+            top_news = data.get("top_news", [])
+            top_titel = top_news[0].get("titel", "").strip() if top_news else ""
+            if top_titel:
+                if len(top_titel) > 70:
+                    top_titel = top_titel[:67].rstrip() + "..."
+                subject = f"🤖 {top_titel}"
+            else:
+                subject = f"🤖 KI-Newsletter {TODAY} – Top News, Podcast & KI-Tipps"
+            print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
+            for recipient in RECIPIENTS:
+                send_email(subject, html, recipient)
+            print("Fertig! Newsletter wurde erfolgreich versandt.")
+            save_published_titles(data)
     except Exception as e:
         print(f"FEHLER: {type(e).__name__}: {e}", file=sys.stderr)
         send_error_email(e)
@@ -1278,3 +1931,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
