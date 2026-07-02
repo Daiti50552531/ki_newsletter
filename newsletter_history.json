@@ -1,18 +1,6 @@
 {
   "editions": [
     {
-      "date": "29.06.2026",
-      "titles": [
-        "Claude Design 2.0: Direktes Bearbeiten auf dem Canvas und intelligente Design-Systeme erleichtern deine Arbeit",
-        "Google Gemini integriert sich tiefer in den Play Store: Apps finden und installieren per Sprachbefehl",
-        "Claude Tag bringt KI als Teamkollegen direkt in deine Slack-Kanäle"
-      ],
-      "schnell": [
-        "Die nächste Generation von KI wird aus Agenten bestehen, die 'wirtschaftlich wertvolle' Arbeit über eine Vielzahl von realen Domänen hinweg leisten können, so die neue Vizepräsidentin für KI-Forschung bei Meta Platforms, Dawn Song.",
-        "Microsoft Copilot kann jetzt in Windows 11 Pro, Education und Enterprise dauerhaft deinstalliert oder deaktiviert werden, was Nutzern mehr Kontrolle über unerwünschte KI-Integrationen gibt."
-      ]
-    },
-    {
       "date": "30.06.2026",
       "titles": [
         "Apple macht Siri zum intelligenten Alltagshelfer – mit On-Device-KI und Cloud-Power",
@@ -41,6 +29,23 @@
         "DeepSeek testet aktuell eine neue Long-Context-Modellarchitektur für seine Web-/App-Version, die ein Kontextfenster von 1 Million Tokens unterstützen soll – ein vielversprechender Fortschritt für die Verarbeitung großer Textmengen.",
         "Obwohl ChatGPT weiterhin die meisten Downloads verzeichnet, holen Gemini und Claude in wichtigen westlichen Märkten wie Deutschland auf und festigen ihre Position als führende KI-Assistenten.",
         "Gartner prognostiziert einen massiven Anstieg der Ausgaben für KI-Agenten-Software auf 206,5 Milliarden Dollar im Jahr 2027, was die wachsende Bedeutung und den praktischen Einsatz von Agenten in Unternehmen unterstreicht."
+      ]
+    },
+    {
+      "date": "02.07.2026",
+      "titles": [
+        "Notion 3.6: Externe KI-Agenten orchestrieren und Meetings mit Sprechererkennung protokollieren",
+        "Microsoft 365 Copilot wird zum Workflow-Orchestrator mit Cowork und Service Agent",
+        "Claude Sonnet 5 und Auto Dream: Dein KI-Kollege wird smarter und merkt sich mehr",
+        "Gemini beendet 'Prompt Engineering' für Bilder: Neues Dashboard und Video-Tools"
+      ],
+      "schnell": [
+        "OpenAI hat mit GPT-5.6 Sol, Terra und Luna eine neue Modellfamilie in einer limitierten Preview für ausgewählte Partner über die API und Codex eingeführt, noch nicht in ChatGPT.",
+        "DeepSeek führt ab Mitte Juli eine 'Peak-Hour'-Preiserhöhung für seine V4-Modelle ein, bei der die Kosten während der Stoßzeiten in Peking verdoppelt werden.",
+        "DeepSeek hat ein neues spekulatives Decoding-Framework eingeführt, das die Textgenerierungsgeschwindigkeit für DeepSeek-V4-Flash und DeepSeek-V4-Pro um 60–85% pro Nutzer erhöht.",
+        "Google hat 'Gemini Spark' für seine macOS-Desktop-App gestartet (Beta für Google AI Ultra-Abonnenten in den USA), womit KI-Agenten lokale Dateien und Desktop-Workflows automatisieren können.",
+        "Mistral AI hat 'Mistral OCR 4' veröffentlicht, ein selbstgehostetes Dokumentenintelligenzmodell für 170 Sprachen, das besonders für regulierte Unternehmen relevant ist.",
+        "Portugal hat sein erstes Open-Source-KI-Modell vorgestellt und reiht sich damit in die europäische Initiative zur Stärkung der KI-Souveränität ein."
       ]
     }
   ]
