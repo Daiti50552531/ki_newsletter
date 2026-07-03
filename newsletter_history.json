@@ -1,22 +1,6 @@
 {
   "editions": [
     {
-      "date": "30.06.2026",
-      "titles": [
-        "Apple macht Siri zum intelligenten Alltagshelfer – mit On-Device-KI und Cloud-Power",
-        "GLM 5.2 von Z.ai: Dieses Open-Source-Modell macht deine Coding- und Agenten-Workflows günstiger",
-        "Gemini 3.5 Flash jetzt allgemein verfügbar: Dein schnellerer und günstigerer KI-Helfer auf Google Cloud",
-        "DeepSeek beschleunigt KI-Inferenz um bis zu 85% mit DSpark – Open-Source für alle"
-      ],
-      "schnell": [
-        "OpenAI verstärkt sein Hardware-Team mit einem ehemaligen Apple Vision Pro-Manager, was auf eine zukünftige Ausrichtung auf KI-Geräte und physische Produkte hindeutet.",
-        "Apple erhöht die Preise für Macs, iPads und andere Hardware weltweit, um die stark gestiegenen Kosten für Speicherchips auszugleichen, die durch die enorme KI-Nachfrage verursacht werden.",
-        "Ein SHRM-Bericht für 2026 zeigt, dass 41% der US-Mitarbeitenden KI bei der Arbeit nutzen und 33% in Unternehmen arbeiten, die KI implementiert haben, was eine offene KI-Kultur als Erfolgsfaktor hervorhebt.",
-        "Ornith-1.0, ein neues MIT-lizenziertes Open-Source-Modell von DeepReinforce, erzielt Bestleistungen bei Coding-Benchmarks und agentischen Aufgaben, basierend auf Gemma 4 und Qwen 3.5.",
-        "Plattformen wie n8n und Zapier zeigen zahlreiche Anwendungsfälle für KI-Agenten, die von intelligenten Chatbots bis zur automatisierten E-Mail-Zusammenfassung reichen und dabei helfen, komplexe Workflows zu automatisieren."
-      ]
-    },
-    {
       "date": "01.07.2026",
       "titles": [
         "Claude Code erhält Sonnet 5: Fast Opus-Qualität mit 1 Million Kontext – lohnt sich der Wechsel für dich?",
@@ -46,6 +30,22 @@
         "Google hat 'Gemini Spark' für seine macOS-Desktop-App gestartet (Beta für Google AI Ultra-Abonnenten in den USA), womit KI-Agenten lokale Dateien und Desktop-Workflows automatisieren können.",
         "Mistral AI hat 'Mistral OCR 4' veröffentlicht, ein selbstgehostetes Dokumentenintelligenzmodell für 170 Sprachen, das besonders für regulierte Unternehmen relevant ist.",
         "Portugal hat sein erstes Open-Source-KI-Modell vorgestellt und reiht sich damit in die europäische Initiative zur Stärkung der KI-Souveränität ein."
+      ]
+    },
+    {
+      "date": "03.07.2026",
+      "titles": [
+        "OpenAI stellt GPT-5.6 Sol, Terra und Luna vor – noch im Test, aber mit mehr Hirn für komplexe Aufgaben",
+        "Claude jetzt generell in Microsoft Foundry verfügbar – einfacherer KI-Einstieg für Azure-Kunden",
+        "Wie du Autonomie im KI-Zeitalter bewahrst – klare Leitplanken für den Arbeitsalltag",
+        "KI-Ernüchterung: Firmen holen entlassene Mitarbeiter zurück – die menschliche Note bleibt unverzichtbar"
+      ],
+      "schnell": [
+        "Neue Muster für KI-Agenten in der Produktion zeigen, wie autonome Agenten die Arbeit zunehmend selbst ausführen und welche Governance-Modelle dafür nötig sind.",
+        "ZDNET erklärt, wie du OpenAI API-Nutzungslimits festlegst, um unbeabsichtigte hohe Kosten durch unkontrolliert laufende KI-Agenten zu vermeiden.",
+        "Eine HRblue-Studie zeigt, dass 77% der Führungskräfte generative KI nutzen, aber nur ein geringerer Teil einen direkten Mehrwert für die Gesamtorganisation sieht.",
+        "Exabeam hat neue Funktionen zur Erkennung und Absicherung von KI-Agenten und autonomen Workflows in Unternehmensumgebungen vorgestellt, inklusive Unterstützung für Claude.",
+        "'Mini DeepSeek' GLM 5.2 wird als kostengünstige und leistungsstarke Open-Source-Alternative zu Modellen wie ChatGPT und Claude positioniert."
       ]
     }
   ]
