@@ -47,6 +47,31 @@
         "Exabeam hat neue Funktionen zur Erkennung und Absicherung von KI-Agenten und autonomen Workflows in Unternehmensumgebungen vorgestellt, inklusive Unterstützung für Claude.",
         "'Mini DeepSeek' GLM 5.2 wird als kostengünstige und leistungsstarke Open-Source-Alternative zu Modellen wie ChatGPT und Claude positioniert."
       ]
+    },
+    {
+      "date": "04.07.2026",
+      "top_news": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Asana hat neue KI-Funktionen eingeführt, die Aufgaben automatisch basierend auf Fälligkeitsdaten, Abhängigkeiten und Teamkapazität priorisieren, um Projektmanager zu entlasten und den Überblick zu erleichtern.",
+          "quelle": "VentureBeat",
+          "url": "https://venturebeat.com/2026/07/04/asana-ai-task-prioritization-update/"
+        },
+        {
+          "text": "Zoom hat seinen 'AI Meeting Coach' aktualisiert, der jetzt in Echtzeit das Engagement der Teilnehmer analysiert und Sprechern Vorschläge für Anpassungen macht, um Meetings effektiver zu gestalten.",
+          "quelle": "t3n",
+          "url": "https://t3n.de/news/zoom-ai-meeting-coach-engagement-analyse-1492376/"
+        },
+        {
+          "text": "Die EU hat erste detaillierte Leitlinien zur Implementierung des AI Act im Bereich Personalwesen veröffentlicht, die Unternehmen mehr Klarheit beim Einsatz von KI in Einstellungsprozessen und Mitarbeiterverwaltung geben sollen.",
+          "quelle": "Reuters Technology",
+          "url": "https://www.reuters.com/technology/eu-ai-act-hr-guidelines-2026-07-03/"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Episode 127: Red Teaming AI with Gray Swan Founders Zico Kolter & Matt Fredrikson",
+        "podcast_name": "Latent Space Podcast"
+      }
     }
   ]
 }
