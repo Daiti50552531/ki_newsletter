@@ -72,6 +72,22 @@
         "episoden_titel": "Episode 127: Red Teaming AI with Gray Swan Founders Zico Kolter & Matt Fredrikson",
         "podcast_name": "Latent Space Podcast"
       }
+    },
+    {
+      "date": "06.07.2026",
+      "top_news": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Die australische Regierung hat eine Warnung zum Datenschutz herausgegeben, da die zunehmende Nutzung von KI-Schreibassistenten durch Ärzte sensible Patientendaten gefährden könnte.",
+          "quelle": "The Guardian (u.a.)",
+          "url": "https://www.google.com/search?q=Die%20australische%20Regierung%20hat%20eine%20Warnung%20zum%20Datenschutz%20herausgegeben%2C%20da%20die%20zunehmende%20Nutzung%20von%20KI-Schreibassistenten%20durch%20%C3%84rzte%20sensible%20Patientendaten%20gef%C3%A4hrden%20k%C3%B6nnte.%20The%20Guardian%20%28u.a.%29"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Anthony Kaldellis: Roman Empire, Byzantine Empire, Rise & Fall of Empires",
+        "podcast_name": "Lex Fridman Podcast"
+      }
     }
-  ]
+  ],
+  "last_sent": "06.07.2026"
 }
