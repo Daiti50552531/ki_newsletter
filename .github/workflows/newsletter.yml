@@ -2,7 +2,8 @@ name: Täglicher KI-Newsletter
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 02:00 UTC = 04:00 MESZ / 03:00 MEZ
+    - cron: '44 2 * * *'   # Hauptlauf 02:44 UTC (krumme Minute = weniger GitHub-Verzögerung)
+    - cron: '44 5 * * *'   # Backup-Lauf 05:44 UTC – beendet sich sofort, wenn heute schon versendet
   workflow_dispatch:       # Manueller Test-Run jederzeit möglich
 
 jobs:
@@ -21,6 +22,7 @@ jobs:
 
       - name: Newsletter versenden
         env:
+          PYTHONUNBUFFERED: '1'
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}

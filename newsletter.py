@@ -309,9 +309,39 @@ def load_recent_podcasts() -> list:
     return titles
 
 
+def _commit_history(message: str) -> None:
+    """Committet und pusht die History-Datei (läuft in GitHub Actions via checkout@v4)."""
+    import subprocess
+    subprocess.run(["git", "config", "user.email", "action@github.com"], check=True)
+    subprocess.run(["git", "config", "user.name", "Newsletter Bot"], check=True)
+    subprocess.run(["git", "add", HISTORY_FILE], check=True)
+    staged = subprocess.run(["git", "diff", "--cached", "--quiet"])
+    if staged.returncode != 0:
+        subprocess.run(["git", "commit", "-m", message], check=True)
+        subprocess.run(["git", "pull", "--rebase"], check=False)
+        subprocess.run(["git", "push"], check=True)
+
+
+def already_sent_today() -> bool:
+    """True, wenn heute bereits erfolgreich versendet wurde (Backup-Lauf-Schutz)."""
+    return _read_history().get("last_sent", "") == TODAY
+
+
+def mark_sent() -> None:
+    """Setzt den Versand-Marker (für Läufe ohne History-Eintrag, z.B. Wochenrückblick)."""
+    try:
+        history = _read_history()
+        history["last_sent"] = TODAY
+        with open(HISTORY_FILE, "w") as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+        _commit_history(f"chore: newsletter sent-marker {TODAY} [skip ci]")
+        print("  ✓ Versand-Marker gesetzt")
+    except Exception as e:
+        print(f"  Versand-Marker übersprungen (non-fatal): {e}")
+
+
 def save_published_titles(data: dict) -> None:
     """Schreibt heutige Ausgabe in newsletter_history.json und pusht via git."""
-    import subprocess
     try:
         today_entry = {
             "date": TODAY,
@@ -332,18 +362,10 @@ def save_published_titles(data: dict) -> None:
         editions = [e for e in history.get("editions", []) if e.get("date") != TODAY]
         editions.append(today_entry)
         history["editions"] = editions[-HISTORY_STORE_DAYS:]
+        history["last_sent"] = TODAY
         with open(HISTORY_FILE, "w") as f:
             json.dump(history, f, ensure_ascii=False, indent=2)
-        # Git commit + push (funktioniert in GitHub Actions via checkout@v4)
-        subprocess.run(["git", "config", "user.email", "action@github.com"], check=True)
-        subprocess.run(["git", "config", "user.name", "Newsletter Bot"], check=True)
-        subprocess.run(["git", "add", HISTORY_FILE], check=True)
-        staged = subprocess.run(["git", "diff", "--cached", "--quiet"])
-        if staged.returncode != 0:
-            subprocess.run(["git", "commit", "-m",
-                            f"chore: newsletter history {TODAY} [skip ci]"], check=True)
-            subprocess.run(["git", "pull", "--rebase"], check=False)
-            subprocess.run(["git", "push"], check=True)
+        _commit_history(f"chore: newsletter history {TODAY} [skip ci]")
         n = len(today_entry["top_news"]) + len(today_entry["schnelldurchlauf"])
         print(f"  ✓ History gespeichert ({n} Meldungen für morgen geblockt)")
     except Exception as e:
@@ -463,9 +485,37 @@ REGELN:
 """
 
 
-def build_prompt(published_titles: list, recent_podcasts: list = None) -> str:
+# Täglich wechselnder Such-Schwerpunkt – damit Gemini nicht jeden Tag in
+# denselben Ecken sucht und dieselben Stories wiederfindet.
+FOKUS_ROTATION = [
+    "neue Modell-Releases, APIs und Entwickler-Werkzeuge",          # Montag
+    "Produktivitäts-Tools und KI in Office/Workspace-Anwendungen",  # Dienstag
+    "EU-Regulierung, Datenschutz und KI-Recht",                     # Mittwoch
+    "KI-Agenten und Automatisierung im Arbeitsalltag",              # Donnerstag
+    "Consumer-Apps und KI im Privatleben",                          # Freitag
+    "Forschung, Open-Source-Modelle und Benchmarks",                # Samstag
+    "die grossen Linien der Woche",                                 # Sonntag
+]
+
+
+def build_prompt(published_titles: list, recent_podcasts: list = None,
+                 retry_hinweis: bool = False) -> str:
     """Baut den finalen Prompt – injiziert bereits veröffentlichte Schlagzeilen und Podcasts."""
     prompt = PROMPT_BASE
+    fokus = FOKUS_ROTATION[datetime.now().weekday()]
+    prompt += f"""
+--- HEUTIGER SUCH-SCHWERPUNKT ---
+Lege heute einen zusaetzlichen Schwerpunkt auf: {fokus}.
+Das ist ein Schwerpunkt, KEIN Filter – starke News aus anderen Bereichen trotzdem aufnehmen.
+"""
+    if retry_hinweis:
+        prompt += """
+--- ZWEITER ANLAUF ---
+Der vorherige Entwurf bestand fast nur aus bereits gemeldeten Themen und wurde verworfen.
+Suche jetzt gezielt nach Meldungen, die du beim ersten Mal NICHT gefunden hast:
+andere Quellen, andere Themenfelder, kleinere aber frische Meldungen.
+Wiederhole unter keinen Umstaenden Themen aus der Sperrliste.
+"""
     if published_titles:
         block = "\n".join(f"  - {t}" for t in published_titles[:50])
         prompt += f"""
@@ -553,6 +603,23 @@ def extract_json(text: str) -> dict:
         raise ValueError(f"JSON-Fehler nach Bereinigung: {e}\nJSON-Anfang:\n{json_str[:400]}")
 
 
+def normalize_data(data: dict) -> dict:
+    """Sichert die Modell-Antwort ab: Gemini liefert Felder manchmal als null
+    oder mit falschem Typ – das hat am 06.07. den Lauf gecrasht."""
+    if not isinstance(data, dict):
+        return {}
+    for key in ("top_news", "schnelldurchlauf", "top_stories"):
+        val = data.get(key)
+        data[key] = [x for x in val if isinstance(x, dict)] if isinstance(val, list) else []
+    for key in ("podcast", "zahl_des_tages", "trend_der_woche"):
+        if not isinstance(data.get(key), dict):
+            data[key] = {}
+    for key in ("intro", "recap_intro", "ausblick"):
+        if not isinstance(data.get(key), str):
+            data[key] = ""
+    return data
+
+
 # ── Redaktions-Check: zweiter Gemini-Durchlauf prüft den eigenen Entwurf ──────
 EDITOR_PROMPT_TEMPLATE = """Du bist der schaerfste Redaktionsleiter dieses KI-Newsletters und pruefst
 den Entwurf eines Kollegen, bevor er rausgeht. Heute ist der {today}.
@@ -606,7 +673,7 @@ def run_editor_pass(data: dict, published_titles: list = None) -> dict:
         if not raw_text.strip():
             print("  Editor-Pass: leere Antwort – Entwurf wird unverändert übernommen")
             return data
-        edited = extract_json(raw_text)
+        edited = normalize_data(extract_json(raw_text))
         if not edited.get("top_news"):
             print("  Editor-Pass: keine top_news im Ergebnis – Entwurf wird unverändert übernommen")
             return data
@@ -640,15 +707,18 @@ _STOPWORDS = {
 # auch wenn sie kurz sind (würden sonst durch die Längenregel fallen).
 _AI_ENTITIES = {
     "gpt", "glm", "qwen", "grok", "siri", "llama", "gemma", "gemini", "claude",
-    "openai", "deepseek", "copilot", "dspark", "mistral", "anthropic", "sora",
-    "veo", "flash", "opus", "sonnet", "haiku", "perplexity", "notebooklm",
+    "copilot", "dspark", "sora", "veo", "flash", "opus", "sonnet", "haiku",
+    "perplexity", "notebooklm",
 }
 
 # Zu breite Begriffe: Hersteller- und Sammelnamen, die in vielen verschiedenen
 # Stories auftauchen. Sie zählen NICHT als eigenständiges Themen-Signal, sonst
 # gilt jede zweite Google-/Apple-Meldung als Dopplung.
 _GENERIC_TOKENS = {
+    # Firmennamen: tauchen in vielen VERSCHIEDENEN Stories auf – kein Themen-Signal.
+    # (Firma+Produkt wie "Anthropic"+"Claude" galt sonst fälschlich als Duplikat.)
     "google", "apple", "microsoft", "meta", "amazon", "nvidia", "samsung",
+    "openai", "anthropic", "mistral", "deepseek",
     "cloud", "store", "update", "updates", "modell", "modelle", "version",
     "launch", "release", "feature", "features", "tool", "tools", "app", "apps",
     "unternehmen", "nutzer", "nutzern", "funktion", "funktionen", "milliarden",
@@ -694,9 +764,10 @@ def _is_fresh(datum: str, max_age_days: int = 2) -> bool:
         return True  # Datum nicht parsebar – nicht blockieren
 
 
-def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: list = None) -> dict:
+def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: list = None) -> tuple:
     """Letztes Sicherheitsnetz nach dem Editor-Pass: veraltete & (themen-)doppelte
     Meldungen entfernen. Vergleicht Titel + Zusammenfassung gegen die Vorausgaben."""
+    removed = []
     seen_blobs = []
     kept_top_news = []
     for item in data.get("top_news", []):
@@ -704,9 +775,11 @@ def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: li
         blob = (titel + " " + item.get("zusammenfassung", "")).strip()
         if not _is_fresh(item.get("datum", "")):
             print(f"  Qualitäts-Filter: '{titel[:50]}' zu alt – entfernt")
+            removed.append(titel)
             continue
         if any(_too_similar(blob, t) for t in published_corpus + seen_blobs):
             print(f"  Qualitäts-Filter: '{titel[:50]}' Themen-Duplikat – entfernt")
+            removed.append(titel)
             continue
         seen_blobs.append(blob)
         kept_top_news.append(item)
@@ -717,6 +790,7 @@ def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: li
         text = item.get("text", "")
         if any(_too_similar(text, t) for t in published_corpus + seen_blobs):
             print(f"  Qualitäts-Filter: '{text[:50]}' Themen-Duplikat – entfernt")
+            removed.append(text)
             continue
         seen_blobs.append(text)
         kept_schnell.append(item)
@@ -726,7 +800,7 @@ def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: li
     if pod_titel and recent_podcasts and any(_too_similar(pod_titel, t) for t in recent_podcasts):
         print(f"  Qualitäts-Filter: Podcast '{pod_titel[:50]}' lief bereits – entfernt")
         data["podcast"] = {}
-    return data
+    return data, removed
 
 
 def _generate_draft(prompt: str) -> dict:
@@ -739,7 +813,7 @@ def _generate_draft(prompt: str) -> dict:
         parts = candidates[0].get("content", {}).get("parts", [])
         raw_text = "".join(p.get("text", "") for p in parts)
         if raw_text.strip():
-            return extract_json(raw_text)
+            return normalize_data(extract_json(raw_text))
         reason = candidates[0].get("finishReason", "?")
         if attempt < 2:
             print(f"Gemini leere Antwort (Finish: {reason}) – Versuch {attempt + 2}/3 ...")
@@ -754,18 +828,26 @@ def get_newsletter_data() -> dict:
     recent_podcasts = load_recent_podcasts()
     if published_titles:
         print(f"  {len(published_titles)} Meldungen aus Vorausgaben werden geblockt")
-    prompt = build_prompt(published_titles, recent_podcasts)
+    removed_total = []
     for gen_attempt in range(2):
+        prompt = build_prompt(published_titles + removed_total, recent_podcasts,
+                              retry_hinweis=(gen_attempt > 0))
         data = _generate_draft(prompt)
         print("Entwurf steht. Lasse Redaktionsleiter (2. Gemini-Durchlauf) gegenprüfen ...")
-        data = run_editor_pass(data, published_titles)
-        data = enforce_quality_gate(data, published_corpus, recent_podcasts)
+        data = run_editor_pass(data, published_titles + removed_total)
+        data, removed = enforce_quality_gate(data, published_corpus, recent_podcasts)
+        removed_total.extend(removed)
         if len(data.get("top_news", [])) >= 2:
             break
         if gen_attempt == 0:
-            print("Nach Qualitätsfilter weniger als 2 Top-News – starte zweiten Anlauf ...")
+            print(f"Nach Qualitätsfilter weniger als 2 Top-News – zweiter Anlauf "
+                  f"({len(removed_total)} Themen zusätzlich gesperrt) ...")
     if not data.get("top_news") and not data.get("schnelldurchlauf"):
         raise ValueError("Nach Qualitätsfilter keine einzige Meldung übrig – Versand abgebrochen.")
+    if len(data.get("top_news", [])) < 2:
+        data["intro"] = (data.get("intro", "").strip() + " Heute ist die Ausgabe bewusst "
+                         "kompakt – es gab schlicht wenig wirklich Neues, und lieber kurz "
+                         "als künstlich aufgebläht.").strip()
     data["inspiration"] = get_inspiration()
     return data
 
@@ -838,7 +920,7 @@ def get_weekly_recap_data() -> dict:
     raw_text = "".join(p.get("text", "") for p in parts)
     if not raw_text.strip():
         raise ValueError("Gemini liefert keinen Text für den Wochenrückblick.")
-    data = extract_json(raw_text)
+    data = normalize_data(extract_json(raw_text))
     data["inspiration"] = get_inspiration()
     return data
 
@@ -1633,12 +1715,16 @@ def run_weekly():
     for recipient in RECIPIENTS:
         send_email(subject, html, recipient, text)
     print("Fertig! Wochenrückblick wurde erfolgreich versandt.")
+    mark_sent()
 
 
 def main():
     is_sunday = datetime.now().weekday() == 6
     print(f"Starte KI-Newsletter für {TODAY} "
           f"({'Wochenrückblick' if is_sunday else 'Tagesausgabe'}) ...")
+    if already_sent_today():
+        print("Heute wurde bereits erfolgreich versendet – Backup-Lauf beendet sich.")
+        return
     try:
         if is_sunday:
             try:
