@@ -6,6 +6,15 @@ on:
     - cron: '44 5 * * *'   # Backup-Lauf 05:44 UTC – beendet sich sofort, wenn heute schon versendet
   workflow_dispatch:       # Manueller Test-Run jederzeit möglich
 
+permissions:
+  contents: write   # History-Datei committen/pushen
+  issues: write     # Fehler-Issue als zweiter Meldekanal
+
+# Nie zwei Läufe gleichzeitig (verzögerter Haupt-Cron + Backup-Cron können kollidieren)
+concurrency:
+  group: newsletter
+  cancel-in-progress: false
+
 jobs:
   newsletter:
     runs-on: ubuntu-latest
@@ -28,3 +37,14 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
         run: python newsletter.py
+
+      - name: Bei Fehlschlag GitHub-Issue anlegen (Zweitkanal falls Gmail selbst betroffen)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --repo "${{ github.repository }}" \
+            --title "🚨 Newsletter-Lauf fehlgeschlagen ($(date -u '+%d.%m.%Y %H:%M') UTC)" \
+            --body "Der Newsletter-Lauf ist fehlgeschlagen. Logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            || echo "Issue konnte nicht angelegt werden"

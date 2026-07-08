@@ -5,6 +5,8 @@ Verschickt täglich via Gmail SMTP, getriggert durch GitHub Actions.
 Nur Standard-Library – keine externen Pakete nötig.
 """
 
+import copy
+import html as html_mod
 import json
 import os
 import re
@@ -19,12 +21,22 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # ── Credentials aus Umgebungsvariablen ────────────────────────────────────────
-GEMINI_API_KEY     = os.environ["GEMINI_API_KEY"]
-GMAIL_ADDRESS      = os.environ["GMAIL_ADDRESS"]
-GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
+def _require_env(name: str) -> str:
+    value = os.environ.get(name, "").strip()
+    if not value:
+        print(f"FEHLER: Umgebungsvariable/Secret '{name}' fehlt oder ist leer. "
+              f"Bitte in den GitHub-Repo-Settings unter 'Secrets and variables' prüfen.",
+              file=sys.stderr)
+        sys.exit(1)
+    return value
+
+
+GEMINI_API_KEY     = _require_env("GEMINI_API_KEY")
+GMAIL_ADDRESS      = _require_env("GMAIL_ADDRESS")
+GMAIL_APP_PASSWORD = _require_env("GMAIL_APP_PASSWORD")
 
 # Mehrere Empfänger möglich: kommagetrennt, z.B. "a@gmail.com,b@web.de"
-RECIPIENTS = [e.strip() for e in os.environ["RECIPIENT_EMAIL"].split(",") if e.strip()]
+RECIPIENTS = [e.strip() for e in _require_env("RECIPIENT_EMAIL").split(",") if e.strip()]
 
 GEMINI_MODELS = [
     "gemini-2.5-flash",
@@ -316,9 +328,33 @@ def _commit_history(message: str) -> None:
         subprocess.run(["git", "push"], check=True)
 
 
+def load_sent_recipients() -> list:
+    """Empfänger, die die heutige Ausgabe bereits erhalten haben (Teilversand-Schutz)."""
+    log = _read_history().get("sent_log", {})
+    return log.get("to", []) if log.get("date") == TODAY else []
+
+
+def record_sent(recipient: str) -> None:
+    """Merkt sich sofort lokal, wer die heutige Ausgabe schon hat (Push folgt gesammelt)."""
+    try:
+        history = _read_history()
+        log = history.get("sent_log", {})
+        if log.get("date") != TODAY:
+            log = {"date": TODAY, "to": []}
+        if recipient not in log["to"]:
+            log["to"].append(recipient)
+        history["sent_log"] = log
+        with open(HISTORY_FILE, "w") as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"  Versand-Log übersprungen (non-fatal): {e}")
+
+
 def already_sent_today() -> bool:
-    """True, wenn heute bereits erfolgreich versendet wurde (Backup-Lauf-Schutz)."""
-    return _read_history().get("last_sent", "") == TODAY
+    """True, wenn heute bereits an alle versendet wurde (Backup-Lauf-Schutz)."""
+    if _read_history().get("last_sent", "") == TODAY:
+        return True
+    return set(RECIPIENTS) <= set(load_sent_recipients())
 
 
 def save_published_titles(data: dict) -> None:
@@ -445,6 +481,7 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
       "titel": "Spezifischer Titel der zeigt was sich aendert – nicht nur was passiert ist",
       "zusammenfassung": "3-5 Saetze auf Deutsch: Erst kurzer Kontext (warum passiert das gerade?), dann was genau passiert ist, dann konkrete Details und erste Auswirkungen. Nicht nur berichten – einordnen. Keine generischen Saetze wie 'Dies ist ein wichtiger Schritt'.",
       "bedeutung": "EIN Satz: Was heisst diese News ganz konkret fuer den Alltag des Lesers? (praktische Konsequenz, kein Meinungs-Take)",
+      "update": "NUR setzen (true) wenn dies eine ECHTE Weiterentwicklung eines bereits gemeldeten Themas ist – dann muss der Titel mit 'Update:' beginnen und die Zusammenfassung klar sagen was NEU ist",
       "take": "1-2 Saetze klare Empfehlung: Lohnt sich das Ausprobieren? Abwarten? Wirklich wichtig oder Hype? Schwaechen und Einschraenkungen koennen und sollen genannt werden wenn vorhanden.",
       "quelle": "Name der Quelle",
       "url": "https://direktlink-zum-artikel/nicht-zur-homepage",
@@ -538,7 +575,11 @@ Diese Meldungen liefen in den letzten {HISTORY_MAX_DAYS} Ausgaben.
 Weder in top_news noch im schnelldurchlauf duerfen sie – auch inhaltlich aehnlich – erneut erscheinen.
 Das gilt auch fuer dasselbe Thema aus einer ANDEREN Quelle oder mit anderer Formulierung
 (gleiches Modell-Update, gleiche Produktankuendigung, gleiche Kennzahl = verboten).
-Waehle konsequent andere Themen:
+EINZIGE AUSNAHME: Eine ECHTE neue Entwicklung zu einem dieser Themen (neue Fakten, neue
+Fristen, neue Zahlen, neuer Beschluss) darfst du bringen – dann "update": true setzen,
+den Titel mit "Update:" beginnen und in der Zusammenfassung klar sagen, was seit der
+letzten Meldung NEU ist. Eine blosse Wiederholung aus anderer Quelle ist KEIN Update.
+Waehle ansonsten konsequent andere Themen:
 {block}
 """
     if recent_podcasts:
@@ -552,7 +593,9 @@ Diese Episoden wurden bereits empfohlen – waehle eine ANDERE Episode:
 
 
 # ── Gemini API Call (mit Retry + Model-Fallback bei 503) ─────────────────────
-def call_gemini(prompt: str) -> dict:
+def call_gemini(prompt: str, patient: bool = True) -> dict:
+    """patient=True: Hauptdurchlauf, lange 5xx-Wartezeiten. patient=False: optionale
+    Durchläufe (Editor) mit kurzer Geduld, damit das 30-Min-Job-Limit sicher hält."""
     payload = {
         "tools": [{"googleSearch": {}}],
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
@@ -563,7 +606,7 @@ def call_gemini(prompt: str) -> dict:
     }
     data = json.dumps(payload).encode("utf-8")
 
-    max_attempts = 3  # max 2+4 Min Wartezeit pro Modell → passt sicher in 30-Min-Timeout
+    max_attempts = 3 if patient else 2
     for model in GEMINI_MODELS:
         print(f"Versuche Modell: {model} ...")
         for attempt in range(max_attempts):
@@ -578,12 +621,12 @@ def call_gemini(prompt: str) -> dict:
             except urllib.error.HTTPError as e:
                 body = e.read().decode("utf-8", errors="replace")
                 print(f"  HTTP {e.code} von {model} (Versuch {attempt+1}/{max_attempts}): {body[:200]}")
-                if e.code == 503 and attempt < max_attempts - 1:
-                    wait = 120 * (attempt + 1)  # 2 Min, 4 Min
+                if e.code in (500, 502, 503, 504) and attempt < max_attempts - 1:
+                    wait = (120 if patient else 30) * (attempt + 1)
                     print(f"  warte {wait}s ...")
                     time.sleep(wait)
-                elif e.code == 503:
-                    print(f"  {model} dauerhaft überlastet – wechsle Modell.")
+                elif e.code in (500, 502, 503, 504):
+                    print(f"  {model} dauerhaft gestört – wechsle Modell.")
                     break
                 elif e.code == 429:
                     print(f"  {model} Quota erschöpft – wechsle Modell.")
@@ -593,6 +636,16 @@ def call_gemini(prompt: str) -> dict:
                     break
                 else:
                     raise RuntimeError(f"Gemini {model} HTTP {e.code}: {body[:600]}")
+            except (urllib.error.URLError, TimeoutError, OSError) as e:
+                # Timeout, DNS, Verbindungsabriss – vorübergehend, nicht fatal
+                print(f"  Netzwerkfehler bei {model} (Versuch {attempt+1}/{max_attempts}): {e}")
+                if attempt < max_attempts - 1:
+                    wait = 30 * (attempt + 1)
+                    print(f"  warte {wait}s ...")
+                    time.sleep(wait)
+                else:
+                    print(f"  {model} nicht erreichbar – wechsle Modell.")
+                    break
     raise RuntimeError("Alle Gemini-Modelle nicht verfügbar.")
 
 
@@ -661,6 +714,9 @@ PRUEFE UND KORRIGIERE:
    Episode nicht wirklich herausragend ist. Eine solide Episode reicht NICHT.
 10. ZAHL-SCHWELLE: Streiche zahl_des_tages (leeres Objekt), wenn die Zahl nicht wirklich
    verblueffend ist.
+11. UPDATE-CHECK: Eintraege mit "update": true muessen eine ECHTE neue Entwicklung enthalten
+   (verifiziere per Suche: neues Datum, neue Fakten). Wenn es nur eine Wiederholung ist,
+   entferne den Eintrag komplett. Behalte das "update"-Feld bei echten Updates bei.
 
 Gib das KORRIGIERTE JSON in EXAKT demselben Format zurueck (Felder: intro, top_news,
 praxis, schnelldurchlauf, podcast, zahl_des_tages). Behalte ALLE Unterfelder jedes
@@ -687,7 +743,7 @@ def run_editor_pass(data: dict, published_titles: list = None) -> dict:
         if published_titles:
             block = "\n".join(f"  - {t}" for t in published_titles[:50])
             editor_prompt += EDITOR_BLACKLIST_BLOCK.format(days=HISTORY_MAX_DAYS, block=block)
-        response = call_gemini(editor_prompt)
+        response = call_gemini(editor_prompt, patient=False)
         candidates = response.get("candidates", [])
         parts = candidates[0].get("content", {}).get("parts", []) if candidates else []
         raw_text = "".join(p.get("text", "") for p in parts)
@@ -764,16 +820,20 @@ def _significant_tokens(s: str) -> set:
 
 def _too_similar(a: str, b: str, threshold: float = 0.5) -> bool:
     """Themengleichheit – greift auch bei unterschiedlicher Formulierung.
-    Blockiert, wenn entweder die Wortüberlappung hoch ist ODER zwei markante
-    Entitäten/Begriffe geteilt werden (z.B. 'deepseek' + 'dspark')."""
+    Blockiert, wenn entweder die Wortüberlappung hoch ist (mit Mindest-Substanz
+    von 4 gemeinsamen Inhaltswörtern – verhindert Fehlalarme bei kurzen Titeln)
+    ODER zwei markante Entitäten/Begriffe geteilt werden (z.B. 'deepseek'+'dspark')."""
     set_a, set_b = _normalize_words(a), _normalize_words(b)
     if not set_a or not set_b:
         return False
-    overlap = len(set_a & set_b) / min(len(set_a), len(set_b))
-    if overlap >= threshold:
+    shared = set_a & set_b
+    overlap = len(shared) / min(len(set_a), len(set_b))
+    if overlap >= threshold and len(shared) >= 4:
         return True
     shared_sig = _significant_tokens(a) & _significant_tokens(b)
-    return len(shared_sig) >= 2
+    # Mindestens ein ECHTER Produktname muss dabei sein – zwei zufällig geteilte
+    # gewöhnliche Wörter ("globalen"+"wettlauf") sind kein Themen-Beweis
+    return len(shared_sig) >= 2 and any(t in _AI_ENTITIES for t in shared_sig)
 
 
 def _is_fresh(datum: str, max_age_days: int = 2) -> bool:
@@ -798,7 +858,10 @@ def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: li
             print(f"  Qualitäts-Filter: '{titel[:50]}' zu alt – entfernt")
             removed.append(titel)
             continue
-        if any(_too_similar(blob, t) for t in published_corpus + seen_blobs):
+        # Echte Follow-ups (vom Editor verifiziert) duerfen bekannte Themen fortschreiben –
+        # nur die tagesinterne Dopplung wird weiterhin geprueft
+        corpus_check = seen_blobs if item.get("update") is True else published_corpus + seen_blobs
+        if any(_too_similar(blob, t) for t in corpus_check):
             print(f"  Qualitäts-Filter: '{titel[:50]}' Themen-Duplikat – entfernt")
             removed.append(titel)
             continue
@@ -841,7 +904,9 @@ def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: li
 
 
 def _generate_draft(prompt: str) -> dict:
-    """Ein Gemini-Durchlauf mit Retry bei leerer Antwort."""
+    """Ein Gemini-Durchlauf mit Retry bei leerer ODER unbrauchbarer Antwort
+    (z.B. am Token-Limit abgeschnittenes JSON)."""
+    reason = "?"
     for attempt in range(3):
         response = call_gemini(prompt)
         candidates = response.get("candidates", [])
@@ -850,13 +915,16 @@ def _generate_draft(prompt: str) -> dict:
         parts = candidates[0].get("content", {}).get("parts", [])
         raw_text = "".join(p.get("text", "") for p in parts)
         if raw_text.strip():
-            return normalize_data(extract_json(raw_text))
-        reason = candidates[0].get("finishReason", "?")
-        if attempt < 2:
-            print(f"Gemini leere Antwort (Finish: {reason}) – Versuch {attempt + 2}/3 ...")
-            time.sleep(15)
+            try:
+                return normalize_data(extract_json(raw_text))
+            except ValueError as e:
+                reason = f"unbrauchbares JSON: {str(e)[:120]}"
         else:
-            raise ValueError(f"Gemini liefert nach 3 Versuchen keinen Text. Finish-Reason: {reason}")
+            reason = f"leere Antwort (Finish: {candidates[0].get('finishReason', '?')})"
+        if attempt < 2:
+            print(f"Gemini-Antwort verworfen ({reason}) – Versuch {attempt + 2}/3 ...")
+            time.sleep(15)
+    raise ValueError(f"Gemini liefert nach 3 Versuchen nichts Brauchbares. Zuletzt: {reason}")
 
 
 def get_newsletter_data() -> dict:
@@ -879,9 +947,17 @@ def get_newsletter_data() -> dict:
         if gen_attempt == 0:
             print(f"Nach Qualitätsfilter weniger als 2 Top-News – zweiter Anlauf "
                   f"({len(removed_total)} Themen zusätzlich gesperrt) ...")
-    if not data.get("top_news") and not data.get("schnelldurchlauf"):
-        raise ValueError("Nach Qualitätsfilter keine einzige Meldung übrig – Versand abgebrochen.")
-    if len(data.get("top_news", [])) < 2:
+    if not data.get("top_news") and not data.get("praxis") and not data.get("schnelldurchlauf"):
+        # Kein Abbruch mehr: ehrliche Kompakt-Ausgabe statt Ausfall
+        print("Keine Meldung hat die Qualitätsprüfung überlebt – baue ehrliche Kompakt-Ausgabe.")
+        data["kompakt"] = True
+        data["intro"] = ("Heute ist ein seltener Tag: Nichts von dem, was die KI-Welt gerade "
+                         "diskutiert, wäre für dich wirklich neu – alles Wesentliche hattest du "
+                         "schon in den letzten Ausgaben. Das ist auch eine Information: kein "
+                         "FOMO nötig. Dafür lohnt sich die heutige Inspiration weiter unten.")
+        data["podcast"] = data.get("podcast") or {}
+        data["zahl_des_tages"] = data.get("zahl_des_tages") or {}
+    elif 0 < len(data.get("top_news", [])) < 2:
         data["intro"] = (data.get("intro", "").strip() + " Heute ist die Ausgabe bewusst "
                          "kompakt – es gab schlicht wenig wirklich Neues, und lieber kurz "
                          "als künstlich aufgebläht.").strip()
@@ -950,7 +1026,28 @@ SEC = {
 }
 
 
+def _escape_for_html(data: dict) -> dict:
+    """Escapet alle Modell-Texte (ein '<' im Titel würde sonst das Layout zerschießen).
+    Arbeitet auf einer Kopie – die Text-Version der Mail bleibt unangetastet."""
+    data = copy.deepcopy(data)
+    def esc(s):
+        return html_mod.escape(s, quote=True)
+    if isinstance(data.get("intro"), str):
+        data["intro"] = esc(data["intro"])
+    for lst_key in ("top_news", "praxis", "schnelldurchlauf"):
+        for item in data.get(lst_key, []):
+            for k, v in list(item.items()):
+                if isinstance(v, str):
+                    item[k] = v[:8] if k == "emoji" else esc(v)
+    for dict_key in ("podcast", "zahl_des_tages"):
+        for k, v in list(data.get(dict_key, {}).items()):
+            if isinstance(v, str):
+                data[dict_key][k] = esc(v)
+    return data
+
+
 def build_html(data: dict) -> str:
+    data        = _escape_for_html(data)
     top_news    = data.get("top_news", [])
     praxis      = data.get("praxis", [])
     schnell     = data.get("schnelldurchlauf", [])
@@ -1065,7 +1162,8 @@ def build_html(data: dict) -> str:
     for p in praxis[:2]:
         if p.get("titel"):
             overview_rows += overview_row("🏢", p["titel"], p.get("url", ""))
-    if inspiration.get("titel"):
+    # Inspiration nur listen, wenn es auch echte News gibt – sonst wirkt die Box leer
+    if overview_rows and inspiration.get("titel"):
         overview_rows += overview_row("💡", f"KI-Inspiration: {inspiration['titel']}")
 
     zahl_block = ""
@@ -1123,6 +1221,26 @@ def build_html(data: dict) -> str:
       </td></tr>""" if blitz_rows else ""
 
     news_rows  = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
+    overview_box = f"""
+      <tr><td style="padding:20px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
+          <tr><td style="padding:14px 18px 6px;">
+            <span style="font-family:{FONT};font-size:10px;font-weight:900;color:{C_MUTE};
+                         letter-spacing:2px;text-transform:uppercase;">
+              ⚡ Heute für dich drin
+            </span>
+          </td></tr>
+          <tr><td style="padding:6px 18px 12px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              {overview_rows}
+            </table>
+          </td></tr>
+        </table>
+      </td></tr>""" if overview_rows else ""
+    news_section = f"""
+      {section_title(SEC['news'], 'Top News des Tages')}
+      {news_rows}""" if news_rows else ""
 
     def praxis_block(item: dict) -> str:
         branche = badge(item.get('branche', ''), SEC['praxis']['color'], '#ccfbf1')
@@ -1297,27 +1415,9 @@ def build_html(data: dict) -> str:
       <!-- ZAHL DES TAGES -->
       {zahl_block}
 
-      <!-- AUF EINEN BLICK -->
-      <tr><td style="padding:20px 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
-          <tr><td style="padding:14px 18px 6px;">
-            <span style="font-family:{FONT};font-size:10px;font-weight:900;color:{C_MUTE};
-                         letter-spacing:2px;text-transform:uppercase;">
-              ⚡ Heute für dich drin
-            </span>
-          </td></tr>
-          <tr><td style="padding:6px 18px 12px;">
-            <table width="100%" cellpadding="0" cellspacing="0">
-              {overview_rows}
-            </table>
-          </td></tr>
-        </table>
-      </td></tr>
+      {overview_box}
 
-      <!-- SEKTION 1: TOP NEWS -->
-      {section_title(SEC['news'], 'Top News des Tages')}
-      {news_rows}
+      {news_section}
 
       <!-- KI IN DER PRAXIS -->
       {praxis_section}
@@ -1415,10 +1515,19 @@ def send_email(subject: str, html_body: str, to: str, text_body: str = ""):
     if text_body:
         msg.attach(MIMEText(text_body, "plain", "utf-8"))
     msg.attach(MIMEText(html_body, "html", "utf-8"))
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-        smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
-        smtp.sendmail(GMAIL_ADDRESS, to, msg.as_string())
-    print(f"  ✓ Gesendet an {to}")
+    for attempt in range(3):
+        try:
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as smtp:
+                smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+                smtp.sendmail(GMAIL_ADDRESS, to, msg.as_string())
+            print(f"  ✓ Gesendet an {to}")
+            return
+        except Exception as e:
+            if attempt < 2:
+                print(f"  SMTP-Fehler bei {to} (Versuch {attempt+1}/3): {e} – warte 15s ...")
+                time.sleep(15)
+            else:
+                raise
 
 
 def send_error_email(error: Exception):
@@ -1445,18 +1554,27 @@ def run_daily():
     print("Baue E-Mail ...")
     html = build_html(data)
     text = build_text(data)
+    if len(html) > 90_000:
+        print(f"  WARNUNG: HTML ist {len(html)} Bytes gross – Gmail kappt Mails ab ~102 KB!")
     # Betreff: Top-Story als Aufhänger, Fallback generisch
     top_news = data.get("top_news", [])
     top_titel = top_news[0].get("titel", "").strip() if top_news else ""
-    if top_titel:
+    if data.get("kompakt"):
+        subject = f"🤖 Heute nichts verpasst – die Kompakt-Ausgabe ({TODAY})"
+    elif top_titel:
         if len(top_titel) > 70:
             top_titel = top_titel[:67].rstrip() + "..."
         subject = f"🤖 {top_titel}"
     else:
         subject = f"🤖 KI-Newsletter {TODAY} – Top News & KI-Tipps"
-    print(f"Sende E-Mail an {len(RECIPIENTS)} Empfänger ...")
-    for recipient in RECIPIENTS:
+    sent_already = load_sent_recipients()
+    todo = [r for r in RECIPIENTS if r not in sent_already]
+    if sent_already:
+        print(f"  {len(sent_already)} Empfänger haben die heutige Ausgabe bereits – nur Rest wird beliefert")
+    print(f"Sende E-Mail an {len(todo)} Empfänger ...")
+    for recipient in todo:
         send_email(subject, html, recipient, text)
+        record_sent(recipient)
     print("Fertig! Newsletter wurde erfolgreich versandt.")
     save_published_titles(data)
 
@@ -1470,6 +1588,10 @@ def main():
         run_daily()
     except Exception as e:
         print(f"FEHLER: {type(e).__name__}: {e}", file=sys.stderr)
+        try:
+            _commit_history(f"chore: newsletter sent-log {TODAY} [skip ci]")
+        except Exception:
+            pass
         send_error_email(e)
         sys.exit(1)
 
