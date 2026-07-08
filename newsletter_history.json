@@ -128,7 +128,59 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "08.07.2026",
+      "top_news": [
+        {
+          "titel": "EU stärkt Cybersicherheit gegen KI-Risiken mit neuem Aktionsplan",
+          "zusammenfassung": "Die Europäische Kommission hat am 6. Juli 2026 einen umfassenden Aktionsplan vorgelegt, um die Cybersicherheit im Zeitalter fortschrittlicher KI-Modelle zu gewährleisten. Dieser Plan zielt darauf ab, sowohl die Risiken des Missbrauchs von KI für Cyberangriffe zu mindern als auch die Chancen zur Stärkung der digitalen Abwehr zu nutzen. Ein Kernpunkt ist die geplante Einrichtung einer EU-weiten Evaluierungskapazität für Cybersicherheit bis 2027, um KI-Modelle vor dem Inverkehrbringen in der EU gründlich zu bewerten und einheimisches Fachwissen zu fördern.",
+          "take": "Abwarten und beobachten: Der Plan ist langfristig angelegt, aber die Richtung stimmt. Es ist gut zu wissen, dass die EU hier aktiv wird, um ein sicheres Umfeld für KI zu schaffen.",
+          "quelle": "European Commission",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5jgHQfWPvwDKVuYbEauMwY9LCW4GZyvOHV5PQxAk-q02IEqTbPVjW0fTjPDj7K6VEVaodIpTaqrIG2AhI6rJZ0BaAPlujnrhDRF_d-PAq5YfzZzTB0DyML35Ak5YLtTnKYShosBxP125hgv4cELbmtral-TVF26Y67n==",
+          "datum": "06.07.2026"
+        },
+        {
+          "titel": "Nach US-KI-Sperre: EU plant Notfallmaßnahmen, um Abhängigkeiten zu reduzieren",
+          "zusammenfassung": "Als Reaktion auf die kurzzeitige US-Regierungsblockade des KI-Modells Fable 5 von Anthropic im Juni hat die EU-Kommission am 7. Juli 2026 angekündigt, bis Jahresende konkrete Notfallmaßnahmen zu entwickeln. Ziel ist es, Europa besser vor einer möglichen Einschränkung des Zugangs zu wirkmächtigen KI-Systemen durch Drittstaaten zu schützen. EU-Digitalkommissarin Henna Virkkunen betonte, dass Europa eigene KI-gestützte Cyberfähigkeiten aufbauen muss, um die Abhängigkeit von außereuropäischen Lösungen in sicherheitskritischen Bereichen zu verringern.",
+          "take": "Abwarten, aber strategisch denken: Auch wenn konkrete Maßnahmen noch ausstehen, zeigt dies die Relevanz einer Multi-Vendor-Strategie und der Prüfung von EU-Alternativen, um im Ernstfall handlungsfähig zu bleiben.",
+          "quelle": "dpa-AFX (via heise online)",
+          "url": "https://www.google.com/search?q=Nach%20US-KI-Sperre%3A%20EU%20plant%20Notfallma%C3%9Fnahmen%2C%20um%20Abh%C3%A4ngigkeiten%20zu%20reduzieren%20dpa-AFX%20%28via%20heise%20online%29",
+          "datum": "07.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Kumavision Österreich automatisiert Schadensberichte mit KI und integriert sie ins ERP",
+          "zusammenfassung": "Kumavision Österreich setzt KI ein, um Servicetechnikern bei der Erstellung von Schadensberichten für Versicherungen zu helfen. Die KI analysiert Fotos von Schäden, generiert automatisch einen detaillierten Bericht und erstellt gleichzeitig einen passenden Serviceauftrag im ERP-System. Dieser Prozess spart nicht nur Zeit, sondern verbessert auch die Datenqualität und Effizienz der Abläufe.",
+          "branche": "Dienstleistung/IT",
+          "quelle": "INDUSTRIEMAGAZIN",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhNo5GPCQlwFq850N6CcLkCsLbgFSsEJlg17-oEjK8WB4GuNNF8NwUa1ZrV1YNCTsX_P15spYtcAp6TX_ttRG5G8XgRC2GdD1ww-Ch6UvUuvN9Xv17NAfXWwTl5_oPncKjgWI5PR49_SPytJjuLMnGUBPdee8wFIWJqA7jZk5QtYrz0xhQQSaxRpakULo=",
+          "datum": "01.07.2026"
+        },
+        {
+          "titel": "EDEKA fördert Forschung zu digitaler Transformation und KI im Einzelhandel an der Universität Hamburg",
+          "zusammenfassung": "Die EDEKA ZENTRALE Stiftung & Co. KG hat zum 1. Juli 2026 eine neue Stiftungsprofessur für „Digital Transformation in Retail“ an der University of Hamburg Business School ins Leben gerufen. Diese Professur, besetzt durch Prof. Dr. Theresa Sophie Bockelmann, soll den tiefgreifenden Wandel im Einzelhandel durch Digitalisierung und KI wissenschaftlich begleiten und praxisnahe Lösungen für neue Technologien, KI-Integration und die Anpassung von Geschäftsprozessen entwickeln.",
+          "branche": "Handel",
+          "quelle": "EDEKA",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBeFq5M1iIotf9Vv2-qosFD4pph5m-oiAJPmOuDIw6iy3S4CCRCD3gIkMyj0YcHqWSCxKRprp3yjGLSIcPzURlelG-SmwQkxwJmyMGPjgrG6uijAoXKYKWbPZkkEGEA9uBCMK3p1Rp4oRdKI6MhuKe4s1BX6sKUxhZpi7Mswi41hNxi4-UN2QyatMrqBvdCW-KtXLXf2VA7EQXWhD4fKhKpVWsjxSxO98nZ-3c4SL4uRFRSAdn1I2BiL120v55dqBYKVVj1DU3hOltnlXt2VE0kOCGGO-y0mf6gix-21_nznyE-g==",
+          "datum": "01.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [],
+      "podcast": {
+        "episoden_titel": "How to Evaluate Third-Party AI Systems (AI Vendor Risk Assessment, Third-Party Risk Management, AI Governance)",
+        "podcast_name": "Practical AI"
+      }
     }
   ],
-  "last_sent": "07.07.2026"
+  "last_sent": "08.07.2026",
+  "sent_log": {
+    "date": "08.07.2026",
+    "to": [
+      "David.aiprojekte@gmail.com",
+      "Davidleinders@web.de",
+      "hannaleinders@gmail.com"
+    ]
+  }
 }
