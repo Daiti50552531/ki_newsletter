@@ -172,11 +172,59 @@
         "episoden_titel": "How to Evaluate Third-Party AI Systems (AI Vendor Risk Assessment, Third-Party Risk Management, AI Governance)",
         "podcast_name": "Practical AI"
       }
+    },
+    {
+      "date": "09.07.2026",
+      "top_news": [
+        {
+          "titel": "Google Gemini Spark wird zum intelligenten Web-Agenten – und lernt macOS",
+          "zusammenfassung": "Google hat Gemini Spark, seinen 'Always-on'-KI-Agenten, deutlich erweitert: Er kann jetzt das Web in Echtzeit nach bestimmten Themen überwachen und reagieren, sobald etwas passiert – ganz ohne direkte Aufforderung. Bisher vor allem für Gmail und Google Workspace zuständig, kann Spark nun Blogs, Nachrichten, soziale Medien oder Finanzdaten im Auge behalten. Zudem ist eine macOS-Beta-Version verfügbar, die Spark Zugriff auf lokale Dateien ermöglicht und somit die Automatisierung von Desktop-Aufgaben wie Dateisortierung oder das Erstellen von Berichten aus lokalen Rechnungen erlaubt. Das Update ist exklusiv für Premium Google AI Ultra Abonnenten verfügbar.",
+          "take": "Für Google AI Ultra Abonnenten ist dies ein signifikantes Upgrade, das die Produktivität deutlich steigern kann. Die autonome Reaktion und der lokale Dateizugriff sind leistungsstarke Funktionen. Es bleibt abzuwarten, wann diese Funktionen auch für andere Nutzerkreise verfügbar werden.",
+          "quelle": "AlphaSignal",
+          "url": "https://www.google.com/search?q=Google%20Gemini%20Spark%20wird%20zum%20intelligenten%20Web-Agenten%20%E2%80%93%20und%20lernt%20macOS%20AlphaSignal",
+          "datum": "07.07.2026"
+        },
+        {
+          "titel": "xAI Grok 4.5 startet mit Fokus auf Coding und Agenten – aber nicht für EU-Nutzer",
+          "zusammenfassung": "Elon Musks KI-Unternehmen xAI hat Grok 4.5 am 9. Juli 2026 für die Öffentlichkeit freigegeben. Das Modell, das nach einer privaten Beta bei Tesla und SpaceX erscheint, wird als 'Opus-Klasse-Modell' beschrieben, das schneller, token-effizienter und kostengünstiger sein soll. Grok 4.5 ist speziell für Coding, agentische Aufgaben und Wissensarbeit optimiert und ist über die xAI API, Grok Build, Cursor und Office Add-ins verfügbar. Die API-Konsole ist für EU-Nutzer jedoch noch nicht zugänglich, die Verfügbarkeit wird später im Monat erwartet.",
+          "take": "Spannende Entwicklung im Wettbewerb der Spitzenmodelle. Wenn Grok 4.5 die versprochene Leistung bei den niedrigeren Kosten liefert, könnte es eine attraktive Alternative werden. Für EU-Nutzer heißt es leider noch: abwarten.",
+          "quelle": "Tech in Asia, SpaceXAI Docs",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmqkj1eo6Af8WcDCPtDfvo2ZA0f2DRlekgWNFPWEOCRie252qCbNJA2m0dN3vQtzwdwKzw7aLo0QvLgECYbHLQeUmo_vyNMMa8VcgV2WXMW56onejluYaYXdUp7sXRh9fjnnMCJ6vJQLzc_bwViukRCTm8zSF53tDXrf-x8Cs=",
+          "datum": "09.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Mistral AI steigt mit 'Robostral Navigate' in die 'Physical AI' ein und stellt sein erstes Robotik-Modell für industrielle Automatisierung und autonome Navigation vor, das nur eine Kamera benötigt.",
+          "quelle": "The News International",
+          "url": "https://www.google.com/search?q=Mistral%20AI%20steigt%20mit%20%27Robostral%20Navigate%27%20in%20die%20%27Physical%20AI%27%20ein%20und%20stellt%20sein%20erstes%20Robotik-Modell%20f%C3%BCr%20industrielle%20Automatisierung%20und%20autonome%20Navigation%20vor%2C%20das%20nur%20eine%20Kamera%20ben%C3%B6tigt.%20The%20News%20International"
+        },
+        {
+          "text": "Google Gemini für Home verbessert seine Sprachassistenz mit zuverlässigeren Sport-Updates und optisch ansprechenderen Wettervorhersagen auf Smart Displays.",
+          "quelle": "Android Authority",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEECVApy990bo9lQ2vFgC0Nfh3hvPAfze7RZofR_w0XaQzkooY7Fwxm8Hj7HV5e-50bXe76yYhxihl2dJqxfz0uohONC3BhIDv9jMiWV4qvYnJPOtKDejdhHDhohtEuuxXHFsHJB6f_pvNCft1YNud0GuZbTyqUV3mHeWfRHlm1gy8DQ22GOVzL"
+        },
+        {
+          "text": "Die Schweiz setzt sich für minimale globale KI-Regeln ein und erwartet vom weltweiten KI-Gipfel im Juni nächsten Jahres konkrete Ergebnisse, um Überregulierung zu vermeiden.",
+          "quelle": "SWI swissinfo.ch",
+          "url": "https://www.google.com/search?q=Die%20Schweiz%20setzt%20sich%20f%C3%BCr%20minimale%20globale%20KI-Regeln%20ein%20und%20erwartet%20vom%20weltweiten%20KI-Gipfel%20im%20Juni%20n%C3%A4chsten%20Jahres%20konkrete%20Ergebnisse%2C%20um%20%C3%9Cberregulierung%20zu%20vermeiden.%20SWI%20swissinfo.ch"
+        },
+        {
+          "text": "China warnt vor einer 'Sicherheits-Hintertür' in älteren Versionen von Anthropic's Claude Code, die sensible Nutzerdaten übertragen könnte; Anthropic kontert, dass die Nutzung in China ohnehin nicht autorisiert sei.",
+          "quelle": "CBS News",
+          "url": "https://www.google.com/search?q=China%20warnt%20vor%20einer%20%27Sicherheits-Hintert%C3%BCr%27%20in%20%C3%A4lteren%20Versionen%20von%20Anthropic%27s%20Claude%20Code%2C%20die%20sensible%20Nutzerdaten%20%C3%BCbertragen%20k%C3%B6nnte%3B%20Anthropic%20kontert%2C%20dass%20die%20Nutzung%20in%20China%20ohnehin%20nicht%20autorisiert%20sei.%20CBS%20News"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "08.07.2026",
+  "last_sent": "09.07.2026",
   "sent_log": {
-    "date": "08.07.2026",
+    "date": "09.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
