@@ -245,11 +245,67 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "11.07.2026",
+      "top_news": [
+        {
+          "titel": "GPT-5.6 Sol fordert Claude Fable 5 heraus – mit nur einem Drittel der Kosten",
+          "zusammenfassung": "OpenAI hat seine neue Modellfamilie GPT-5.6 vorgestellt, bestehend aus Sol, Terra und Luna. Das Flaggschiffmodell Sol erreicht in Benchmarks fast die Leistung von Anthropics Claude Fable 5, ist aber mit 1,04 Dollar pro Aufgabe nur etwa ein Drittel so teuer. Besonders bei agentischen Coding-Aufgaben zeigt Sol eine hohe Effizienz und übertrifft Konkurrenten im Coding-Agent-Index.",
+          "take": "Unbedingt ansehen, wenn du bereits Copilot oder die OpenAI API nutzt. Die Effizienz und der Preis machen Sol zu einer ernsthaften Alternative, besonders für rechenintensive Aufgaben. Teste es bei deinen Coding- oder Textaufgaben, die du aktuell mit teureren Modellen löst.",
+          "quelle": "The Decoder",
+          "url": "https://the-decoder.de/openais-gpt-5-6-sol-erreicht-in-benchmarks-fast-das-niveau-von-claude-fable-5-kostet-aber-nur-ein-drittel-9-7-2026/",
+          "datum": "09.07.2026"
+        },
+        {
+          "titel": "Meta Muse Spark 1.1 greift den Coding-Markt an – erstmals mit Preisschild",
+          "zusammenfassung": "Meta hat Muse Spark 1.1 veröffentlicht, ein multimodales Modell speziell für agentisches Programmieren, das Bugs fixen und Aufgaben über verschiedene Anwendungen hinweg orchestrieren kann. Mit einem Preis von 1,25 Dollar pro Million Input-Token ist es rund ein Viertel günstiger als vergleichbare Spitzenmodelle von Anthropic und OpenAI. Dies ist ein strategischer Kurswechsel für Meta, da das Unternehmen damit erstmals Gebühren für den API-Zugang zu einem seiner KI-Modelle verlangt.",
+          "take": "Das Modell ist vorerst auf US-Entwickler beschränkt, aber behalte es im Auge. Die aggressive Preisgestaltung und die Ausrichtung auf Agenten-Fähigkeiten könnten den Markt aufmischen. Wenn es in der EU verfügbar ist, teste es mit den 20 Dollar Startguthaben.",
+          "quelle": "bildungssprache.net",
+          "url": "https://bildungssprache.net/zuckerberg-coding-modell-kampfreis-10-7-2026/",
+          "datum": "10.07.2026"
+        },
+        {
+          "titel": "OpenAI-Modell löst angeblich jahrzehntealtes Mathe-Problem – ein Schritt zu autonomer Forschung?",
+          "zusammenfassung": "Ein Modell von OpenAI, GPT-5.6 Sol Ultra, beansprucht, die sogenannte Cycle Double Cover Conjecture in der Graphentheorie bewiesen zu haben – ein seit Jahrzehnten ungelöstes mathematisches Problem. Sollte dieser dreiseitige Beweis, der auf OpenAIs Plattform bereitgestellt wurde, von der Fachwelt bestätigt werden, wäre dies ein signifikanter Hinweis darauf, dass fortgeschrittene KI-Systeme in der Lage sind, eigenständige mathematische Argumente zu entwickeln und somit über das bloßen Komprimieren bestehender Forschung hinauszugehen.",
+          "take": "Abwarten und die Bestätigung der Fachwelt verfolgen. Sollte sich der Beweis als korrekt erweisen, ist dies ein Meilenstein für die KI-Forschung und ein Vorbote für zukünftige, wirklich autonome KI-Systeme. Aktuell ist es aber noch kein Tool für deinen Alltag.",
+          "quelle": "OpenAI-Modell",
+          "url": "https://www.google.com/search?q=OpenAI-Modell%20l%C3%B6st%20angeblich%20jahrzehntealtes%20Mathe-Problem%20%E2%80%93%20ein%20Schritt%20zu%20autonomer%20Forschung%3F%20OpenAI-Modell",
+          "datum": "10.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "KI-Agenten sollen künftig Quantencomputer während des Betriebs aus Fehlern lernen lassen und Kontrollparameter kontinuierlich anpassen, um die Stabilität zu erhöhen.",
+          "quelle": "ComputerBase",
+          "url": "https://www.google.com/search?q=KI-Agenten%20sollen%20k%C3%BCnftig%20Quantencomputer%20w%C3%A4hrend%20des%20Betriebs%20aus%20Fehlern%20lernen%20lassen%20und%20Kontrollparameter%20kontinuierlich%20anpassen%2C%20um%20die%20Stabilit%C3%A4t%20zu%20erh%C3%B6hen.%20ComputerBase"
+        },
+        {
+          "text": "Berichte, wonach DeepSeek eigene Spezialprozessoren entwickeln will, belasten die Aktien von AMD und Micron, da dies die Abhängigkeit von US-Chipherstellern verringern könnte.",
+          "quelle": "Finanzmarktwelt",
+          "url": "https://www.google.com/search?q=Berichte%2C%20wonach%20DeepSeek%20eigene%20Spezialprozessoren%20entwickeln%20will%2C%20belasten%20die%20Aktien%20von%20AMD%20und%20Micron%2C%20da%20dies%20die%20Abh%C3%A4ngigkeit%20von%20US-Chipherstellern%20verringern%20k%C3%B6nnte.%20Finanzmarktwelt"
+        },
+        {
+          "text": "IBM hat die weltweit erste Sub-1-Nanometer-Chiptechnologie vorgestellt, die 100 Milliarden Transistoren auf fingernagelgroßem Raum vereint und neue Möglichkeiten für KI-Workloads eröffnet.",
+          "quelle": "Finanzmarktwelt",
+          "url": "https://www.google.com/search?q=IBM%20hat%20die%20weltweit%20erste%20Sub-1-Nanometer-Chiptechnologie%20vorgestellt%2C%20die%20100%20Milliarden%20Transistoren%20auf%20fingernagelgro%C3%9Fem%20Raum%20vereint%20und%20neue%20M%C3%B6glichkeiten%20f%C3%BCr%20KI-Workloads%20er%C3%B6ffnet.%20Finanzmarktwelt"
+        },
+        {
+          "text": "Das Münchner Start-up alqem nutzt KI, um neue Materialkombinationen für Magnete aus gewöhnlichen Elementen zu entdecken und damit die Abhängigkeit von Seltenen Erden zu reduzieren.",
+          "quelle": "Chemie.de",
+          "url": "https://www.google.com/search?q=Das%20M%C3%BCnchner%20Start-up%20alqem%20nutzt%20KI%2C%20um%20neue%20Materialkombinationen%20f%C3%BCr%20Magnete%20aus%20gew%C3%B6hnlichen%20Elementen%20zu%20entdecken%20und%20damit%20die%20Abh%C3%A4ngigkeit%20von%20Seltenen%20Erden%20zu%20reduzieren.%20Chemie.de"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Praktische KI für deine Arbeit: Workflows und Urteilsvermögen statt Hype",
+        "podcast_name": "Zero to AI Training"
+      }
     }
   ],
-  "last_sent": "10.07.2026",
+  "last_sent": "11.07.2026",
   "sent_log": {
-    "date": "10.07.2026",
+    "date": "11.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
