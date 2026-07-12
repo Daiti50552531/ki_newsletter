@@ -1,21 +1,6 @@
 {
   "editions": [
     {
-      "date": "01.07.2026",
-      "titles": [
-        "Claude Code erhält Sonnet 5: Fast Opus-Qualität mit 1 Million Kontext – lohnt sich der Wechsel für dich?",
-        "Google Gemini erleichtert Lernen und Selbstorganisation mit neuem 'Studieren & Lernen' Notebook-Feature",
-        "KI-Agenten als neue Kollegen: No-Code-Plattformen ermöglichen Automatisierung für jeden"
-      ],
-      "schnell": [
-        "Notion AI kann jetzt Fragen zu deinem gesamten Workspace beantworten und so aus passiven Dokumenten eine aktive Wissensdatenbank machen, die dir konkrete Antworten liefert.",
-        "Otter.ai hat seine KI-Zusammenfassungen verbessert, um automatisch Aktionspunkte und wichtige Entscheidungen aus Meeting-Transkripten zu extrahieren, was dir viel Zeit bei der Nachbereitung spart.",
-        "DeepSeek testet aktuell eine neue Long-Context-Modellarchitektur für seine Web-/App-Version, die ein Kontextfenster von 1 Million Tokens unterstützen soll – ein vielversprechender Fortschritt für die Verarbeitung großer Textmengen.",
-        "Obwohl ChatGPT weiterhin die meisten Downloads verzeichnet, holen Gemini und Claude in wichtigen westlichen Märkten wie Deutschland auf und festigen ihre Position als führende KI-Assistenten.",
-        "Gartner prognostiziert einen massiven Anstieg der Ausgaben für KI-Agenten-Software auf 206,5 Milliarden Dollar im Jahr 2027, was die wachsende Bedeutung und den praktischen Einsatz von Agenten in Unternehmen unterstreicht."
-      ]
-    },
-    {
       "date": "02.07.2026",
       "titles": [
         "Notion 3.6: Externe KI-Agenten orchestrieren und Meetings mit Sprechererkennung protokollieren",
@@ -301,11 +286,63 @@
         "episoden_titel": "Praktische KI für deine Arbeit: Workflows und Urteilsvermögen statt Hype",
         "podcast_name": "Zero to AI Training"
       }
+    },
+    {
+      "date": "12.07.2026",
+      "top_news": [
+        {
+          "titel": "Apple verklagt OpenAI wegen Diebstahls von Geschäftsgeheimnissen bei KI-Hardware-Entwicklung",
+          "zusammenfassung": "Apple hat OpenAI wegen des Diebstahls von Geschäftsgeheimnissen verklagt, da der ChatGPT-Hersteller angeblich Abkürzungen bei der Entwicklung eigener Hardware für KI-Anwendungen genommen hat. Die Klage, eingereicht vor einem kalifornischen Bundesgericht, wirft OpenAI vor, Apple-Mitarbeiter bei der Abwerbung dazu ermutigt zu haben, vertrauliche Informationen weiterzugeben. OpenAI plant, bis Ende des Jahres eigene Hardware für Endverbraucher auf den Markt zu bringen, die eine neue Art der Interaktion mit KI ermöglichen soll.",
+          "take": "Ein juristisches Tauziehen zwischen Tech-Giganten ist immer ein Zeichen für hohe Einsätze. Bleib dran, wie sich das auf zukünftige KI-Geräte und deren Ökosysteme auswirkt. Hier geht es um viel mehr als nur um Software.",
+          "quelle": "PBS / The New York Times",
+          "url": "https://www.google.com/search?q=Apple%20verklagt%20OpenAI%20wegen%20Diebstahls%20von%20Gesch%C3%A4ftsgeheimnissen%20bei%20KI-Hardware-Entwicklung%20PBS%20/%20The%20New%20York%20Times",
+          "datum": "10.07.2026"
+        },
+        {
+          "titel": "ChatGPT wird zum Business-Agenten: OpenAI verlagert Fokus von Chat zu 'Work' in neuer Desktop-App",
+          "zusammenfassung": "OpenAI hat eine umfassende Aktualisierung seiner ChatGPT-Desktop-App vorgenommen, die das bisherige Chat-Erlebnis in 'ChatGPT Classic' umbenennt und den Fokus auf eine neue Agenten-Funktion namens 'Work' verlagert. Die neue App, die auch einen integrierten Browser umfasst, ist OpenAIs Antwort auf eine Super-App und signalisiert eine klare Abkehr vom reinen Consumer-Chatbot hin zu einem produktiveren Unternehmenswerkzeug, das auch Code-Agenten integriert. Diese strategische Neuausrichtung zeigt, dass OpenAI verstärkt auf Unternehmenskunden setzt, die profitabler sind als die meist kostenlosen Consumer-Nutzer.",
+          "take": "Die neue Desktop-App ist ein großer Schritt für alle, die ChatGPT im Berufsalltag nutzen. Es lohnt sich, die 'Work'-Funktionen zu erkunden und zu sehen, wie sie deine Workflows unterstützen können. Sei aber auf eine veränderte Nutzererfahrung vorbereitet, da der klassische Chat in den Hintergrund rückt.",
+          "quelle": "Inc. Magazine",
+          "url": "https://www.google.com/search?q=ChatGPT%20wird%20zum%20Business-Agenten%3A%20OpenAI%20verlagert%20Fokus%20von%20Chat%20zu%20%27Work%27%20in%20neuer%20Desktop-App%20Inc.%20Magazine",
+          "datum": "11.07.2026"
+        },
+        {
+          "titel": "Update: Google verschiebt Gemini 3.5 Pro und reagiert auf massives Nutzer-Feedback – neuer Health Coach startet",
+          "zusammenfassung": "Google hat den Start seines Flaggschiff-Modells Gemini 3.5 Pro auf den 17. Juli 2026 verschoben, um umfangreiches Nutzer-Feedback zu berücksichtigen. Nach massiver Kritik an Problemen bei der Integration in Google Workspace, unzuverlässigen Tool-Aufrufen und unübersichtlicher Chat-Organisation plant Google nun Verbesserungen wie Custom Skills und die Unterstützung des Model Context Protocol (MCP). Parallel dazu hat Google einen Gemini-basierten Health Coach eingeführt, der für knapp neun Euro monatlich personalisierte Einblicke zu Wohlbefinden, Schlaf und Fitness bietet, ohne Gesundheitsdaten für Werbezwecke zu nutzen.",
+          "take": "Die offene Reaktion auf Nutzerkritik ist positiv. Warte auf den Release von Gemini 3.5 Pro, die geplanten Verbesserungen klingen vielversprechend für den Alltag. Der Health Coach ist eine interessante Option für dein Privatleben, wenn du deine Gesundheitsdaten nicht für Werbung missbraucht sehen möchtest.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=Update%3A%20Google%20verschiebt%20Gemini%203.5%20Pro%20und%20reagiert%20auf%20massives%20Nutzer-Feedback%20%E2%80%93%20neuer%20Health%20Coach%20startet%20BornCity",
+          "datum": "10.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Deutscher Handel stoppt Verluste: KI-Warenverderbsprognose reduziert Abfall und spart Millionen",
+          "zusammenfassung": "Im deutschen Einzel- und Großhandel setzen Unternehmen zunehmend auf KI-Warenverderbsprognosen, um teure Verluste durch verdorbene oder unverkäufliche Artikel zu minimieren. Machine-Learning-Modelle analysieren Lagerdaten, Verkaufshistorie, Temperaturverläufe und Saisonmuster, um präzise vorherzusagen, wann Ware verdirbt. Handelsunternehmen können so Bestellmengen, Preisaktionen und Lagerplätze frühzeitig anpassen und damit den Abfall von Frischware, saisonalen Artikeln und Retouren signifikant reduzieren. Eine konservative Reduktion der Verderbsquote um ein Drittel kann für ein mittelständisches Unternehmen rund 200.000 Euro jährlich einsparen.",
+          "branche": "Handel",
+          "quelle": "KIMpuls Blog",
+          "url": "https://www.google.com/search?q=Deutscher%20Handel%20stoppt%20Verluste%3A%20KI-Warenverderbsprognose%20reduziert%20Abfall%20und%20spart%20Millionen%20KIMpuls%20Blog",
+          "datum": "09.07.2026"
+        },
+        {
+          "titel": "Oracle optimiert KI- und Cloud-Angebote: Von Rennstrecken bis zur Telekommunikation",
+          "zusammenfassung": "Oracle nutzt anspruchsvolle reale Umgebungen wie Rennstrecken, Schlachtfelder und Operationssäle, um seine KI- und Cloud-Angebote für den breiteren Unternehmenseinsatz zu optimieren. Durch neue Partnerschaften im Gesundheitswesen und im Bereich Process Intelligence beweist Oracle die Leistungsfähigkeit seiner 'Oracle Cloud Infrastructure' (OCI). Sollte sich OCI bei ähnlichen Arbeitslasten in Fertigung, Logistik und Telekommunikation bewähren, könnte dies Oracles Position als Anbieter von KI-Infrastruktur für anspruchsvolle Branchen stärken.",
+          "branche": "Telekommunikation",
+          "quelle": "Simply Wall St",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDIPXEqw4sCT6hIWCW5ahNbwnbLact8vmZNSImK2x28E-wWjKrwCRE4V1rmOcDB3xt0GYYZSxp4VzmQzzHnZWjWGSfhKn4IUGifF28rt2452C4Z8qFCtGosryjWsPpFqGEwdCPa3Uly7ytNsA8ckpGlRfG8hdxPTOdAn6mP6M2sTrkaV2bpke-Pg4KghYadNo1xH-j_abj4zm0IFV-A8g86Wq4YPk7m5lFtb5q_pql2lVlhOg8COXL_A==",
+          "datum": "09.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "11.07.2026",
+  "last_sent": "12.07.2026",
   "sent_log": {
-    "date": "11.07.2026",
+    "date": "12.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
