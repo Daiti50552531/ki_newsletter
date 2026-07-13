@@ -1,23 +1,6 @@
 {
   "editions": [
     {
-      "date": "02.07.2026",
-      "titles": [
-        "Notion 3.6: Externe KI-Agenten orchestrieren und Meetings mit Sprechererkennung protokollieren",
-        "Microsoft 365 Copilot wird zum Workflow-Orchestrator mit Cowork und Service Agent",
-        "Claude Sonnet 5 und Auto Dream: Dein KI-Kollege wird smarter und merkt sich mehr",
-        "Gemini beendet 'Prompt Engineering' für Bilder: Neues Dashboard und Video-Tools"
-      ],
-      "schnell": [
-        "OpenAI hat mit GPT-5.6 Sol, Terra und Luna eine neue Modellfamilie in einer limitierten Preview für ausgewählte Partner über die API und Codex eingeführt, noch nicht in ChatGPT.",
-        "DeepSeek führt ab Mitte Juli eine 'Peak-Hour'-Preiserhöhung für seine V4-Modelle ein, bei der die Kosten während der Stoßzeiten in Peking verdoppelt werden.",
-        "DeepSeek hat ein neues spekulatives Decoding-Framework eingeführt, das die Textgenerierungsgeschwindigkeit für DeepSeek-V4-Flash und DeepSeek-V4-Pro um 60–85% pro Nutzer erhöht.",
-        "Google hat 'Gemini Spark' für seine macOS-Desktop-App gestartet (Beta für Google AI Ultra-Abonnenten in den USA), womit KI-Agenten lokale Dateien und Desktop-Workflows automatisieren können.",
-        "Mistral AI hat 'Mistral OCR 4' veröffentlicht, ein selbstgehostetes Dokumentenintelligenzmodell für 170 Sprachen, das besonders für regulierte Unternehmen relevant ist.",
-        "Portugal hat sein erstes Open-Source-KI-Modell vorgestellt und reiht sich damit in die europäische Initiative zur Stärkung der KI-Souveränität ein."
-      ]
-    },
-    {
       "date": "03.07.2026",
       "titles": [
         "OpenAI stellt GPT-5.6 Sol, Terra und Luna vor – noch im Test, aber mit mehr Hirn für komplexe Aufgaben",
@@ -338,11 +321,46 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "13.07.2026",
+      "top_news": [
+        {
+          "titel": "USA lockern Exportregeln für KI-Chips in die VAE – Was das für Tech-Giganten bedeutet",
+          "zusammenfassung": "Das US-Handelsministerium hat beschlossen, ausgewählten Unternehmen in den Vereinigten Arabischen Emiraten den Zugang zu bestimmten fortschrittlichen KI-Rechenkomponenten ohne Einzelgenehmigung zu erleichtern. Diese strategische Entscheidung betrifft große US-Tech-Firmen wie Amazon, Apple, Google, Meta, Microsoft, OpenAI, Oracle und xAI, die nun vereinfachten Zugang zu den VAE-Märkten erhalten. Auch VAE-Unternehmen wie G42 und Core42 sollen von den gelockerten Exportbeschränkungen profitieren, um ihre KI-Infrastruktur auszubauen.",
+          "take": "Abwarten. Diese Lockerungen sind ein geopolitischer Schachzug, dessen volle Auswirkungen sich erst in den kommenden Monaten zeigen werden. Direkt beeinflusst es deinen Arbeitsalltag noch nicht, aber es ist ein wichtiger Indikator für die zukünftige Entwicklung des KI-Marktes.",
+          "quelle": "KI Weekly",
+          "url": "https://www.google.com/search?q=USA%20lockern%20Exportregeln%20f%C3%BCr%20KI-Chips%20in%20die%20VAE%20%E2%80%93%20Was%20das%20f%C3%BCr%20Tech-Giganten%20bedeutet%20KI%20Weekly",
+          "datum": "11.07.2026"
+        },
+        {
+          "titel": "Kampf um CoWoS-Chip-Packaging eskaliert: Engpässe bei TSMC prägen KI-Rennen",
+          "zusammenfassung": "Die fortschreitende Miniaturisierung von KI-Chips stößt an physikalische Grenzen, weshalb fortschrittliche Gehäusetechnologien wie CoWoS (Chip-on-Wafer-on-Substrate) von TSMC immer wichtiger werden. Diese 2,5D-Technologie ermöglicht es, Recheneinheiten und Hochgeschwindigkeitsspeicher (HBM) dichter zu packen und so die Rechenleistung massiv zu steigern. Ein regelrechter Kampf um die knappen CoWoS-Produktionskapazitäten bei TSMC hat sich zwischen globalen Chipherstellern wie Nvidia und AMD sowie Cloud-Anbietern wie AWS, die eigene Trainium- und Inferentia-Chips entwickeln, entzündet.",
+          "take": "Beobachten. Dieser Engpass beeinflusst die gesamte KI-Branche und könnte die Entwicklung und den Einsatz neuer, leistungsstarker KI-Modelle verlangsamen. Die Abhängigkeit von wenigen Herstellern birgt Risiken, aber auch Chancen für neue Innovationen im Chip-Design.",
+          "quelle": "36氪",
+          "url": "https://www.google.com/search?q=Kampf%20um%20CoWoS-Chip-Packaging%20eskaliert%3A%20Engp%C3%A4sse%20bei%20TSMC%20pr%C3%A4gen%20KI-Rennen%2036%E6%B0%AA",
+          "datum": "12.07.2026"
+        },
+        {
+          "titel": "Meta setzt auf eigene Iris-KI-Chips und „Meta Compute“ – Strategiewechsel für die KI-Infrastruktur",
+          "zusammenfassung": "Meta Platforms richtet seine KI-Strategie neu aus und beschleunigt die Produktion eigener „Iris-KI-Chips“. Gleichzeitig stellt das Unternehmen „Meta Compute“ vor, eine Initiative, die darauf abzielt, die jahrelangen hohen Investitionen in KI-Infrastruktur in ein monetarisierbares Geschäftsfeld für Cloud-Dienste und Tools umzuwandeln. Dieser Kurswechsel signalisiert Metas Bestreben, seine überschüssigen KI-Kapazitäten zu verkaufen und damit neue Einnahmequellen zu erschließen, um die enormen Kapitalausgaben im KI-Bereich zu rechtfertigen.",
+          "take": "Informieren. Wenn Meta hier ernst macht, könnte das eine interessante Alternative zu bestehenden Cloud-Anbietern werden. Es bleibt abzuwarten, wie schnell sie zahlende Kunden gewinnen und welche Modelle und Tools sie über „Meta Compute“ anbieten werden.",
+          "quelle": "Simply Wall St",
+          "url": "https://www.google.com/search?q=Meta%20setzt%20auf%20eigene%20Iris-KI-Chips%20und%20%E2%80%9EMeta%20Compute%E2%80%9C%20%E2%80%93%20Strategiewechsel%20f%C3%BCr%20die%20KI-Infrastruktur%20Simply%20Wall%20St",
+          "datum": "12.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "12.07.2026",
+  "last_sent": "13.07.2026",
   "sent_log": {
-    "date": "12.07.2026",
+    "date": "13.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
