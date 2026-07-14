@@ -1,22 +1,6 @@
 {
   "editions": [
     {
-      "date": "03.07.2026",
-      "titles": [
-        "OpenAI stellt GPT-5.6 Sol, Terra und Luna vor – noch im Test, aber mit mehr Hirn für komplexe Aufgaben",
-        "Claude jetzt generell in Microsoft Foundry verfügbar – einfacherer KI-Einstieg für Azure-Kunden",
-        "Wie du Autonomie im KI-Zeitalter bewahrst – klare Leitplanken für den Arbeitsalltag",
-        "KI-Ernüchterung: Firmen holen entlassene Mitarbeiter zurück – die menschliche Note bleibt unverzichtbar"
-      ],
-      "schnell": [
-        "Neue Muster für KI-Agenten in der Produktion zeigen, wie autonome Agenten die Arbeit zunehmend selbst ausführen und welche Governance-Modelle dafür nötig sind.",
-        "ZDNET erklärt, wie du OpenAI API-Nutzungslimits festlegst, um unbeabsichtigte hohe Kosten durch unkontrolliert laufende KI-Agenten zu vermeiden.",
-        "Eine HRblue-Studie zeigt, dass 77% der Führungskräfte generative KI nutzen, aber nur ein geringerer Teil einen direkten Mehrwert für die Gesamtorganisation sieht.",
-        "Exabeam hat neue Funktionen zur Erkennung und Absicherung von KI-Agenten und autonomen Workflows in Unternehmensumgebungen vorgestellt, inklusive Unterstützung für Claude.",
-        "'Mini DeepSeek' GLM 5.2 wird als kostengünstige und leistungsstarke Open-Source-Alternative zu Modellen wie ChatGPT und Claude positioniert."
-      ]
-    },
-    {
       "date": "04.07.2026",
       "top_news": [],
       "schnelldurchlauf": [
@@ -356,11 +340,44 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "14.07.2026",
+      "top_news": [
+        {
+          "titel": "Meta zieht KI-Bildfunktion 'Muse Image' nach massivem Nutzer-Feedback zurück",
+          "zusammenfassung": "Meta hat seine erst kürzlich eingeführte KI-Bildgenerierungsfunktion 'Muse Image' nach nur wenigen Tagen wieder deaktiviert. Die Funktion, die es Nutzern ermöglichte, KI-Bilder unter Verwendung von Inhalten aus öffentlichen Instagram-Profilen zu generieren, stieß auf heftige Kritik wegen Bedenken hinsichtlich Datenschutz und der automatischen Opt-in-Standardeinstellung. Prominente, Datenschutzaktivisten und Gewerkschaften wie SAG-AFTRA forderten die sofortige Einstellung, da die Funktion Deepfakes und die unautorisierte Nutzung von Bildmaterial fördern könnte.",
+          "take": "Eine gute Erinnerung daran, dass neue KI-Funktionen immer kritisch hinterfragt werden sollten. Es zeigt auch, dass große Unternehmen lernen müssen, wie wichtig Transparenz und Opt-in-Optionen für das Vertrauen der Nutzer sind.",
+          "quelle": "Capture magazine",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYSy9v6i05EZ9JJCeqUdOvcyNtAW90uLxCKY53c8qhOM1Wtk2-FLrAhYrZB8pZv6DQMRUFodCrVwgqDZ00l3ac6Z7q8AP28k8cVjIw6iHqi4z_c0_lKIn6AH02yrOKDRiz48MZAExNw0dR2g0wT4HofWJFiRrdBJ61r8qcU80wAZK6XW7PmuttEJd8KTM6UJE-IGGY0Vj48Qov9WUD7efmLRpNqeSmqynbKpK6x8HdIzk5gamQ2CuQF4FPNI-wuQdy5wZAXL9tCkDWPyvae3hLVqA=",
+          "datum": "13.07.2026"
+        },
+        {
+          "titel": "China fördert KI-Chip-Eigenständigkeit: Hongkong wird zum strategischen Reexport-Hub",
+          "zusammenfassung": "China reagiert auf Exportkontrollen der USA mit massiven staatlichen Investitionen in die eigene KI-Chip-Produktion, um eine selbstständige Lieferkette aufzubauen. Hongkong entwickelt sich dabei zu einem entscheidenden Reexport-Hub für KI-Chips: Über 50 Prozent der chinesischen Halbleiterimporte im ersten Halbjahr 2026 wurden über die Stadt abgewickelt, und KI-bezogene Produkte machen mittlerweile über 50 Prozent der Gesamtexporte Hongkongs aus. Diese Entwicklung unterstreicht eine geopolitisch bedingte Verschiebung im globalen Tech-Handel, bei der nationale Autonomie und eine diversifizierte Lieferkette immer wichtiger werden.",
+          "take": "Beobachte diese Entwicklungen genau. Langfristig könnte eine stärkere Fragmentierung des KI-Marktes nach Regionen entstehen, was Auswirkungen auf die Auswahl und Kosten von KI-Tools haben könnte.",
+          "quelle": "Modern Diplomacy",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEx0u7MMHTFuO-ccLU2hXzsMD3dWuH84Gog3hotjAy3QyDZYsJb_-RyAFmjA1bMp7xRBwQmC4wivKRNJENEWSq7DTeQs_kMEQVBd0TWkDLNQWMe3gI-KMKrdy68BZy-l2cAOY9qnNlBMymara_fXLRYkZl9YIWAsEgsZ-Olb5G9C7qV7hY1x_g=",
+          "datum": "14.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "OpenAI stellt seinen neun Monate alten KI-Browser 'Atlas', der als KI-Betriebssystem gedacht war, bereits wieder ein, um sich auf ChatGPT Work und Browser-Erweiterungen zu konzentrieren.",
+          "quelle": "Futurism",
+          "url": "https://www.google.com/search?q=OpenAI%20stellt%20seinen%20neun%20Monate%20alten%20KI-Browser%20%27Atlas%27%2C%20der%20als%20KI-Betriebssystem%20gedacht%20war%2C%20bereits%20wieder%20ein%2C%20um%20sich%20auf%20ChatGPT%20Work%20und%20Browser-Erweiterungen%20zu%20konzentrieren.%20Futurism"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "13.07.2026",
+  "last_sent": "14.07.2026",
   "sent_log": {
-    "date": "13.07.2026",
+    "date": "14.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
