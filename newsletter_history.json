@@ -1,21 +1,6 @@
 {
   "editions": [
     {
-      "date": "06.07.2026",
-      "top_news": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Die australische Regierung hat eine Warnung zum Datenschutz herausgegeben, da die zunehmende Nutzung von KI-Schreibassistenten durch Ärzte sensible Patientendaten gefährden könnte.",
-          "quelle": "The Guardian (u.a.)",
-          "url": "https://www.google.com/search?q=Die%20australische%20Regierung%20hat%20eine%20Warnung%20zum%20Datenschutz%20herausgegeben%2C%20da%20die%20zunehmende%20Nutzung%20von%20KI-Schreibassistenten%20durch%20%C3%84rzte%20sensible%20Patientendaten%20gef%C3%A4hrden%20k%C3%B6nnte.%20The%20Guardian%20%28u.a.%29"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "Anthony Kaldellis: Roman Empire, Byzantine Empire, Rise & Fall of Empires",
-        "podcast_name": "Lex Fridman Podcast"
-      }
-    },
-    {
       "date": "07.07.2026",
       "top_news": [],
       "praxis": [],
@@ -418,11 +403,82 @@
         "episoden_titel": "The AI Industry Optimized for Answers. It Should Have Optimized for Understanding.",
         "podcast_name": "Latent Space"
       }
+    },
+    {
+      "date": "16.07.2026",
+      "top_news": [
+        {
+          "titel": "Deutsche Medienaufsicht stuft KI-Suchergebnisse als eigene Inhalte ein",
+          "zusammenfassung": "Die Kommission für Zulassung und Aufsicht (ZAK) der deutschen Landesmedienanstalten hat entschieden, dass KI-generierte Nachrichtenüberblicke und KI-Chatbots unter deutsches Medienrecht fallen. Dies betrifft Dienste wie Googles AI Overviews und den Chatbot Perplexity. Die ZAK erließ erstmals Bescheide gegen diese Anbieter und fordert von ihnen, die Inhalte nicht nur zu verbreiten, sondern auch als eigene Inhalte transparent zu kennzeichnen.",
+          "take": "Wichtig. Diese Entscheidung schafft rechtliche Klarheit und ist ein erster Schritt, um die Qualität und Verlässlichkeit von KI-generierten Informationen im deutschen Raum zu sichern. Achte künftig auf die Kennzeichnung von KI-Inhalten.",
+          "quelle": "Tagesspiegel Background",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGeP3fcszehwZF-hsksxu5v6HcanGpY7FG5wFGR325_1r9Pasw_qpTdtIWbboiYI8wwNLCDHwyDveM3PD9IPXo62yyh11yviQcHeyqbIpif0ZaYeeYn70ArO8M5-EwFzBOKLQD45og1NaFBZyloFznrfoLakFV_-CZ0BOu0icF_fFa4U0lZ2nr5mks-q0zjBODUndn6SOixvGo_jsVZ-QtUwgix0QhCVmY=",
+          "datum": "14.07.2026"
+        },
+        {
+          "titel": "Meta wegen KI-gestützter Entlassungen von Mitarbeitern auf Elternzeit oder mit Behinderung verklagt",
+          "zusammenfassung": "Dutzende aktuelle und ehemalige Meta-Mitarbeiter haben Klage eingereicht, da das Unternehmen angeblich KI-Tools nutzte, um Angestellte für Massenentlassungen auszuwählen. Die Kläger behaupten, die KI habe gezielt jene Mitarbeiter ins Visier genommen, die geschützte Auszeiten wie Elternzeit, Mutterschutz oder Disability-Leaves in Anspruch nahmen. Meta bestreitet die Vorwürfe und erklärt, Personalentscheidungen würden von Menschen getroffen, nicht von KI.",
+          "take": "Aufmerksam beobachten. Dieser Fall ist ein wichtiges Signal für alle Unternehmen, die KI in HR-Prozessen nutzen. Eine genaue Prüfung der Algorithmen auf Diskriminierung ist unerlässlich, um Vertrauen zu erhalten und Klagen zu vermeiden.",
+          "quelle": "The Guardian, CBS News, PCMag",
+          "url": "https://www.google.com/search?q=Meta%20wegen%20KI-gest%C3%BCtzter%20Entlassungen%20von%20Mitarbeitern%20auf%20Elternzeit%20oder%20mit%20Behinderung%20verklagt%20The%20Guardian%2C%20CBS%20News%2C%20PCMag",
+          "datum": "14.07.2026"
+        },
+        {
+          "titel": "New York verhängt Moratorium für den Bau von KI-Rechenzentren",
+          "zusammenfassung": "Als erster US-Bundesstaat hat New York ein vorübergehendes Verbot für den Bau neuer großer Rechenzentren erlassen, die für den Betrieb von Künstlicher Intelligenz benötigt werden. Die Gouverneurin Kathy Hochul unterzeichnete eine entsprechende Exekutivanordnung für ein bis zu einjähriges Moratorium. Grund sind Bedenken hinsichtlich des hohen Energie- und Wasserverbrauchs dieser Anlagen.",
+          "take": "Wichtig. Dies ist ein klares Signal, dass die Umweltauswirkungen von KI ernst genommen werden. Es könnte Druck auf die Branche ausüben, energieeffizientere KI-Modelle und Rechenzentren zu entwickeln und regulatorische Maßnahmen in weiteren Regionen nach sich ziehen.",
+          "quelle": "Deutschlandfunk",
+          "url": "https://www.google.com/search?q=New%20York%20verh%C3%A4ngt%20Moratorium%20f%C3%BCr%20den%20Bau%20von%20KI-Rechenzentren%20Deutschlandfunk",
+          "datum": "15.07.2026"
+        },
+        {
+          "titel": "Mistral AI stellt Robostral Navigate vor: Roboter navigieren mit einfacher Kamera und Sprache",
+          "zusammenfassung": "Mistral AI hat Robostral Navigate veröffentlicht, ein 8-Milliarden-Parameter-Modell, das Robotern ermöglicht, komplexe Umgebungen mithilfe einer einzigen RGB-Kamera und natürlicher Sprachbefehle zu navigieren. Das Modell erreicht eine hohe Erfolgsrate ohne aufwendige Sensortechnik wie Tiefensensoren oder Lidar und übertrifft bestehende Systeme deutlich.",
+          "take": "Aufmerksam verfolgen. Auch wenn es noch nicht direkt deinen Büroalltag betrifft, zeigt Robostral Navigate, wie schnell sich KI-Agenten in der physischen Welt weiterentwickeln. Einfachere und günstigere Robotik könnte in den kommenden Jahren viele Branchen umkrempeln.",
+          "quelle": "AI Business, MarkTechPost, Reddit",
+          "url": "https://www.google.com/search?q=Mistral%20AI%20stellt%20Robostral%20Navigate%20vor%3A%20Roboter%20navigieren%20mit%20einfacher%20Kamera%20und%20Sprache%20AI%20Business%2C%20MarkTechPost%2C%20Reddit",
+          "datum": "14.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Optum integriert Anthropic Claude zur Entlastung im Gesundheitswesen",
+          "zusammenfassung": "Optum, ein Teil der UnitedHealth Group und größtes Gesundheitsunternehmen der USA, kooperiert mit Anthropic, um dessen KI-Modell Claude im Gesundheitswesen einzusetzen. Ziel ist es, den administrativen Aufwand zu reduzieren und Interaktionen für Patienten zu vereinfachen, wobei der Fokus auf Datenschutz, Sicherheit und menschlicher Aufsicht liegt.",
+          "branche": "Gesundheitswesen",
+          "quelle": "Becker's Payer Issues",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVfwmXPqsWMC_WpICL0_INCutl19zQH1Clj256NjomLdQR0RoR4hekdGbByqZtiYTpQn1qQs3xq6GQPkUefMgNY6RO7NJ7QlBjg-fj3j6VYKm83-i9FzrTxPyjSR_Cuc7ofhOngyyJIJIBiqajhlnhqrBigIcki3_2mta4jXvTsbNI",
+          "datum": "14.07.2026"
+        },
+        {
+          "titel": "Arahi AI automatisiert End-to-End-Workflows in ERPNext ohne Code",
+          "zusammenfassung": "Arahi AI bietet eine No-Code-Lösung zur Automatisierung von Workflows in ERPNext, einem weit verbreiteten Open-Source-ERP-System. KI-Agenten überwachen ERPNext-Ereignisse, verarbeiten Aufgaben wie Bestellungen, Inventar oder Rechnungsstellung automatisch und schreiben Ergebnisse zurück ins System, wodurch manuelle Schritte entfallen.",
+          "branche": "Software/ERP",
+          "quelle": "Arahi AI",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFkNp8vY3z1bWcu2k6fFljmhh1wZEW6GUkX0zOsP0OgSBYDlyKtTrYU1xyuhrH_OyRW2OCeRptGRln_HRi1Bxig0FobfGNJPxO_RFLUg15hLq-mAetkJ_sMwgGX2yxogykSqQCNYKZjmnnHK9BHpG8=",
+          "datum": "15.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Eine Klage von großen Verlagen gegen Google behauptet, dass Millionen urheberrechtlich geschützter Bücher illegal zum Training von Gemini-KI-Modellen verwendet wurden, was den Wert von Originalwerken mindert.",
+          "quelle": "The Guardian",
+          "url": "https://www.google.com/search?q=Eine%20Klage%20von%20gro%C3%9Fen%20Verlagen%20gegen%20Google%20behauptet%2C%20dass%20Millionen%20urheberrechtlich%20gesch%C3%BCtzter%20B%C3%BCcher%20illegal%20zum%20Training%20von%20Gemini-KI-Modellen%20verwendet%20wurden%2C%20was%20den%20Wert%20von%20Originalwerken%20mindert.%20The%20Guardian"
+        },
+        {
+          "text": "Ein Kommentar in der WELT warnt, dass KI eine nie dagewesene Gefahr für die menschliche Urteilskraft darstellt, da sie im Gegensatz zu früheren Technologien direkt in das Zentrum der Entscheidungsfindung eingreift.",
+          "quelle": "WELT",
+          "url": "https://www.google.com/search?q=Ein%20Kommentar%20in%20der%20WELT%20warnt%2C%20dass%20KI%20eine%20nie%20dagewesene%20Gefahr%20f%C3%BCr%20die%20menschliche%20Urteilskraft%20darstellt%2C%20da%20sie%20im%20Gegensatz%20zu%20fr%C3%BCheren%20Technologien%20direkt%20in%20das%20Zentrum%20der%20Entscheidungsfindung%20eingreift.%20WELT"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "15.07.2026",
+  "last_sent": "16.07.2026",
   "sent_log": {
-    "date": "15.07.2026",
+    "date": "16.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
