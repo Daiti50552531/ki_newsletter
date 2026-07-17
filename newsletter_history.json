@@ -1,47 +1,6 @@
 {
   "editions": [
     {
-      "date": "07.07.2026",
-      "top_news": [],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Die US-amerikanische und europäische Herangehensweise an die KI-Regulierung divergieren stark, wobei die EU auf umfassende Gesetze und die USA auf fragmentierte staatliche Regelungen setzen.",
-          "quelle": "LiveLaw",
-          "url": "https://livelaw.in/columns/useu-divergence-global-approach-ai-governance-2026-258052"
-        },
-        {
-          "text": "Chinas KI-Strategie konzentriert sich zunehmend auf die Koordination und das Management komplexer Umgebungen wie Städte und Fabriken, anstatt nur auf Chatbots und AGI.",
-          "quelle": "The Times of India / Asia Times",
-          "url": "https://www.google.com/search?q=Chinas%20KI-Strategie%20konzentriert%20sich%20zunehmend%20auf%20die%20Koordination%20und%20das%20Management%20komplexer%20Umgebungen%20wie%20St%C3%A4dte%20und%20Fabriken%2C%20anstatt%20nur%20auf%20Chatbots%20und%20AGI.%20The%20Times%20of%20India%20/%20Asia%20Times"
-        },
-        {
-          "text": "Ab dem 2. August 2026 treten wichtige Transparenzpflichten des EU AI Act in Kraft, die Unternehmen dazu verpflichten, KI-generierte Inhalte klar zu kennzeichnen, um Desinformation und Manipulation entgegenzuwirken.",
-          "quelle": "Dudkowiak & Putyra",
-          "url": "https://www.google.com/search?q=Ab%20dem%202.%20August%202026%20treten%20wichtige%20Transparenzpflichten%20des%20EU%20AI%20Act%20in%20Kraft%2C%20die%20Unternehmen%20dazu%20verpflichten%2C%20KI-generierte%20Inhalte%20klar%20zu%20kennzeichnen%2C%20um%20Desinformation%20und%20Manipulation%20entgegenzuwirken.%20Dudkowiak%20%26%20Putyra"
-        },
-        {
-          "text": "Colorado hat sein ursprüngliches, strenges KI-Gesetz durch einen neuen 'Automated Decision-Making Technology Act' ersetzt, der einen schlankeren, transparenzorientierten Ansatz verfolgt und Unternehmen entlastet.",
-          "quelle": "Messner Reeves LLP / Schellman",
-          "url": "https://www.google.com/search?q=Colorado%20hat%20sein%20urspr%C3%BCngliches%2C%20strenges%20KI-Gesetz%20durch%20einen%20neuen%20%27Automated%20Decision-Making%20Technology%20Act%27%20ersetzt%2C%20der%20einen%20schlankeren%2C%20transparenzorientierten%20Ansatz%20verfolgt%20und%20Unternehmen%20entlastet.%20Messner%20Reeves%20LLP%20/%20Schellman"
-        },
-        {
-          "text": "Die britische Finanzaufsichtsbehörde FCA plant eine Transformation des Einzelhandels durch KI bis 2030, wobei KI-Agenten eine zentrale Rolle für personalisierte Kundenerlebnisse spielen sollen.",
-          "quelle": "Payment Expert",
-          "url": "https://paymentexpert.com/2026/07/06/uk-fca-looks-to-regulate-ai-for-a-transformative-2030/"
-        },
-        {
-          "text": "Ein '3-Box Prompt System' (Plan, Draft, Refine) kann dir helfen, KI-Tools systematischer und effizienter für Aufgaben wie das Schreiben von E-Mails zu nutzen und so deine Produktivität zu steigern.",
-          "quelle": "Inkfluence AI",
-          "url": "https://www.google.com/search?q=Ein%20%273-Box%20Prompt%20System%27%20%28Plan%2C%20Draft%2C%20Refine%29%20kann%20dir%20helfen%2C%20KI-Tools%20systematischer%20und%20effizienter%20f%C3%BCr%20Aufgaben%20wie%20das%20Schreiben%20von%20E-Mails%20zu%20nutzen%20und%20so%20deine%20Produktivit%C3%A4t%20zu%20steigern.%20Inkfluence%20AI"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "08.07.2026",
       "top_news": [
         {
@@ -474,11 +433,55 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "17.07.2026",
+      "top_news": [
+        {
+          "titel": "Gmail bekommt autonome KI-Helfer: So organisierst du dein Postfach jetzt noch smarter",
+          "zusammenfassung": "Google rollt neue agentische KI-Funktionen in Gmail aus, die deinen E-Mail-Alltag effizienter gestalten soll. Die 'AI Inbox' erkennt wichtige Nachrichten und schlägt dir Prioritäten und Aufgaben vor. Zusätzlich fassen 'AI Overviews' lange E-Mail-Threads zusammen, was besonders bei hohem E-Mail-Aufkommen eine echte Entlastung verspricht. Auch die 'Help Me Write'-Funktion wurde verbessert, sodass du der KI jetzt noch präzisere Anweisungen für Tonfall und Fristen geben kannst.",
+          "take": "Unbedingt ausprobieren! Die neuen Funktionen sind ab sofort verfügbar und können deine E-Mail-Bearbeitung effizienter und schneller machen. Achte darauf, wie gut die KI deine Prioritäten versteht.",
+          "quelle": "Hindustan Times",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEtJqHl3rSgdwBCzKSsFKKwH_u3Z5tO7r8lGT5qhKMUZHbVQEc2wLt1CnmGxNdt1CxlJGJd61IcGhVQh_VgfmMWuG7hKhriH2DBW9DqaV2rpWsQd2J5O2Ni1Ol8Cn7xqFp8CKp0YzQjFDPGuXpOo2YfGNrJlnePLYqN6tc_902kItWCv-G7zCqloAEIUaaL2g==",
+          "datum": "17.07.2026"
+        },
+        {
+          "titel": "Microsoft Copilot automatisiert Projektmanagement-Aufgaben direkt in Office 365",
+          "zusammenfassung": "Microsoft Copilot integriert sich tiefer in die Microsoft 365-Anwendungen wie Word, Excel, Outlook, Teams und PowerPoint, um Projektmanager bei administrativen Aufgaben zu entlasten. Das Tool kann automatische Besprechungszusammenfassungen erstellen, E-Mails vorformulieren, Excel-Daten analysieren, PowerPoint-Präsentationen generieren und Aufgaben aus Teams-Meetings extrahieren. Dies soll den Verwaltungsaufwand reduzieren und die Zusammenarbeit verbessern.",
+          "take": "Wenn du Microsoft 365 nutzt, ist das eine wichtige Neuerung. Teste, wie gut Copilot deine Projektberichte zusammenfasst und Meeting-Protokolle erstellt. Die Zeitersparnis kann beträchtlich sein.",
+          "quelle": "YouTube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2omMeX17rSaV0hfqP71FLZ89VQCS8QLEe5SDM8j7lak8ccsW7kds41Wh0566dwbdb_YGbjX8ahsaPbIsUzJdR288hOvaaID1Cb9Db4s11mYDcR3TuVyez6_BIj9xHCEeTURBJLGquML4NrHSp0HpIKy3-81J3XqzKQ-3X",
+          "datum": "16.07.2026"
+        },
+        {
+          "titel": "Blackbaud entlastet Schulen mit KI-Tools: Weniger Admin, mehr Fokus auf Bildung",
+          "zusammenfassung": "Blackbaud hat neue KI-gestützte Produkte für unabhängige Schulen vorgestellt, die darauf abzielen, den enormen administrativen Aufwand für Lehrkräfte und Personal zu reduzieren. Dazu gehören 'Candidate Insights' für prädiktive Einschreibungsdaten und 'Blackbaud AI Chat' zur Abfrage von Schuldaten. Studien zeigen, dass Lehrkräfte und Mitarbeiter über 50% ihrer Zeit mit Verwaltungsaufgaben verbringen, ein Problem, das Blackbaud mit integrierter KI lösen will.",
+          "take": "Auch wenn es um Schulen geht, ist die Kernbotschaft klar: KI kann erhebliche administrative Entlastung bringen. Überlege, welche Routinetätigkeiten in deinem Unternehmen oder Projekt durch ähnliche KI-Lösungen automatisiert werden könnten.",
+          "quelle": "Blackbaud",
+          "url": "https://www.google.com/search?q=Blackbaud%20entlastet%20Schulen%20mit%20KI-Tools%3A%20Weniger%20Admin%2C%20mehr%20Fokus%20auf%20Bildung%20Blackbaud",
+          "datum": "16.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Genossenschaftliche FinanzGruppe treibt KI-Einsatz in der Wertschöpfungskette voran",
+          "zusammenfassung": "Die genossenschaftliche FinanzGruppe Volksbanken Raiffeisenbanken forciert den Einsatz von KI über ihre gesamte Wertschöpfungskette hinweg. Dies reicht von der Automatisierung interner Prozesse bis zur intelligenten Nutzung von Daten. Das Engagement zeigt, wie etablierte Unternehmen KI strategisch integrieren, um Effizienz und Wettbewerbsfähigkeit zu steigern.",
+          "branche": "Banken",
+          "quelle": "Presseportal",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtVg8XuR0mVKn5eJN5TOBlsp2ZBgS-33paGkUUrT9XHdz_JJTPE7F-NoA0UvvCJIuCsbGdCdHXS4zyuMwPGgz4HHTzp9xFsa_xi1RssBR__9wtzh5pV5o_x4kGPnVsYW9el5CePHU=",
+          "datum": "15.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "16.07.2026",
+  "last_sent": "17.07.2026",
   "sent_log": {
-    "date": "16.07.2026",
+    "date": "17.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
