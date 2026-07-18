@@ -1,50 +1,6 @@
 {
   "editions": [
     {
-      "date": "08.07.2026",
-      "top_news": [
-        {
-          "titel": "EU stärkt Cybersicherheit gegen KI-Risiken mit neuem Aktionsplan",
-          "zusammenfassung": "Die Europäische Kommission hat am 6. Juli 2026 einen umfassenden Aktionsplan vorgelegt, um die Cybersicherheit im Zeitalter fortschrittlicher KI-Modelle zu gewährleisten. Dieser Plan zielt darauf ab, sowohl die Risiken des Missbrauchs von KI für Cyberangriffe zu mindern als auch die Chancen zur Stärkung der digitalen Abwehr zu nutzen. Ein Kernpunkt ist die geplante Einrichtung einer EU-weiten Evaluierungskapazität für Cybersicherheit bis 2027, um KI-Modelle vor dem Inverkehrbringen in der EU gründlich zu bewerten und einheimisches Fachwissen zu fördern.",
-          "take": "Abwarten und beobachten: Der Plan ist langfristig angelegt, aber die Richtung stimmt. Es ist gut zu wissen, dass die EU hier aktiv wird, um ein sicheres Umfeld für KI zu schaffen.",
-          "quelle": "European Commission",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5jgHQfWPvwDKVuYbEauMwY9LCW4GZyvOHV5PQxAk-q02IEqTbPVjW0fTjPDj7K6VEVaodIpTaqrIG2AhI6rJZ0BaAPlujnrhDRF_d-PAq5YfzZzTB0DyML35Ak5YLtTnKYShosBxP125hgv4cELbmtral-TVF26Y67n==",
-          "datum": "06.07.2026"
-        },
-        {
-          "titel": "Nach US-KI-Sperre: EU plant Notfallmaßnahmen, um Abhängigkeiten zu reduzieren",
-          "zusammenfassung": "Als Reaktion auf die kurzzeitige US-Regierungsblockade des KI-Modells Fable 5 von Anthropic im Juni hat die EU-Kommission am 7. Juli 2026 angekündigt, bis Jahresende konkrete Notfallmaßnahmen zu entwickeln. Ziel ist es, Europa besser vor einer möglichen Einschränkung des Zugangs zu wirkmächtigen KI-Systemen durch Drittstaaten zu schützen. EU-Digitalkommissarin Henna Virkkunen betonte, dass Europa eigene KI-gestützte Cyberfähigkeiten aufbauen muss, um die Abhängigkeit von außereuropäischen Lösungen in sicherheitskritischen Bereichen zu verringern.",
-          "take": "Abwarten, aber strategisch denken: Auch wenn konkrete Maßnahmen noch ausstehen, zeigt dies die Relevanz einer Multi-Vendor-Strategie und der Prüfung von EU-Alternativen, um im Ernstfall handlungsfähig zu bleiben.",
-          "quelle": "dpa-AFX (via heise online)",
-          "url": "https://www.google.com/search?q=Nach%20US-KI-Sperre%3A%20EU%20plant%20Notfallma%C3%9Fnahmen%2C%20um%20Abh%C3%A4ngigkeiten%20zu%20reduzieren%20dpa-AFX%20%28via%20heise%20online%29",
-          "datum": "07.07.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Kumavision Österreich automatisiert Schadensberichte mit KI und integriert sie ins ERP",
-          "zusammenfassung": "Kumavision Österreich setzt KI ein, um Servicetechnikern bei der Erstellung von Schadensberichten für Versicherungen zu helfen. Die KI analysiert Fotos von Schäden, generiert automatisch einen detaillierten Bericht und erstellt gleichzeitig einen passenden Serviceauftrag im ERP-System. Dieser Prozess spart nicht nur Zeit, sondern verbessert auch die Datenqualität und Effizienz der Abläufe.",
-          "branche": "Dienstleistung/IT",
-          "quelle": "INDUSTRIEMAGAZIN",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhNo5GPCQlwFq850N6CcLkCsLbgFSsEJlg17-oEjK8WB4GuNNF8NwUa1ZrV1YNCTsX_P15spYtcAp6TX_ttRG5G8XgRC2GdD1ww-Ch6UvUuvN9Xv17NAfXWwTl5_oPncKjgWI5PR49_SPytJjuLMnGUBPdee8wFIWJqA7jZk5QtYrz0xhQQSaxRpakULo=",
-          "datum": "01.07.2026"
-        },
-        {
-          "titel": "EDEKA fördert Forschung zu digitaler Transformation und KI im Einzelhandel an der Universität Hamburg",
-          "zusammenfassung": "Die EDEKA ZENTRALE Stiftung & Co. KG hat zum 1. Juli 2026 eine neue Stiftungsprofessur für „Digital Transformation in Retail“ an der University of Hamburg Business School ins Leben gerufen. Diese Professur, besetzt durch Prof. Dr. Theresa Sophie Bockelmann, soll den tiefgreifenden Wandel im Einzelhandel durch Digitalisierung und KI wissenschaftlich begleiten und praxisnahe Lösungen für neue Technologien, KI-Integration und die Anpassung von Geschäftsprozessen entwickeln.",
-          "branche": "Handel",
-          "quelle": "EDEKA",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBeFq5M1iIotf9Vv2-qosFD4pph5m-oiAJPmOuDIw6iy3S4CCRCD3gIkMyj0YcHqWSCxKRprp3yjGLSIcPzURlelG-SmwQkxwJmyMGPjgrG6uijAoXKYKWbPZkkEGEA9uBCMK3p1Rp4oRdKI6MhuKe4s1BX6sKUxhZpi7Mswi41hNxi4-UN2QyatMrqBvdCW-KtXLXf2VA7EQXWhD4fKhKpVWsjxSxO98nZ-3c4SL4uRFRSAdn1I2BiL120v55dqBYKVVj1DU3hOltnlXt2VE0kOCGGO-y0mf6gix-21_nznyE-g==",
-          "datum": "01.07.2026"
-        }
-      ],
-      "schnelldurchlauf": [],
-      "podcast": {
-        "episoden_titel": "How to Evaluate Third-Party AI Systems (AI Vendor Risk Assessment, Third-Party Risk Management, AI Governance)",
-        "podcast_name": "Practical AI"
-      }
-    },
-    {
       "date": "09.07.2026",
       "top_news": [
         {
@@ -477,11 +433,86 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "18.07.2026",
+      "top_news": [
+        {
+          "titel": "KI als Forschungspartner: Modelle beschleunigen wissenschaftliche Entdeckungen",
+          "zusammenfassung": "Künstliche Intelligenz entwickelt sich von einem bloßen Werkzeug zu einem echten Partner in der Wissenschaft. Jüngste Erfolge zeigen, wie KI-Agenten eigenständig neue Materialien entdecken oder bei komplexen Physik-Beweisen assistieren. So hat beispielsweise Alibabas DAMO Academy mit 'ElementsClaw' vier neue Supraleiter identifiziert und experimentell bestätigt, während Nobelpreisträger Giorgio Parisi mithilfe von Claude einen zehn Jahre alten Physik-Beweis knacken konnte. Anthropic beobachtet sogar, dass Claude eine Art 'inneren Denk-Raum' bildet, den Forscher 'J-Space' nennen, was die komplexen Mechanismen hinter modernen Modellen verdeutlicht.",
+          "take": "Abwarten, aber die Augen offen halten: Diese Entwicklungen zeigen die langfristige Richtung der KI-Forschung. Auch wenn du heute noch keine neuen Supraleiter mit KI entdecken wirst, signalisiert es, wohin die Reise geht.",
+          "quelle": "Silbury",
+          "url": "https://www.google.com/search?q=KI%20als%20Forschungspartner%3A%20Modelle%20beschleunigen%20wissenschaftliche%20Entdeckungen%20Silbury",
+          "datum": "16.07.2026"
+        },
+        {
+          "titel": "Google Gemini Notebook mit Code-Ausführung: Dein Notizbuch wird zum Datenanalysten",
+          "zusammenfassung": "Google hat NotebookLM in Gemini Notebook umbenannt und es mit einer leistungsstarken neuen Funktion ausgestattet: Es kann nun nativ Code schreiben und ausführen. Dies ermöglicht dir, komplexe Datenanalysen direkt in deinem Notizbuch durchzuführen, basierend auf deinen eigenen Quellen. Das Update wird zuerst für Google AI Ultra-Nutzer und bestimmte Workspace-Geschäftskunden ausgerollt und soll in den kommenden Wochen auch für alle Pro-Nutzer verfügbar sein.",
+          "take": "Unbedingt ausprobieren: Wenn du Gemini Pro nutzt, halte Ausschau nach diesem Feature. Es könnte deine Art, Daten zu verarbeiten und Erkenntnisse zu gewinnen, erheblich vereinfachen.",
+          "quelle": "Google Blog",
+          "url": "https://www.google.com/search?q=Google%20Gemini%20Notebook%20mit%20Code-Ausf%C3%BChrung%3A%20Dein%20Notizbuch%20wird%20zum%20Datenanalysten%20Google%20Blog",
+          "datum": "16.07.2026"
+        },
+        {
+          "titel": "Update: DeepSeek trotzt sinkenden Downloads auf dem Weg zum Milliarden-IPO",
+          "zusammenfassung": "Obwohl DeepSeek, Chinas aufstrebender KI-Entwickler, weiterhin einen Börsengang im Jahr 2027 anstrebt und eine Bewertung von bis zu 71 Milliarden US-Dollar anpeilt, zeigen aktuelle Daten eine deutliche Verlangsamung des Nutzerwachstums. Nach einem explosionsartigen Anstieg der Downloads im Jahr 2025 sind die globalen DeepSeek-App-Downloads 2026 deutlich zurückgegangen, von über 171 Millionen auf rund 35 Millionen bis Juli. Auch die monatlich aktiven Nutzer (MAUs) liegen mit 67 Millionen weit hinter Konkurrenten wie ChatGPT (1 Milliarde) und Gemini (484 Millionen).",
+          "take": "Abwarten: Die Entwicklungen bei DeepSeek zeigen, dass Hype und Realität im KI-Markt auseinanderklaffen können. Behalte die Performance der Modelle im Auge, statt dich nur von Finanzierungsrunden blenden zu lassen.",
+          "quelle": "Seeking Alpha",
+          "url": "https://www.google.com/search?q=Update%3A%20DeepSeek%20trotzt%20sinkenden%20Downloads%20auf%20dem%20Weg%20zum%20Milliarden-IPO%20Seeking%20Alpha",
+          "datum": "16.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Airbus setzt auf Mistral AI und Scaleway für sensible Industrieprojekte",
+          "zusammenfassung": "Airbus hat eine mehrjährige Vereinbarung mit Scaleway, dem Cloud-Anbieter von Iliad, unterzeichnet. Ziel ist es, eine sichere Cloud-Infrastruktur für sensible Industrie- und Verteidigungsanwendungen bereitzustellen. Dies unterstützt den Einsatz von KI-Tools, die gemeinsam mit dem französischen Startup Mistral AI entwickelt wurden. Airbus plant, rund 70 kritische Anwendungen bis Ende 2028 auf Scaleway zu migrieren, wobei das breitere Programm bis zu 900 Anwendungen in den nächsten fünf bis sechs Jahren umfassen könnte.",
+          "branche": "Industrie",
+          "quelle": "Reuters Technology",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGCDTDUpm0-Td1fiHd8SrVDUb3VP-1nxkV769jePOdCIm8QIoxky4vmIzH-IvYHLLvD8Sgnq3JSW9Kp_jsyAsswCOFWX57gxtsnjHaFleV6Hw5Sax-PVPDtpRb39-qEgRorqzZxhZszjOq5Mssdk-xGYDHJVb5ks3LZRMnx9mNlSm_NupvOZQSRpauFTsR-2SdtrmNsePm0GG1Qc169Ml8YUg==",
+          "datum": "16.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Microsoft CEO Satya Nadella kritisiert die starken Schutzmechanismen von Anthropic's Claude Fable 5, die legitime Gesundheitsanwendungen behindern könnten.",
+          "quelle": "Becker's Hospital Review",
+          "url": "https://www.google.com/search?q=Microsoft%20CEO%20Satya%20Nadella%20kritisiert%20die%20starken%20Schutzmechanismen%20von%20Anthropic%27s%20Claude%20Fable%205%2C%20die%20legitime%20Gesundheitsanwendungen%20behindern%20k%C3%B6nnten.%20Becker%27s%20Hospital%20Review"
+        },
+        {
+          "text": "Meta erwägt milliardenschweren Deal mit Anthropic zur Vermietung seiner Rechenzentren, was Meta ein neues Geschäftsfeld eröffnen würde.",
+          "quelle": "The New York Times (via TechRepublic)",
+          "url": "https://www.google.com/search?q=Meta%20erw%C3%A4gt%20milliardenschweren%20Deal%20mit%20Anthropic%20zur%20Vermietung%20seiner%20Rechenzentren%2C%20was%20Meta%20ein%20neues%20Gesch%C3%A4ftsfeld%20er%C3%B6ffnen%20w%C3%BCrde.%20The%20New%20York%20Times%20%28via%20TechRepublic%29"
+        },
+        {
+          "text": "Apple verschärft den Rechtsstreit mit OpenAI, indem es Dutzenden ehemaliger Mitarbeiter, die jetzt bei OpenAI arbeiten, rechtliche Aufforderungen zur Beweissicherung schickt.",
+          "quelle": "Gizmodo",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3iqMwFPzAjvbzWy5K1dq5Jdl0-7IA_PvSYdq_-l6ruLtlz8Voc-s95Mkej90uKbkVyup-2L_YakA82Ng13cKvp-Vho-D-fd9ybTYZkRHE7Q_f-l1yZY8DXEGIVQMG0mpN0Lr1w_HFZNxLzwl8RBhZbGE_c4ErQTNdspf96EhSq_gZZ744BWaD3rQ_-lc_148"
+        },
+        {
+          "text": "xAI stellt 'Grok-Build' quelloffen bereit, nachdem Nutzer massive Datenlecks entdeckten und das Tool unbemerkt sensible Daten auf Google Cloud Server hochgeladen hatte.",
+          "quelle": "The Decoder",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_weZ2Wm4vlSvgMhJPCzP0V9jx_fyQhC7oauFWk-hr6-mK3HE9-uhTCBWrmo2S3rPi3wUCwAZxHw7iCFKooZTAWOkUihBVerzdbVGPLcDZqXLEHg733OX2uwS-ZVVuUa1N0RkDh4iv-gzzNIfzJCPACDsDx6vHgLeVCq1YEXrQaIfVHXdea2y2hyPS19gdjW4NI08="
+        },
+        {
+          "text": "Meta AI führt Kinderschutzfunktion ein: Eltern werden benachrichtigt, wenn Teenager Selbstmord oder Selbstverletzung mit dem Chatbot thematisieren.",
+          "quelle": "CBC News",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFD4T7gtCPQuwI0jMiLEoAi0YHW6Kxc__kBPcRayaVUtoHKyKqk2awuIrnu7GqSpee5m7kNUQLe_9PoxHzFnbRK4dAhW-SS-H8gDjKIlJTu1nUPIRvbYG5xRWruHO3Q2U6Hb5Q4gaRr1zh7te-emFzg37rv1vi8XTXvVtm3VS9M3Y62599p11ps"
+        },
+        {
+          "text": "Die EU zwingt Google zur Freigabe von Suchdaten und Öffnung von Android für konkurrierende KI-Unternehmen, um den Wettbewerb im KI-Sektor zu fördern.",
+          "quelle": "AP News",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF86W0qRfTzjQFfazmkJD-V4KQ6CVl-__cMkZB0M2F-8T4PeglsHNwLRmH5Y83dp6hqv1YklBDEd4NuHhEalnoICLfXYl6HgtG0LLSVPfL8s2Phcg8D61kw7kM9np78lg_YBqi_ea6qUccC08p8kpAFI07VIPB1wR3dV2vpMJ86ty_VYJdwHXTPsnHt-CTOtwnHvQ=="
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "17.07.2026",
+  "last_sent": "18.07.2026",
   "sent_log": {
-    "date": "17.07.2026",
+    "date": "18.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
