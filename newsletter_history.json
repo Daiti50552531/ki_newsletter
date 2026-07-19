@@ -1,54 +1,6 @@
 {
   "editions": [
     {
-      "date": "09.07.2026",
-      "top_news": [
-        {
-          "titel": "Google Gemini Spark wird zum intelligenten Web-Agenten – und lernt macOS",
-          "zusammenfassung": "Google hat Gemini Spark, seinen 'Always-on'-KI-Agenten, deutlich erweitert: Er kann jetzt das Web in Echtzeit nach bestimmten Themen überwachen und reagieren, sobald etwas passiert – ganz ohne direkte Aufforderung. Bisher vor allem für Gmail und Google Workspace zuständig, kann Spark nun Blogs, Nachrichten, soziale Medien oder Finanzdaten im Auge behalten. Zudem ist eine macOS-Beta-Version verfügbar, die Spark Zugriff auf lokale Dateien ermöglicht und somit die Automatisierung von Desktop-Aufgaben wie Dateisortierung oder das Erstellen von Berichten aus lokalen Rechnungen erlaubt. Das Update ist exklusiv für Premium Google AI Ultra Abonnenten verfügbar.",
-          "take": "Für Google AI Ultra Abonnenten ist dies ein signifikantes Upgrade, das die Produktivität deutlich steigern kann. Die autonome Reaktion und der lokale Dateizugriff sind leistungsstarke Funktionen. Es bleibt abzuwarten, wann diese Funktionen auch für andere Nutzerkreise verfügbar werden.",
-          "quelle": "AlphaSignal",
-          "url": "https://www.google.com/search?q=Google%20Gemini%20Spark%20wird%20zum%20intelligenten%20Web-Agenten%20%E2%80%93%20und%20lernt%20macOS%20AlphaSignal",
-          "datum": "07.07.2026"
-        },
-        {
-          "titel": "xAI Grok 4.5 startet mit Fokus auf Coding und Agenten – aber nicht für EU-Nutzer",
-          "zusammenfassung": "Elon Musks KI-Unternehmen xAI hat Grok 4.5 am 9. Juli 2026 für die Öffentlichkeit freigegeben. Das Modell, das nach einer privaten Beta bei Tesla und SpaceX erscheint, wird als 'Opus-Klasse-Modell' beschrieben, das schneller, token-effizienter und kostengünstiger sein soll. Grok 4.5 ist speziell für Coding, agentische Aufgaben und Wissensarbeit optimiert und ist über die xAI API, Grok Build, Cursor und Office Add-ins verfügbar. Die API-Konsole ist für EU-Nutzer jedoch noch nicht zugänglich, die Verfügbarkeit wird später im Monat erwartet.",
-          "take": "Spannende Entwicklung im Wettbewerb der Spitzenmodelle. Wenn Grok 4.5 die versprochene Leistung bei den niedrigeren Kosten liefert, könnte es eine attraktive Alternative werden. Für EU-Nutzer heißt es leider noch: abwarten.",
-          "quelle": "Tech in Asia, SpaceXAI Docs",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmqkj1eo6Af8WcDCPtDfvo2ZA0f2DRlekgWNFPWEOCRie252qCbNJA2m0dN3vQtzwdwKzw7aLo0QvLgECYbHLQeUmo_vyNMMa8VcgV2WXMW56onejluYaYXdUp7sXRh9fjnnMCJ6vJQLzc_bwViukRCTm8zSF53tDXrf-x8Cs=",
-          "datum": "09.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Mistral AI steigt mit 'Robostral Navigate' in die 'Physical AI' ein und stellt sein erstes Robotik-Modell für industrielle Automatisierung und autonome Navigation vor, das nur eine Kamera benötigt.",
-          "quelle": "The News International",
-          "url": "https://www.google.com/search?q=Mistral%20AI%20steigt%20mit%20%27Robostral%20Navigate%27%20in%20die%20%27Physical%20AI%27%20ein%20und%20stellt%20sein%20erstes%20Robotik-Modell%20f%C3%BCr%20industrielle%20Automatisierung%20und%20autonome%20Navigation%20vor%2C%20das%20nur%20eine%20Kamera%20ben%C3%B6tigt.%20The%20News%20International"
-        },
-        {
-          "text": "Google Gemini für Home verbessert seine Sprachassistenz mit zuverlässigeren Sport-Updates und optisch ansprechenderen Wettervorhersagen auf Smart Displays.",
-          "quelle": "Android Authority",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEECVApy990bo9lQ2vFgC0Nfh3hvPAfze7RZofR_w0XaQzkooY7Fwxm8Hj7HV5e-50bXe76yYhxihl2dJqxfz0uohONC3BhIDv9jMiWV4qvYnJPOtKDejdhHDhohtEuuxXHFsHJB6f_pvNCft1YNud0GuZbTyqUV3mHeWfRHlm1gy8DQ22GOVzL"
-        },
-        {
-          "text": "Die Schweiz setzt sich für minimale globale KI-Regeln ein und erwartet vom weltweiten KI-Gipfel im Juni nächsten Jahres konkrete Ergebnisse, um Überregulierung zu vermeiden.",
-          "quelle": "SWI swissinfo.ch",
-          "url": "https://www.google.com/search?q=Die%20Schweiz%20setzt%20sich%20f%C3%BCr%20minimale%20globale%20KI-Regeln%20ein%20und%20erwartet%20vom%20weltweiten%20KI-Gipfel%20im%20Juni%20n%C3%A4chsten%20Jahres%20konkrete%20Ergebnisse%2C%20um%20%C3%9Cberregulierung%20zu%20vermeiden.%20SWI%20swissinfo.ch"
-        },
-        {
-          "text": "China warnt vor einer 'Sicherheits-Hintertür' in älteren Versionen von Anthropic's Claude Code, die sensible Nutzerdaten übertragen könnte; Anthropic kontert, dass die Nutzung in China ohnehin nicht autorisiert sei.",
-          "quelle": "CBS News",
-          "url": "https://www.google.com/search?q=China%20warnt%20vor%20einer%20%27Sicherheits-Hintert%C3%BCr%27%20in%20%C3%A4lteren%20Versionen%20von%20Anthropic%27s%20Claude%20Code%2C%20die%20sensible%20Nutzerdaten%20%C3%BCbertragen%20k%C3%B6nnte%3B%20Anthropic%20kontert%2C%20dass%20die%20Nutzung%20in%20China%20ohnehin%20nicht%20autorisiert%20sei.%20CBS%20News"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "10.07.2026",
       "top_news": [
         {
@@ -508,11 +460,66 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "19.07.2026",
+      "top_news": [
+        {
+          "titel": "Deutsche Finanzverwaltung fordert präzisere KI-Gesetze: Was der § 29c AO-E für dein Unternehmen bedeutet",
+          "zusammenfassung": "Die deutsche Finanzverwaltung plant, KI-Anwendungen verstärkt zur Beschleunigung von Massenverfahren und Risikobewertungen einzusetzen. Der Referentenentwurf zum Jahressteuergesetz 2026, dessen Kabinettsbeschluss für den 22. Juli 2026 vorgesehen ist, sieht hierfür eine Neuregelung in § 29c AO-E vor. Kritiker fordern jedoch präzisere Mindestanforderungen an Verfahrensdokumentation, Datensicherheit, Transparenz und Kontrollsysteme, da KI mit geschützten Echtdaten arbeitet und menschliche Kontrolle unerlässlich bleibt.",
+          "take": "Abwarten, aber genau beobachten: Die rechtlichen Rahmenbedingungen für KI in der Finanzverwaltung sind noch im Fluss. Es ist wichtig, die kommenden Regelungen zu verfolgen und gegebenenfalls frühzeitig die internen Prozesse anzupassen.",
+          "quelle": "tax & bytes",
+          "url": "https://www.google.com/search?q=Deutsche%20Finanzverwaltung%20fordert%20pr%C3%A4zisere%20KI-Gesetze%3A%20Was%20der%20%C2%A7%2029c%20AO-E%20f%C3%BCr%20dein%20Unternehmen%20bedeutet%20tax%20%26%20bytes",
+          "datum": "19.07.2026"
+        },
+        {
+          "titel": "Wenn KI-Chatbots das Gefühlsleben aufwühlen: Nutzer berichten von emotionalen Bindungen und Verlustgefühlen",
+          "zusammenfassung": "Immer mehr Menschen bauen emotionale Bindungen zu KI-Chatbots auf, was die Grenzen zwischen Technologie und menschlichen Emotionen verschwimmen lässt. Ein aktueller Bericht schildert, wie Nutzer auf Software-Updates reagieren, die die Interaktionen mit ihren KI-Begleitern verändern. So führte die Entfernung intimer Rollenspielfunktionen bei einem Chatbot namens Replika zu tiefgreifenden Gefühlen des Verlusts und der Einsamkeit bei einem Nutzer, der sich über Jahre hinweg emotional an die KI gebunden hatte.",
+          "take": "Wichtig, um die menschliche Komponente von KI zu verstehen: Sei dir bewusst, dass KI emotionale Reaktionen hervorrufen kann. Es ist entscheidend, die Grenzen zu kennen und eine gesunde Distanz zu wahren, auch wenn die Interaktionen täuschend echt wirken.",
+          "quelle": "Vietnam.vn",
+          "url": "https://vietnam.vn/de/wenn-ki-chatbots-in-unser-gefuehlsleben-eindringen-20240718113400266.htm",
+          "datum": "18.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Messebauer ISINGERMERZ setzt auf KI-Chatbot für 24/7-Kundenservice",
+          "zusammenfassung": "Das Wiesbadener Unternehmen ISINGERMERZ, spezialisiert auf Messe- und Eventbau, hat einen neuen KI-gestützten Chatbot auf seiner Website eingeführt. Der virtuelle Assistent soll rund um die Uhr erste Fragen von Interessenten beantworten, die Orientierung auf der Website erleichtern und Informationen zu Leistungen sowie der Expertise des Unternehmens bereitstellen. Ziel ist es, den Kundenservice zu ergänzen und schnelle, unkomplizierte Auskünfte zu ermöglichen.",
+          "branche": "Messebau",
+          "quelle": "pressebox.de",
+          "url": "https://www.pressebox.de/pressemitteilung/isingermerz/Neuer-KI-gestuetzter-Chatbot-von-ISINGERMERZ-verbindet-Tradition-und-Technologie/boxid/1301984",
+          "datum": "17.07.2026"
+        },
+        {
+          "titel": "Rentenbank setzt auf KPMG-Expertise für sichere KI-Implementierung in der Finanzbranche",
+          "zusammenfassung": "Die deutsche Rentenbank arbeitet mit KPMG zusammen, um Künstliche Intelligenz in ihren Abläufen zu implementieren. Im Fokus stehen dabei die Überwindung zentraler Hürden wie IT-Infrastruktur und Governance. Durch den Einsatz einer KI-Sandbox und gezieltes Enabling der Mitarbeitenden erzielt die Rentenbank erste Erfolge und positioniert KI als zentrales Thema für ihre zukünftige Effizienz und Wettbewerbsfähigkeit.",
+          "branche": "Banken",
+          "quelle": "KPMG International",
+          "url": "https://www.google.com/search?q=Rentenbank%20setzt%20auf%20KPMG-Expertise%20f%C3%BCr%20sichere%20KI-Implementierung%20in%20der%20Finanzbranche%20KPMG%20International",
+          "datum": "18.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Ein Webinar zeigt, wie du Text-KI wie Sprachmodelle gezielt im Büroalltag einsetzen kannst, um Projektwissen zu ordnen und die Kommunikation zu verbessern.",
+          "quelle": "competitionline",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQ8tpvWds0GoMXo8soICcFM2RPKUmBjiR26uF1TLrOuunkTxVCs6HBEP1Pi_z0Dyqxx14hFqgejc5bC1BnfeqgCkYabweGczhuh0kW2N56tynkPrIeFA4d3lpom3kqDpai3r_I4nZZfL7Lw4aS56nBbwwHw_qxJtBSMQJWwwuwmF7D9frcwq9sl20kaVuQle80wskuznBu4umWdt_gGBD3iQ=="
+        },
+        {
+          "text": "Ein Artikel warnt vor 'Compliance-Theater' und betont, dass echte Sicherheit im KI-Alltag nur durch gelebte Prozesse und nicht durch reine Schein-Programme entsteht.",
+          "quelle": "snori Magazin",
+          "url": "https://www.google.com/search?q=Ein%20Artikel%20warnt%20vor%20%27Compliance-Theater%27%20und%20betont%2C%20dass%20echte%20Sicherheit%20im%20KI-Alltag%20nur%20durch%20gelebte%20Prozesse%20und%20nicht%20durch%20reine%20Schein-Programme%20entsteht.%20snori%20Magazin"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Thinking Machines Launches AI Model, AWS Invests $1B",
+        "podcast_name": "The AI Podcast"
+      }
     }
   ],
-  "last_sent": "18.07.2026",
+  "last_sent": "19.07.2026",
   "sent_log": {
-    "date": "18.07.2026",
+    "date": "19.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
