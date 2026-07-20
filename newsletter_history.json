@@ -1,31 +1,6 @@
 {
   "editions": [
     {
-      "date": "10.07.2026",
-      "top_news": [
-        {
-          "titel": "Microsoft 365 Copilot bekommt 'Deep Citations' für mehr Vertrauen in AI-Ergebnisse",
-          "zusammenfassung": "Microsoft entwickelt für seinen 365 Copilot eine Funktion namens 'Deep Citations', die ab August 2026 in der Vorschau und ab September 2026 generell verfügbar sein soll. Anstatt nur auf eine Quelldatei zu verweisen, sollen diese Zitierungen direkt zu den relevanten Passagen innerhalb von Word-Dokumenten und PowerPoint-Präsentationen verlinken. Dies soll Nutzern die Überprüfung von Copilot-generierten Inhalten erheblich erleichtern und somit das Vertrauen in die KI-Assistenten im Unternehmenskontext stärken.",
-          "take": "Wichtiges Feature für alle, die Copilot ernsthaft im Business einsetzen. Die Möglichkeit, Quellen präzise zu prüfen, ist ein Game Changer für Verlässlichkeit. Abwarten, bis es ausgerollt ist, aber dann unbedingt nutzen, um die Qualität deiner KI-unterstützten Arbeit zu sichern.",
-          "quelle": "Windows Forum",
-          "url": "https://www.google.com/search?q=Microsoft%20365%20Copilot%20bekommt%20%27Deep%20Citations%27%20f%C3%BCr%20mehr%20Vertrauen%20in%20AI-Ergebnisse%20Windows%20Forum",
-          "datum": "09.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Anthropic hat die Beta-Funktion 'Reflect' für Claude eingeführt, die dir hilft, deine Nutzungsmuster zu analysieren und zu optimieren, inklusive Vorschlägen zur Effizienzsteigerung und 'Quiet Hours'.",
-          "quelle": "MacRumors, CNET",
-          "url": "https://www.google.com/search?q=Anthropic%20hat%20die%20Beta-Funktion%20%27Reflect%27%20f%C3%BCr%20Claude%20eingef%C3%BChrt%2C%20die%20dir%20hilft%2C%20deine%20Nutzungsmuster%20zu%20analysieren%20und%20zu%20optimieren%2C%20inklusive%20Vorschl%C3%A4gen%20zur%20Effizienzsteigerung%20und%20%27Quiet%20Hours%27.%20MacRumors%2C%20CNET"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "11.07.2026",
       "top_news": [
         {
@@ -515,11 +490,52 @@
         "episoden_titel": "Thinking Machines Launches AI Model, AWS Invests $1B",
         "podcast_name": "The AI Podcast"
       }
+    },
+    {
+      "date": "20.07.2026",
+      "top_news": [
+        {
+          "titel": "ChatGPT findet endlich deine alten Chats: So organisierst du dein Wissen neu",
+          "zusammenfassung": "OpenAI hat eine umfassende Suchfunktion für ChatGPT eingeführt, die es dir ermöglicht, all deine vergangenen Konversationen, generierten Bilder und hochgeladenen Dokumente zentral zu durchsuchen. Bisher war es oft mühsam, alte Informationen wiederzufinden, doch dieses Update verwandelt ChatGPT von einem reinen Chatbot in einen persönlichen Wissensspeicher mit eigenem 'Dateisystem'. Die Funktion ist ab sofort weltweit für alle Pläne auf Web, iOS und Android verfügbar.",
+          "take": "Unbedingt ausprobieren! Diese Funktion löst ein Kernproblem der Produktivität mit ChatGPT und macht die gesammelten Daten endlich wirklich nutzbar. Ein klarer Gewinn für deinen Arbeitsalltag.",
+          "quelle": "OpenAI Help Center, Notebookcheck News, Digital Trends",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMgfolbheBNSOZjc5SBZz7_nzDz8xJKL4r3gmlgQ3FjHKpFpiG8tdWyHi4NJJFbmF6cl5wYO-htb8zX_N8x0hw3WzwKpsZc3h-qk8wkTO7nMDXJqOGY7x7XOzt2GoKbQosOga4",
+          "datum": "19.07.2026"
+        },
+        {
+          "titel": "Kimi K3: Chinesisches KI-Modell mit 2,8 Billionen Parametern fordert Silicon Valley heraus",
+          "zusammenfassung": "Das chinesische Unternehmen Moonshot AI hat Kimi K3 vorgestellt, ein beeindruckendes KI-Modell mit 2,8 Billionen Parametern. Damit beansprucht es den Titel des weltweit größten offenen KI-Modells und signalisiert eine rapide Schließung der technologischen Lücke zwischen den USA und China im Bereich der Künstlichen Intelligenz. Die Modellgewichte sollen bis zum 27. Juli öffentlich zugänglich gemacht werden.",
+          "take": "Behalte Kimi K3 und Moonshot AI im Auge. Ein so großes offenes Modell könnte neue Maßstäbe setzen und die Entwicklung von Anwendungen, die du selbst nutzen oder bauen kannst, erheblich beschleunigen.",
+          "quelle": "VentureBeat, Forbes, Exploring ChatGPT, Gizmochina",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnJPJKqd0ACdKZTadlkexXHkm_KbOG_5VEpGwU2pbbSPicS2BwLJfc-AMCup-q9DI_Rmqcicg82OC6y5bboq8U6WBRPY_Dblv7wafXXOAdVTIdzsJGSixNeHCl6khXhla3lMnvsB_jBGkbGJG5lhqAbxV8SS_KJ4hWqxjffT5AG3EJWdf8LLOCPTwzFNoNzQ",
+          "datum": "18.07.2026"
+        },
+        {
+          "titel": "KI-Infrastruktur im Orbit: SenseTime und Adaspace Technology entwickeln 'Computing Constellation'",
+          "zusammenfassung": "Das Raumfahrtunternehmen Chengdu Adaspace Technology und der KI-Branchenführer SenseTime arbeiten gemeinsam an der Entwicklung des 'SenseTime Space Computing Power Constellation'. Diese Partnerschaft markiert einen Wandel im Weltraum-Computing, da raumbasierte Rechenkapazitäten nun systemisch in die globale KI-Infrastruktur integriert werden sollen. Ziel ist ein hybrides Raum-Boden-Cloudmodell, das Rechenlasten dynamisch zwischen terrestrischen Rechenzentren und orbitalen Knoten verteilt, um datenintensive Vorverarbeitung und latenzkritische Inferenz direkt im Orbit durchzuführen.",
+          "take": "Ein faszinierender Blick in die Zukunft der KI-Infrastruktur. Auch wenn dies noch keine direkten Auswirkungen auf deinen Arbeitsalltag hat, zeigt es, wie fundamental sich die Grundlagen der KI-Bereitstellung verändern – ein Thema zum Beobachten für strategische Planungen.",
+          "quelle": "Global Times, Shanghai Announces Space-Based AI Computing Network Upgrades",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrz4KU8tRAGY0os4-6Drw18hRXG-izIHQEP4SJ7MzUXCsgAP5gLrAs_B8JuiTjO8r3XxtiC38DSAv1efxyK-5xKBqO-4WvL8qXWcX1nP9yKZpAU3vN_u5s5oHZRkXGkj-tRGd-DG99zdMmz0pGFpYUt3BFuFp2gg==",
+          "datum": "18.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Dropbox und OpenAI erweitern ihre Kooperation, um neue KI-Skills für ChatGPT zu ermöglichen und die Integration von KI in Dokumenten-Workflows zu verbessern.",
+          "quelle": "Fathom, Tech in Asia, ETIH edtech news",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrD_NftibLqVMrwfEXg2SkdufguthuQWwzVY7BwW8KyweP9wjBkq6Mw_kbgKR5H-Fw2oc36Au4sdok1E3ZaLJyqnyb9L0-7hl8QWN7mu4E84u2Yn1bMwnpQRQkYYBOHxOiAOLafVNPTJpdy2NP9jSw5wHt6vQ1wohzmp6jzl9R0RYtVeofkuD5Khi2EQs_3G7bLh_ckS42nJHztlNJWg=="
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Adam Brown: General Relativity and AI Physics | Dwarkesh Podcast",
+        "podcast_name": "Dwarkesh Podcast"
+      }
     }
   ],
-  "last_sent": "19.07.2026",
+  "last_sent": "20.07.2026",
   "sent_log": {
-    "date": "19.07.2026",
+    "date": "20.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
