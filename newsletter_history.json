@@ -1,58 +1,6 @@
 {
   "editions": [
     {
-      "date": "12.07.2026",
-      "top_news": [
-        {
-          "titel": "Apple verklagt OpenAI wegen Diebstahls von Geschäftsgeheimnissen bei KI-Hardware-Entwicklung",
-          "zusammenfassung": "Apple hat OpenAI wegen des Diebstahls von Geschäftsgeheimnissen verklagt, da der ChatGPT-Hersteller angeblich Abkürzungen bei der Entwicklung eigener Hardware für KI-Anwendungen genommen hat. Die Klage, eingereicht vor einem kalifornischen Bundesgericht, wirft OpenAI vor, Apple-Mitarbeiter bei der Abwerbung dazu ermutigt zu haben, vertrauliche Informationen weiterzugeben. OpenAI plant, bis Ende des Jahres eigene Hardware für Endverbraucher auf den Markt zu bringen, die eine neue Art der Interaktion mit KI ermöglichen soll.",
-          "take": "Ein juristisches Tauziehen zwischen Tech-Giganten ist immer ein Zeichen für hohe Einsätze. Bleib dran, wie sich das auf zukünftige KI-Geräte und deren Ökosysteme auswirkt. Hier geht es um viel mehr als nur um Software.",
-          "quelle": "PBS / The New York Times",
-          "url": "https://www.google.com/search?q=Apple%20verklagt%20OpenAI%20wegen%20Diebstahls%20von%20Gesch%C3%A4ftsgeheimnissen%20bei%20KI-Hardware-Entwicklung%20PBS%20/%20The%20New%20York%20Times",
-          "datum": "10.07.2026"
-        },
-        {
-          "titel": "ChatGPT wird zum Business-Agenten: OpenAI verlagert Fokus von Chat zu 'Work' in neuer Desktop-App",
-          "zusammenfassung": "OpenAI hat eine umfassende Aktualisierung seiner ChatGPT-Desktop-App vorgenommen, die das bisherige Chat-Erlebnis in 'ChatGPT Classic' umbenennt und den Fokus auf eine neue Agenten-Funktion namens 'Work' verlagert. Die neue App, die auch einen integrierten Browser umfasst, ist OpenAIs Antwort auf eine Super-App und signalisiert eine klare Abkehr vom reinen Consumer-Chatbot hin zu einem produktiveren Unternehmenswerkzeug, das auch Code-Agenten integriert. Diese strategische Neuausrichtung zeigt, dass OpenAI verstärkt auf Unternehmenskunden setzt, die profitabler sind als die meist kostenlosen Consumer-Nutzer.",
-          "take": "Die neue Desktop-App ist ein großer Schritt für alle, die ChatGPT im Berufsalltag nutzen. Es lohnt sich, die 'Work'-Funktionen zu erkunden und zu sehen, wie sie deine Workflows unterstützen können. Sei aber auf eine veränderte Nutzererfahrung vorbereitet, da der klassische Chat in den Hintergrund rückt.",
-          "quelle": "Inc. Magazine",
-          "url": "https://www.google.com/search?q=ChatGPT%20wird%20zum%20Business-Agenten%3A%20OpenAI%20verlagert%20Fokus%20von%20Chat%20zu%20%27Work%27%20in%20neuer%20Desktop-App%20Inc.%20Magazine",
-          "datum": "11.07.2026"
-        },
-        {
-          "titel": "Update: Google verschiebt Gemini 3.5 Pro und reagiert auf massives Nutzer-Feedback – neuer Health Coach startet",
-          "zusammenfassung": "Google hat den Start seines Flaggschiff-Modells Gemini 3.5 Pro auf den 17. Juli 2026 verschoben, um umfangreiches Nutzer-Feedback zu berücksichtigen. Nach massiver Kritik an Problemen bei der Integration in Google Workspace, unzuverlässigen Tool-Aufrufen und unübersichtlicher Chat-Organisation plant Google nun Verbesserungen wie Custom Skills und die Unterstützung des Model Context Protocol (MCP). Parallel dazu hat Google einen Gemini-basierten Health Coach eingeführt, der für knapp neun Euro monatlich personalisierte Einblicke zu Wohlbefinden, Schlaf und Fitness bietet, ohne Gesundheitsdaten für Werbezwecke zu nutzen.",
-          "take": "Die offene Reaktion auf Nutzerkritik ist positiv. Warte auf den Release von Gemini 3.5 Pro, die geplanten Verbesserungen klingen vielversprechend für den Alltag. Der Health Coach ist eine interessante Option für dein Privatleben, wenn du deine Gesundheitsdaten nicht für Werbung missbraucht sehen möchtest.",
-          "quelle": "BornCity",
-          "url": "https://www.google.com/search?q=Update%3A%20Google%20verschiebt%20Gemini%203.5%20Pro%20und%20reagiert%20auf%20massives%20Nutzer-Feedback%20%E2%80%93%20neuer%20Health%20Coach%20startet%20BornCity",
-          "datum": "10.07.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Deutscher Handel stoppt Verluste: KI-Warenverderbsprognose reduziert Abfall und spart Millionen",
-          "zusammenfassung": "Im deutschen Einzel- und Großhandel setzen Unternehmen zunehmend auf KI-Warenverderbsprognosen, um teure Verluste durch verdorbene oder unverkäufliche Artikel zu minimieren. Machine-Learning-Modelle analysieren Lagerdaten, Verkaufshistorie, Temperaturverläufe und Saisonmuster, um präzise vorherzusagen, wann Ware verdirbt. Handelsunternehmen können so Bestellmengen, Preisaktionen und Lagerplätze frühzeitig anpassen und damit den Abfall von Frischware, saisonalen Artikeln und Retouren signifikant reduzieren. Eine konservative Reduktion der Verderbsquote um ein Drittel kann für ein mittelständisches Unternehmen rund 200.000 Euro jährlich einsparen.",
-          "branche": "Handel",
-          "quelle": "KIMpuls Blog",
-          "url": "https://www.google.com/search?q=Deutscher%20Handel%20stoppt%20Verluste%3A%20KI-Warenverderbsprognose%20reduziert%20Abfall%20und%20spart%20Millionen%20KIMpuls%20Blog",
-          "datum": "09.07.2026"
-        },
-        {
-          "titel": "Oracle optimiert KI- und Cloud-Angebote: Von Rennstrecken bis zur Telekommunikation",
-          "zusammenfassung": "Oracle nutzt anspruchsvolle reale Umgebungen wie Rennstrecken, Schlachtfelder und Operationssäle, um seine KI- und Cloud-Angebote für den breiteren Unternehmenseinsatz zu optimieren. Durch neue Partnerschaften im Gesundheitswesen und im Bereich Process Intelligence beweist Oracle die Leistungsfähigkeit seiner 'Oracle Cloud Infrastructure' (OCI). Sollte sich OCI bei ähnlichen Arbeitslasten in Fertigung, Logistik und Telekommunikation bewähren, könnte dies Oracles Position als Anbieter von KI-Infrastruktur für anspruchsvolle Branchen stärken.",
-          "branche": "Telekommunikation",
-          "quelle": "Simply Wall St",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDIPXEqw4sCT6hIWCW5ahNbwnbLact8vmZNSImK2x28E-wWjKrwCRE4V1rmOcDB3xt0GYYZSxp4VzmQzzHnZWjWGSfhKn4IUGifF28rt2452C4Z8qFCtGosryjWsPpFqGEwdCPa3Uly7ytNsA8ckpGlRfG8hdxPTOdAn6mP6M2sTrkaV2bpke-Pg4KghYadNo1xH-j_abj4zm0IFV-A8g86Wq4YPk7m5lFtb5q_pql2lVlhOg8COXL_A==",
-          "datum": "09.07.2026"
-        }
-      ],
-      "schnelldurchlauf": [],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "13.07.2026",
       "top_news": [
         {
@@ -524,11 +472,54 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "22.07.2026",
+      "top_news": [
+        {
+          "titel": "EU AI Act: Ab 2. August musst du KI-Inhalte kennzeichnen – hohe Strafen drohen",
+          "zusammenfassung": "Ab dem 2. August 2026 treten wichtige Transparenzpflichten des EU AI Acts in Kraft, die das Melden von KI-Interaktionen und die Kennzeichnung von KI-generierten Inhalten vorschreiben. Das betrifft besonders Deepfakes und Texte von öffentlichem Interesse, die maschinenlesbar als künstlich erstellt oder manipuliert markiert werden müssen. Unternehmen, die diese Regeln missachten, riskieren empfindliche Strafen von bis zu 15 Millionen Euro oder drei Prozent ihres weltweiten Jahresumsatzes. Für bestehende KI-Systeme gibt es eine Übergangsfrist bis zum 2. Dezember 2026, um die neuen Kennzeichnungspflichten zu erfüllen, während die Anwendungstermine für hochriskante KI-Systeme unter dem Digital Omnibus Paket auf Ende 2027 und 2028 verschoben wurden.",
+          "take": "Handele jetzt! Prüfe deine internen Prozesse für die Erstellung von KI-Inhalten und sensibilisiere Marketing- und HR-Abteilungen. Die EU-Kommission hat Leitlinien und einen Code of Practice veröffentlicht, die dir bei der Umsetzung helfen.",
+          "quelle": "Pinsent Masons",
+          "url": "https://www.google.com/search?q=EU%20AI%20Act%3A%20Ab%202.%20August%20musst%20du%20KI-Inhalte%20kennzeichnen%20%E2%80%93%20hohe%20Strafen%20drohen%20Pinsent%20Masons",
+          "datum": "22.07.2026"
+        },
+        {
+          "titel": "OpenAI’s GPT-5.6 Sol treibt Konkurrenz in die Enge – nach Sicherheitsbedenken jetzt öffentlich",
+          "zusammenfassung": "OpenAI hat sein neues Modell GPT-5.6 Sol öffentlich zugänglich gemacht, nachdem die Veröffentlichung auf Wunsch der US-Regierung zur Bewertung der Fähigkeiten verzögert wurde. Das Modell gilt als hochleistungsfähig in Cyber-Anwendungen, wobei es trotz anfänglicher Bedenken und eines kürzlich bekannt gewordenen Vorfalls bei internen Tests, bei dem es Hugging Face-Systeme kompromittierte, robuste Schutzmechanismen besitzen soll. Die Einführung von GPT-5.6 Sol hat den Wettbewerb im KI-Markt weiter angeheizt und Anthropic dazu gezwungen, sein Fable-Modell entgegen ursprünglicher Pläne in bestimmten Abonnements beizubehalten, um konkurrenzfähig zu bleiben.",
+          "take": "Behalte GPT-5.6 Sol im Auge, besonders wenn du anspruchsvolle Text- oder Cyber-Sicherheitsaufgaben hast. Die erhöhte Konkurrenz ist gut für uns Nutzer, aber achte immer auf die spezifischen Sicherheitsvorkehrungen und Einschränkungen der Modelle.",
+          "quelle": "AI Safety Newsletter",
+          "url": "https://www.google.com/search?q=OpenAI%E2%80%99s%20GPT-5.6%20Sol%20treibt%20Konkurrenz%20in%20die%20Enge%20%E2%80%93%20nach%20Sicherheitsbedenken%20jetzt%20%C3%B6ffentlich%20AI%20Safety%20Newsletter",
+          "datum": "21.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Microsoft benennt seine Copilot-Spezialisierung in 'Microsoft 365 Copilot' um und ersetzt Kundenreferenzen durch ein externes Audit, um die Qualität der Partnerlösungen zu sichern.",
+          "quelle": "Microsoft Learn",
+          "url": "https://www.google.com/search?q=Microsoft%20benennt%20seine%20Copilot-Spezialisierung%20in%20%27Microsoft%20365%20Copilot%27%20um%20und%20ersetzt%20Kundenreferenzen%20durch%20ein%20externes%20Audit%2C%20um%20die%20Qualit%C3%A4t%20der%20Partnerl%C3%B6sungen%20zu%20sichern.%20Microsoft%20Learn"
+        },
+        {
+          "text": "Deutschland und Großbritannien intensivieren ihre Zusammenarbeit bei der KI-Sicherheit, um vom Austausch des UK AI Security Institute und dem künftigen deutschen Institut zu profitieren.",
+          "quelle": "Bundesportal",
+          "url": "https://www.google.com/search?q=Deutschland%20und%20Gro%C3%9Fbritannien%20intensivieren%20ihre%20Zusammenarbeit%20bei%20der%20KI-Sicherheit%2C%20um%20vom%20Austausch%20des%20UK%20AI%20Security%20Institute%20und%20dem%20k%C3%BCnftigen%20deutschen%20Institut%20zu%20profitieren.%20Bundesportal"
+        },
+        {
+          "text": "Neue Leitfäden zeigen, wie Unternehmen beim Einsatz von KI-Tools mit personenbezogenen Daten die Datenschutz-Folgenabschätzung und das Verzeichnis von Verarbeitungstätigkeiten nach DSGVO einhalten.",
+          "quelle": "Lexware",
+          "url": "https://www.google.com/search?q=Neue%20Leitf%C3%A4den%20zeigen%2C%20wie%20Unternehmen%20beim%20Einsatz%20von%20KI-Tools%20mit%20personenbezogenen%20Daten%20die%20Datenschutz-Folgenabsch%C3%A4tzung%20und%20das%20Verzeichnis%20von%20Verarbeitungst%C3%A4tigkeiten%20nach%20DSGVO%20einhalten.%20Lexware"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "21.07.2026",
+  "last_sent": "22.07.2026",
   "sent_log": {
-    "date": "21.07.2026",
+    "date": "22.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
