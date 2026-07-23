@@ -1,41 +1,6 @@
 {
   "editions": [
     {
-      "date": "13.07.2026",
-      "top_news": [
-        {
-          "titel": "USA lockern Exportregeln für KI-Chips in die VAE – Was das für Tech-Giganten bedeutet",
-          "zusammenfassung": "Das US-Handelsministerium hat beschlossen, ausgewählten Unternehmen in den Vereinigten Arabischen Emiraten den Zugang zu bestimmten fortschrittlichen KI-Rechenkomponenten ohne Einzelgenehmigung zu erleichtern. Diese strategische Entscheidung betrifft große US-Tech-Firmen wie Amazon, Apple, Google, Meta, Microsoft, OpenAI, Oracle und xAI, die nun vereinfachten Zugang zu den VAE-Märkten erhalten. Auch VAE-Unternehmen wie G42 und Core42 sollen von den gelockerten Exportbeschränkungen profitieren, um ihre KI-Infrastruktur auszubauen.",
-          "take": "Abwarten. Diese Lockerungen sind ein geopolitischer Schachzug, dessen volle Auswirkungen sich erst in den kommenden Monaten zeigen werden. Direkt beeinflusst es deinen Arbeitsalltag noch nicht, aber es ist ein wichtiger Indikator für die zukünftige Entwicklung des KI-Marktes.",
-          "quelle": "KI Weekly",
-          "url": "https://www.google.com/search?q=USA%20lockern%20Exportregeln%20f%C3%BCr%20KI-Chips%20in%20die%20VAE%20%E2%80%93%20Was%20das%20f%C3%BCr%20Tech-Giganten%20bedeutet%20KI%20Weekly",
-          "datum": "11.07.2026"
-        },
-        {
-          "titel": "Kampf um CoWoS-Chip-Packaging eskaliert: Engpässe bei TSMC prägen KI-Rennen",
-          "zusammenfassung": "Die fortschreitende Miniaturisierung von KI-Chips stößt an physikalische Grenzen, weshalb fortschrittliche Gehäusetechnologien wie CoWoS (Chip-on-Wafer-on-Substrate) von TSMC immer wichtiger werden. Diese 2,5D-Technologie ermöglicht es, Recheneinheiten und Hochgeschwindigkeitsspeicher (HBM) dichter zu packen und so die Rechenleistung massiv zu steigern. Ein regelrechter Kampf um die knappen CoWoS-Produktionskapazitäten bei TSMC hat sich zwischen globalen Chipherstellern wie Nvidia und AMD sowie Cloud-Anbietern wie AWS, die eigene Trainium- und Inferentia-Chips entwickeln, entzündet.",
-          "take": "Beobachten. Dieser Engpass beeinflusst die gesamte KI-Branche und könnte die Entwicklung und den Einsatz neuer, leistungsstarker KI-Modelle verlangsamen. Die Abhängigkeit von wenigen Herstellern birgt Risiken, aber auch Chancen für neue Innovationen im Chip-Design.",
-          "quelle": "36氪",
-          "url": "https://www.google.com/search?q=Kampf%20um%20CoWoS-Chip-Packaging%20eskaliert%3A%20Engp%C3%A4sse%20bei%20TSMC%20pr%C3%A4gen%20KI-Rennen%2036%E6%B0%AA",
-          "datum": "12.07.2026"
-        },
-        {
-          "titel": "Meta setzt auf eigene Iris-KI-Chips und „Meta Compute“ – Strategiewechsel für die KI-Infrastruktur",
-          "zusammenfassung": "Meta Platforms richtet seine KI-Strategie neu aus und beschleunigt die Produktion eigener „Iris-KI-Chips“. Gleichzeitig stellt das Unternehmen „Meta Compute“ vor, eine Initiative, die darauf abzielt, die jahrelangen hohen Investitionen in KI-Infrastruktur in ein monetarisierbares Geschäftsfeld für Cloud-Dienste und Tools umzuwandeln. Dieser Kurswechsel signalisiert Metas Bestreben, seine überschüssigen KI-Kapazitäten zu verkaufen und damit neue Einnahmequellen zu erschließen, um die enormen Kapitalausgaben im KI-Bereich zu rechtfertigen.",
-          "take": "Informieren. Wenn Meta hier ernst macht, könnte das eine interessante Alternative zu bestehenden Cloud-Anbietern werden. Es bleibt abzuwarten, wie schnell sie zahlende Kunden gewinnen und welche Modelle und Tools sie über „Meta Compute“ anbieten werden.",
-          "quelle": "Simply Wall St",
-          "url": "https://www.google.com/search?q=Meta%20setzt%20auf%20eigene%20Iris-KI-Chips%20und%20%E2%80%9EMeta%20Compute%E2%80%9C%20%E2%80%93%20Strategiewechsel%20f%C3%BCr%20die%20KI-Infrastruktur%20Simply%20Wall%20St",
-          "datum": "12.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "14.07.2026",
       "top_news": [
         {
@@ -515,11 +480,71 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "23.07.2026",
+      "top_news": [
+        {
+          "titel": "Google schärft Gemini Flash für KI-Agenten: Kosteneffizientere und leistungsstärkere Automatisierung",
+          "zusammenfassung": "Google hat neue, effizientere Gemini Flash Modelle – 3.6 Flash, 3.5 Flash-Lite und 3.5 Flash Cyber – veröffentlicht, die speziell für den Einsatz in KI-Agenten konzipiert wurden. Der 3.6 Flash ist vielseitig für Wissensarbeit und multimodale Aufgaben einsetzbar, während der 3.5 Flash-Lite als sehr schnell und kostengünstig gilt. Eine spezialisierte Cyber-Version, 3.5 Flash Cyber, soll effizienter Sicherheitslücken finden und beheben. Diese Modelle sind darauf ausgelegt, Agenten zu beschleunigen, zu optimieren und kostengünstiger zu betreiben, wobei der 3.6 Flash die Token-Nutzung um bis zu 65% reduziert. Das lang erwartete Gemini 3.5 Pro-Update steht noch aus.",
+          "take": "Die Flash-Modelle sind ideal, wenn du auf Effizienz und Geschwindigkeit angewiesen bist. Besonders der 3.6 Flash für Wissensarbeit und der 3.5 Flash-Lite für schnelle, kostengünstige Agenten sind einen Blick wert. Beachte aber, dass der 3.5 Flash Cyber derzeit nur Regierungen und vertrauenswürdigen Partnern zur Verfügung steht.",
+          "quelle": "Google Blog / PCWorld / VentureBeat",
+          "url": "https://www.google.com/search?q=Google%20sch%C3%A4rft%20Gemini%20Flash%20f%C3%BCr%20KI-Agenten%3A%20Kosteneffizientere%20und%20leistungsst%C3%A4rkere%20Automatisierung%20Google%20Blog%20/%20PCWorld%20/%20VentureBeat",
+          "datum": "21.07.2026"
+        },
+        {
+          "titel": "AMD und Anthropic schmieden Milliarden-Partnerschaft: 2 Gigawatt GPUs für Claude-Modelle",
+          "zusammenfassung": "AMD und Anthropic haben eine strategische Partnerschaft bekannt gegeben, in deren Rahmen Anthropic bis zu 2 Gigawatt der AMD Instinct MI450 Series GPUs in AMD Helios Rack-Scale-Lösungen einsetzen wird. Die Bereitstellung des ersten Gigawatts soll bereits in der ersten Hälfte des Jahres 2027 beginnen. Zusätzlich plant AMD eine strategische Kapitalbeteiligung von bis zu 5 Milliarden US-Dollar an Anthropic und wird mit Anthropic zusammenarbeiten, um Claude zur Optimierung von Workloads für AMD Instinct GPUs und zur Beschleunigung der ROCm-Softwareentwicklung zu nutzen. AMD wird Claude auch umfassend in seinen eigenen Engineering- und Produktentwicklungsteams einsetzen.",
+          "take": "Die Partnerschaft ist ein klares Zeichen dafür, dass der Bedarf an Rechenleistung für KI-Modelle exponentiell wächst. Wenn du Claude nutzt oder planst, dies zu tun, ist das eine gute Nachricht für die zukünftige Performance und Skalierbarkeit. Es zeigt auch, wie wichtig Hardware-Partnerschaften für die Entwicklung fortschrittlicher KI sind.",
+          "quelle": "AMD",
+          "url": "https://www.google.com/search?q=AMD%20und%20Anthropic%20schmieden%20Milliarden-Partnerschaft%3A%202%20Gigawatt%20GPUs%20f%C3%BCr%20Claude-Modelle%20AMD",
+          "datum": "22.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Google Workspace Agenten selbst bauen: Automatisierung deines Büroalltags mit KI",
+          "zusammenfassung": "Ein neues Google Codelab zeigt dir, wie du mit dem Agent Development Kit (ADK) und Model Context Protocol (MCP) eigene KI-Agenten für Google Workspace entwickeln kannst. Diese Agenten können sicher auf Daten in Google Workspace zugreifen, um Aufgaben zu automatisieren. Du lernst, wie du die nötigen Dienste aktivierst, OAuth konfigurierst und Agenten erstellst und bereitstellst.",
+          "branche": "Allgemein",
+          "quelle": "Google Codelabs",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFM4V-X4vnrllNrzktIzPXrCu3xLmvcGjwkctlU1XCpv9XrCc_4gh0aMgRie7Cc1fmATbMmfcBQE02OiS6KE_lbrAW9D7nAwbGRqoC6r80nu9wW3GcH2RgUX-hCNUlZCo2_dlkce3oVgEn2Z1gSzqEVweCSYdvngKrYWQ==",
+          "datum": "21.07.2026"
+        },
+        {
+          "titel": "OpenAI startet 'ChatGPT für Kleinunternehmen'-Programm: Neue Möglichkeiten für deinen Arbeitsfluss",
+          "zusammenfassung": "OpenAI hat ein Programm 'ChatGPT für Kleinunternehmen' gestartet, um Unternehmern dabei zu helfen, KI-Fähigkeiten aufzubauen, Arbeitsabläufe zu automatisieren und ihr Geschäft mit ChatGPT Work zu entwickeln. Das Programm umfasst neue Anleitungen, Fallstudien und interaktive Guides, die direkt in ChatGPT Work hochgeladen werden können. Diese Ressourcen bieten spezifische Prompts und Beispiele, wie Geschäftsinhaber innerhalb weniger Minuten mit ChatGPT Work starten können, um Zeit zu sparen und die Produktivität zu steigern.",
+          "branche": "Allgemein",
+          "quelle": "OpenAI",
+          "url": "https://www.google.com/search?q=OpenAI%20startet%20%27ChatGPT%20f%C3%BCr%20Kleinunternehmen%27-Programm%3A%20Neue%20M%C3%B6glichkeiten%20f%C3%BCr%20deinen%20Arbeitsfluss%20OpenAI",
+          "datum": "21.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "xAI verklagt Grok-Nutzer wegen angeblicher Erstellung illegaler Inhalte, was einen Präzedenzfall für die Haftung bei KI-generierten Inhalten schaffen könnte.",
+          "quelle": "AI Governance Institute",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHCi6uCuXKbJfapH64kd11HWKTNPat_UrReOVMRcifpGZgvcmm9-xiI5IbGqk_qZgmsTZUKB1YpPWMPFgO9wdE-ZFMl3a2AgzPGfsylja_kTsaRqkhKMlcvPar3ISF6bJ7YDb143Fj_2WO7epn-YrmCx8jzEqRAgGqaO9jRelD6dREgOwLpyPc31j_MT36RpE6oklub628XTKKl6feLgOwRxfTDL8SDd19J-IFObPmm"
+        },
+        {
+          "text": "Metas KI-Moderation sperrt Berichten zufolge fälschlicherweise Nutzerkonten, wobei auch automatisierte Berufungen scheitern und die Effektivität der KI-Moderation infrage stellt.",
+          "quelle": "TNW",
+          "url": "https://www.google.com/search?q=Metas%20KI-Moderation%20sperrt%20Berichten%20zufolge%20f%C3%A4lschlicherweise%20Nutzerkonten%2C%20wobei%20auch%20automatisierte%20Berufungen%20scheitern%20und%20die%20Effektivit%C3%A4t%20der%20KI-Moderation%20infrage%20stellt.%20TNW"
+        },
+        {
+          "text": "OpenAI plant in Effingham County, Georgia, ein langfristiges Rechenzentrum namens 'Project Camellia' mit einer Leistung von 3,2 Gigawatt und 80 Millionen US-Dollar an Gemeindevorteilen.",
+          "quelle": "OpenAI",
+          "url": "https://www.google.com/search?q=OpenAI%20plant%20in%20Effingham%20County%2C%20Georgia%2C%20ein%20langfristiges%20Rechenzentrum%20namens%20%27Project%20Camellia%27%20mit%20einer%20Leistung%20von%203%2C2%20Gigawatt%20und%2080%20Millionen%20US-Dollar%20an%20Gemeindevorteilen.%20OpenAI"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "The Bitter Lesson: Warum Skalierung über menschlichem Wissen siegt (und Elons KI-Datenzentren im All)",
+        "podcast_name": "Dwarkesh Podcast"
+      }
     }
   ],
-  "last_sent": "22.07.2026",
+  "last_sent": "23.07.2026",
   "sent_log": {
-    "date": "22.07.2026",
+    "date": "23.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
