@@ -1,39 +1,6 @@
 {
   "editions": [
     {
-      "date": "14.07.2026",
-      "top_news": [
-        {
-          "titel": "Meta zieht KI-Bildfunktion 'Muse Image' nach massivem Nutzer-Feedback zurück",
-          "zusammenfassung": "Meta hat seine erst kürzlich eingeführte KI-Bildgenerierungsfunktion 'Muse Image' nach nur wenigen Tagen wieder deaktiviert. Die Funktion, die es Nutzern ermöglichte, KI-Bilder unter Verwendung von Inhalten aus öffentlichen Instagram-Profilen zu generieren, stieß auf heftige Kritik wegen Bedenken hinsichtlich Datenschutz und der automatischen Opt-in-Standardeinstellung. Prominente, Datenschutzaktivisten und Gewerkschaften wie SAG-AFTRA forderten die sofortige Einstellung, da die Funktion Deepfakes und die unautorisierte Nutzung von Bildmaterial fördern könnte.",
-          "take": "Eine gute Erinnerung daran, dass neue KI-Funktionen immer kritisch hinterfragt werden sollten. Es zeigt auch, dass große Unternehmen lernen müssen, wie wichtig Transparenz und Opt-in-Optionen für das Vertrauen der Nutzer sind.",
-          "quelle": "Capture magazine",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYSy9v6i05EZ9JJCeqUdOvcyNtAW90uLxCKY53c8qhOM1Wtk2-FLrAhYrZB8pZv6DQMRUFodCrVwgqDZ00l3ac6Z7q8AP28k8cVjIw6iHqi4z_c0_lKIn6AH02yrOKDRiz48MZAExNw0dR2g0wT4HofWJFiRrdBJ61r8qcU80wAZK6XW7PmuttEJd8KTM6UJE-IGGY0Vj48Qov9WUD7efmLRpNqeSmqynbKpK6x8HdIzk5gamQ2CuQF4FPNI-wuQdy5wZAXL9tCkDWPyvae3hLVqA=",
-          "datum": "13.07.2026"
-        },
-        {
-          "titel": "China fördert KI-Chip-Eigenständigkeit: Hongkong wird zum strategischen Reexport-Hub",
-          "zusammenfassung": "China reagiert auf Exportkontrollen der USA mit massiven staatlichen Investitionen in die eigene KI-Chip-Produktion, um eine selbstständige Lieferkette aufzubauen. Hongkong entwickelt sich dabei zu einem entscheidenden Reexport-Hub für KI-Chips: Über 50 Prozent der chinesischen Halbleiterimporte im ersten Halbjahr 2026 wurden über die Stadt abgewickelt, und KI-bezogene Produkte machen mittlerweile über 50 Prozent der Gesamtexporte Hongkongs aus. Diese Entwicklung unterstreicht eine geopolitisch bedingte Verschiebung im globalen Tech-Handel, bei der nationale Autonomie und eine diversifizierte Lieferkette immer wichtiger werden.",
-          "take": "Beobachte diese Entwicklungen genau. Langfristig könnte eine stärkere Fragmentierung des KI-Marktes nach Regionen entstehen, was Auswirkungen auf die Auswahl und Kosten von KI-Tools haben könnte.",
-          "quelle": "Modern Diplomacy",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEx0u7MMHTFuO-ccLU2hXzsMD3dWuH84Gog3hotjAy3QyDZYsJb_-RyAFmjA1bMp7xRBwQmC4wivKRNJENEWSq7DTeQs_kMEQVBd0TWkDLNQWMe3gI-KMKrdy68BZy-l2cAOY9qnNlBMymara_fXLRYkZl9YIWAsEgsZ-Olb5G9C7qV7hY1x_g=",
-          "datum": "14.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "OpenAI stellt seinen neun Monate alten KI-Browser 'Atlas', der als KI-Betriebssystem gedacht war, bereits wieder ein, um sich auf ChatGPT Work und Browser-Erweiterungen zu konzentrieren.",
-          "quelle": "Futurism",
-          "url": "https://www.google.com/search?q=OpenAI%20stellt%20seinen%20neun%20Monate%20alten%20KI-Browser%20%27Atlas%27%2C%20der%20als%20KI-Betriebssystem%20gedacht%20war%2C%20bereits%20wieder%20ein%2C%20um%20sich%20auf%20ChatGPT%20Work%20und%20Browser-Erweiterungen%20zu%20konzentrieren.%20Futurism"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "15.07.2026",
       "top_news": [
         {
@@ -540,11 +507,53 @@
         "episoden_titel": "The Bitter Lesson: Warum Skalierung über menschlichem Wissen siegt (und Elons KI-Datenzentren im All)",
         "podcast_name": "Dwarkesh Podcast"
       }
+    },
+    {
+      "date": "24.07.2026",
+      "top_news": [
+        {
+          "titel": "OpenAI Presence: KI-Agenten übernehmen komplexe Unternehmensworkflows – aber noch nicht für alle",
+          "zusammenfassung": "OpenAI hat 'Presence' vorgestellt, ein neues Produkt für Unternehmen, das darauf abzielt, KI-Agenten zuverlässig in Kunden- und interne Arbeitsabläufe zu integrieren. Diese Agenten können Fragen beantworten, Probleme lösen und sogar Unternehmenssysteme nutzen. Der Fokus liegt auf der Praxistauglichkeit in Produktionseinsätzen, unterstützt durch Systeme, Evaluierungen und Fachwissen für kontinuierliche Verbesserungen. Aktuell ist Presence für Sprach- und Chat-Agenten verfügbar, jedoch nur für ausgewählte Unternehmenskunden im Rahmen eines Programms mit begrenzter allgemeiner Verfügbarkeit und nicht als Self-Service-Produkt.",
+          "take": "Beobachten. Das Potenzial ist riesig für die Automatisierung komplexer Aufgaben, aber als Wissensarbeiter ohne Entwicklerteam greifst du hier noch nicht direkt zu. Es zeigt aber, wohin die Reise geht.",
+          "quelle": "OpenAI",
+          "url": "https://openai.com/blog/introducing-openai-presence",
+          "datum": "22.07.2026"
+        },
+        {
+          "titel": "ChatGPT Desktop App erhält Memory-Upgrade und interaktive Charts für alle Abonnenten",
+          "zusammenfassung": "OpenAI verbessert die ChatGPT Desktop App und erweitert die Funktionen des Modells GPT-5.5 Instant. Für Plus- und Pro-Nutzer verdoppelt sich die Gedächtniskapazität von ChatGPT, sodass das Modell Präferenzen und Ziele über längere Konversationen hinweg besser im Blick behält. Zudem kann ChatGPT jetzt Antworten direkt in der Konversation in interaktive Balken-, Linien-, Kreis- und Streudiagramme umwandeln, um Trends und Vergleiche einfacher darzustellen. Die Desktop-App selbst erhält ein übersichtlicheres Layout mit einer globalen Umschaltfunktion zwischen Chat und Work und einer vereinheitlichten Ansicht für aktuelle Konversationen und Projekte.",
+          "take": "Unbedingt prüfen und nutzen! Die erhöhte Gedächtniskapazität macht längere Projekte mit ChatGPT deutlich angenehmer, und die interaktiven Charts sind ein echter Game Changer für schnelle Datenvisualisierungen.",
+          "quelle": "reconnAI, OpenAI Help Center",
+          "url": "https://www.google.com/search?q=ChatGPT%20Desktop%20App%20erh%C3%A4lt%20Memory-Upgrade%20und%20interaktive%20Charts%20f%C3%BCr%20alle%20Abonnenten%20reconnAI%2C%20OpenAI%20Help%20Center",
+          "datum": "22.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Synagistics startet KI-Commerce-Ökosystem Geene 2.0 für den Handel, inklusive Blockchain-Verifizierung",
+          "zusammenfassung": "Das Unternehmen Synagistics hat 'Geene 2.0' vorgestellt, ein KI-Commerce-Ökosystem, das in Zusammenarbeit mit ByteDance's BytePlus und China Mobile International entwickelt wurde. Die Plattform integriert KI, Daten, Medien, Handel und Blockchain, um maßgeschneiderte Lösungen für Marken, den Einzelhandel und den E-Commerce zu bieten. Ein konkreter Einsatzfall ist die malaysische Durian-Marke AGONG Durian, die Geene 2.0 zur Konsolidierung von Verkaufs-, Kunden- und Kanaldaten, zur Generierung von KI-gestützten Inhalten und zur Blockchain-Verifizierung der Produktursprungsdaten nutzt. Die kommerzielle Verfügbarkeit ist ab dem 8. August geplant.",
+          "branche": "Handel",
+          "quelle": "The Standard (HK)",
+          "url": "https://www.thestandard.com.hk/breaking-news/section/2/220261/Synagistics-surges-on-Geene-2.0-AI-commerce-ecosystem-launch",
+          "datum": "22.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "In China nutzen bereits 300 Millionen Menschen monatlich Alibaba's Qwen-Assistenten, und Alipay verzeichnete in einer Woche 120 Millionen KI-Agenten-Transaktionen, was die rasante Entwicklung im KI-Commerce zeigt.",
+          "quelle": "ChoZan",
+          "url": "https://www.google.com/search?q=In%20China%20nutzen%20bereits%20300%20Millionen%20Menschen%20monatlich%20Alibaba%27s%20Qwen-Assistenten%2C%20und%20Alipay%20verzeichnete%20in%20einer%20Woche%20120%20Millionen%20KI-Agenten-Transaktionen%2C%20was%20die%20rasante%20Entwicklung%20im%20KI-Commerce%20zeigt.%20ChoZan"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "23.07.2026",
+  "last_sent": "24.07.2026",
   "sent_log": {
-    "date": "23.07.2026",
+    "date": "24.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
