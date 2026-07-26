@@ -16,7 +16,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -54,6 +54,8 @@ def gemini_url(model: str) -> str:
     )
 
 TODAY = datetime.now().strftime("%d.%m.%Y")
+YESTERDAY = (datetime.now() - timedelta(days=1)).strftime("%d.%m.%Y")
+YESTERDAY_ISO = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
 
 # ── Inspirations-Bibliothek: 1 Idee pro Tag – Alltag, Arbeit, Kreatives, Tools ─
@@ -363,7 +365,7 @@ def save_published_titles(data: dict) -> None:
         today_entry = {
             "date": TODAY,
             "top_news": [
-                {k: n.get(k, "") for k in ("titel", "zusammenfassung", "take", "quelle", "url", "datum")}
+                {k: n.get(k, "") for k in ("titel", "zusammenfassung", "warum", "quelle", "url", "datum")}
                 for n in data.get("top_news", [])
             ],
             "praxis": [
@@ -412,8 +414,9 @@ einordnen, bewerten, klare Perspektive bieten. Auch Schwaechen und Einschraenkun
 das schafft mehr Vertrauen als reines Loben.
 Schreibweise: Direkte Ansprache ("du"), aktive Sprache, keine Passivsaetze.
 Keine Buzzwords ("revolutionaer", "disruptiv", "bahnbrechend", "KI-Zeitalter") – konkret statt Hype.
-Struktur pro News: (1) Kontext/Warum passiert das gerade? (2) Was ist passiert + konkrete Details.
-(3) Take: Ausprobieren? Abwarten? Wichtig oder Hype? Balanced – Schwaechen duerfen genannt werden.
+Struktur pro News (KURZ – der Leser hat keine Zeit): (1) Zwei Saetze was passiert ist,
+mit dem wichtigsten konkreten Fakt. (2) EIN Satz "Warum's zaehlt": Einordnung + klare
+Empfehlung (ausprobieren/abwarten/wichtig fuer X). Wer mehr will, klickt den Originalartikel.
 Ueberschriften: Spezifisch, zeigen was sich aendert – nicht nur was passiert ist.
   SCHLECHT: "OpenAI veroeffentlicht neues Modell"
   GUT: "GPT-5 schlaegt Claude bei komplexen Texten – lohnt sich der Wechsel fuer dich?"
@@ -422,11 +425,17 @@ Ueberschriften: Spezifisch, zeigen was sich aendert – nicht nur was passiert i
   SCHLECHT: "Google kuendigt Update an"
   GUT: "Gemini direkt im Browser: Was das fuer alle bedeutet, die kein Claude-Abo haben"
 
---- AKTUALITAET ---
-STRIKTE REGEL: Nur Nachrichten der letzten 48 Stunden. Aeltere Artikel sind VERBOTEN.
+--- AKTUALITAET (oberste Prioritaet – wir wollen die FRISCHESTEN News) ---
+Der Kern des Newsletters sind die letzten 24 STUNDEN. Suche ZUERST gezielt nach Meldungen
+von HEUTE ({TODAY}) und GESTERN ({YESTERDAY}) – nutze Suchfilter wie "after:{YESTERDAY_ISO}"
+und Suchbegriffe wie "announced today" oder "released".
+EINE FRISCHE MELDUNG VON HEUTE/GESTERN SCHLAEGT IMMER EINE AELTERE – auch wenn die
+aeltere groesser wirkt. Der Leser liest andere Newsletter: Was dort gestern stand,
+darf hier nicht erst morgen kommen.
+Meldungen aelter als 48 Stunden sind VERBOTEN. 24-48h alt nur, wenn wirklich wichtig.
 Pruefe das Veroeffentlichungsdatum jedes Artikels explizit per Suche bevor du ihn aufnimmst.
-Wenn du das Datum eines Artikels nicht mit Sicherheit bestaetigen kannst – lass ihn weg.
-Lieber 3 frische Nachrichten als 5 mit alten dabei. Qualitaet vor Quantitaet.
+Wenn du das Datum nicht mit Sicherheit bestaetigen kannst – lass ihn weg.
+Lieber 2 frische Nachrichten als 4 mit alten dabei.
 AUSNAHME praxis-Rubrik: Unternehmens-Use-Cases duerfen bis zu 7 Tage alt sein, wenn sie
 noch nicht im Newsletter waren.
 Podcast: Episode aus den letzten 7 Tagen – aber NUR aufnehmen wenn wirklich herausragend (siehe REGELN).
@@ -475,14 +484,13 @@ praktischen Anwendungsfall, Startup-Finanzierungsnews ohne technischen oder stra
 Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erklaerungen:
 
 {{
-  "intro": "3-4 Saetze Einleitung im Stil eines Kollegen der den Newsletter selbst liest. Variiere den Einstieg von Tag zu Tag: mal eine ueberraschende Zahl, mal eine Frage, mal eine Beobachtung, mal eine kurze Begruessung – NICHT jeden Tag dieselbe Eroeffnung. PFLICHT: Nenne eine spezifische Zahl, ein konkretes Faktum oder eine ueberraschende Wendung aus den heutigen News – keine vagen Teaser wie 'interessante Entwicklungen'. Schliesse mit einem kurzen Hinweis was heute noch drin ist. KEINE Floskeln wie 'Willkommen zur neuen Ausgabe' oder 'Im heutigen Newsletter'.",
+  "intro": "GENAU 2 Saetze, maximal 35 Woerter, im Stil eines Kollegen. Variiere den Einstieg von Tag zu Tag: mal eine ueberraschende Zahl, mal eine Frage, mal eine Beobachtung, mal eine kurze Begruessung – NICHT jeden Tag dieselbe Eroeffnung. PFLICHT: Nenne eine spezifische Zahl, ein konkretes Faktum oder eine ueberraschende Wendung aus den heutigen News – keine vagen Teaser wie 'interessante Entwicklungen'. Schliesse mit einem kurzen Hinweis was heute noch drin ist. KEINE Floskeln wie 'Willkommen zur neuen Ausgabe' oder 'Im heutigen Newsletter'.",
   "top_news": [
     {{
       "titel": "Spezifischer Titel der zeigt was sich aendert – nicht nur was passiert ist",
-      "zusammenfassung": "3-5 Saetze auf Deutsch: Erst kurzer Kontext (warum passiert das gerade?), dann was genau passiert ist, dann konkrete Details und erste Auswirkungen. Nicht nur berichten – einordnen. Keine generischen Saetze wie 'Dies ist ein wichtiger Schritt'.",
-      "bedeutung": "EIN Satz: Was heisst diese News ganz konkret fuer den Alltag des Lesers? (praktische Konsequenz, kein Meinungs-Take)",
+      "zusammenfassung": "GENAU 2 praegnante Saetze (max 45 Woerter): was passiert ist + der wichtigste konkrete Fakt oder die wichtigste Zahl. Kein Kontext-Vorgeplaenkel, keine Floskeln.",
+      "warum": "EIN Satz 'Warum's zaehlt': Einordnung PLUS klare Empfehlung (ausprobieren/abwarten/wichtig weil X). Max 25 Woerter.",
       "update": "NUR setzen (true) wenn dies eine ECHTE Weiterentwicklung eines bereits gemeldeten Themas ist – dann muss der Titel mit 'Update:' beginnen und die Zusammenfassung klar sagen was NEU ist",
-      "take": "1-2 Saetze klare Empfehlung: Lohnt sich das Ausprobieren? Abwarten? Wirklich wichtig oder Hype? Schwaechen und Einschraenkungen koennen und sollen genannt werden wenn vorhanden.",
       "quelle": "Name der Quelle",
       "url": "https://direktlink-zum-artikel/nicht-zur-homepage",
       "datum": "TT.MM.YYYY"
@@ -491,7 +499,7 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
   "praxis": [
     {{
       "titel": "Welches Unternehmen macht was mit KI – konkret, nicht abstrakt",
-      "zusammenfassung": "2-4 Saetze: Was genau macht das Unternehmen, wie weit ist es, was ist das Ergebnis oder Ziel? Konkrete Zahlen und Details wenn verfuegbar.",
+      "zusammenfassung": "GENAU 2 Saetze: Was macht das Unternehmen konkret, und was ist das Ergebnis/Ziel? Zahlen wenn verfuegbar.",
       "branche": "Branche in einem Wort, z.B. Handel, Telko, Banken, Industrie, Logistik",
       "quelle": "Name der Quelle",
       "url": "https://direktlink-zum-artikel",
@@ -521,8 +529,9 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
 }}
 
 REGELN – DAS WICHTIGSTE PRINZIP: Jede Sektion muss sich ihren Platz VERDIENEN.
-Der Newsletter soll in unter 6 Minuten lesbar sein. Laenge ist okay, wenn jeder Eintrag
-wirklich relevant ist – aber NIEMALS eine Sektion aus Pflichtgefuehl fuellen.
+Der Newsletter muss in UNTER 4 MINUTEN lesbar sein – er konkurriert mit Rundown und
+TLDR, deren Leser in 5 Minuten fertig sind. Kurz und dicht schlaegt lang und gruendlich.
+NIEMALS eine Sektion aus Pflichtgefuehl fuellen.
 - top_news: 2 BIS 4 Eintraege – nur die staerksten Stories. An schwachen Tagen sind 2 voellig okay.
 - praxis: 0 BIS 2 Eintraege – NUR bei echten Unternehmens-Use-Cases. Meist wird hier 0-1 stehen. Leere Liste [] ist der Normalfall an vielen Tagen.
 - schnelldurchlauf: 3 BIS 6 Einzeiler – nur was wirklich interessant ist, ebenfalls max. 48h alt
@@ -530,9 +539,11 @@ wirklich relevant ist – aber NIEMALS eine Sektion aus Pflichtgefuehl fuellen.
 - zahl_des_tages: Nur ausfuellen wenn die Zahl wirklich verblueffend ist und aus einer der News stammt. Sonst leeres Objekt {{}}.
 - Eine Meldung erscheint in GENAU EINER Sektion (top_news ODER praxis ODER schnelldurchlauf)
 - Alle Daten im Format TT.MM.YYYY
-- URLs direkt zum Artikel (nicht Homepage), Fallback: https://www.google.com/search?q=titel+quelle
+- URLs: die ECHTE Artikel-URL des Mediums. NIEMALS vertexaisearch- oder Redirect-URLs
+  ausgeben – wenn du nur eine Redirect-URL hast, suche die Original-URL des Artikels
 - Lieber 2 starke Meldungen als 3 bei der eine ein Lueckenbuesser ist
-- bedeutung: pro Top-News PFLICHT – der Satz beginnt gedanklich mit 'Fuer dich heisst das: ...'
+- warum: pro Top-News PFLICHT – Einordnung und Empfehlung in einem Satz
+- Reihenfolge in top_news: die FRISCHESTE und staerkste Story zuerst (sie wird der Betreff)
 """
 
 
@@ -696,15 +707,16 @@ Entwurf als JSON:
 {draft}
 
 PRUEFE UND KORRIGIERE:
-1. AKTUALITAET: Verifiziere per Suche, dass jeder Artikel in top_news und schnelldurchlauf tatsaechlich
-   aus den letzten 24-48 Stunden stammt. Entferne jeden Eintrag, den du nicht verifizieren kannst.
+1. AKTUALITAET: Verifiziere per Suche das Veroeffentlichungsdatum jedes Eintrags. Entferne
+   alles aelter als 48h und alles, was du nicht verifizieren kannst. Sortiere top_news so,
+   dass die frischeste, staerkste Story ZUERST steht.
 2. DOPPLUNGEN: Wenn zwei Eintraege (auch top_news vs schnelldurchlauf) inhaltlich dasselbe Thema
    behandeln, behalte nur den staerkeren und entferne den anderen komplett.
 3. SCHWAECHE: Streiche Floskeln, Buzzwords ("revolutionaer", "bahnbrechend", "KI-Zeitalter") und vage
    Saetze. Ersetze sie durch konkrete Formulierungen.
-4. TAKE-QUALITAET: Jeder Take muss eine echte Meinung sein (ausprobieren/abwarten/Hype), keine
-   Wiederholung der Zusammenfassung.
-5. EU-CHECK: Wenn ein Feature nicht in der EU verfuegbar ist, muss das im Take stehen.
+4. WARUM-QUALITAET: Jedes "warum" muss Einordnung UND Empfehlung in einem Satz liefern,
+   keine Wiederholung der Zusammenfassung. Kuerze jede Zusammenfassung auf max 2 Saetze.
+5. EU-CHECK: Wenn ein Feature nicht in der EU verfuegbar ist, muss das im "warum" stehen.
 6. ZAHL DES TAGES: Pruefe dass die Zahl wirklich aus einer der News stammt, nicht erfunden ist.
 7. Wenn nach der Pruefung weniger als 2 Eintraege in top_news uebrig bleiben, fuelle NICHT mit
    schwachen Eintraegen auf – lieber kurz und stark als lang und schwach.
@@ -720,8 +732,8 @@ PRUEFE UND KORRIGIERE:
 
 Gib das KORRIGIERTE JSON in EXAKT demselben Format zurueck (Felder: intro, top_news,
 praxis, schnelldurchlauf, podcast, zahl_des_tages). Behalte ALLE Unterfelder jedes
-Eintrags bei, insbesondere "bedeutung" (top_news), "branche" (praxis) und "emoji"
-(schnelldurchlauf).
+Eintrags bei, insbesondere "warum" (top_news), "branche" (praxis) und "emoji"
+(schnelldurchlauf). Ersetze vertexaisearch-/Redirect-URLs durch die echte Artikel-URL.
 Keine Erklaerungen, kein Markdown, nur das JSON.
 """
 
@@ -867,6 +879,12 @@ def enforce_quality_gate(data: dict, published_corpus: list, recent_podcasts: li
             continue
         seen_blobs.append(blob)
         kept_top_news.append(item)
+    def _news_date(it):
+        try:
+            return datetime.strptime(it.get("datum", "").strip(), "%d.%m.%Y")
+        except (ValueError, AttributeError):
+            return datetime(1970, 1, 1)
+    kept_top_news.sort(key=_news_date, reverse=True)
     data["top_news"] = kept_top_news
 
     kept_praxis = []
@@ -982,13 +1000,44 @@ def _url_dead(url: str) -> bool:
         return False  # Timeout etc.: im Zweifel Link behalten
 
 
-def validate_url(url: str, title: str = "", source: str = "") -> str:
+# Bekannte Quellen -> Homepage als seriöser Fallback (Google-Such-Links wirken
+# auf Spamfilter verdächtig und sind für Leser unschön)
+_SOURCE_HOMEPAGES = {
+    "techcrunch": "https://techcrunch.com/category/artificial-intelligence/",
+    "verge": "https://www.theverge.com/ai-artificial-intelligence",
+    "heise": "https://www.heise.de/thema/Kuenstliche-Intelligenz",
+    "decoder": "https://the-decoder.de/",
+    "t3n": "https://t3n.de/tag/ki/",
+    "golem": "https://www.golem.de/specials/ki/",
+    "reuters": "https://www.reuters.com/technology/",
+    "bloomberg": "https://www.bloomberg.com/technology",
+    "venturebeat": "https://venturebeat.com/category/ai/",
+    "wired": "https://www.wired.com/tag/artificial-intelligence/",
+    "ars technica": "https://arstechnica.com/ai/",
+    "handelsblatt": "https://www.handelsblatt.com/themen/kuenstliche-intelligenz",
+    "wirtschaftswoche": "https://www.wiwo.de/",
+    "mit technology review": "https://www.technologyreview.com/",
+}
+
+
+def _fallback_url(title: str, source: str) -> str:
+    s = (source or "").lower()
+    for key, home in _SOURCE_HOMEPAGES.items():
+        if key in s:
+            return home
     query = urllib.parse.quote(f"{title} {source}")
-    fallback = f"https://www.google.com/search?q={query}"
+    return f"https://www.google.com/search?q={query}"
+
+
+def validate_url(url: str, title: str = "", source: str = "") -> str:
+    fallback = _fallback_url(title, source)
     if not (url and url.startswith("http") and len(url) > 15):
         return fallback
+    if "vertexaisearch" in url or "grounding-api-redirect" in url:
+        print(f"  Redirect-URL ersetzt: {url[:60]}")
+        return fallback
     if _url_dead(url):
-        print(f"  URL tot, ersetzt durch Suche: {url[:70]}")
+        print(f"  URL tot, ersetzt: {url[:70]}")
         return fallback
     return url
 
@@ -1059,7 +1108,7 @@ def build_html(data: dict) -> str:
 
     # Lesezeit-Schätzung (200 Wörter/Min)
     _words = sum(
-        len((n.get('zusammenfassung','') + ' ' + n.get('take','')).split())
+        len((n.get('zusammenfassung','') + ' ' + n.get('warum','')).split())
         for n in top_news
     )
     _words += sum(len(p.get('zusammenfassung','').split()) for p in praxis)
@@ -1085,102 +1134,64 @@ def build_html(data: dict) -> str:
         </td></tr>"""
 
     def news_block(item: dict, idx: int) -> str:
-        take = item.get('take', '')
-        take_row = f"""
-          <tr><td colspan="2" style="padding:0 18px 14px;">
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr><td style="background:{SEC['news']['light']};border-left:4px solid {SEC['news']['color']};
-                             border-radius:0 8px 8px 0;padding:10px 14px;">
-                <span style="font-family:{FONT};font-size:10px;font-weight:900;
-                      color:{SEC['news']['color']};letter-spacing:1.5px;text-transform:uppercase;">
-                  TAKE&ensp;</span>
-                <span style="font-family:{FONT};font-size:13px;color:#1e293b;line-height:1.65;">
-                  {take}</span>
-              </td></tr>
-            </table>
-          </td></tr>""" if take else ''
-        bedeutung = item.get('bedeutung', '')
-        bedeutung_row = f"""
-          <tr><td colspan="2" style="padding:0 18px 12px;">
-            <span style="font-family:{FONT};font-size:13px;color:#0f766e;line-height:1.6;">
-              ➜&ensp;<strong>Für dich heißt das:</strong> {bedeutung}
-            </span>
-          </td></tr>""" if bedeutung else ''
+        warum = item.get('warum', '') or item.get('take', '') or item.get('bedeutung', '')
+        warum_row = f"""
+            <tr><td colspan="2" style="padding:0 18px 12px;">
+              <span style="font-family:{FONT};font-size:13px;color:#0f766e;line-height:1.6;">
+                ➜&ensp;<strong>Warum's zählt:</strong> {warum}
+              </span>
+            </td></tr>""" if warum else ''
         return f"""
-        <tr><td style="padding:0 0 14px;">
+        <tr><td style="padding:0 0 12px;">
           <table width="100%" cellpadding="0" cellspacing="0"
                  style="border-radius:12px;border:1px solid #eaecf2;background:#f9fafb;">
             <tr>
-              <td style="padding:16px 18px 0;vertical-align:middle;">
+              <td style="padding:13px 18px 0;vertical-align:middle;">
                 <span style="font-family:{FONT};font-size:11px;font-weight:600;color:{C_MUTE};">
                   {item.get('datum','')} &middot; {item.get('quelle','')}
                 </span>
               </td>
-              <td style="padding:12px 16px 0;text-align:right;vertical-align:top;width:36px;">
-                <span style="font-family:{FONT};font-size:22px;font-weight:900;
+              <td style="padding:10px 16px 0;text-align:right;vertical-align:top;width:36px;">
+                <span style="font-family:{FONT};font-size:20px;font-weight:900;
                              color:{SEC['news']['color']};opacity:.18;line-height:1;">
                   {str(idx).zfill(2)}
                 </span>
               </td>
             </tr>
-            <tr><td colspan="2" style="padding:6px 18px 10px;">
+            <tr><td colspan="2" style="padding:5px 18px 8px;">
               <a href="{item.get('url','#')}"
-                 style="font-family:{FONT};font-size:17px;font-weight:800;
+                 style="font-family:{FONT};font-size:16px;font-weight:800;
                         color:{C_TEXT};text-decoration:none;line-height:1.4;">
                 {item.get('titel','')}
               </a>
             </td></tr>
-            <tr><td colspan="2" style="padding:0 18px 14px;">
-              <span style="font-family:{FONT};font-size:14px;color:#475569;line-height:1.75;">
+            <tr><td colspan="2" style="padding:0 18px 10px;">
+              <span style="font-family:{FONT};font-size:14px;color:#475569;line-height:1.65;">
                 {item.get('zusammenfassung','')}
+                <a href="{item.get('url','#')}"
+                   style="font-family:{FONT};font-size:13px;font-weight:700;
+                          color:{SEC['news']['color']};text-decoration:none;white-space:nowrap;">
+                  Artikel&nbsp;&rarr;
+                </a>
               </span>
             </td></tr>
-            {bedeutung_row}
-            {take_row}
-            <tr><td colspan="2" style="padding:10px 18px 14px;border-top:1px solid #eaecf2;">
-              <a href="{item.get('url','#')}"
-                 style="font-family:{FONT};font-size:12px;font-weight:700;
-                        color:{SEC['news']['color']};text-decoration:none;">
-                Weiterlesen &rarr;
-              </a>
-            </td></tr>
+            {warum_row}
           </table>
         </td></tr>"""
 
-    def overview_row(emoji: str, text: str, url: str = "") -> str:
-        inner = (f'<a href="{url}" style="color:{C_TEXT};text-decoration:none;">{text}</a>'
-                 if url else text)
-        return (f'<tr><td style="padding:0 0 8px;vertical-align:top;width:24px;">'
-                f'<span style="font-size:14px;">{emoji}</span></td>'
-                f'<td style="padding:0 0 8px 8px;">'
-                f'<span style="font-family:{FONT};font-size:13px;font-weight:600;'
-                f'color:{C_TEXT};line-height:1.5;">{inner}</span></td></tr>')
-
-    overview_rows = "".join(
-        overview_row("🚀", n.get("titel", ""), n.get("url", "")) for n in top_news[:5]
-    )
-    for p in praxis[:2]:
-        if p.get("titel"):
-            overview_rows += overview_row("🏢", p["titel"], p.get("url", ""))
-    # Inspiration nur listen, wenn es auch echte News gibt – sonst wirkt die Box leer
-    if overview_rows and inspiration.get("titel"):
-        overview_rows += overview_row("💡", f"KI-Inspiration: {inspiration['titel']}")
-
-    zahl_block = ""
-    if zahl_tages.get("zahl"):
-        zahl_block = f"""
+    zahl_block = f"""
       <tr><td style="padding:18px 0 0;">
         <table width="100%" cellpadding="0" cellspacing="0"
                style="background:linear-gradient(135deg,{SEC['zahl']['light']} 0%,#ffffff 100%);
                       border:1px solid #fbcfe8;border-radius:12px;">
           <tr>
-            <td style="padding:18px 8px 18px 20px;vertical-align:middle;width:1%;">
-              <span style="font-family:{FONT};font-size:34px;font-weight:900;
+            <td style="padding:16px 8px 16px 20px;vertical-align:middle;width:1%;">
+              <span style="font-family:{FONT};font-size:32px;font-weight:900;
                            color:{SEC['zahl']['color']};letter-spacing:-1px;white-space:nowrap;">
                 {zahl_tages.get('zahl','')}
               </span>
             </td>
-            <td style="padding:18px 20px 18px 10px;vertical-align:middle;">
+            <td style="padding:16px 20px 16px 10px;vertical-align:middle;">
               <span style="font-family:{FONT};font-size:9px;font-weight:900;color:{SEC['zahl']['color']};
                            letter-spacing:1.5px;text-transform:uppercase;">Zahl des Tages</span><br>
               <span style="font-family:{FONT};font-size:13px;color:#374151;line-height:1.5;">
@@ -1199,10 +1210,10 @@ def build_html(data: dict) -> str:
                 f'white-space:nowrap;">{quelle} &rarr;</a>') if quelle else ''
         border = '' if is_last else f'border-bottom:1px solid #fed7aa;'
         emoji = item.get('emoji', '') or '⚡'
-        return (f'<tr><td style="padding:10px 0;vertical-align:top;width:22px;{border}">'
+        return (f'<tr><td style="padding:9px 0;vertical-align:top;width:22px;{border}">'
                 f'<span style="font-size:13px;">{emoji}</span></td>'
-                f'<td style="padding:10px 0 10px 8px;{border}">'
-                f'<span style="font-family:{FONT};font-size:13px;color:#334155;line-height:1.6;">'
+                f'<td style="padding:9px 0 9px 8px;{border}">'
+                f'<span style="font-family:{FONT};font-size:13px;color:#334155;line-height:1.55;">'
                 f'{item.get("text","")}</span>{link}</td></tr>')
 
     blitz_rows = "".join(blitz_row(b, i == len(schnell[:6]) - 1) for i, b in enumerate(schnell[:6]))
@@ -1212,7 +1223,7 @@ def build_html(data: dict) -> str:
         <table width="100%" cellpadding="0" cellspacing="0"
                style="background:{SEC['blitz']['light']};border-radius:12px;
                       border:1px solid #fed7aa;">
-          <tr><td style="padding:6px 18px;">
+          <tr><td style="padding:5px 18px;">
             <table width="100%" cellpadding="0" cellspacing="0">
               {blitz_rows}
             </table>
@@ -1221,23 +1232,6 @@ def build_html(data: dict) -> str:
       </td></tr>""" if blitz_rows else ""
 
     news_rows  = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
-    overview_box = f"""
-      <tr><td style="padding:20px 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
-          <tr><td style="padding:14px 18px 6px;">
-            <span style="font-family:{FONT};font-size:10px;font-weight:900;color:{C_MUTE};
-                         letter-spacing:2px;text-transform:uppercase;">
-              ⚡ Heute für dich drin
-            </span>
-          </td></tr>
-          <tr><td style="padding:6px 18px 12px;">
-            <table width="100%" cellpadding="0" cellspacing="0">
-              {overview_rows}
-            </table>
-          </td></tr>
-        </table>
-      </td></tr>""" if overview_rows else ""
     news_section = f"""
       {section_title(SEC['news'], 'Top News des Tages')}
       {news_rows}""" if news_rows else ""
@@ -1415,8 +1409,6 @@ def build_html(data: dict) -> str:
       <!-- ZAHL DES TAGES -->
       {zahl_block}
 
-      {overview_box}
-
       {news_section}
 
       <!-- KI IN DER PRAXIS -->
@@ -1512,6 +1504,7 @@ def send_email(subject: str, html_body: str, to: str, text_body: str = ""):
     msg["Subject"] = subject
     msg["From"]    = GMAIL_ADDRESS
     msg["To"]      = to
+    msg["List-Unsubscribe"] = f"<mailto:{GMAIL_ADDRESS}?subject=Newsletter%20abbestellen>"
     if text_body:
         msg.attach(MIMEText(text_body, "plain", "utf-8"))
     msg.attach(MIMEText(html_body, "html", "utf-8"))
