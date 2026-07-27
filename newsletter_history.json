@@ -1,50 +1,6 @@
 {
   "editions": [
     {
-      "date": "17.07.2026",
-      "top_news": [
-        {
-          "titel": "Gmail bekommt autonome KI-Helfer: So organisierst du dein Postfach jetzt noch smarter",
-          "zusammenfassung": "Google rollt neue agentische KI-Funktionen in Gmail aus, die deinen E-Mail-Alltag effizienter gestalten soll. Die 'AI Inbox' erkennt wichtige Nachrichten und schlägt dir Prioritäten und Aufgaben vor. Zusätzlich fassen 'AI Overviews' lange E-Mail-Threads zusammen, was besonders bei hohem E-Mail-Aufkommen eine echte Entlastung verspricht. Auch die 'Help Me Write'-Funktion wurde verbessert, sodass du der KI jetzt noch präzisere Anweisungen für Tonfall und Fristen geben kannst.",
-          "take": "Unbedingt ausprobieren! Die neuen Funktionen sind ab sofort verfügbar und können deine E-Mail-Bearbeitung effizienter und schneller machen. Achte darauf, wie gut die KI deine Prioritäten versteht.",
-          "quelle": "Hindustan Times",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEtJqHl3rSgdwBCzKSsFKKwH_u3Z5tO7r8lGT5qhKMUZHbVQEc2wLt1CnmGxNdt1CxlJGJd61IcGhVQh_VgfmMWuG7hKhriH2DBW9DqaV2rpWsQd2J5O2Ni1Ol8Cn7xqFp8CKp0YzQjFDPGuXpOo2YfGNrJlnePLYqN6tc_902kItWCv-G7zCqloAEIUaaL2g==",
-          "datum": "17.07.2026"
-        },
-        {
-          "titel": "Microsoft Copilot automatisiert Projektmanagement-Aufgaben direkt in Office 365",
-          "zusammenfassung": "Microsoft Copilot integriert sich tiefer in die Microsoft 365-Anwendungen wie Word, Excel, Outlook, Teams und PowerPoint, um Projektmanager bei administrativen Aufgaben zu entlasten. Das Tool kann automatische Besprechungszusammenfassungen erstellen, E-Mails vorformulieren, Excel-Daten analysieren, PowerPoint-Präsentationen generieren und Aufgaben aus Teams-Meetings extrahieren. Dies soll den Verwaltungsaufwand reduzieren und die Zusammenarbeit verbessern.",
-          "take": "Wenn du Microsoft 365 nutzt, ist das eine wichtige Neuerung. Teste, wie gut Copilot deine Projektberichte zusammenfasst und Meeting-Protokolle erstellt. Die Zeitersparnis kann beträchtlich sein.",
-          "quelle": "YouTube",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2omMeX17rSaV0hfqP71FLZ89VQCS8QLEe5SDM8j7lak8ccsW7kds41Wh0566dwbdb_YGbjX8ahsaPbIsUzJdR288hOvaaID1Cb9Db4s11mYDcR3TuVyez6_BIj9xHCEeTURBJLGquML4NrHSp0HpIKy3-81J3XqzKQ-3X",
-          "datum": "16.07.2026"
-        },
-        {
-          "titel": "Blackbaud entlastet Schulen mit KI-Tools: Weniger Admin, mehr Fokus auf Bildung",
-          "zusammenfassung": "Blackbaud hat neue KI-gestützte Produkte für unabhängige Schulen vorgestellt, die darauf abzielen, den enormen administrativen Aufwand für Lehrkräfte und Personal zu reduzieren. Dazu gehören 'Candidate Insights' für prädiktive Einschreibungsdaten und 'Blackbaud AI Chat' zur Abfrage von Schuldaten. Studien zeigen, dass Lehrkräfte und Mitarbeiter über 50% ihrer Zeit mit Verwaltungsaufgaben verbringen, ein Problem, das Blackbaud mit integrierter KI lösen will.",
-          "take": "Auch wenn es um Schulen geht, ist die Kernbotschaft klar: KI kann erhebliche administrative Entlastung bringen. Überlege, welche Routinetätigkeiten in deinem Unternehmen oder Projekt durch ähnliche KI-Lösungen automatisiert werden könnten.",
-          "quelle": "Blackbaud",
-          "url": "https://www.google.com/search?q=Blackbaud%20entlastet%20Schulen%20mit%20KI-Tools%3A%20Weniger%20Admin%2C%20mehr%20Fokus%20auf%20Bildung%20Blackbaud",
-          "datum": "16.07.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Genossenschaftliche FinanzGruppe treibt KI-Einsatz in der Wertschöpfungskette voran",
-          "zusammenfassung": "Die genossenschaftliche FinanzGruppe Volksbanken Raiffeisenbanken forciert den Einsatz von KI über ihre gesamte Wertschöpfungskette hinweg. Dies reicht von der Automatisierung interner Prozesse bis zur intelligenten Nutzung von Daten. Das Engagement zeigt, wie etablierte Unternehmen KI strategisch integrieren, um Effizienz und Wettbewerbsfähigkeit zu steigern.",
-          "branche": "Banken",
-          "quelle": "Presseportal",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtVg8XuR0mVKn5eJN5TOBlsp2ZBgS-33paGkUUrT9XHdz_JJTPE7F-NoA0UvvCJIuCsbGdCdHXS4zyuMwPGgz4HHTzp9xFsa_xi1RssBR__9wtzh5pV5o_x4kGPnVsYW9el5CePHU=",
-          "datum": "15.07.2026"
-        }
-      ],
-      "schnelldurchlauf": [],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "18.07.2026",
       "top_news": [
         {
@@ -507,11 +463,46 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "27.07.2026",
+      "top_news": [
+        {
+          "titel": "Update: Claude Opus 5 liefert Top-Leistung, aber auch 50 % Halluzinationen – was das für dich bedeutet",
+          "zusammenfassung": "Anthropic's neues Claude Opus 5 Modell bietet Spitzenleistung in der Agenten-KI und beim Coding, erreicht fast das Flaggschiff Fable 5 zum halben Preis. Doch eine unabhängige Analyse zeigt eine Halluzinationsrate von 50 % auf einem Fakten-Benchmark, 14 Punkte höher als beim Vorgänger Opus 4.8.",
+          "warum": "Trotz der beeindruckenden Leistung musst du bei Opus 5 genau hinsehen: Für komplexe, faktenbasierte Aufgaben ist Vorsicht geboten, für Code-Generierung und Agenten-Workflows bleibt es eine starke Option.",
+          "quelle": "eesel AI",
+          "url": "https://eesel.ai/blog/claude-opus-5-review-near-frontier-coding-at-half-the-price",
+          "datum": "27.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "OpenRouter und ähnliche AI Gateways bieten jetzt Zugang zu über 600 KI-Modellen von OpenAI, Anthropic, Google und Meta über eine einzige, OpenAI-kompatible API, was den Modellwechsel und die Kostenoptimierung vereinfacht.",
+          "quelle": "OpenRouter",
+          "url": "https://openrouter.ai/models"
+        },
+        {
+          "text": "Meta plant die Einführung eines neuen AI Harness und die Veröffentlichung weiterer Open-Source-Modelle, was den Zugang zu generativer KI für Entwickler weiter vereinfachen könnte.",
+          "quelle": "RuntimeWire",
+          "url": "https://www.reddit.com/r/AIGuild/comments/1dh01a/meta_to_launch_ai_harness_and_opensource_models/"
+        },
+        {
+          "text": "Unsloth Studio ermöglicht das lokale Ausführen von LLMs mit erweiterten Funktionen wie selbstheilendem Tool Calling, Web-Suche und Code-Ausführung, die auch über eine API angebunden werden können.",
+          "quelle": "Unsloth",
+          "url": "https://www.google.com/search?q=Unsloth%20Studio%20erm%C3%B6glicht%20das%20lokale%20Ausf%C3%BChren%20von%20LLMs%20mit%20erweiterten%20Funktionen%20wie%20selbstheilendem%20Tool%20Calling%2C%20Web-Suche%20und%20Code-Ausf%C3%BChrung%2C%20die%20auch%20%C3%BCber%20eine%20API%20angebunden%20werden%20k%C3%B6nnen.%20Unsloth"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Wie AI-Agenten den Mittelstand transformieren – Insights von Reply",
+        "podcast_name": "Inside Talk"
+      }
     }
   ],
-  "last_sent": "26.07.2026",
+  "last_sent": "27.07.2026",
   "sent_log": {
-    "date": "26.07.2026",
+    "date": "27.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
