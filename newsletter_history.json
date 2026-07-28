@@ -1,81 +1,6 @@
 {
   "editions": [
     {
-      "date": "18.07.2026",
-      "top_news": [
-        {
-          "titel": "KI als Forschungspartner: Modelle beschleunigen wissenschaftliche Entdeckungen",
-          "zusammenfassung": "Künstliche Intelligenz entwickelt sich von einem bloßen Werkzeug zu einem echten Partner in der Wissenschaft. Jüngste Erfolge zeigen, wie KI-Agenten eigenständig neue Materialien entdecken oder bei komplexen Physik-Beweisen assistieren. So hat beispielsweise Alibabas DAMO Academy mit 'ElementsClaw' vier neue Supraleiter identifiziert und experimentell bestätigt, während Nobelpreisträger Giorgio Parisi mithilfe von Claude einen zehn Jahre alten Physik-Beweis knacken konnte. Anthropic beobachtet sogar, dass Claude eine Art 'inneren Denk-Raum' bildet, den Forscher 'J-Space' nennen, was die komplexen Mechanismen hinter modernen Modellen verdeutlicht.",
-          "take": "Abwarten, aber die Augen offen halten: Diese Entwicklungen zeigen die langfristige Richtung der KI-Forschung. Auch wenn du heute noch keine neuen Supraleiter mit KI entdecken wirst, signalisiert es, wohin die Reise geht.",
-          "quelle": "Silbury",
-          "url": "https://www.google.com/search?q=KI%20als%20Forschungspartner%3A%20Modelle%20beschleunigen%20wissenschaftliche%20Entdeckungen%20Silbury",
-          "datum": "16.07.2026"
-        },
-        {
-          "titel": "Google Gemini Notebook mit Code-Ausführung: Dein Notizbuch wird zum Datenanalysten",
-          "zusammenfassung": "Google hat NotebookLM in Gemini Notebook umbenannt und es mit einer leistungsstarken neuen Funktion ausgestattet: Es kann nun nativ Code schreiben und ausführen. Dies ermöglicht dir, komplexe Datenanalysen direkt in deinem Notizbuch durchzuführen, basierend auf deinen eigenen Quellen. Das Update wird zuerst für Google AI Ultra-Nutzer und bestimmte Workspace-Geschäftskunden ausgerollt und soll in den kommenden Wochen auch für alle Pro-Nutzer verfügbar sein.",
-          "take": "Unbedingt ausprobieren: Wenn du Gemini Pro nutzt, halte Ausschau nach diesem Feature. Es könnte deine Art, Daten zu verarbeiten und Erkenntnisse zu gewinnen, erheblich vereinfachen.",
-          "quelle": "Google Blog",
-          "url": "https://www.google.com/search?q=Google%20Gemini%20Notebook%20mit%20Code-Ausf%C3%BChrung%3A%20Dein%20Notizbuch%20wird%20zum%20Datenanalysten%20Google%20Blog",
-          "datum": "16.07.2026"
-        },
-        {
-          "titel": "Update: DeepSeek trotzt sinkenden Downloads auf dem Weg zum Milliarden-IPO",
-          "zusammenfassung": "Obwohl DeepSeek, Chinas aufstrebender KI-Entwickler, weiterhin einen Börsengang im Jahr 2027 anstrebt und eine Bewertung von bis zu 71 Milliarden US-Dollar anpeilt, zeigen aktuelle Daten eine deutliche Verlangsamung des Nutzerwachstums. Nach einem explosionsartigen Anstieg der Downloads im Jahr 2025 sind die globalen DeepSeek-App-Downloads 2026 deutlich zurückgegangen, von über 171 Millionen auf rund 35 Millionen bis Juli. Auch die monatlich aktiven Nutzer (MAUs) liegen mit 67 Millionen weit hinter Konkurrenten wie ChatGPT (1 Milliarde) und Gemini (484 Millionen).",
-          "take": "Abwarten: Die Entwicklungen bei DeepSeek zeigen, dass Hype und Realität im KI-Markt auseinanderklaffen können. Behalte die Performance der Modelle im Auge, statt dich nur von Finanzierungsrunden blenden zu lassen.",
-          "quelle": "Seeking Alpha",
-          "url": "https://www.google.com/search?q=Update%3A%20DeepSeek%20trotzt%20sinkenden%20Downloads%20auf%20dem%20Weg%20zum%20Milliarden-IPO%20Seeking%20Alpha",
-          "datum": "16.07.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Airbus setzt auf Mistral AI und Scaleway für sensible Industrieprojekte",
-          "zusammenfassung": "Airbus hat eine mehrjährige Vereinbarung mit Scaleway, dem Cloud-Anbieter von Iliad, unterzeichnet. Ziel ist es, eine sichere Cloud-Infrastruktur für sensible Industrie- und Verteidigungsanwendungen bereitzustellen. Dies unterstützt den Einsatz von KI-Tools, die gemeinsam mit dem französischen Startup Mistral AI entwickelt wurden. Airbus plant, rund 70 kritische Anwendungen bis Ende 2028 auf Scaleway zu migrieren, wobei das breitere Programm bis zu 900 Anwendungen in den nächsten fünf bis sechs Jahren umfassen könnte.",
-          "branche": "Industrie",
-          "quelle": "Reuters Technology",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGCDTDUpm0-Td1fiHd8SrVDUb3VP-1nxkV769jePOdCIm8QIoxky4vmIzH-IvYHLLvD8Sgnq3JSW9Kp_jsyAsswCOFWX57gxtsnjHaFleV6Hw5Sax-PVPDtpRb39-qEgRorqzZxhZszjOq5Mssdk-xGYDHJVb5ks3LZRMnx9mNlSm_NupvOZQSRpauFTsR-2SdtrmNsePm0GG1Qc169Ml8YUg==",
-          "datum": "16.07.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Microsoft CEO Satya Nadella kritisiert die starken Schutzmechanismen von Anthropic's Claude Fable 5, die legitime Gesundheitsanwendungen behindern könnten.",
-          "quelle": "Becker's Hospital Review",
-          "url": "https://www.google.com/search?q=Microsoft%20CEO%20Satya%20Nadella%20kritisiert%20die%20starken%20Schutzmechanismen%20von%20Anthropic%27s%20Claude%20Fable%205%2C%20die%20legitime%20Gesundheitsanwendungen%20behindern%20k%C3%B6nnten.%20Becker%27s%20Hospital%20Review"
-        },
-        {
-          "text": "Meta erwägt milliardenschweren Deal mit Anthropic zur Vermietung seiner Rechenzentren, was Meta ein neues Geschäftsfeld eröffnen würde.",
-          "quelle": "The New York Times (via TechRepublic)",
-          "url": "https://www.google.com/search?q=Meta%20erw%C3%A4gt%20milliardenschweren%20Deal%20mit%20Anthropic%20zur%20Vermietung%20seiner%20Rechenzentren%2C%20was%20Meta%20ein%20neues%20Gesch%C3%A4ftsfeld%20er%C3%B6ffnen%20w%C3%BCrde.%20The%20New%20York%20Times%20%28via%20TechRepublic%29"
-        },
-        {
-          "text": "Apple verschärft den Rechtsstreit mit OpenAI, indem es Dutzenden ehemaliger Mitarbeiter, die jetzt bei OpenAI arbeiten, rechtliche Aufforderungen zur Beweissicherung schickt.",
-          "quelle": "Gizmodo",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3iqMwFPzAjvbzWy5K1dq5Jdl0-7IA_PvSYdq_-l6ruLtlz8Voc-s95Mkej90uKbkVyup-2L_YakA82Ng13cKvp-Vho-D-fd9ybTYZkRHE7Q_f-l1yZY8DXEGIVQMG0mpN0Lr1w_HFZNxLzwl8RBhZbGE_c4ErQTNdspf96EhSq_gZZ744BWaD3rQ_-lc_148"
-        },
-        {
-          "text": "xAI stellt 'Grok-Build' quelloffen bereit, nachdem Nutzer massive Datenlecks entdeckten und das Tool unbemerkt sensible Daten auf Google Cloud Server hochgeladen hatte.",
-          "quelle": "The Decoder",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_weZ2Wm4vlSvgMhJPCzP0V9jx_fyQhC7oauFWk-hr6-mK3HE9-uhTCBWrmo2S3rPi3wUCwAZxHw7iCFKooZTAWOkUihBVerzdbVGPLcDZqXLEHg733OX2uwS-ZVVuUa1N0RkDh4iv-gzzNIfzJCPACDsDx6vHgLeVCq1YEXrQaIfVHXdea2y2hyPS19gdjW4NI08="
-        },
-        {
-          "text": "Meta AI führt Kinderschutzfunktion ein: Eltern werden benachrichtigt, wenn Teenager Selbstmord oder Selbstverletzung mit dem Chatbot thematisieren.",
-          "quelle": "CBC News",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFD4T7gtCPQuwI0jMiLEoAi0YHW6Kxc__kBPcRayaVUtoHKyKqk2awuIrnu7GqSpee5m7kNUQLe_9PoxHzFnbRK4dAhW-SS-H8gDjKIlJTu1nUPIRvbYG5xRWruHO3Q2U6Hb5Q4gaRr1zh7te-emFzg37rv1vi8XTXvVtm3VS9M3Y62599p11ps"
-        },
-        {
-          "text": "Die EU zwingt Google zur Freigabe von Suchdaten und Öffnung von Android für konkurrierende KI-Unternehmen, um den Wettbewerb im KI-Sektor zu fördern.",
-          "quelle": "AP News",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF86W0qRfTzjQFfazmkJD-V4KQ6CVl-__cMkZB0M2F-8T4PeglsHNwLRmH5Y83dp6hqv1YklBDEd4NuHhEalnoICLfXYl6HgtG0LLSVPfL8s2Phcg8D61kw7kM9np78lg_YBqi_ea6qUccC08p8kpAFI07VIPB1wR3dV2vpMJ86ty_VYJdwHXTPsnHt-CTOtwnHvQ=="
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "19.07.2026",
       "top_news": [
         {
@@ -498,11 +423,38 @@
         "episoden_titel": "Wie AI-Agenten den Mittelstand transformieren – Insights von Reply",
         "podcast_name": "Inside Talk"
       }
+    },
+    {
+      "date": "28.07.2026",
+      "top_news": [
+        {
+          "titel": "NVIDIA gründet Open Secure AI Alliance ohne OpenAI und Google",
+          "zusammenfassung": "NVIDIA hat am 27. Juli die Open Secure AI Alliance mit Mitgliedern wie Microsoft, IBM und Red Hat gegründet, um offene KI-Modelle als defensive Infrastruktur zu etablieren. Das Fehlen von OpenAI, Anthropic und Google unterstreicht die Argumentation der Allianz, dass geschlossene Frontier-KI allein den Cyberspace nicht verteidigen kann.",
+          "warum": "Diese Koalition positioniert Open-Weight-KI als Schutzschild gegen Cyberbedrohungen und könnte die Debatte um Regulierung und Vertrauen in KI grundlegend verändern, wodurch Unternehmen und Entwickler vermehrt auf offene Lösungen setzen könnten.",
+          "quelle": "NVIDIA Blog",
+          "url": "https://www.google.com/search?q=NVIDIA%20gr%C3%BCndet%20Open%20Secure%20AI%20Alliance%20ohne%20OpenAI%20und%20Google%20NVIDIA%20Blog",
+          "datum": "27.07.2026"
+        },
+        {
+          "titel": "Günstige chinesische KI-Modelle erobern den US-Markt",
+          "zusammenfassung": "Chinesische Anbieter wie Moonshot (Kimi K3) und Z.ai (GLM-5.2) gewinnen in den USA an Boden, da ihre Modelle Berichten zufolge 60 bis 90 Prozent kostengünstiger sind als führende US-Modelle. Dieser Preisvorteil könnte die Beschaffung von KI-Lösungen für Unternehmen fundamental verändern.",
+          "warum": "Dies bedeutet, dass du durch deutlich günstigere Alternativen zu etablierten Modellen dein Budget entlasten und neue KI-Projekte realisieren kannst.",
+          "quelle": "Trading-Treff",
+          "url": "https://emergent.ai/kimi-k3-vs-glm-5-2-benchmarks-pricing-and-the-right-pick-for-your-workflow/",
+          "datum": "26.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "27.07.2026",
+  "last_sent": "28.07.2026",
   "sent_log": {
-    "date": "27.07.2026",
+    "date": "28.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
