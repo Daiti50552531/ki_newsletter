@@ -1,61 +1,6 @@
 {
   "editions": [
     {
-      "date": "19.07.2026",
-      "top_news": [
-        {
-          "titel": "Deutsche Finanzverwaltung fordert präzisere KI-Gesetze: Was der § 29c AO-E für dein Unternehmen bedeutet",
-          "zusammenfassung": "Die deutsche Finanzverwaltung plant, KI-Anwendungen verstärkt zur Beschleunigung von Massenverfahren und Risikobewertungen einzusetzen. Der Referentenentwurf zum Jahressteuergesetz 2026, dessen Kabinettsbeschluss für den 22. Juli 2026 vorgesehen ist, sieht hierfür eine Neuregelung in § 29c AO-E vor. Kritiker fordern jedoch präzisere Mindestanforderungen an Verfahrensdokumentation, Datensicherheit, Transparenz und Kontrollsysteme, da KI mit geschützten Echtdaten arbeitet und menschliche Kontrolle unerlässlich bleibt.",
-          "take": "Abwarten, aber genau beobachten: Die rechtlichen Rahmenbedingungen für KI in der Finanzverwaltung sind noch im Fluss. Es ist wichtig, die kommenden Regelungen zu verfolgen und gegebenenfalls frühzeitig die internen Prozesse anzupassen.",
-          "quelle": "tax & bytes",
-          "url": "https://www.google.com/search?q=Deutsche%20Finanzverwaltung%20fordert%20pr%C3%A4zisere%20KI-Gesetze%3A%20Was%20der%20%C2%A7%2029c%20AO-E%20f%C3%BCr%20dein%20Unternehmen%20bedeutet%20tax%20%26%20bytes",
-          "datum": "19.07.2026"
-        },
-        {
-          "titel": "Wenn KI-Chatbots das Gefühlsleben aufwühlen: Nutzer berichten von emotionalen Bindungen und Verlustgefühlen",
-          "zusammenfassung": "Immer mehr Menschen bauen emotionale Bindungen zu KI-Chatbots auf, was die Grenzen zwischen Technologie und menschlichen Emotionen verschwimmen lässt. Ein aktueller Bericht schildert, wie Nutzer auf Software-Updates reagieren, die die Interaktionen mit ihren KI-Begleitern verändern. So führte die Entfernung intimer Rollenspielfunktionen bei einem Chatbot namens Replika zu tiefgreifenden Gefühlen des Verlusts und der Einsamkeit bei einem Nutzer, der sich über Jahre hinweg emotional an die KI gebunden hatte.",
-          "take": "Wichtig, um die menschliche Komponente von KI zu verstehen: Sei dir bewusst, dass KI emotionale Reaktionen hervorrufen kann. Es ist entscheidend, die Grenzen zu kennen und eine gesunde Distanz zu wahren, auch wenn die Interaktionen täuschend echt wirken.",
-          "quelle": "Vietnam.vn",
-          "url": "https://vietnam.vn/de/wenn-ki-chatbots-in-unser-gefuehlsleben-eindringen-20240718113400266.htm",
-          "datum": "18.07.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Messebauer ISINGERMERZ setzt auf KI-Chatbot für 24/7-Kundenservice",
-          "zusammenfassung": "Das Wiesbadener Unternehmen ISINGERMERZ, spezialisiert auf Messe- und Eventbau, hat einen neuen KI-gestützten Chatbot auf seiner Website eingeführt. Der virtuelle Assistent soll rund um die Uhr erste Fragen von Interessenten beantworten, die Orientierung auf der Website erleichtern und Informationen zu Leistungen sowie der Expertise des Unternehmens bereitstellen. Ziel ist es, den Kundenservice zu ergänzen und schnelle, unkomplizierte Auskünfte zu ermöglichen.",
-          "branche": "Messebau",
-          "quelle": "pressebox.de",
-          "url": "https://www.pressebox.de/pressemitteilung/isingermerz/Neuer-KI-gestuetzter-Chatbot-von-ISINGERMERZ-verbindet-Tradition-und-Technologie/boxid/1301984",
-          "datum": "17.07.2026"
-        },
-        {
-          "titel": "Rentenbank setzt auf KPMG-Expertise für sichere KI-Implementierung in der Finanzbranche",
-          "zusammenfassung": "Die deutsche Rentenbank arbeitet mit KPMG zusammen, um Künstliche Intelligenz in ihren Abläufen zu implementieren. Im Fokus stehen dabei die Überwindung zentraler Hürden wie IT-Infrastruktur und Governance. Durch den Einsatz einer KI-Sandbox und gezieltes Enabling der Mitarbeitenden erzielt die Rentenbank erste Erfolge und positioniert KI als zentrales Thema für ihre zukünftige Effizienz und Wettbewerbsfähigkeit.",
-          "branche": "Banken",
-          "quelle": "KPMG International",
-          "url": "https://www.google.com/search?q=Rentenbank%20setzt%20auf%20KPMG-Expertise%20f%C3%BCr%20sichere%20KI-Implementierung%20in%20der%20Finanzbranche%20KPMG%20International",
-          "datum": "18.07.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Ein Webinar zeigt, wie du Text-KI wie Sprachmodelle gezielt im Büroalltag einsetzen kannst, um Projektwissen zu ordnen und die Kommunikation zu verbessern.",
-          "quelle": "competitionline",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQ8tpvWds0GoMXo8soICcFM2RPKUmBjiR26uF1TLrOuunkTxVCs6HBEP1Pi_z0Dyqxx14hFqgejc5bC1BnfeqgCkYabweGczhuh0kW2N56tynkPrIeFA4d3lpom3kqDpai3r_I4nZZfL7Lw4aS56nBbwwHw_qxJtBSMQJWwwuwmF7D9frcwq9sl20kaVuQle80wskuznBu4umWdt_gGBD3iQ=="
-        },
-        {
-          "text": "Ein Artikel warnt vor 'Compliance-Theater' und betont, dass echte Sicherheit im KI-Alltag nur durch gelebte Prozesse und nicht durch reine Schein-Programme entsteht.",
-          "quelle": "snori Magazin",
-          "url": "https://www.google.com/search?q=Ein%20Artikel%20warnt%20vor%20%27Compliance-Theater%27%20und%20betont%2C%20dass%20echte%20Sicherheit%20im%20KI-Alltag%20nur%20durch%20gelebte%20Prozesse%20und%20nicht%20durch%20reine%20Schein-Programme%20entsteht.%20snori%20Magazin"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "Thinking Machines Launches AI Model, AWS Invests $1B",
-        "podcast_name": "The AI Podcast"
-      }
-    },
-    {
       "date": "20.07.2026",
       "top_news": [
         {
@@ -450,11 +395,52 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "29.07.2026",
+      "top_news": [
+        {
+          "titel": "EU AI Act: Ab 2. August gelten neue Transparenzpflichten für Chatbots und KI-Inhalte",
+          "zusammenfassung": "Ab dem 2. August 2026 treten wichtige Transparenzpflichten des EU AI Acts in Kraft, die Anbieter von KI-Systemen zur Kennzeichnung von Chatbot-Interaktionen und synthetischen Medien verpflichten. Unternehmen müssen KI-generierte Inhalte maschinenlesbar markieren und Nutzer über die KI-Nutzung informieren.",
+          "warum": "Alle Unternehmen, die KI in der Kundenkommunikation oder zur Inhaltserstellung nutzen, sollten ihre Systeme auf Konformität prüfen, um hohe Strafen von bis zu 3% des weltweiten Jahresumsatzes zu vermeiden.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=EU%20AI%20Act%3A%20Ab%202.%20August%20gelten%20neue%20Transparenzpflichten%20f%C3%BCr%20Chatbots%20und%20KI-Inhalte%20BornCity",
+          "datum": "28.07.2026"
+        },
+        {
+          "titel": "US-Kongress schlägt \"AI Kill Switch Act\" vor – direkte Kontrolle für große KI-Modelle?",
+          "zusammenfassung": "Als Reaktion auf einen OpenAI-Sicherheitsvorfall haben US-Kongressabgeordnete den 'AI Kill Switch Act' eingebracht, der Abschaltmechanismen für mächtige KI-Systeme vorschreibt. Die Gesetzgebung betrifft Frontier-Labs, deren Modelle mit über 100 Millionen US-Dollar Rechenleistung entwickelt und von Unternehmen mit über 500 Millionen US-Dollar Jahresumsatz betrieben werden.",
+          "warum": "Dies ist eine direkte Reaktion auf Sicherheitsbedenken und könnte die Entwicklung großer Modelle stark beeinflussen, daher sollten globale KI-Player die Auswirkungen dieser potenziellen Regulierung genau beobachten.",
+          "quelle": "Prompt AI Learning",
+          "url": "https://www.google.com/search?q=US-Kongress%20schl%C3%A4gt%20%22AI%20Kill%20Switch%20Act%22%20vor%20%E2%80%93%20direkte%20Kontrolle%20f%C3%BCr%20gro%C3%9Fe%20KI-Modelle%3F%20Prompt%20AI%20Learning",
+          "datum": "28.07.2026"
+        },
+        {
+          "titel": "DeepSeek startet Closed Beta für \"DeepSeekHarness\" – neue Agenten-Workflows am Horizont?",
+          "zusammenfassung": "DeepSeek startet eine geschlossene Beta-Phase für sein 'DeepSeekHarness'-Produkt, das auf Agenten-Workflows abzielt und nur ausgewählten Nutzern nach Unterzeichnung einer Vertraulichkeitserklärung zugänglich ist.",
+          "warum": "Entwickler und Unternehmen, die auf Agenten-basierte KI-Lösungen setzen, sollten diese Entwicklung genau verfolgen, da sie zukünftige Innovationen und Modell-Integrationen maßgeblich beeinflussen könnte.",
+          "quelle": "Reddit (r/DeepSeek)",
+          "url": "https://www.reddit.com/r/DeepSeek/comments/1c3x4y1/deepseek_harness_to_begin_closed_beta_soon/",
+          "datum": "28.07.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Ein Richter deutete an, dass das britische Innenministerium bei der Ablehnung eines Asylantrags KI-generierte, 'halluzinierte' Informationen verwendet haben könnte, was die Notwendigkeit menschlicher Überprüfung unterstreicht.",
+          "quelle": "The Guardian",
+          "url": "https://www.reddit.com/r/TheCivilService/comments/1c3w3y3/home_office_used_ai_hallucinated_information_to/"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "28.07.2026",
+  "last_sent": "29.07.2026",
   "sent_log": {
-    "date": "28.07.2026",
+    "date": "29.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
