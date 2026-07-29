@@ -408,12 +408,34 @@ Jemand der: (1) den Ueberblick ueber KI-Entwicklungen behalten will die seinen A
 (2) KI praktisch fuer Selbstorganisation, Projektarbeit und Dokumentation nutzen moechte;
 (3) sich kleine KI-Helfer bauen oder entdecken will – auch ohne tiefe Programmierkenntnisse.
 
---- STIL (AInauten-Stil als Vorbild) ---
-Ton: Wie ein gut informierter Kollege der die Tools selbst kennt und getestet hat. Nicht neutral –
-einordnen, bewerten, klare Perspektive bieten. Auch Schwaechen und Einschraenkungen benennen,
-das schafft mehr Vertrauen als reines Loben.
-Schreibweise: Direkte Ansprache ("du"), aktive Sprache, keine Passivsaetze.
-Keine Buzzwords ("revolutionaer", "disruptiv", "bahnbrechend", "KI-Zeitalter") – konkret statt Hype.
+--- STIMME (das wichtigste Qualitaetsmerkmal – Vorbild: Finimize und AInauten) ---
+Du schreibst wie ein kluger Freund, der die Sache wirklich versteht und Spass am
+Erklaeren hat. Fuenf Techniken, die JEDE Passage erfuellen muss:
+1. AKTIVE VERBEN: "OpenAI schaltet X frei" statt "X wurde verfuegbar gemacht".
+2. ALLTAGS-ANKER: Abstrakte Technik greifbar machen – "Das Kontextfenster fasst jetzt
+   drei Harry-Potter-Baende auf einmal". Mindestens ein Anker pro Ausgabe.
+3. ZAHLEN UEBERSETZEN: Nie nackte Zahlen – "40% schneller heisst: aus einer Minute
+   Wartezeit werden 36 Sekunden".
+4. TROCKENER HUMOR ERLAUBT, Ausrufezeichen-Enthusiasmus verboten.
+5. HALTUNG: Sag klar, was du davon haeltst und was der Leser TUN soll. "Wichtig"
+   ohne Begruendung ist wertlos.
+
+VERBOTENE PHRASEN (duerfen NIRGENDS auftauchen – Ausschlusskriterium):
+"Es bleibt abzuwarten", "Abwarten und beobachten", "spannende Entwicklung",
+"wichtiger Schritt", "revolutionaer", "bahnbrechend", "disruptiv", "Game Changer",
+"KI-Zeitalter", "die Zukunft von", "immer mehr", "in der heutigen digitalen Welt",
+"koennte ... veraendern", "zeigt die Relevanz von", "unterstreicht die Bedeutung".
+
+SO KLINGT EINE PERFEKTE TOP-NEWS (Massstab fuer jede Story):
+  titel: "Gemini liest jetzt deine Excel-Dateien – und findet den Fehler in Zeile 4.812"
+  zusammenfassung: "Google schaltet Gemini fuer Tabellen-Analysen in Sheets und Excel
+  frei: hochladen, Frage stellen, fertig. In ersten Tests fand das Modell Formelfehler,
+  die drei menschliche Pruefer uebersehen hatten."
+  warum: "Ausprobieren, sobald du die naechste fremde Tabelle erbst – die Funktion ist
+  ab heute im Gratis-Tarif."
+SO NICHT (klingt nach Pressemitteilung – sofort umschreiben):
+  "Google hat ein Update angekuendigt, das die Produktivitaet steigern koennte.
+  Es bleibt abzuwarten, wie sich das entwickelt."
 Struktur pro News (KURZ – der Leser hat keine Zeit): (1) Zwei Saetze was passiert ist,
 mit dem wichtigsten konkreten Fakt. (2) EIN Satz "Warum's zaehlt": Einordnung + klare
 Empfehlung (ausprobieren/abwarten/wichtig fuer X). Wer mehr will, klickt den Originalartikel.
@@ -604,17 +626,19 @@ Diese Episoden wurden bereits empfohlen – waehle eine ANDERE Episode:
 
 
 # ── Gemini API Call (mit Retry + Model-Fallback bei 503) ─────────────────────
-def call_gemini(prompt: str, patient: bool = True) -> dict:
+def call_gemini(prompt: str, patient: bool = True, use_search: bool = True) -> dict:
     """patient=True: Hauptdurchlauf, lange 5xx-Wartezeiten. patient=False: optionale
-    Durchläufe (Editor) mit kurzer Geduld, damit das 30-Min-Job-Limit sicher hält."""
+    Durchläufe (Editor/Stil) mit kurzer Geduld, damit das 30-Min-Job-Limit sicher hält.
+    use_search=False für reine Schreib-Durchläufe ohne Recherche (schneller, spart Quota)."""
     payload = {
-        "tools": [{"googleSearch": {}}],
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.7,
             "maxOutputTokens": 16384,
         },
     }
+    if use_search:
+        payload["tools"] = [{"googleSearch": {}}]
     data = json.dumps(payload).encode("utf-8")
 
     max_attempts = 3 if patient else 2
@@ -773,6 +797,84 @@ def run_editor_pass(data: dict, published_titles: list = None) -> dict:
         return data
     except Exception as e:
         print(f"  Editor-Pass übersprungen (non-fatal): {e}")
+        return data
+
+
+# ── Stil-Pass: Chef vom Dienst poliert jede Zeile (Finimize-Niveau) ──────────
+STYLE_PROMPT_TEMPLATE = """Du bist Chef vom Dienst eines deutschsprachigen KI-Newsletters
+auf Finimize-Niveau. Deine EINZIGE Aufgabe: die Sprache des folgenden Entwurfs polieren.
+FAKTEN, ZAHLEN, QUELLEN, URLs, DATEN UND DIE JSON-STRUKTUR BLEIBEN EXAKT ERHALTEN.
+
+Entwurf als JSON:
+{draft}
+
+POLIERE NACH DIESEN REGELN:
+1. AKTIVE VERBEN: "OpenAI schaltet frei" statt "wurde verfuegbar gemacht". Kein Passiv.
+2. VERBOTENE PHRASEN ersetzen (durch konkrete Aussagen): "Es bleibt abzuwarten",
+   "Abwarten und beobachten", "spannende Entwicklung", "wichtiger Schritt",
+   "revolutionaer", "bahnbrechend", "Game Changer", "immer mehr", "koennte ... veraendern",
+   "zeigt die Relevanz", "unterstreicht die Bedeutung".
+3. ALLTAGS-ANKER: Wo eine Zahl oder ein Konzept abstrakt ist, uebersetze es in ein
+   Alltagsbild ("fasst drei Harry-Potter-Baende", "aus 1 Minute werden 36 Sekunden").
+   Mindestens einer pro Ausgabe, aber nur wo es natuerlich passt.
+4. TITEL SCHAERFEN: konkret + neugierig machend, kein Clickbait. Ein 'Update:'-Praefix
+   am Titelanfang MUSS erhalten bleiben.
+5. "warum": muss Haltung + Handlungsempfehlung enthalten (ausprobieren/ignorieren/
+   im Blick behalten weil X). Max 25 Woerter.
+6. intro: maximal 2 Saetze mit Punch, direkt zum interessantesten Fakt.
+7. Trockener Humor erlaubt, Ausrufezeichen-Enthusiasmus nicht.
+8. KUERZEN ist immer erlaubt, VERLAENGERN nie.
+
+Gib NUR das polierte JSON in exakt derselben Struktur zurueck. Gleiche Anzahl Eintraege
+pro Liste, gleiche Felder pro Eintrag. Keine Erklaerungen, kein Markdown.
+"""
+
+# Nur diese Textfelder darf der Stil-Pass veraendern – URLs/Quellen/Daten bleiben original
+_STYLE_FIELDS = {
+    "top_news": ("titel", "zusammenfassung", "warum"),
+    "praxis": ("titel", "zusammenfassung"),
+    "schnelldurchlauf": ("text",),
+}
+
+
+def run_style_pass(data: dict) -> dict:
+    """Dritter Durchlauf ohne Suche: poliert nur die Sprache. Non-fatal – bei jedem
+    Problem wird der Entwurf unverändert übernommen."""
+    try:
+        keys = ("intro", "top_news", "praxis", "schnelldurchlauf", "podcast", "zahl_des_tages")
+        draft_json = json.dumps({k: data[k] for k in keys if k in data}, ensure_ascii=False)
+        response = call_gemini(STYLE_PROMPT_TEMPLATE.format(draft=draft_json),
+                               patient=False, use_search=False)
+        candidates = response.get("candidates", [])
+        parts = candidates[0].get("content", {}).get("parts", []) if candidates else []
+        raw_text = "".join(p.get("text", "") for p in parts)
+        if not raw_text.strip():
+            print("  Stil-Pass: leere Antwort – Entwurf bleibt unverändert")
+            return data
+        polished = normalize_data(extract_json(raw_text))
+        # Nur Textfelder übernehmen, und nur wenn die Listenlängen exakt stimmen
+        if isinstance(polished.get("intro"), str) and polished["intro"].strip():
+            data["intro"] = polished["intro"]
+        for list_key, fields in _STYLE_FIELDS.items():
+            orig, neu = data.get(list_key, []), polished.get(list_key, [])
+            if len(orig) != len(neu):
+                print(f"  Stil-Pass: {list_key} hat andere Länge – Original bleibt")
+                continue
+            for o_item, n_item in zip(orig, neu):
+                for f in fields:
+                    val = n_item.get(f, "")
+                    if isinstance(val, str) and val.strip():
+                        o_item[f] = val
+        pod = polished.get("podcast", {})
+        if data.get("podcast", {}).get("episoden_titel") and isinstance(pod.get("warum_hoeren"), str) and pod["warum_hoeren"].strip():
+            data["podcast"]["warum_hoeren"] = pod["warum_hoeren"]
+        zahl = polished.get("zahl_des_tages", {})
+        if data.get("zahl_des_tages", {}).get("zahl") and isinstance(zahl.get("kontext"), str) and zahl["kontext"].strip():
+            data["zahl_des_tages"]["kontext"] = zahl["kontext"]
+        print("  ✓ Stil-Pass abgeschlossen (Sprache poliert, Fakten unangetastet)")
+        return data
+    except Exception as e:
+        print(f"  Stil-Pass übersprungen (non-fatal): {e}")
         return data
 
 
@@ -979,6 +1081,9 @@ def get_newsletter_data() -> dict:
         data["intro"] = (data.get("intro", "").strip() + " Heute ist die Ausgabe bewusst "
                          "kompakt – es gab schlicht wenig wirklich Neues, und lieber kurz "
                          "als künstlich aufgebläht.").strip()
+    if data.get("top_news") or data.get("praxis") or data.get("schnelldurchlauf"):
+        print("Lasse Chef vom Dienst (Stil-Pass) jede Zeile polieren ...")
+        data = run_style_pass(data)
     data["inspiration"] = get_inspiration()
     return data
 
