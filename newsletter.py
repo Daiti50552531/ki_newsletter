@@ -1147,23 +1147,18 @@ def validate_all_urls(data: dict) -> dict:
     return data
 
 
-# ── Design-Konstanten (Modern Playful) ────────────────────────────────────────
-FONT   = "'Helvetica Neue',Helvetica,Arial,sans-serif"
-C_BG   = "#f4f4f4"
-C_CARD = "#ffffff"
-C_TEXT = "#1e293b"
-C_MUTE = "#64748b"
-C_BDR  = "#e2e8f0"
+# ── Design: Editorial, eine Akzentfarbe (Vorbild Finimize/Rundown) ────────────
+FONT    = "'Helvetica Neue',Helvetica,Arial,sans-serif"
+C_BG    = "#f4f4f6"   # Seiten-Hintergrund
+C_INK   = "#111827"   # Überschriften
+C_BODY  = "#374151"   # Fließtext
+C_MUTE  = "#6b7280"   # Meta-Angaben
+C_LINE  = "#e5e7eb"   # Trennlinien
+ACCENT  = "#4f46e5"   # DIE eine Markenfarbe
+A_TINT  = "#eef2ff"   # Akzent-Hintergrund für Pills
 
-# Sektionsfarben
-SEC = {
-    "news":    {"emoji": "🚀", "color": "#4f46e5", "light": "#eef2ff"},
-    "blitz":   {"emoji": "⚡", "color": "#ea580c", "light": "#fff7ed"},
-    "podcast": {"emoji": "🎙️", "color": "#f43f5e", "light": "#fff1f2"},
-    "tipp":    {"emoji": "💡", "color": "#d97706", "light": "#fffbeb"},
-    "praxis":  {"emoji": "🏢", "color": "#0f766e", "light": "#f0fdfa"},
-    "trend":   {"emoji": "📈", "color": "#9333ea", "light": "#faf5ff"},
-}
+WEEKDAYS_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag",
+               "Freitag", "Samstag", "Sonntag"]
 
 
 def _escape_for_html(data: dict) -> dict:
@@ -1187,16 +1182,16 @@ def _escape_for_html(data: dict) -> dict:
 
 
 def build_html(data: dict) -> str:
-    data        = _escape_for_html(data)
-    top_news    = data.get("top_news", [])
-    praxis      = data.get("praxis", [])
-    schnell     = data.get("schnelldurchlauf", [])
-    podcast     = data.get("podcast", {})
-    intro       = data.get("intro", "")
+    data         = _escape_for_html(data)
+    top_news     = data.get("top_news", [])
+    praxis       = data.get("praxis", [])
+    schnell      = data.get("schnelldurchlauf", [])
+    podcast      = data.get("podcast", {})
+    intro        = data.get("intro", "")
     inspiration  = data.get("inspiration", {})
     day_of_year  = datetime.now().timetuple().tm_yday
+    weekday      = WEEKDAYS_DE[datetime.now().weekday()]
 
-    # Lesezeit-Schätzung (200 Wörter/Min)
     _words = sum(
         len((n.get('zusammenfassung','') + ' ' + n.get('warum','')).split())
         for n in top_news
@@ -1208,219 +1203,196 @@ def build_html(data: dict) -> str:
     _words += len((inspiration.get('beschreibung','') + ' ' + inspiration.get('prompt','')).split())
     read_min = max(2, round(_words / 200))
 
-    def badge(text: str, color: str, bg: str) -> str:
-        return (f'<span style="display:inline-block;background:{bg};color:{color};'
-                f'font-family:{FONT};font-size:11px;font-weight:700;letter-spacing:.5px;'
+    def label(text: str) -> str:
+        """Sektions-Label im Editorial-Stil: kleine Kapitälchen + Haarlinie."""
+        return f"""
+      <tr><td style="padding:30px 0 14px;">
+        <table width="100%" cellpadding="0" cellspacing="0"><tr>
+          <td style="white-space:nowrap;padding-right:12px;">
+            <span style="font-family:{FONT};font-size:11px;font-weight:800;color:{ACCENT};
+                         letter-spacing:2.5px;text-transform:uppercase;">{text}</span>
+          </td>
+          <td width="100%" style="border-top:1px solid {C_LINE};font-size:0;line-height:0;">&nbsp;</td>
+        </tr></table>
+      </td></tr>"""
+
+    def pill(text: str) -> str:
+        return (f'<span style="display:inline-block;background:{A_TINT};color:{ACCENT};'
+                f'font-family:{FONT};font-size:10px;font-weight:800;letter-spacing:1px;'
                 f'text-transform:uppercase;padding:3px 10px;border-radius:20px;">{text}</span>')
 
-    def section_title(s: dict, title: str) -> str:
-        return f"""
-        <tr><td style="padding:32px 0 18px;">
-          <span style="font-family:{FONT};font-size:10px;font-weight:900;
-                       color:{s['color']};letter-spacing:2.5px;text-transform:uppercase;
-                       border-bottom:2px solid {s['color']};padding-bottom:6px;">
-            {s['emoji']}&ensp;{title}
-          </span>
-        </td></tr>"""
-
-    def news_block(item: dict, idx: int) -> str:
-        warum = item.get('warum', '') or item.get('take', '') or item.get('bedeutung', '')
+    def story(item: dict, is_last: bool) -> str:
+        warum = item.get('warum', '')
         warum_row = f"""
-            <tr><td colspan="2" style="padding:0 18px 12px;">
-              <span style="font-family:{FONT};font-size:13px;color:#0f766e;line-height:1.6;">
-                ➜&ensp;<strong>Warum's zählt:</strong> {warum}
-              </span>
-            </td></tr>""" if warum else ''
+        <tr><td style="padding:8px 0 0;">
+          <span style="font-family:{FONT};font-size:13.5px;color:{C_BODY};line-height:1.6;">
+            <span style="color:{ACCENT};font-weight:800;">&rarr;</span>
+            <strong style="color:{C_INK};">Warum's z&auml;hlt:</strong> {warum}
+          </span>
+        </td></tr>""" if warum else ''
+        divider = '' if is_last else f"""
+        <tr><td style="border-bottom:1px solid {C_LINE};font-size:0;line-height:0;padding-top:18px;">&nbsp;</td></tr>
+        <tr><td style="font-size:0;line-height:0;height:18px;">&nbsp;</td></tr>"""
         return f"""
-        <tr><td style="padding:0 0 12px;">
-          <table width="100%" cellpadding="0" cellspacing="0"
-                 style="border-radius:12px;border:1px solid #eaecf2;background:#f9fafb;">
-            <tr>
-              <td style="padding:13px 18px 0;vertical-align:middle;">
-                <span style="font-family:{FONT};font-size:11px;font-weight:600;color:{C_MUTE};">
-                  {item.get('datum','')} &middot; {item.get('quelle','')}
-                </span>
-              </td>
-              <td style="padding:10px 16px 0;text-align:right;vertical-align:top;width:36px;">
-                <span style="font-family:{FONT};font-size:20px;font-weight:900;
-                             color:{SEC['news']['color']};opacity:.18;line-height:1;">
-                  {str(idx).zfill(2)}
-                </span>
-              </td>
-            </tr>
-            <tr><td colspan="2" style="padding:5px 18px 8px;">
+      <tr><td>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="padding:0 0 5px;">
+            <span style="font-family:{FONT};font-size:11px;font-weight:700;color:{C_MUTE};
+                         letter-spacing:.5px;text-transform:uppercase;">
+              {item.get('quelle','')} &nbsp;&middot;&nbsp; {item.get('datum','')}
+            </span>
+          </td></tr>
+          <tr><td style="padding:0 0 7px;">
+            <a href="{item.get('url','#')}"
+               style="font-family:{FONT};font-size:18px;font-weight:800;color:{C_INK};
+                      text-decoration:none;line-height:1.35;">
+              {item.get('titel','')}
+            </a>
+          </td></tr>
+          <tr><td>
+            <span style="font-family:{FONT};font-size:14.5px;color:{C_BODY};line-height:1.65;">
+              {item.get('zusammenfassung','')}
               <a href="{item.get('url','#')}"
-                 style="font-family:{FONT};font-size:16px;font-weight:800;
-                        color:{C_TEXT};text-decoration:none;line-height:1.4;">
-                {item.get('titel','')}
-              </a>
-            </td></tr>
-            <tr><td colspan="2" style="padding:0 18px 10px;">
-              <span style="font-family:{FONT};font-size:14px;color:#475569;line-height:1.65;">
-                {item.get('zusammenfassung','')}
-                <a href="{item.get('url','#')}"
-                   style="font-family:{FONT};font-size:13px;font-weight:700;
-                          color:{SEC['news']['color']};text-decoration:none;white-space:nowrap;">
-                  Artikel&nbsp;&rarr;
-                </a>
-              </span>
-            </td></tr>
-            {warum_row}
-          </table>
-        </td></tr>"""
+                 style="font-size:13.5px;font-weight:700;color:{ACCENT};
+                        text-decoration:none;white-space:nowrap;">Artikel&nbsp;&rarr;</a>
+            </span>
+          </td></tr>
+          {warum_row}
+          {divider}
+        </table>
+      </td></tr>"""
 
+    news_rows = "".join(story(n, i == len(top_news) - 1) for i, n in enumerate(top_news))
+    news_section = (label('Top News') + news_rows) if news_rows else ""
+
+    def praxis_item(item: dict, is_last: bool) -> str:
+        divider = '' if is_last else f"""
+        <tr><td style="border-bottom:1px solid {C_LINE};font-size:0;line-height:0;padding-top:16px;">&nbsp;</td></tr>
+        <tr><td style="font-size:0;line-height:0;height:16px;">&nbsp;</td></tr>"""
+        return f"""
+      <tr><td>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="padding:0 0 7px;">
+            {pill(item.get('branche',''))}
+            <span style="font-family:{FONT};font-size:11px;font-weight:700;color:{C_MUTE};">
+              &nbsp;&middot;&nbsp; {item.get('quelle','')}
+            </span>
+          </td></tr>
+          <tr><td style="padding:0 0 6px;">
+            <a href="{item.get('url','#')}"
+               style="font-family:{FONT};font-size:16px;font-weight:800;color:{C_INK};
+                      text-decoration:none;line-height:1.4;">
+              {item.get('titel','')}
+            </a>
+          </td></tr>
+          <tr><td>
+            <span style="font-family:{FONT};font-size:14px;color:{C_BODY};line-height:1.6;">
+              {item.get('zusammenfassung','')}
+              <a href="{item.get('url','#')}"
+                 style="font-size:13px;font-weight:700;color:{ACCENT};
+                        text-decoration:none;white-space:nowrap;">Artikel&nbsp;&rarr;</a>
+            </span>
+          </td></tr>
+          {divider}
+        </table>
+      </td></tr>"""
+
+    praxis_rows = "".join(praxis_item(p, i == len(praxis[:2]) - 1) for i, p in enumerate(praxis[:2]))
+    praxis_section = (label('KI in der Praxis') + praxis_rows) if praxis_rows else ""
 
     def blitz_row(item: dict, is_last: bool) -> str:
         quelle = item.get('quelle', '')
-        link = (f'&ensp;<a href="{item.get("url","#")}" style="font-family:{FONT};font-size:12px;'
-                f'font-weight:700;color:{SEC["blitz"]["color"]};text-decoration:none;'
+        link = (f'&ensp;<a href="{item.get("url","#")}" style="font-family:{FONT};font-size:12.5px;'
+                f'font-weight:700;color:{ACCENT};text-decoration:none;'
                 f'white-space:nowrap;">{quelle} &rarr;</a>') if quelle else ''
-        border = '' if is_last else f'border-bottom:1px solid #fed7aa;'
+        border = '' if is_last else f'border-bottom:1px solid {C_LINE};'
         emoji = item.get('emoji', '') or '⚡'
-        return (f'<tr><td style="padding:9px 0;vertical-align:top;width:22px;{border}">'
-                f'<span style="font-size:13px;">{emoji}</span></td>'
-                f'<td style="padding:9px 0 9px 8px;{border}">'
-                f'<span style="font-family:{FONT};font-size:13px;color:#334155;line-height:1.55;">'
+        return (f'<tr><td style="padding:10px 0;vertical-align:top;width:24px;{border}">'
+                f'<span style="font-size:14px;">{emoji}</span></td>'
+                f'<td style="padding:10px 0 10px 8px;{border}">'
+                f'<span style="font-family:{FONT};font-size:13.5px;color:{C_BODY};line-height:1.55;">'
                 f'{item.get("text","")}</span>{link}</td></tr>')
 
     blitz_rows = "".join(blitz_row(b, i == len(schnell[:6]) - 1) for i, b in enumerate(schnell[:6]))
-    blitz_section = f"""
-      {section_title(SEC['blitz'], 'Schnelldurchlauf')}
-      <tr><td style="padding:0 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:{SEC['blitz']['light']};border-radius:12px;
-                      border:1px solid #fed7aa;">
-          <tr><td style="padding:5px 18px;">
-            <table width="100%" cellpadding="0" cellspacing="0">
-              {blitz_rows}
-            </table>
-          </td></tr>
-        </table>
-      </td></tr>""" if blitz_rows else ""
+    blitz_section = (label('Schnelldurchlauf') + f"""
+      <tr><td>
+        <table width="100%" cellpadding="0" cellspacing="0">{blitz_rows}</table>
+      </td></tr>""") if blitz_rows else ""
 
-    news_rows  = "".join(news_block(n, i+1) for i, n in enumerate(top_news))
-    news_section = f"""
-      {section_title(SEC['news'], 'Top News des Tages')}
-      {news_rows}""" if news_rows else ""
-
-    def praxis_block(item: dict) -> str:
-        branche = badge(item.get('branche', ''), SEC['praxis']['color'], '#ccfbf1')
-        return f"""
-        <tr><td style="padding:0 0 14px;">
-          <table width="100%" cellpadding="0" cellspacing="0"
-                 style="border-radius:12px;border:1px solid #99f6e4;background:{SEC['praxis']['light']};">
-            <tr><td style="padding:16px 18px 8px;">
-              <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                <td>{branche}</td>
-                <td style="text-align:right;">
-                  <span style="font-family:{FONT};font-size:11px;font-weight:600;color:{C_MUTE};">
-                    {item.get('quelle','')}
-                  </span>
-                </td>
-              </tr></table>
-            </td></tr>
-            <tr><td style="padding:0 18px 8px;">
-              <a href="{item.get('url','#')}"
-                 style="font-family:{FONT};font-size:16px;font-weight:800;
-                        color:{C_TEXT};text-decoration:none;line-height:1.4;">
-                {item.get('titel','')}
-              </a>
-            </td></tr>
-            <tr><td style="padding:0 18px 14px;">
-              <span style="font-family:{FONT};font-size:14px;color:#374151;line-height:1.7;">
-                {item.get('zusammenfassung','')}
-              </span>
-            </td></tr>
-          </table>
-        </td></tr>"""
-
-    praxis_rows = "".join(praxis_block(p) for p in praxis[:2])
-    praxis_section = f"""
-      {section_title(SEC['praxis'], 'KI in der Praxis')}
-      {praxis_rows}""" if praxis_rows else ""
-
-    podcast_section = f"""
-      {section_title(SEC['podcast'], 'Podcast-Empfehlung')}
-      <tr><td style="padding:0 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="border-radius:12px;border:1px solid #fecdd3;">
-          <tr><td style="background:{SEC['podcast']['light']};border-radius:12px 12px 0 0;
-                         padding:9px 18px 8px;border-bottom:1px solid #fecdd3;">
-            <span style="font-family:{FONT};font-size:10px;font-weight:700;
-                         color:{SEC['podcast']['color']};letter-spacing:2px;text-transform:uppercase;">
-              {SEC['podcast']['emoji']}&ensp;{podcast.get('podcast_name','')}
+    podcast_section = (label('Hör-Tipp') + f"""
+      <tr><td>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="padding:0 0 5px;">
+            <span style="font-family:{FONT};font-size:11px;font-weight:700;color:{C_MUTE};
+                         letter-spacing:.5px;text-transform:uppercase;">
+              🎙️ {podcast.get('podcast_name','')} &nbsp;&middot;&nbsp; {podcast.get('datum','')}
             </span>
           </td></tr>
-          <tr><td style="padding:14px 18px 16px;">
-            <p style="margin:0 0 3px;font-family:{FONT};font-size:11px;color:{C_MUTE};">
-              {podcast.get('datum','')}
-            </p>
-            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
-                       color:{C_TEXT};line-height:1.4;">
-              <a href="{podcast.get('url','#')}" style="color:{C_TEXT};text-decoration:none;">
-                {podcast.get('episoden_titel','')}
-              </a>
-            </h3>
-            <p style="margin:0 0 12px;font-family:{FONT};font-size:14px;
-                      color:#374151;line-height:1.7;">
-              {podcast.get('warum_hoeren','')}
-            </p>
+          <tr><td style="padding:0 0 6px;">
             <a href="{podcast.get('url','#')}"
-               style="font-family:{FONT};font-size:12px;font-weight:700;
-                      color:{SEC['podcast']['color']};text-decoration:none;">
-              Episode anhören &rarr;
+               style="font-family:{FONT};font-size:16px;font-weight:800;color:{C_INK};
+                      text-decoration:none;line-height:1.4;">
+              {podcast.get('episoden_titel','')}
             </a>
           </td></tr>
+          <tr><td>
+            <span style="font-family:{FONT};font-size:14px;color:{C_BODY};line-height:1.6;">
+              {podcast.get('warum_hoeren','')}
+              <a href="{podcast.get('url','#')}"
+                 style="font-size:13px;font-weight:700;color:{ACCENT};
+                        text-decoration:none;white-space:nowrap;">Anh&ouml;ren&nbsp;&rarr;</a>
+            </span>
+          </td></tr>
         </table>
-      </td></tr>""" if podcast.get('episoden_titel') else ""
-    insp_badge = badge(inspiration.get('kategorie', ''), SEC['tipp']['color'], '#fef3c7')
+      </td></tr>""") if podcast.get('episoden_titel') else ""
+
     insp_prompt = f"""
-          <tr><td style="padding:0 20px 14px;">
+          <tr><td style="padding:10px 0 0;">
             <table width="100%" cellpadding="0" cellspacing="0"
                    style="background:#0f172a;border-radius:8px;">
               <tr><td style="padding:12px 16px 14px;">
                 <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;
-                          color:#e2e8f0;line-height:1.7;">{inspiration.get('prompt','')}</p>
+                          color:#e2e8f0;line-height:1.65;">{inspiration.get('prompt','')}</p>
               </td></tr>
             </table>
           </td></tr>""" if inspiration.get("prompt") else ""
     insp_tipp = f"""
-          <tr><td style="padding:0 20px 14px;">
-            <span style="font-family:{FONT};font-size:13px;color:#92400e;line-height:1.6;">
+          <tr><td style="padding:10px 0 0;">
+            <span style="font-family:{FONT};font-size:13px;color:{C_MUTE};line-height:1.6;">
               💡 {inspiration.get('tipp','')}
             </span>
           </td></tr>""" if inspiration.get("tipp") else ""
     insp_link = f"""
-          <tr><td style="padding:10px 20px 16px;border-top:1px solid #fde68a;">
+          <tr><td style="padding:10px 0 0;">
             <a href="{inspiration.get('url','#')}"
-               style="font-family:{FONT};font-size:12px;font-weight:700;
-                      color:{SEC['tipp']['color']};text-decoration:none;">
+               style="font-family:{FONT};font-size:13px;font-weight:700;
+                      color:{ACCENT};text-decoration:none;">
               {inspiration.get('link_text','Ausprobieren')} &rarr;
             </a>
           </td></tr>""" if inspiration.get("url") else ""
-    inspiration_section = f"""
-      {section_title(SEC['tipp'], 'Deine KI-Inspiration')}
-      <tr><td style="padding:0 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:{SEC['tipp']['light']};border-radius:12px;
-                      border:1px solid #fde68a;">
-          <tr><td style="padding:18px 20px 0;">
-            <div style="margin-bottom:10px;">{insp_badge}</div>
-            <h3 style="margin:0 0 10px;font-family:{FONT};font-size:16px;font-weight:700;
-                       color:{C_TEXT};">{inspiration.get('titel','')}</h3>
-            <p style="margin:0 0 14px;font-family:{FONT};font-size:14px;
-                      color:#374151;line-height:1.75;">{inspiration.get('beschreibung','')}</p>
+    inspiration_section = (label('Heute ausprobieren') + f"""
+      <tr><td>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="padding:0 0 7px;">
+            {pill(inspiration.get('kategorie',''))}
+          </td></tr>
+          <tr><td style="padding:0 0 6px;">
+            <span style="font-family:{FONT};font-size:16px;font-weight:800;color:{C_INK};
+                         line-height:1.4;">{inspiration.get('titel','')}</span>
+          </td></tr>
+          <tr><td>
+            <span style="font-family:{FONT};font-size:14px;color:{C_BODY};line-height:1.6;">
+              {inspiration.get('beschreibung','')}
+            </span>
           </td></tr>
           {insp_prompt}
           {insp_tipp}
           {insp_link}
-          <tr><td style="font-size:0;line-height:0;height:6px;">&nbsp;</td></tr>
         </table>
-      </td></tr>""" if inspiration.get("titel") else ""
-
+      </td></tr>""") if inspiration.get("titel") else ""
 
     top_titel = top_news[0].get("titel", "") if top_news else ""
-    preheader = f"{top_titel} – und mehr in der heutigen Ausgabe."
+    preheader = f"{top_titel} – und mehr in {read_min} Minuten." if top_titel else "Deine tägliche KI-Ausgabe."
 
     return f"""<!DOCTYPE html>
 <html lang="de">
@@ -1429,89 +1401,78 @@ def build_html(data: dict) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="supported-color-schemes" content="light">
-  <title>KI-Newsletter – {TODAY}</title>
+  <title>Der KI-Brief – {TODAY}</title>
 </head>
 <body style="margin:0;padding:0;background:{C_BG};">
-<!-- Preheader: unsichtbar, erscheint in der Inbox-Vorschau -->
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
   {preheader}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
 </div>
 <table width="100%" cellpadding="0" cellspacing="0" style="background:{C_BG};">
-<tr><td align="center" style="padding:24px 16px 48px;">
-<table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
+<tr><td align="center" style="padding:28px 16px 44px;">
+<table width="600" cellpadding="0" cellspacing="0"
+       style="max-width:600px;width:100%;background:#ffffff;border-radius:8px;
+              border:1px solid {C_LINE};">
+<tr><td style="padding:34px 40px 38px;">
+<table width="100%" cellpadding="0" cellspacing="0">
 
-  <!-- HEADER -->
-  <tr><td bgcolor="#1e1b4b" style="background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 60%,#6d28d9 100%);
-                 border-radius:16px 16px 0 0;padding:30px 36px 26px;">
-    <p style="margin:0 0 8px;font-family:{FONT};font-size:10px;color:#818cf8;
-              letter-spacing:3px;text-transform:uppercase;">
-      TÄGLICH &nbsp;·&nbsp; KOSTENLOS &nbsp;·&nbsp; {read_min}&thinsp;MIN &nbsp;·&nbsp; AUSGABE&thinsp;#{day_of_year}
-    </p>
-    <h1 style="margin:0 0 8px;font-family:{FONT};font-size:30px;font-weight:900;
-               color:#ffffff;letter-spacing:-.5px;line-height:1.15;">
-      KI-Newsletter 🤖
-    </h1>
-    <p style="margin:0;font-family:{FONT};font-size:13px;color:#c7d2fe;line-height:1.5;">
-      {TODAY} &nbsp;&middot;&nbsp; Kuratiert von Gemini 2.5 Flash &nbsp;&middot;&nbsp; Jeden Morgen im Postfach
+  <!-- MASTHEAD -->
+  <tr><td align="center" style="padding:0 0 8px;">
+    <span style="font-family:{FONT};font-size:24px;font-weight:900;color:{C_INK};
+                 letter-spacing:3px;text-transform:uppercase;">
+      Der&nbsp;<span style="color:{ACCENT};">KI</span>-Brief
+    </span>
+  </td></tr>
+  <tr><td align="center" style="padding:0 0 16px;">
+    <span style="font-family:{FONT};font-size:12px;color:{C_MUTE};letter-spacing:.5px;">
+      {weekday}, {TODAY} &nbsp;&middot;&nbsp; {read_min} Min Lesezeit
+    </span>
+  </td></tr>
+  <tr><td align="center" style="padding:0 0 6px;">
+    <table cellpadding="0" cellspacing="0"><tr>
+      <td width="52" style="border-top:3px solid {ACCENT};font-size:0;line-height:0;">&nbsp;</td>
+    </tr></table>
+  </td></tr>
+
+  <!-- INTRO -->
+  <tr><td style="padding:18px 0 0;">
+    <p style="margin:0;font-family:{FONT};font-size:15px;color:{C_BODY};line-height:1.7;">
+      {intro}
     </p>
   </td></tr>
 
-  <!-- BODY -->
-  <tr><td style="background:{C_CARD};padding:4px 36px 40px;
-                 border-radius:0 0 16px 16px;
-                 box-shadow:0 8px 30px rgba(79,70,229,.08);">
-    <table width="100%" cellpadding="0" cellspacing="0">
+  {news_section}
 
-      <!-- INTRO -->
-      <tr><td style="padding:26px 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr><td style="border-left:3px solid #4338ca;padding:4px 0 4px 14px;">
-            <p style="margin:0;font-family:{FONT};font-size:15px;color:#334155;line-height:1.8;">
-              {intro}
-            </p>
-          </td></tr>
-        </table>
-      </td></tr>
+  {praxis_section}
 
-      {news_section}
+  {blitz_section}
 
-      <!-- KI IN DER PRAXIS -->
-      {praxis_section}
+  {podcast_section}
 
-      <!-- SEKTION 1B: SCHNELLDURCHLAUF -->
-      {blitz_section}
-
-      {podcast_section}
-
-      {inspiration_section}
-
-    </table>
-  </td></tr>
+  {inspiration_section}
 
   <!-- FOOTER -->
-  <tr><td style="padding:28px 0 0;">
+  <tr><td style="padding:34px 0 0;">
     <table width="100%" cellpadding="0" cellspacing="0">
-      <tr><td style="background:#f8fafc;border-radius:12px;padding:16px 20px;
-                     border:1px solid #e2e8f0;text-align:center;">
-        <p style="margin:0 0 6px;font-family:{FONT};font-size:14px;font-weight:700;color:{C_TEXT};">
-          Was fehlt, was nervt, was willst du mehr davon? 💬
+      <tr><td style="border-top:1px solid {C_LINE};font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="padding:18px 0 0;" align="center">
+        <p style="margin:0 0 4px;font-family:{FONT};font-size:13.5px;font-weight:700;color:{C_INK};">
+          Was fehlt, was nervt, was willst du mehr? 💬
         </p>
-        <p style="margin:0;font-family:{FONT};font-size:13px;color:#64748b;line-height:1.6;">
-          Antworte einfach auf diese E-Mail – ich lese jede Antwort persönlich.
-          Und wenn dir die Ausgabe gefallen hat: Leite sie an einen Kollegen weiter.
+        <p style="margin:0;font-family:{FONT};font-size:13px;color:{C_MUTE};line-height:1.6;">
+          Antworte einfach auf diese E-Mail – jede Antwort wird gelesen.<br>
+          Gefällt dir der Brief? Leite ihn an eine:n Kolleg:in weiter.
         </p>
       </td></tr>
-      <tr><td style="padding:18px 0 0;text-align:center;">
-        <p style="margin:0 0 4px;font-family:{FONT};font-size:12px;color:#94a3b8;line-height:1.8;">
-          🤖 Automatisch kuratiert von Gemini 2.5 Flash &middot; GitHub Actions
-        </p>
-        <p style="margin:0;font-family:{FONT};font-size:11px;color:#cbd5e1;">
-          Jeden Morgen &middot; 0&thinsp;€/Monat &middot; Ausgabe&thinsp;#{day_of_year}
+      <tr><td align="center" style="padding:16px 0 0;">
+        <p style="margin:0;font-family:{FONT};font-size:11px;color:#9ca3af;">
+          Ausgabe&thinsp;#{day_of_year} &middot; jeden Morgen &middot; automatisch kuratiert
         </p>
       </td></tr>
     </table>
   </td></tr>
 
+</table>
+</td></tr>
 </table>
 </td></tr>
 </table>
