@@ -542,11 +542,6 @@ Gib ausschliesslich gueltiges JSON zurueck, ohne Markdown-Formatierung, ohne Erk
     "warum_hoeren": "2-3 Saetze auf Deutsch: Was macht diese Episode AUSSERGEWOEHNLICH?",
     "url": "https://...",
     "datum": "TT.MM.YYYY"
-  }},
-  "zahl_des_tages": {{
-    "zahl": "Eine konkrete Zahl/Prozentangabe/Kennzahl aus den heutigen News, z.B. '40%' oder '2,3 Mio.'",
-    "kontext": "Ein einziger Satz der erklaert wofuer die Zahl steht und warum sie relevant ist",
-    "quelle": "Name der Quelle"
   }}
 }}
 
@@ -558,7 +553,6 @@ NIEMALS eine Sektion aus Pflichtgefuehl fuellen.
 - praxis: 0 BIS 2 Eintraege – NUR bei echten Unternehmens-Use-Cases. Meist wird hier 0-1 stehen. Leere Liste [] ist der Normalfall an vielen Tagen.
 - schnelldurchlauf: 3 BIS 6 Einzeiler – nur was wirklich interessant ist, ebenfalls max. 48h alt
 - podcast: HOHE SCHWELLE. Nur ausfuellen wenn eine Episode herausragend ist: grosser Gast packt aus, ein Unternehmen erklaert seinen KI-Umbau konkret, etwas wirklich Neues wird erstmals diskutiert. An normalen Tagen leeres Objekt {{}} zurueckgeben. NICHT dieselbe Episode wie in den Vortagen (siehe ggf. Sperrliste unten).
-- zahl_des_tages: Nur ausfuellen wenn die Zahl wirklich verblueffend ist und aus einer der News stammt. Sonst leeres Objekt {{}}.
 - Eine Meldung erscheint in GENAU EINER Sektion (top_news ODER praxis ODER schnelldurchlauf)
 - Alle Daten im Format TT.MM.YYYY
 - URLs: die ECHTE Artikel-URL des Mediums. NIEMALS vertexaisearch- oder Redirect-URLs
@@ -713,7 +707,7 @@ def normalize_data(data: dict) -> dict:
     for key in ("top_news", "praxis", "schnelldurchlauf"):
         val = data.get(key)
         data[key] = [x for x in val if isinstance(x, dict)] if isinstance(val, list) else []
-    for key in ("podcast", "zahl_des_tages"):
+    for key in ("podcast",):
         if not isinstance(data.get(key), dict):
             data[key] = {}
     for key in ("intro",):
@@ -741,21 +735,18 @@ PRUEFE UND KORRIGIERE:
 4. WARUM-QUALITAET: Jedes "warum" muss Einordnung UND Empfehlung in einem Satz liefern,
    keine Wiederholung der Zusammenfassung. Kuerze jede Zusammenfassung auf max 2 Saetze.
 5. EU-CHECK: Wenn ein Feature nicht in der EU verfuegbar ist, muss das im "warum" stehen.
-6. ZAHL DES TAGES: Pruefe dass die Zahl wirklich aus einer der News stammt, nicht erfunden ist.
-7. Wenn nach der Pruefung weniger als 2 Eintraege in top_news uebrig bleiben, fuelle NICHT mit
+6. Wenn nach der Pruefung weniger als 2 Eintraege in top_news uebrig bleiben, fuelle NICHT mit
    schwachen Eintraegen auf – lieber kurz und stark als lang und schwach.
-8. PRAXIS-CHECK: Eintraege in "praxis" muessen ECHTE Unternehmens-Use-Cases sein (konkretes
+7. PRAXIS-CHECK: Eintraege in "praxis" muessen ECHTE Unternehmens-Use-Cases sein (konkretes
    Unternehmen, konkreter Einsatz). Umfragen, Studien ohne Firma und PR-Nebel entfernen.
-9. PODCAST-SCHWELLE: Streiche die Podcast-Empfehlung KOMPLETT (leeres Objekt), wenn die
+8. PODCAST-SCHWELLE: Streiche die Podcast-Empfehlung KOMPLETT (leeres Objekt), wenn die
    Episode nicht wirklich herausragend ist. Eine solide Episode reicht NICHT.
-10. ZAHL-SCHWELLE: Streiche zahl_des_tages (leeres Objekt), wenn die Zahl nicht wirklich
-   verblueffend ist.
-11. UPDATE-CHECK: Eintraege mit "update": true muessen eine ECHTE neue Entwicklung enthalten
+9. UPDATE-CHECK: Eintraege mit "update": true muessen eine ECHTE neue Entwicklung enthalten
    (verifiziere per Suche: neues Datum, neue Fakten). Wenn es nur eine Wiederholung ist,
    entferne den Eintrag komplett. Behalte das "update"-Feld bei echten Updates bei.
 
 Gib das KORRIGIERTE JSON in EXAKT demselben Format zurueck (Felder: intro, top_news,
-praxis, schnelldurchlauf, podcast, zahl_des_tages). Behalte ALLE Unterfelder jedes
+praxis, schnelldurchlauf, podcast). Behalte ALLE Unterfelder jedes
 Eintrags bei, insbesondere "warum" (top_news), "branche" (praxis) und "emoji"
 (schnelldurchlauf). Ersetze vertexaisearch-/Redirect-URLs durch die echte Artikel-URL.
 Keine Erklaerungen, kein Markdown, nur das JSON.
@@ -773,7 +764,7 @@ EDITOR_BLACKLIST_BLOCK = """
 def run_editor_pass(data: dict, published_titles: list = None) -> dict:
     """Zweiter Gemini-Durchlauf: prueft Aktualitaet, Dopplungen und Schreibqualitaet des Entwurfs."""
     try:
-        keys = ("intro", "top_news", "praxis", "schnelldurchlauf", "podcast", "zahl_des_tages")
+        keys = ("intro", "top_news", "praxis", "schnelldurchlauf", "podcast")
         draft_json = json.dumps({k: data[k] for k in keys if k in data}, ensure_ascii=False)
         editor_prompt = EDITOR_PROMPT_TEMPLATE.format(today=TODAY, draft=draft_json)
         if published_titles:
@@ -841,7 +832,7 @@ def run_style_pass(data: dict) -> dict:
     """Dritter Durchlauf ohne Suche: poliert nur die Sprache. Non-fatal – bei jedem
     Problem wird der Entwurf unverändert übernommen."""
     try:
-        keys = ("intro", "top_news", "praxis", "schnelldurchlauf", "podcast", "zahl_des_tages")
+        keys = ("intro", "top_news", "praxis", "schnelldurchlauf", "podcast")
         draft_json = json.dumps({k: data[k] for k in keys if k in data}, ensure_ascii=False)
         response = call_gemini(STYLE_PROMPT_TEMPLATE.format(draft=draft_json),
                                patient=False, use_search=False)
@@ -868,9 +859,6 @@ def run_style_pass(data: dict) -> dict:
         pod = polished.get("podcast", {})
         if data.get("podcast", {}).get("episoden_titel") and isinstance(pod.get("warum_hoeren"), str) and pod["warum_hoeren"].strip():
             data["podcast"]["warum_hoeren"] = pod["warum_hoeren"]
-        zahl = polished.get("zahl_des_tages", {})
-        if data.get("zahl_des_tages", {}).get("zahl") and isinstance(zahl.get("kontext"), str) and zahl["kontext"].strip():
-            data["zahl_des_tages"]["kontext"] = zahl["kontext"]
         print("  ✓ Stil-Pass abgeschlossen (Sprache poliert, Fakten unangetastet)")
         return data
     except Exception as e:
@@ -1076,7 +1064,6 @@ def get_newsletter_data() -> dict:
                          "schon in den letzten Ausgaben. Das ist auch eine Information: kein "
                          "FOMO nötig. Dafür lohnt sich die heutige Inspiration weiter unten.")
         data["podcast"] = data.get("podcast") or {}
-        data["zahl_des_tages"] = data.get("zahl_des_tages") or {}
     elif 0 < len(data.get("top_news", [])) < 2:
         data["intro"] = (data.get("intro", "").strip() + " Heute ist die Ausgabe bewusst "
                          "kompakt – es gab schlicht wenig wirklich Neues, und lieber kurz "
@@ -1174,7 +1161,6 @@ SEC = {
     "blitz":   {"emoji": "⚡", "color": "#ea580c", "light": "#fff7ed"},
     "podcast": {"emoji": "🎙️", "color": "#f43f5e", "light": "#fff1f2"},
     "tipp":    {"emoji": "💡", "color": "#d97706", "light": "#fffbeb"},
-    "zahl":    {"emoji": "📊", "color": "#be185d", "light": "#fdf2f8"},
     "praxis":  {"emoji": "🏢", "color": "#0f766e", "light": "#f0fdfa"},
     "trend":   {"emoji": "📈", "color": "#9333ea", "light": "#faf5ff"},
 }
@@ -1193,7 +1179,7 @@ def _escape_for_html(data: dict) -> dict:
             for k, v in list(item.items()):
                 if isinstance(v, str):
                     item[k] = v[:8] if k == "emoji" else esc(v)
-    for dict_key in ("podcast", "zahl_des_tages"):
+    for dict_key in ("podcast",):
         for k, v in list(data.get(dict_key, {}).items()):
             if isinstance(v, str):
                 data[dict_key][k] = esc(v)
@@ -1208,7 +1194,6 @@ def build_html(data: dict) -> str:
     podcast     = data.get("podcast", {})
     intro       = data.get("intro", "")
     inspiration  = data.get("inspiration", {})
-    zahl_tages   = data.get("zahl_des_tages", {})
     day_of_year  = datetime.now().timetuple().tm_yday
 
     # Lesezeit-Schätzung (200 Wörter/Min)
@@ -1284,29 +1269,6 @@ def build_html(data: dict) -> str:
           </table>
         </td></tr>"""
 
-    zahl_block = f"""
-      <tr><td style="padding:18px 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0"
-               style="background:linear-gradient(135deg,{SEC['zahl']['light']} 0%,#ffffff 100%);
-                      border:1px solid #fbcfe8;border-radius:12px;">
-          <tr>
-            <td style="padding:16px 8px 16px 20px;vertical-align:middle;width:1%;">
-              <span style="font-family:{FONT};font-size:32px;font-weight:900;
-                           color:{SEC['zahl']['color']};letter-spacing:-1px;white-space:nowrap;">
-                {zahl_tages.get('zahl','')}
-              </span>
-            </td>
-            <td style="padding:16px 20px 16px 10px;vertical-align:middle;">
-              <span style="font-family:{FONT};font-size:9px;font-weight:900;color:{SEC['zahl']['color']};
-                           letter-spacing:1.5px;text-transform:uppercase;">Zahl des Tages</span><br>
-              <span style="font-family:{FONT};font-size:13px;color:#374151;line-height:1.5;">
-                {zahl_tages.get('kontext','')}
-              </span>
-              <span style="font-family:{FONT};font-size:11px;color:{C_MUTE};"> &middot; {zahl_tages.get('quelle','')}</span>
-            </td>
-          </tr>
-        </table>
-      </td></tr>""" if zahl_tages.get("zahl") else ""
 
     def blitz_row(item: dict, is_last: bool) -> str:
         quelle = item.get('quelle', '')
@@ -1511,9 +1473,6 @@ def build_html(data: dict) -> str:
         </table>
       </td></tr>
 
-      <!-- ZAHL DES TAGES -->
-      {zahl_block}
-
       {news_section}
 
       <!-- KI IN DER PRAXIS -->
@@ -1567,9 +1526,6 @@ def build_text(data: dict) -> str:
     intro = data.get("intro", "")
     if intro:
         lines += [intro, ""]
-    zahl = data.get("zahl_des_tages", {})
-    if zahl.get("zahl"):
-        lines += [f"ZAHL DES TAGES: {zahl['zahl']} – {zahl.get('kontext','')}", ""]
     if data.get("top_news"):
         lines.append("TOP NEWS")
         for n in data["top_news"]:
