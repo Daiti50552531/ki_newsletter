@@ -1,47 +1,6 @@
 {
   "editions": [
     {
-      "date": "20.07.2026",
-      "top_news": [
-        {
-          "titel": "ChatGPT findet endlich deine alten Chats: So organisierst du dein Wissen neu",
-          "zusammenfassung": "OpenAI hat eine umfassende Suchfunktion für ChatGPT eingeführt, die es dir ermöglicht, all deine vergangenen Konversationen, generierten Bilder und hochgeladenen Dokumente zentral zu durchsuchen. Bisher war es oft mühsam, alte Informationen wiederzufinden, doch dieses Update verwandelt ChatGPT von einem reinen Chatbot in einen persönlichen Wissensspeicher mit eigenem 'Dateisystem'. Die Funktion ist ab sofort weltweit für alle Pläne auf Web, iOS und Android verfügbar.",
-          "take": "Unbedingt ausprobieren! Diese Funktion löst ein Kernproblem der Produktivität mit ChatGPT und macht die gesammelten Daten endlich wirklich nutzbar. Ein klarer Gewinn für deinen Arbeitsalltag.",
-          "quelle": "OpenAI Help Center, Notebookcheck News, Digital Trends",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMgfolbheBNSOZjc5SBZz7_nzDz8xJKL4r3gmlgQ3FjHKpFpiG8tdWyHi4NJJFbmF6cl5wYO-htb8zX_N8x0hw3WzwKpsZc3h-qk8wkTO7nMDXJqOGY7x7XOzt2GoKbQosOga4",
-          "datum": "19.07.2026"
-        },
-        {
-          "titel": "Kimi K3: Chinesisches KI-Modell mit 2,8 Billionen Parametern fordert Silicon Valley heraus",
-          "zusammenfassung": "Das chinesische Unternehmen Moonshot AI hat Kimi K3 vorgestellt, ein beeindruckendes KI-Modell mit 2,8 Billionen Parametern. Damit beansprucht es den Titel des weltweit größten offenen KI-Modells und signalisiert eine rapide Schließung der technologischen Lücke zwischen den USA und China im Bereich der Künstlichen Intelligenz. Die Modellgewichte sollen bis zum 27. Juli öffentlich zugänglich gemacht werden.",
-          "take": "Behalte Kimi K3 und Moonshot AI im Auge. Ein so großes offenes Modell könnte neue Maßstäbe setzen und die Entwicklung von Anwendungen, die du selbst nutzen oder bauen kannst, erheblich beschleunigen.",
-          "quelle": "VentureBeat, Forbes, Exploring ChatGPT, Gizmochina",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnJPJKqd0ACdKZTadlkexXHkm_KbOG_5VEpGwU2pbbSPicS2BwLJfc-AMCup-q9DI_Rmqcicg82OC6y5bboq8U6WBRPY_Dblv7wafXXOAdVTIdzsJGSixNeHCl6khXhla3lMnvsB_jBGkbGJG5lhqAbxV8SS_KJ4hWqxjffT5AG3EJWdf8LLOCPTwzFNoNzQ",
-          "datum": "18.07.2026"
-        },
-        {
-          "titel": "KI-Infrastruktur im Orbit: SenseTime und Adaspace Technology entwickeln 'Computing Constellation'",
-          "zusammenfassung": "Das Raumfahrtunternehmen Chengdu Adaspace Technology und der KI-Branchenführer SenseTime arbeiten gemeinsam an der Entwicklung des 'SenseTime Space Computing Power Constellation'. Diese Partnerschaft markiert einen Wandel im Weltraum-Computing, da raumbasierte Rechenkapazitäten nun systemisch in die globale KI-Infrastruktur integriert werden sollen. Ziel ist ein hybrides Raum-Boden-Cloudmodell, das Rechenlasten dynamisch zwischen terrestrischen Rechenzentren und orbitalen Knoten verteilt, um datenintensive Vorverarbeitung und latenzkritische Inferenz direkt im Orbit durchzuführen.",
-          "take": "Ein faszinierender Blick in die Zukunft der KI-Infrastruktur. Auch wenn dies noch keine direkten Auswirkungen auf deinen Arbeitsalltag hat, zeigt es, wie fundamental sich die Grundlagen der KI-Bereitstellung verändern – ein Thema zum Beobachten für strategische Planungen.",
-          "quelle": "Global Times, Shanghai Announces Space-Based AI Computing Network Upgrades",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrz4KU8tRAGY0os4-6Drw18hRXG-izIHQEP4SJ7MzUXCsgAP5gLrAs_B8JuiTjO8r3XxtiC38DSAv1efxyK-5xKBqO-4WvL8qXWcX1nP9yKZpAU3vN_u5s5oHZRkXGkj-tRGd-DG99zdMmz0pGFpYUt3BFuFp2gg==",
-          "datum": "18.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Dropbox und OpenAI erweitern ihre Kooperation, um neue KI-Skills für ChatGPT zu ermöglichen und die Integration von KI in Dokumenten-Workflows zu verbessern.",
-          "quelle": "Fathom, Tech in Asia, ETIH edtech news",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrD_NftibLqVMrwfEXg2SkdufguthuQWwzVY7BwW8KyweP9wjBkq6Mw_kbgKR5H-Fw2oc36Au4sdok1E3ZaLJyqnyb9L0-7hl8QWN7mu4E84u2Yn1bMwnpQRQkYYBOHxOiAOLafVNPTJpdy2NP9jSw5wHt6vQ1wohzmp6jzl9R0RYtVeofkuD5Khi2EQs_3G7bLh_ckS42nJHztlNJWg=="
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "Adam Brown: General Relativity and AI Physics | Dwarkesh Podcast",
-        "podcast_name": "Dwarkesh Podcast"
-      }
-    },
-    {
       "date": "21.07.2026",
       "top_news": [
         {
@@ -436,11 +395,76 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "30.07.2026",
+      "top_news": [
+        {
+          "titel": "xAI veröffentlicht Grok 4.5 und macht Grok Voice Think Fast um 60% effizienter",
+          "zusammenfassung": "xAI veröffentlicht Grok 4.5 und aktualisiert Grok Voice Think Fast auf Version 2.0. Die Sprach-KI arbeitet nun deutlich effizienter: Das neue Modell reduziert benötigte Tokens um rund 60% und liefert schnellere Antworten. Grok-Voice-Latest wechselt am 5. August auf Version 2.0.",
+          "warum": "Entwickeln Sie Agenten oder Sprach-Interfaces, dann prüfen Sie Grok 4.5. Schnellere, günstigere Sprach-KI spart Kosten und steigert die User Experience.",
+          "quelle": "KuCoin, explainx.ai Blog",
+          "url": "https://www.kucoin.com/news/xai-lauch-grok-4-5-and-upgrades-grok-voice-to-think-faster-20260730",
+          "datum": "29.07.2026"
+        },
+        {
+          "titel": "Copilot integriert sich tiefer in Outlook Classic und optimiert E-Mail-Workflows",
+          "zusammenfassung": "Microsoft integriert Copilot tiefer in Outlook Classic. Der Button sitzt prominenter im Menüband und Copilot hilft direkt beim Erstellen, Verfeinern und Bearbeiten von E-Mails.",
+          "warum": "Nutzen Sie Outlook Classic? Microsoft plant mehr KI-Unterstützung. Evaluieren Sie diese Funktion im Herbst, um E-Mail-Zeiten zu reduzieren.",
+          "quelle": "Windows Latest",
+          "url": "https://www.google.com/search?q=Copilot%20integriert%20sich%20tiefer%20in%20Outlook%20Classic%20und%20optimiert%20E-Mail-Workflows%20Windows%20Latest",
+          "datum": "29.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "ALLO Fiber bringt KI-Agenten in den Telekommunikations-Mittelstand",
+          "zusammenfassung": "Glasfaseranbieter ALLO Fiber kooperiert mit Vida Global, um Geschäftskunden KI-Agenten anzubieten. Diese Agenten automatisieren Kundenkommunikation kanalübergreifend und übernehmen Routineaufgaben, was Teams auf Wachstumsbereiche fokussiert.",
+          "branche": "Telekommunikation",
+          "quelle": "KC Chamber",
+          "url": "https://www.google.com/search?q=ALLO%20Fiber%20bringt%20KI-Agenten%20in%20den%20Telekommunikations-Mittelstand%20KC%20Chamber",
+          "datum": "29.07.2026"
+        },
+        {
+          "titel": "effie.ai stoppt Regal-Chaos im Einzelhandel mit KI-Agenten",
+          "zusammenfassung": "effie.ai nutzt spezielle KI-Agenten, um die Ausführung im Einzelhandel zu optimieren und Verluste durch Bestandsabweichungen zu reduzieren. Die Agenten liefern Echtzeit-Einblicke in Regalbestände und erledigen alle Aufgaben eines Ladenbesuchs, ausgenommen das Merchandising selbst.",
+          "branche": "Handel",
+          "quelle": "Branchenpresse",
+          "url": "https://venturebeat.com/ai/as-ai-agents-take-over-checkout-retailers-are-racing-to-fix-whats-still-invisible-on-the-shelf/",
+          "datum": "28.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Singulr AI erweitert seine Agent Pulse-Plattform. Sie ermöglicht Laufzeitkontrolle für KI-Agenten auf Endgeräten und in AI Gateways, was Sicherheitslücken schließt.",
+          "quelle": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20260729379822/en/Singulr-AI-Expands-Agent-Governance-to-Local-AI-on-Employee-Endpoints"
+        },
+        {
+          "text": "OpenAI bietet Werbekunden Gutschriften an. Dies soll zum Testen von ChatGPT-Anzeigen anregen und das eigene Werbegeschäft ausbauen.",
+          "quelle": "Digiday",
+          "url": "https://digiday.com/media/openais-chatgpt-reaches-the-coupon-stage-of-building-an-ad-business/"
+        },
+        {
+          "text": "Snowflake führt das Cortex AI Gateway ein. Diese zentrale Steuerungsebene regelt den Zugriff von KI-Agenten auf Unternehmensdaten und -tools und verhindert so Kostenexplosionen.",
+          "quelle": "VentureBeat",
+          "url": "https://venturebeat.com/ai/snowflake-lauch-cortex-ai-gateway-to-control-ai-agents-and-prevent-runaway-enterprise-costs/"
+        },
+        {
+          "text": "OpenAI-Präsident Greg Brockman bezeichnet die aktuelle ChatGPT Desktop-App als 'ein bisschen ein Chaos'. Er kündigt ein tabloses Design für eine klarere Benutzeroberfläche an.",
+          "quelle": "The Mac Observer, 9to5Mac",
+          "url": "https://www.google.com/search?q=OpenAI-Pr%C3%A4sident%20Greg%20Brockman%20bezeichnet%20die%20aktuelle%20ChatGPT%20Desktop-App%20als%20%27ein%20bisschen%20ein%20Chaos%27.%20Er%20k%C3%BCndigt%20ein%20tabloses%20Design%20f%C3%BCr%20eine%20klarere%20Benutzeroberfl%C3%A4che%20an.%20The%20Mac%20Observer%2C%209to5Mac"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "29.07.2026",
+  "last_sent": "30.07.2026",
   "sent_log": {
-    "date": "29.07.2026",
+    "date": "30.07.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
