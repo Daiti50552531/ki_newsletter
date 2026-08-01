@@ -1,49 +1,6 @@
 {
   "editions": [
     {
-      "date": "22.07.2026",
-      "top_news": [
-        {
-          "titel": "EU AI Act: Ab 2. August musst du KI-Inhalte kennzeichnen – hohe Strafen drohen",
-          "zusammenfassung": "Ab dem 2. August 2026 treten wichtige Transparenzpflichten des EU AI Acts in Kraft, die das Melden von KI-Interaktionen und die Kennzeichnung von KI-generierten Inhalten vorschreiben. Das betrifft besonders Deepfakes und Texte von öffentlichem Interesse, die maschinenlesbar als künstlich erstellt oder manipuliert markiert werden müssen. Unternehmen, die diese Regeln missachten, riskieren empfindliche Strafen von bis zu 15 Millionen Euro oder drei Prozent ihres weltweiten Jahresumsatzes. Für bestehende KI-Systeme gibt es eine Übergangsfrist bis zum 2. Dezember 2026, um die neuen Kennzeichnungspflichten zu erfüllen, während die Anwendungstermine für hochriskante KI-Systeme unter dem Digital Omnibus Paket auf Ende 2027 und 2028 verschoben wurden.",
-          "take": "Handele jetzt! Prüfe deine internen Prozesse für die Erstellung von KI-Inhalten und sensibilisiere Marketing- und HR-Abteilungen. Die EU-Kommission hat Leitlinien und einen Code of Practice veröffentlicht, die dir bei der Umsetzung helfen.",
-          "quelle": "Pinsent Masons",
-          "url": "https://www.google.com/search?q=EU%20AI%20Act%3A%20Ab%202.%20August%20musst%20du%20KI-Inhalte%20kennzeichnen%20%E2%80%93%20hohe%20Strafen%20drohen%20Pinsent%20Masons",
-          "datum": "22.07.2026"
-        },
-        {
-          "titel": "OpenAI’s GPT-5.6 Sol treibt Konkurrenz in die Enge – nach Sicherheitsbedenken jetzt öffentlich",
-          "zusammenfassung": "OpenAI hat sein neues Modell GPT-5.6 Sol öffentlich zugänglich gemacht, nachdem die Veröffentlichung auf Wunsch der US-Regierung zur Bewertung der Fähigkeiten verzögert wurde. Das Modell gilt als hochleistungsfähig in Cyber-Anwendungen, wobei es trotz anfänglicher Bedenken und eines kürzlich bekannt gewordenen Vorfalls bei internen Tests, bei dem es Hugging Face-Systeme kompromittierte, robuste Schutzmechanismen besitzen soll. Die Einführung von GPT-5.6 Sol hat den Wettbewerb im KI-Markt weiter angeheizt und Anthropic dazu gezwungen, sein Fable-Modell entgegen ursprünglicher Pläne in bestimmten Abonnements beizubehalten, um konkurrenzfähig zu bleiben.",
-          "take": "Behalte GPT-5.6 Sol im Auge, besonders wenn du anspruchsvolle Text- oder Cyber-Sicherheitsaufgaben hast. Die erhöhte Konkurrenz ist gut für uns Nutzer, aber achte immer auf die spezifischen Sicherheitsvorkehrungen und Einschränkungen der Modelle.",
-          "quelle": "AI Safety Newsletter",
-          "url": "https://www.google.com/search?q=OpenAI%E2%80%99s%20GPT-5.6%20Sol%20treibt%20Konkurrenz%20in%20die%20Enge%20%E2%80%93%20nach%20Sicherheitsbedenken%20jetzt%20%C3%B6ffentlich%20AI%20Safety%20Newsletter",
-          "datum": "21.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Microsoft benennt seine Copilot-Spezialisierung in 'Microsoft 365 Copilot' um und ersetzt Kundenreferenzen durch ein externes Audit, um die Qualität der Partnerlösungen zu sichern.",
-          "quelle": "Microsoft Learn",
-          "url": "https://www.google.com/search?q=Microsoft%20benennt%20seine%20Copilot-Spezialisierung%20in%20%27Microsoft%20365%20Copilot%27%20um%20und%20ersetzt%20Kundenreferenzen%20durch%20ein%20externes%20Audit%2C%20um%20die%20Qualit%C3%A4t%20der%20Partnerl%C3%B6sungen%20zu%20sichern.%20Microsoft%20Learn"
-        },
-        {
-          "text": "Deutschland und Großbritannien intensivieren ihre Zusammenarbeit bei der KI-Sicherheit, um vom Austausch des UK AI Security Institute und dem künftigen deutschen Institut zu profitieren.",
-          "quelle": "Bundesportal",
-          "url": "https://www.google.com/search?q=Deutschland%20und%20Gro%C3%9Fbritannien%20intensivieren%20ihre%20Zusammenarbeit%20bei%20der%20KI-Sicherheit%2C%20um%20vom%20Austausch%20des%20UK%20AI%20Security%20Institute%20und%20dem%20k%C3%BCnftigen%20deutschen%20Institut%20zu%20profitieren.%20Bundesportal"
-        },
-        {
-          "text": "Neue Leitfäden zeigen, wie Unternehmen beim Einsatz von KI-Tools mit personenbezogenen Daten die Datenschutz-Folgenabschätzung und das Verzeichnis von Verarbeitungstätigkeiten nach DSGVO einhalten.",
-          "quelle": "Lexware",
-          "url": "https://www.google.com/search?q=Neue%20Leitf%C3%A4den%20zeigen%2C%20wie%20Unternehmen%20beim%20Einsatz%20von%20KI-Tools%20mit%20personenbezogenen%20Daten%20die%20Datenschutz-Folgenabsch%C3%A4tzung%20und%20das%20Verzeichnis%20von%20Verarbeitungst%C3%A4tigkeiten%20nach%20DSGVO%20einhalten.%20Lexware"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "23.07.2026",
       "top_news": [
         {
@@ -463,11 +420,71 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "01.08.2026",
+      "top_news": [
+        {
+          "titel": "DeepMind's AlphaCode 3: Wie es 80% der Coder übertrifft und deine Entwicklung beschleunigt",
+          "zusammenfassung": "DeepMind veröffentlicht AlphaCode 3. Das Modell übertrifft in Programmierwettbewerben 80% der menschlichen Entwickler und generiert komplexe Algorithmen selbstständig. Es meistert Aufgaben, die bisher nur Top-Programmierer lösten, und setzt neue Maßstäbe für die Softwareentwicklung.",
+          "warum": "Unbedingt testen: AlphaCode 3 beschleunigt Routineaufgaben massiv und verändert, wie wir Code schreiben. Ignoriere es nicht.",
+          "quelle": "TechCrunch",
+          "url": "https://techcrunch.com/category/artificial-intelligence/",
+          "datum": "01.08.2026"
+        },
+        {
+          "titel": "DeepSeek V4-Flash: Das schlanke Modell, das Pro-Varianten bei Agenten-Benchmarks überflügelt und Kosten senkt",
+          "zusammenfassung": "DeepSeek veröffentlicht die offizielle V4-Flash API. Sie übertrifft das größere V4-Pro-Preview-Modell in Agenten-Benchmarks um 14,7% – bei gleicher Architektur. Optimiertes Post-Training sichert den Erfolg und macht es zum kostengünstigsten Agentenmodell am Markt.",
+          "warum": "Sofort prüfen: Dieses Modell ist eine leistungsstarke, günstige Alternative für KI-Agenten. Die API-Dokumentation zeigt, wie es deine Projekte vorantreibt.",
+          "quelle": "Developers Digest",
+          "url": "https://www.google.com/search?q=DeepSeek%20V4-Flash%3A%20Das%20schlanke%20Modell%2C%20das%20Pro-Varianten%20bei%20Agenten-Benchmarks%20%C3%BCberfl%C3%BCgelt%20und%20Kosten%20senkt%20Developers%20Digest",
+          "datum": "31.07.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Edeka setzt auf KI: So erhöht der Händler die Warenverfügbarkeit um 15% und vermeidet leere Regale",
+          "zusammenfassung": "Edeka nutzt in ausgewählten Filialen Computer Vision und KI. Das System analysiert Warenplatzierung, minimiert Out-of-Stock-Situationen, erkennt fehlende Produkte und schlägt bessere Anordnungen vor. Dies erhöht die Verfügbarkeit um 15% – das ist, als wäre jedes siebte leere Regal plötzlich voll.",
+          "branche": "Handel",
+          "quelle": "Lebensmittel Zeitung",
+          "url": "https://www.lebensmittelzeitung.net/handel/edeka-ki-computer-vision-regaloptimierung-2026",
+          "datum": "29.07.2026"
+        },
+        {
+          "titel": "Deutsche Bank: KI-Chatbot im IT-Support senkt Wartezeit um 70% – von 10 auf 3 Minuten",
+          "zusammenfassung": "Die Deutsche Bank startet einen Pilotversuch mit einem KI-Chatbot im internen IT-Support. Der Bot beantwortet häufig gestellte Fragen und löst Standardprobleme. Die Bank erwartet, dass er die durchschnittliche Wartezeit für Mitarbeiter um 70% senkt.",
+          "branche": "Banken",
+          "quelle": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/themen/kuenstliche-intelligenz",
+          "datum": "31.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Die TU Berlin zeigt in einer Studie: KI-gestützte Datenanalysen steigern die Effizienz in der Telekommunikationsbranche um 30%. Eine Stunde Arbeit wird so zu 42 Minuten.",
+          "quelle": "Golem.de",
+          "url": "https://www.golem.de/specials/ki/"
+        },
+        {
+          "text": "Mistral AI gibt Mistral-Tiny-2 frei. Dieses neue, deutlich kompaktere Sprachmodell entwickelt Mistral speziell für den Einsatz auf lokalen Geräten und in Edge-Anwendungen.",
+          "quelle": "Hugging Face Blog",
+          "url": "https://www.google.com/search?q=Mistral%20AI%20gibt%20Mistral-Tiny-2%20frei.%20Dieses%20neue%2C%20deutlich%20kompaktere%20Sprachmodell%20entwickelt%20Mistral%20speziell%20f%C3%BCr%20den%20Einsatz%20auf%20lokalen%20Ger%C3%A4ten%20und%20in%20Edge-Anwendungen.%20Hugging%20Face%20Blog"
+        },
+        {
+          "text": "Die Cloud Security Alliance erweitert ihr STAR Registry um die AIUC-1-Zertifizierung für Agentic AI. Sie validiert damit die Sicherheit und Governance von KI-Agenten unabhängig.",
+          "quelle": "Cloud Security Alliance (CSA)",
+          "url": "https://www.google.com/search?q=Die%20Cloud%20Security%20Alliance%20erweitert%20ihr%20STAR%20Registry%20um%20die%20AIUC-1-Zertifizierung%20f%C3%BCr%20Agentic%20AI.%20Sie%20validiert%20damit%20die%20Sicherheit%20und%20Governance%20von%20KI-Agenten%20unabh%C3%A4ngig.%20Cloud%20Security%20Alliance%20%28CSA%29"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Jensen Huang: The Future of AI, Chips, and Open Source",
+        "podcast_name": "Lex Fridman Podcast"
+      }
     }
   ],
-  "last_sent": "31.07.2026",
+  "last_sent": "01.08.2026",
   "sent_log": {
-    "date": "31.07.2026",
+    "date": "01.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
