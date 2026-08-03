@@ -1,48 +1,6 @@
 {
   "editions": [
     {
-      "date": "24.07.2026",
-      "top_news": [
-        {
-          "titel": "OpenAI Presence: KI-Agenten übernehmen komplexe Unternehmensworkflows – aber noch nicht für alle",
-          "zusammenfassung": "OpenAI hat 'Presence' vorgestellt, ein neues Produkt für Unternehmen, das darauf abzielt, KI-Agenten zuverlässig in Kunden- und interne Arbeitsabläufe zu integrieren. Diese Agenten können Fragen beantworten, Probleme lösen und sogar Unternehmenssysteme nutzen. Der Fokus liegt auf der Praxistauglichkeit in Produktionseinsätzen, unterstützt durch Systeme, Evaluierungen und Fachwissen für kontinuierliche Verbesserungen. Aktuell ist Presence für Sprach- und Chat-Agenten verfügbar, jedoch nur für ausgewählte Unternehmenskunden im Rahmen eines Programms mit begrenzter allgemeiner Verfügbarkeit und nicht als Self-Service-Produkt.",
-          "take": "Beobachten. Das Potenzial ist riesig für die Automatisierung komplexer Aufgaben, aber als Wissensarbeiter ohne Entwicklerteam greifst du hier noch nicht direkt zu. Es zeigt aber, wohin die Reise geht.",
-          "quelle": "OpenAI",
-          "url": "https://openai.com/blog/introducing-openai-presence",
-          "datum": "22.07.2026"
-        },
-        {
-          "titel": "ChatGPT Desktop App erhält Memory-Upgrade und interaktive Charts für alle Abonnenten",
-          "zusammenfassung": "OpenAI verbessert die ChatGPT Desktop App und erweitert die Funktionen des Modells GPT-5.5 Instant. Für Plus- und Pro-Nutzer verdoppelt sich die Gedächtniskapazität von ChatGPT, sodass das Modell Präferenzen und Ziele über längere Konversationen hinweg besser im Blick behält. Zudem kann ChatGPT jetzt Antworten direkt in der Konversation in interaktive Balken-, Linien-, Kreis- und Streudiagramme umwandeln, um Trends und Vergleiche einfacher darzustellen. Die Desktop-App selbst erhält ein übersichtlicheres Layout mit einer globalen Umschaltfunktion zwischen Chat und Work und einer vereinheitlichten Ansicht für aktuelle Konversationen und Projekte.",
-          "take": "Unbedingt prüfen und nutzen! Die erhöhte Gedächtniskapazität macht längere Projekte mit ChatGPT deutlich angenehmer, und die interaktiven Charts sind ein echter Game Changer für schnelle Datenvisualisierungen.",
-          "quelle": "reconnAI, OpenAI Help Center",
-          "url": "https://www.google.com/search?q=ChatGPT%20Desktop%20App%20erh%C3%A4lt%20Memory-Upgrade%20und%20interaktive%20Charts%20f%C3%BCr%20alle%20Abonnenten%20reconnAI%2C%20OpenAI%20Help%20Center",
-          "datum": "22.07.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Synagistics startet KI-Commerce-Ökosystem Geene 2.0 für den Handel, inklusive Blockchain-Verifizierung",
-          "zusammenfassung": "Das Unternehmen Synagistics hat 'Geene 2.0' vorgestellt, ein KI-Commerce-Ökosystem, das in Zusammenarbeit mit ByteDance's BytePlus und China Mobile International entwickelt wurde. Die Plattform integriert KI, Daten, Medien, Handel und Blockchain, um maßgeschneiderte Lösungen für Marken, den Einzelhandel und den E-Commerce zu bieten. Ein konkreter Einsatzfall ist die malaysische Durian-Marke AGONG Durian, die Geene 2.0 zur Konsolidierung von Verkaufs-, Kunden- und Kanaldaten, zur Generierung von KI-gestützten Inhalten und zur Blockchain-Verifizierung der Produktursprungsdaten nutzt. Die kommerzielle Verfügbarkeit ist ab dem 8. August geplant.",
-          "branche": "Handel",
-          "quelle": "The Standard (HK)",
-          "url": "https://www.thestandard.com.hk/breaking-news/section/2/220261/Synagistics-surges-on-Geene-2.0-AI-commerce-ecosystem-launch",
-          "datum": "22.07.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "In China nutzen bereits 300 Millionen Menschen monatlich Alibaba's Qwen-Assistenten, und Alipay verzeichnete in einer Woche 120 Millionen KI-Agenten-Transaktionen, was die rasante Entwicklung im KI-Commerce zeigt.",
-          "quelle": "ChoZan",
-          "url": "https://www.google.com/search?q=In%20China%20nutzen%20bereits%20300%20Millionen%20Menschen%20monatlich%20Alibaba%27s%20Qwen-Assistenten%2C%20und%20Alipay%20verzeichnete%20in%20einer%20Woche%20120%20Millionen%20KI-Agenten-Transaktionen%2C%20was%20die%20rasante%20Entwicklung%20im%20KI-Commerce%20zeigt.%20ChoZan"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "25.07.2026",
       "top_news": [
         {
@@ -453,11 +411,84 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "03.08.2026",
+      "top_news": [
+        {
+          "titel": "DeepSeek V4-Flash ist offiziell – und übertrifft die Pro-Version bei Agenten-Aufgaben",
+          "zusammenfassung": "DeepSeek veröffentlicht V4-Flash als offizielle API-Version, die bei Agenten-Benchmarks die bisherige Pro-Preview überflügelt. Das Modell ist extrem kosteneffizient und bietet erweiterte Agenten-Fähigkeiten für nur Bruchteile der Kosten anderer Modelle.",
+          "warum": "Unbedingt testen, wenn du Agenten-Workflows planst: Für weniger als 30 Cent pro Million Tokens erhältst du eine Leistung, die sonst deutlich teurer ist.",
+          "quelle": "LM Studio",
+          "url": "https://lmstudio.ai/models/deepseek/deepseek-v4-flash",
+          "datum": "02.08.2026"
+        },
+        {
+          "titel": "Update: EU AI Act greift jetzt – Transparenzpflichten für KI-Systeme sind ab sofort bindend",
+          "zusammenfassung": "Ab dem 2. August 2026 beginnt die EU mit der Durchsetzung zentraler Bestimmungen des KI-Gesetzes, darunter neue Transparenzpflichten. Unternehmen müssen Nutzer informieren, wenn sie mit KI interagieren, und KI-generierte Inhalte kennzeichnen.",
+          "warum": "Prüfe sofort interne KI-Anwendungen und externe Kommunikation. Die Vorbereitungszeit endet; Kontrolle durch EU AI Office und Behörden beginnt.",
+          "quelle": "Big News Network.com",
+          "url": "https://www.google.com/search?q=Update%3A%20EU%20AI%20Act%20greift%20jetzt%20%E2%80%93%20Transparenzpflichten%20f%C3%BCr%20KI-Systeme%20sind%20ab%20sofort%20bindend%20Big%20News%20Network.com",
+          "datum": "02.08.2026"
+        },
+        {
+          "titel": "OpenAI enthüllt \"Astra\": Ein neues Modell, das zehn ungelöste Mathe-Probleme knacken konnte",
+          "zusammenfassung": "OpenAI kündigt die interne \"Astra\"-Modellfamilie an, die zehn jahrzehntelang ungelöste Probleme in Mathematik und theoretischer Informatik gelöst hat. Ein erster Bericht zeigt, wie das Modell eigenständig neue Beweise fand und formalisierte.",
+          "warum": "Behalte Astra im Blick. Es deutet auf einen Sprung in KIs Problemlösungsfähigkeit hin, der komplexe Analysen bald beeinflusst – noch ohne Release-Termin.",
+          "quelle": "The Decoder",
+          "url": "https://www.the-decoder.de/openai-kuendigt-neues-modell-astra-an/",
+          "datum": "01.08.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Einzelhandel: 43% der Kunden nutzen KI schon beim Einkauf",
+          "zusammenfassung": "Eine aktuelle Studie zeigt, dass 43 Prozent der Verbraucher bereits KI-Tools nutzen, um Angebote zu finden, Produkte zu vergleichen oder Bewertungen zusammenzufassen. KI beeinflusst Kaufentscheidungen direkt bei jedem fünften Kunden.",
+          "branche": "Handel",
+          "quelle": "Akeneo",
+          "url": "https://www.google.com/search?q=Einzelhandel%3A%2043%25%20der%20Kunden%20nutzen%20KI%20schon%20beim%20Einkauf%20Akeneo",
+          "datum": "27.07.2026"
+        },
+        {
+          "titel": "Bundesnetzagentur wird zentrale Anlaufstelle für KI-Regulierung in Deutschland",
+          "zusammenfassung": "Die Bundesnetzagentur übernimmt ab sofort eine Schlüsselrolle bei der nationalen Umsetzung der EU-KI-Verordnung, inklusive Marktüberwachung und der Einrichtung eines KI-Reallabors für KMU. Sie wird zur Anlauf- und Beschwerdestelle für KI-Fragen in Deutschland.",
+          "branche": "Regulierung",
+          "quelle": "Bundesnetzagentur",
+          "url": "https://www.google.com/search?q=Bundesnetzagentur%20wird%20zentrale%20Anlaufstelle%20f%C3%BCr%20KI-Regulierung%20in%20Deutschland%20Bundesnetzagentur",
+          "datum": "29.07.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Microsoft erweitert Copilot um neue Fähigkeiten für Dokumenten-Zusammenfassungen, Tabellen-Analysen und Meeting-Unterstützung, was komplexere Aufgaben im Arbeitsalltag vereinfacht.",
+          "quelle": "Microsoft",
+          "url": "https://www.google.com/search?q=Microsoft%20erweitert%20Copilot%20um%20neue%20F%C3%A4higkeiten%20f%C3%BCr%20Dokumenten-Zusammenfassungen%2C%20Tabellen-Analysen%20und%20Meeting-Unterst%C3%BCtzung%2C%20was%20komplexere%20Aufgaben%20im%20Arbeitsalltag%20vereinfacht.%20Microsoft"
+        },
+        {
+          "text": "Anthropic entwickelt Claude von einem Chatbot zu einem zentralen Arbeitsbereich weiter, der über \"Projekte\" Wissen organisiert und mit \"Cowork\" repetitive Datei-Management-Aufgaben auf Mac und Windows übernimmt.",
+          "quelle": "daily.dev",
+          "url": "https://www.google.com/search?q=Anthropic%20entwickelt%20Claude%20von%20einem%20Chatbot%20zu%20einem%20zentralen%20Arbeitsbereich%20weiter%2C%20der%20%C3%BCber%20%22Projekte%22%20Wissen%20organisiert%20und%20mit%20%22Cowork%22%20repetitive%20Datei-Management-Aufgaben%20auf%20Mac%20und%20Windows%20%C3%BCbernimmt.%20daily.dev"
+        },
+        {
+          "text": "Kimi AI stellt einen kostenlosen KI-Lebenslauf-Ersteller, KI-Präsentationsersteller und KI-Tools für Excel bereit, die Wissensarbeitern helfen, Dokumente und Folien effizienter zu gestalten.",
+          "quelle": "Kimi AI",
+          "url": "https://kimi.ai/resume-builder"
+        },
+        {
+          "text": "Eine Studie aus Juli 2026 enthüllt, dass 40% der Amerikaner sich nach KI-intensivem Arbeiten mental ausgebrannt fühlen und 44% der Gen-Z-Mitarbeiter KI absichtlich untergraben.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=Eine%20Studie%20aus%20Juli%202026%20enth%C3%BCllt%2C%20dass%2040%25%20der%20Amerikaner%20sich%20nach%20KI-intensivem%20Arbeiten%20mental%20ausgebrannt%20f%C3%BChlen%20und%2044%25%20der%20Gen-Z-Mitarbeiter%20KI%20absichtlich%20untergraben.%20BornCity"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "02.08.2026",
+  "last_sent": "03.08.2026",
   "sent_log": {
-    "date": "02.08.2026",
+    "date": "03.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
