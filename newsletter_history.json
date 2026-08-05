@@ -1,54 +1,6 @@
 {
   "editions": [
     {
-      "date": "26.07.2026",
-      "top_news": [
-        {
-          "titel": "Update: Claude Opus 5 jetzt offiziell verfuegbar – dein neuer Agent für komplexe Aufgaben?",
-          "zusammenfassung": "Anthropic hat am 24. Juli 2026 sein bisher leistungsfähigstes KI-Modell, Claude Opus 5, allgemein verfügbar gemacht. Es setzt neue Maßstäbe bei der Bearbeitung von Programmieraufgaben und komplexer Wissensarbeit und ist besonders für langlaufende Agenten-Aufgaben optimiert. Das Modell ist ab sofort über die Cosmic-Plattform und die API zugänglich und bietet dabei dieselben Kosten wie sein Vorgänger Opus 4.8, was es in Bezug auf die Leistung deutlich effizienter macht. Es übertrifft frühere Modelle in Benchmarks wie Frontier-Bench und GDPval-AA.",
-          "take": "Wenn du bereits mit Claude arbeitest, solltest du Opus 5 unbedingt ausprobieren – besonders bei Coding-Aufgaben oder wenn du komplexe Arbeitsabläufe automatisieren willst. Die verbesserte 'Selbstverifikation' des Modells könnte dir viel Zeit bei der Fehlersuche ersparen. In der EU ist das Modell ebenfalls verfügbar.",
-          "quelle": "Cosmic Blog",
-          "url": "https://www.google.com/search?q=Update%3A%20Claude%20Opus%205%20jetzt%20offiziell%20verfuegbar%20%E2%80%93%20dein%20neuer%20Agent%20f%C3%BCr%20komplexe%20Aufgaben%3F%20Cosmic%20Blog",
-          "datum": "24.07.2026"
-        },
-        {
-          "titel": "Bo AI: Dein neuer digitaler Personal Assistant für Organisation und Gesundheit",
-          "zusammenfassung": "Die App 'Bo AI: Personal Assistant' hat am 24. Juli 2026 ein Update erhalten, das sie zu einem vielseitigen Helfer für deinen Alltag macht. Die KI funktioniert wie ein Freund, dem du textest, und hilft dir, deinen Tag zu planen, den Kalender zu verwalten, Gewohnheiten aufzubauen und deine Gesundheitsziele zu verfolgen. Neue Funktionen umfassen detailliertere Gesundheits-Dashboards und teilbare Fortschrittskarten, die dir einen Überblick über Schlaf, Aktivität und Ernährung geben.",
-          "take": "Wenn du nach einer unkomplizierten Lösung suchst, um deinen Alltag besser zu strukturieren und dabei auch deine Gesundheit im Blick zu behalten, ist Bo AI einen Blick wert. Es ist eine praktische Ergänzung, die ohne komplizierte Einrichtung auskommt. Verfügbar für iOS-Nutzer in Deutschland.",
-          "quelle": "Apple App Store",
-          "url": "https://www.google.com/search?q=Bo%20AI%3A%20Dein%20neuer%20digitaler%20Personal%20Assistant%20f%C3%BCr%20Organisation%20und%20Gesundheit%20Apple%20App%20Store",
-          "datum": "24.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Perplexity Pro Search revolutioniert die Recherche, indem es komplexe Fragen in Teilschritte zerlegt, Quellen zitiert und spezifische Fokus-Modi (z.B. nur Reddit oder akademische Arbeiten) bietet.",
-          "quelle": "YouTube (AI Master)",
-          "url": "https://www.youtube.com/watch?v=s02g2G7j5y4"
-        },
-        {
-          "text": "Snipd fasst Podcast-Episoden mittels KI zusammen und erstellt Highlights, was dir hilft, schnell die wichtigsten Informationen zu erfassen und Zeit zu sparen.",
-          "quelle": "YouTube (AI Master)",
-          "url": "https://www.youtube.com/watch?v=s02g2G7j5y4"
-        },
-        {
-          "text": "Jump ist ein KI-gestützter Assistent für Finanzberater, der administrative Aufgaben wie Meeting-Vorbereitungen und Notizen automatisiert und sogar Follow-up-E-Mails generiert.",
-          "quelle": "SmartAsset.com",
-          "url": "https://www.google.com/search?q=Jump%20ist%20ein%20KI-gest%C3%BCtzter%20Assistent%20f%C3%BCr%20Finanzberater%2C%20der%20administrative%20Aufgaben%20wie%20Meeting-Vorbereitungen%20und%20Notizen%20automatisiert%20und%20sogar%20Follow-up-E-Mails%20generiert.%20SmartAsset.com"
-        },
-        {
-          "text": "Die mobile KI-App ChatOn wird von Nutzern für ihre Fähigkeit gelobt, vielfältige Arbeitsaufgaben wie das Schreiben von Angeboten, E-Mail-Beantwortung und sogar Grafik-Generierung auf dem Smartphone zu erledigen.",
-          "quelle": "Reddit (r/ChatOn_AI)",
-          "url": "https://www.reddit.com/r/ChatOn_AI/comments/1dh0g2w/great_mobile_ai_app_for_both_work_and_personal_use/"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "27.07.2026",
       "top_news": [
         {
@@ -452,11 +404,60 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "05.08.2026",
+      "top_news": [
+        {
+          "titel": "Update: OpenAI senkt KI-Kosten um 90% für Text-Analysen und beschleunigt Sol-Modell",
+          "zusammenfassung": "OpenAI senkt die Kosten für Text-Analysen in der ChatGPT App um 90% – was eine 10-Euro-Rechnung auf 1 Euro schrumpfen lässt. Dies gelingt durch die Umstellung der Auto-Review-Funktion auf GPT-5.6 Luna. Zudem schaltet das Unternehmen einen 'Fast'-Modus für sein leichtgewichtiges Sol-Modell frei, der dessen API-Geschwindigkeit deutlich erhöht.",
+          "warum": "Wer regelmässig Texte zusammenfasst oder analysiert, spart jetzt erheblich – prüfen Sie, ob Ihre internen Tools die neue, günstigere API nutzen.",
+          "quelle": "The Macro Wire",
+          "url": "https://themacrowire.substack.com/p/evening-ai-digest-august-4-2026",
+          "datum": "05.08.2026"
+        },
+        {
+          "titel": "Update: OpenAI veröffentlicht zehn mathematische Fortschritte des Astra-Modells – inklusive Beweisen",
+          "zusammenfassung": "OpenAI veröffentlichte zehn Forschungsergebnisse in Mathematik und theoretischer Informatik, die das unpublizierte Astra-Modell generierte. Die Dokumente umfassen Manuskripte, Lean-Zertifikate und rekonstruierte Begründungen, die Forscher nun prüfen.",
+          "warum": "Astra löst komplexe Probleme. Ignorieren Sie es nicht: Das Modell zeigt, wie KI die Forschung radikal umkrempelt und uns alle künftig beeinflusst.",
+          "quelle": "TechCrunch",
+          "url": "https://techcrunch.com/category/artificial-intelligence/",
+          "datum": "05.08.2026"
+        },
+        {
+          "titel": "X (ehemals Twitter) muss 140 Millionen Euro Strafe zahlen – EU setzt DSA durch",
+          "zusammenfassung": "Die Europäische Union verhängt gegen X eine Strafe von 140 Millionen Euro wegen Nichteinhaltung des Digital Services Act. Die EU kritisierte die Plattform für Mängel bei der Kontrolle schädlicher Inhalte und unzureichenden Zugang für Forscher.",
+          "warum": "Die EU setzt ein Exempel: Unternehmen müssen ihre KI-Systeme und Plattformen konsequent regulieren. Prüfen Sie jetzt Ihre Compliance-Prozesse, um Strafen zu entgehen.",
+          "quelle": "Facebook (The Macro Sift)",
+          "url": "https://www.facebook.com/TheMacroSift/posts/pfbid025Fv3e2wS73E47u7641nB3p1jV32jXg7N6A7P6x4E6k5F4D3W2Q8",
+          "datum": "04.08.2026"
+        },
+        {
+          "titel": "ServiceNow führt 'Autonomous Workforce' ein: KI-Agenten übernehmen ganze Workflows",
+          "zusammenfassung": "ServiceNow stellt 'Autonomous Workforce' vor, eine Lösung, bei der KI-Experten mit Geschäftskontext und Berechtigungen komplexe Workflows von A bis Z selbstständig erledigen. Sie automatisiert mehr als nur isolierte Aufgaben.",
+          "warum": "Ihre KI erledigt bald ganze Projekte, nicht nur Aufgaben. Beobachten Sie diese Entwicklung: Sie wird Ihren Projektalltag fundamental umgestalten.",
+          "quelle": "ServiceNow",
+          "url": "https://www.servicenow.com/de/solutions/sales-automation/",
+          "datum": "04.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Die neue App ChatOne bietet KI-Chat-Assistenten und Bildgenerierung, um Inhalte zu erstellen, Ideen zu sammeln und den Arbeitsablauf zu verbessern.",
+          "quelle": "Apple App Store",
+          "url": "https://www.google.com/search?q=Die%20neue%20App%20ChatOne%20bietet%20KI-Chat-Assistenten%20und%20Bildgenerierung%2C%20um%20Inhalte%20zu%20erstellen%2C%20Ideen%20zu%20sammeln%20und%20den%20Arbeitsablauf%20zu%20verbessern.%20Apple%20App%20Store"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Melisa Tokmak: Stop Using AI to Cut Costs. Use It to Sell More Roofs.",
+        "podcast_name": "No Priors"
+      }
     }
   ],
-  "last_sent": "04.08.2026",
+  "last_sent": "05.08.2026",
   "sent_log": {
-    "date": "04.08.2026",
+    "date": "05.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
