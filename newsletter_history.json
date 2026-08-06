@@ -1,41 +1,6 @@
 {
   "editions": [
     {
-      "date": "27.07.2026",
-      "top_news": [
-        {
-          "titel": "Update: Claude Opus 5 liefert Top-Leistung, aber auch 50 % Halluzinationen – was das für dich bedeutet",
-          "zusammenfassung": "Anthropic's neues Claude Opus 5 Modell bietet Spitzenleistung in der Agenten-KI und beim Coding, erreicht fast das Flaggschiff Fable 5 zum halben Preis. Doch eine unabhängige Analyse zeigt eine Halluzinationsrate von 50 % auf einem Fakten-Benchmark, 14 Punkte höher als beim Vorgänger Opus 4.8.",
-          "warum": "Trotz der beeindruckenden Leistung musst du bei Opus 5 genau hinsehen: Für komplexe, faktenbasierte Aufgaben ist Vorsicht geboten, für Code-Generierung und Agenten-Workflows bleibt es eine starke Option.",
-          "quelle": "eesel AI",
-          "url": "https://eesel.ai/blog/claude-opus-5-review-near-frontier-coding-at-half-the-price",
-          "datum": "27.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "OpenRouter und ähnliche AI Gateways bieten jetzt Zugang zu über 600 KI-Modellen von OpenAI, Anthropic, Google und Meta über eine einzige, OpenAI-kompatible API, was den Modellwechsel und die Kostenoptimierung vereinfacht.",
-          "quelle": "OpenRouter",
-          "url": "https://openrouter.ai/models"
-        },
-        {
-          "text": "Meta plant die Einführung eines neuen AI Harness und die Veröffentlichung weiterer Open-Source-Modelle, was den Zugang zu generativer KI für Entwickler weiter vereinfachen könnte.",
-          "quelle": "RuntimeWire",
-          "url": "https://www.reddit.com/r/AIGuild/comments/1dh01a/meta_to_launch_ai_harness_and_opensource_models/"
-        },
-        {
-          "text": "Unsloth Studio ermöglicht das lokale Ausführen von LLMs mit erweiterten Funktionen wie selbstheilendem Tool Calling, Web-Suche und Code-Ausführung, die auch über eine API angebunden werden können.",
-          "quelle": "Unsloth",
-          "url": "https://www.google.com/search?q=Unsloth%20Studio%20erm%C3%B6glicht%20das%20lokale%20Ausf%C3%BChren%20von%20LLMs%20mit%20erweiterten%20Funktionen%20wie%20selbstheilendem%20Tool%20Calling%2C%20Web-Suche%20und%20Code-Ausf%C3%BChrung%2C%20die%20auch%20%C3%BCber%20eine%20API%20angebunden%20werden%20k%C3%B6nnen.%20Unsloth"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "Wie AI-Agenten den Mittelstand transformieren – Insights von Reply",
-        "podcast_name": "Inside Talk"
-      }
-    },
-    {
       "date": "28.07.2026",
       "top_news": [
         {
@@ -453,11 +418,58 @@
         "episoden_titel": "Melisa Tokmak: Stop Using AI to Cut Costs. Use It to Sell More Roofs.",
         "podcast_name": "No Priors"
       }
+    },
+    {
+      "date": "06.08.2026",
+      "top_news": [
+        {
+          "titel": "Meta rollt Muse Code aus: Günstiger KI-Programmieragent fordert OpenAI heraus",
+          "zusammenfassung": "Meta präsentiert Muse Code, einen neuen KI-Programmieragenten, der als preiswerte Alternative zu OpenAI und Anthropic antritt. Meta-Mitarbeiter nutzen den Agenten bereits, um ihre Workflows zu beschleunigen.",
+          "warum": "Prüfe den Agenten bei öffentlicher Verfügbarkeit. Er verspricht substanzielle Kostensenkungen bei Programmieraufgaben und könnte dein Budget entlasten.",
+          "quelle": "BigGo Finance",
+          "url": "https://www.google.com/search?q=Meta%20rollt%20Muse%20Code%20aus%3A%20G%C3%BCnstiger%20KI-Programmieragent%20fordert%20OpenAI%20heraus%20BigGo%20Finance",
+          "datum": "05.08.2026"
+        },
+        {
+          "titel": "Cloudflare startet Open-Source-KI-Agenten-Arbeitsbereich und VibeSDK für Unternehmen",
+          "zusammenfassung": "Cloudflare stellt eine quelloffene Version von Cloudflare OS als KI-Agenten-Arbeitsbereich für Unternehmen vor und gibt das VibeSDK für Entwickler frei. Ziel ist die schnelle Entwicklung und Bereitstellung intelligenter, adaptiver KI-Agenten.",
+          "warum": "IT-Teams erhalten hier mehr Kontrolle und Flexibilität. Prüft das VibeSDK, wenn ihr eine eigene, skalierbare Agenten-Infrastruktur aufbauen möchtet.",
+          "quelle": "Cloudflare",
+          "url": "https://www.cloudflare.com/press-releases/2026/cloudflare-os-is-the-first-ai-workspace-built-around-how-companies-actually-work/",
+          "datum": "05.08.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "HappyRobot automatisiert monatlich 28.000 Arbeitsstunden bei Kunden",
+          "zusammenfassung": "HappyRobot erhält 150 Millionen USD für seine Enterprise Superintelligence-Plattform, die KI-Agenten zur Automatisierung komplexer Betriebsabläufe einsetzt. Diese Agenten automatisieren bei Kunden monatlich 28.000 Arbeitsstunden und lösen über 70 Prozent der Kundendienstanfragen autonom.",
+          "branche": "Allgemein",
+          "quelle": "Vestbee",
+          "url": "https://www.google.com/search?q=HappyRobot%20automatisiert%20monatlich%2028.000%20Arbeitsstunden%20bei%20Kunden%20Vestbee",
+          "datum": "05.08.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Slack erweitert seinen Workflow-Builder um neue KI-Schritte. Du erstellst damit automatisierte Abläufe ohne Code, die direkt KI-Antworten generieren.",
+          "quelle": "Slack",
+          "url": "https://www.google.com/search?q=Slack%20erweitert%20seinen%20Workflow-Builder%20um%20neue%20KI-Schritte.%20Du%20erstellst%20damit%20automatisierte%20Abl%C3%A4ufe%20ohne%20Code%2C%20die%20direkt%20KI-Antworten%20generieren.%20Slack"
+        },
+        {
+          "text": "Das neueste Google Home Update liefert 'Interaktive Storytime mit Gemini'. Nutzer erstellen damit gemeinsam mit der KI maßgeschneiderte Geschichten und ändern den Plot.",
+          "quelle": "Android Police",
+          "url": "https://www.google.com/search?q=Das%20neueste%20Google%20Home%20Update%20liefert%20%27Interaktive%20Storytime%20mit%20Gemini%27.%20Nutzer%20erstellen%20damit%20gemeinsam%20mit%20der%20KI%20ma%C3%9Fgeschneiderte%20Geschichten%20und%20%C3%A4ndern%20den%20Plot.%20Android%20Police"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "The Next AI Crisis Won't Be Hallucinations",
+        "podcast_name": "Beginner's Guide to AI Podcast"
+      }
     }
   ],
-  "last_sent": "05.08.2026",
+  "last_sent": "06.08.2026",
   "sent_log": {
-    "date": "05.08.2026",
+    "date": "06.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
