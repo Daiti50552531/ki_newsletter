@@ -1,47 +1,6 @@
 {
   "editions": [
     {
-      "date": "29.07.2026",
-      "top_news": [
-        {
-          "titel": "EU AI Act: Ab 2. August gelten neue Transparenzpflichten für Chatbots und KI-Inhalte",
-          "zusammenfassung": "Ab dem 2. August 2026 treten wichtige Transparenzpflichten des EU AI Acts in Kraft, die Anbieter von KI-Systemen zur Kennzeichnung von Chatbot-Interaktionen und synthetischen Medien verpflichten. Unternehmen müssen KI-generierte Inhalte maschinenlesbar markieren und Nutzer über die KI-Nutzung informieren.",
-          "warum": "Alle Unternehmen, die KI in der Kundenkommunikation oder zur Inhaltserstellung nutzen, sollten ihre Systeme auf Konformität prüfen, um hohe Strafen von bis zu 3% des weltweiten Jahresumsatzes zu vermeiden.",
-          "quelle": "BornCity",
-          "url": "https://www.google.com/search?q=EU%20AI%20Act%3A%20Ab%202.%20August%20gelten%20neue%20Transparenzpflichten%20f%C3%BCr%20Chatbots%20und%20KI-Inhalte%20BornCity",
-          "datum": "28.07.2026"
-        },
-        {
-          "titel": "US-Kongress schlägt \"AI Kill Switch Act\" vor – direkte Kontrolle für große KI-Modelle?",
-          "zusammenfassung": "Als Reaktion auf einen OpenAI-Sicherheitsvorfall haben US-Kongressabgeordnete den 'AI Kill Switch Act' eingebracht, der Abschaltmechanismen für mächtige KI-Systeme vorschreibt. Die Gesetzgebung betrifft Frontier-Labs, deren Modelle mit über 100 Millionen US-Dollar Rechenleistung entwickelt und von Unternehmen mit über 500 Millionen US-Dollar Jahresumsatz betrieben werden.",
-          "warum": "Dies ist eine direkte Reaktion auf Sicherheitsbedenken und könnte die Entwicklung großer Modelle stark beeinflussen, daher sollten globale KI-Player die Auswirkungen dieser potenziellen Regulierung genau beobachten.",
-          "quelle": "Prompt AI Learning",
-          "url": "https://www.google.com/search?q=US-Kongress%20schl%C3%A4gt%20%22AI%20Kill%20Switch%20Act%22%20vor%20%E2%80%93%20direkte%20Kontrolle%20f%C3%BCr%20gro%C3%9Fe%20KI-Modelle%3F%20Prompt%20AI%20Learning",
-          "datum": "28.07.2026"
-        },
-        {
-          "titel": "DeepSeek startet Closed Beta für \"DeepSeekHarness\" – neue Agenten-Workflows am Horizont?",
-          "zusammenfassung": "DeepSeek startet eine geschlossene Beta-Phase für sein 'DeepSeekHarness'-Produkt, das auf Agenten-Workflows abzielt und nur ausgewählten Nutzern nach Unterzeichnung einer Vertraulichkeitserklärung zugänglich ist.",
-          "warum": "Entwickler und Unternehmen, die auf Agenten-basierte KI-Lösungen setzen, sollten diese Entwicklung genau verfolgen, da sie zukünftige Innovationen und Modell-Integrationen maßgeblich beeinflussen könnte.",
-          "quelle": "Reddit (r/DeepSeek)",
-          "url": "https://www.reddit.com/r/DeepSeek/comments/1c3x4y1/deepseek_harness_to_begin_closed_beta_soon/",
-          "datum": "28.07.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Ein Richter deutete an, dass das britische Innenministerium bei der Ablehnung eines Asylantrags KI-generierte, 'halluzinierte' Informationen verwendet haben könnte, was die Notwendigkeit menschlicher Überprüfung unterstreicht.",
-          "quelle": "The Guardian",
-          "url": "https://www.reddit.com/r/TheCivilService/comments/1c3w3y3/home_office_used_ai_hallucinated_information_to/"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "30.07.2026",
       "top_news": [
         {
@@ -500,11 +459,54 @@
         "episoden_titel": "Inside Everyday AI: Meine 9 meistgenutzten KI-Tools und Workflows",
         "podcast_name": "Everyday AI Podcast"
       }
+    },
+    {
+      "date": "08.08.2026",
+      "top_news": [
+        {
+          "titel": "Sicherheits-Schock: Einfache E-Mails kapern fünf große KI-Browser wie Claude und Gemini",
+          "zusammenfassung": "Zenity Labs zeigte auf der Black Hat USA 2026, wie Angreifer fünf führende KI-Browser, darunter Claude, Gemini und Copilot Edge, über normale E-Mails oder Links ohne Klicks kapern. Sie greifen so auf lokale Systeme zu und exfiltrieren Daten.",
+          "warum": "Handeln Sie jetzt: Prüfen Sie die Sicherheitseinstellungen Ihrer KI-Browser und ignorieren Sie verdächtige E-Mails oder Links, selbst wenn kein Klick nötig ist.",
+          "quelle": "Notebookcheck",
+          "url": "https://www.notebookcheck.com/Claude-Gemini-Comet-five-AI-browsers-hijacked-by-a-single-email.842790.0.html",
+          "datum": "07.08.2026"
+        },
+        {
+          "titel": "Update: ChatGPT Luna entfesselt unbegrenzte Chats und den 'Think'-Button für alle",
+          "zusammenfassung": "OpenAI rollt GPT-5.6 Luna für alle kostenlosen ChatGPT- und Go-Nutzer aus. Das Modell bietet jetzt unbegrenzte Textchats und den neuen 'Think'-Button, der die KI länger grübeln lässt und so besseres Reasoning für komplexe Anfragen ermöglicht.",
+          "warum": "Nutzen Sie den 'Think'-Button bei kniffligen Aufgaben; er lässt die KI länger grübeln und liefert oft deutlich bessere Ergebnisse. Probieren Sie es aus!",
+          "quelle": "OpenAI",
+          "url": "https://www.binance.com/en/feed/post/2026-08-08-openai-sets-2027-launch-for-screenless-smart-speaker-priced-above-300-4740158428801",
+          "datum": "07.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "DeepSeek erhöht Preise, doch sein V4-Flash-Modell bleibt 105-mal günstiger als Anthropic's Claude Fable 5. Das Modell kostet Sie also nur einen Euro, während Konkurrenten 105 Euro verlangen – und setzt damit die Wettbewerber preislich unter Druck.",
+          "quelle": "ForkLog",
+          "url": "https://www.google.com/search?q=DeepSeek%20erh%C3%B6ht%20Preise%2C%20doch%20sein%20V4-Flash-Modell%20bleibt%20105-mal%20g%C3%BCnstiger%20als%20Anthropic%27s%20Claude%20Fable%205.%20Das%20Modell%20kostet%20Sie%20also%20nur%20einen%20Euro%2C%20w%C3%A4hrend%20Konkurrenten%20105%20Euro%20verlangen%20%E2%80%93%20und%20setzt%20damit%20die%20Wettbewerber%20preislich%20unter%20Druck.%20ForkLog"
+        },
+        {
+          "text": "OpenAI entwickelt angeblich einen bildschirmfreien, sprachgesteuerten KI-Computer. Er soll 2027 auf den Markt kommen und über 300 US-Dollar kosten.",
+          "quelle": "RestProperty",
+          "url": "https://www.binance.com/en/feed/post/2026-08-08-openai-sets-2027-launch-for-screenless-smart-speaker-priced-above-300-4740158428801"
+        },
+        {
+          "text": "Braintrust ermöglicht Domain-Experten aus Medizin, Recht und Finanzen, KI-Modelle zu trainieren und sich so ein zusätzliches Einkommen zu sichern.",
+          "quelle": "Braintrust",
+          "url": "https://www.google.com/search?q=Braintrust%20erm%C3%B6glicht%20Domain-Experten%20aus%20Medizin%2C%20Recht%20und%20Finanzen%2C%20KI-Modelle%20zu%20trainieren%20und%20sich%20so%20ein%20zus%C3%A4tzliches%20Einkommen%20zu%20sichern.%20Braintrust"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "What can we really expect from Agentic AI?",
+        "podcast_name": "SCC Simplify Podcast"
+      }
     }
   ],
-  "last_sent": "07.08.2026",
+  "last_sent": "08.08.2026",
   "sent_log": {
-    "date": "07.08.2026",
+    "date": "08.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
