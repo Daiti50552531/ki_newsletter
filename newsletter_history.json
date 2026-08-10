@@ -1,58 +1,6 @@
 {
   "editions": [
     {
-      "date": "31.07.2026",
-      "top_news": [
-        {
-          "titel": "OpenAI senkt Luna-Preise um 80%: So halbieren Sie Ihre API-Kosten",
-          "zusammenfassung": "Ab dem 30. Juli senkt OpenAI die Preise für GPT-5.6-Modelle: Luna um 80 Prozent, Terra um 20 Prozent. Luna kostet nun 0,20 US-Dollar pro Million Input- und 1,20 US-Dollar pro Million Output-Tokens – das entspricht etwa drei Harry-Potter-Bänden. Ein neuer „Fast Mode“ für die Sol-API startet ebenfalls.",
-          "warum": "Nutzen Sie Luna für Massen-Workflows. Die Kosten sinken um 80 Prozent. Was früher 1 Euro kostete, kostet nun 20 Cent. Das entlastet Ihr Budget spürbar.",
-          "quelle": "The Decoder",
-          "url": "https://the-decoder.de/openai-geht-im-preiskampf-all-in-80-prozent-rabatt-auf-gpt-5-6-luna-und-terra/",
-          "datum": "30.07.2026"
-        },
-        {
-          "titel": "Microsofts Copilot wird zur „Super-App“: Alle KI-Tools in einer Anwendung",
-          "zusammenfassung": "Microsoft-CEO Satya Nadella bestätigt Pläne für eine „Super-App“. Diese bündelt alle Copilot-KI-Tools wie Chatbot, Code und Cowork. Die Anwendung startet noch dieses Quartal für Privat- und Geschäftsanwender und zentralisiert Microsofts KI-Funktionen.",
-          "warum": "Behalten Sie die Super-App im Blick. Sie vereint alle KI-Helfer nahtlos und strafft den Workflow im Microsoft-Ökosystem. Das vereinfacht die Office-Interaktion deutlich.",
-          "quelle": "PCMag",
-          "url": "https://www.pcmag.com/news/microsoft-confirms-plan-for-copilot-super-app-merging-its-ai-tools",
-          "datum": "30.07.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Meta nutzt KI: Präzisere Werbung und schnellere App-Entwicklung",
-          "zusammenfassung": "Meta setzt große Sprachmodelle (LLMs) ein, um die App-Entwicklung zu beschleunigen und Empfehlungssysteme zu verbessern. Ein neuer „Generative Recommender“ bewertet Werbeinhalte und Nutzerpräferenzen mit LLMs für präzisere Anzeigen-Matches. Dies trieb das Anzeigengeschäft im zweiten Quartal auf 75 Milliarden US-Dollar Umsatz.",
-          "branche": "Marketing",
-          "quelle": "MediaPost",
-          "url": "https://www.mediapost.com/publications/article/414571/meta-boosts-advertising-in-q2-tries-to-reassure-in.html",
-          "datum": "30.07.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Ab dem 18. August verlagert Microsoft die „Deep Research“-Funktion des kostenlosen Copilot in das kostenpflichtige Microsoft 365 Premium. Erweiterte Berichte erfordern künftig ein Abo.",
-          "quelle": "Wareham",
-          "url": "https://www.google.com/search?q=Ab%20dem%2018.%20August%20verlagert%20Microsoft%20die%20%E2%80%9EDeep%20Research%E2%80%9C-Funktion%20des%20kostenlosen%20Copilot%20in%20das%20kostenpflichtige%20Microsoft%20365%20Premium.%20Erweiterte%20Berichte%20erfordern%20k%C3%BCnftig%20ein%20Abo.%20Wareham"
-        },
-        {
-          "text": "xAI stellt Grok 4.3 ab sofort auf Amazon Bedrock in AWS GovCloud (US-West) bereit. Unternehmen erhalten damit mehr Auswahl für generative KI-Anwendungen in Argumentation und Agenten-Workflows.",
-          "quelle": "AWS",
-          "url": "https://www.google.com/search?q=xAI%20stellt%20Grok%204.3%20ab%20sofort%20auf%20Amazon%20Bedrock%20in%20AWS%20GovCloud%20%28US-West%29%20bereit.%20Unternehmen%20erhalten%20damit%20mehr%20Auswahl%20f%C3%BCr%20generative%20KI-Anwendungen%20in%20Argumentation%20und%20Agenten-Workflows.%20AWS"
-        },
-        {
-          "text": "Google Chrome 151 erweitert die Gemini-Integration. Nutzer laden Dateien direkt im Browser hoch, stellen Fragen und generieren Google Docs, Tabellen oder PDFs. (Derzeit nicht EU-weit verfügbar).",
-          "quelle": "Winaero",
-          "url": "https://winaero.com/google-ships-chrome-151-with-new-ai-tools-pdf-editing-and-xml-parser-update/"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "01.08.2026",
       "top_news": [
         {
@@ -484,11 +432,63 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "10.08.2026",
+      "top_news": [
+        {
+          "titel": "Siri AI startet im Herbst – EU-iPhones bleiben wegen Digital Markets Act vorerst außen vor",
+          "zusammenfassung": "Apple verschiebt die Einführung von Siri AI auf EU-iPhones diesen Herbst. Der Konzern begründet dies mit dem Digital Markets Act (DMA) und sieht keine sicheren technischen Schutzmaßnahmen, um Drittanbietern den geforderten Zugriff auf Geräte und Daten zu garantieren.",
+          "warum": "Wartest du in der EU auf die neuen Siri-Funktionen? Ignoriere die Versprechungen fürs Erste. Die Verzögerung betrifft eine zentrale OS-Funktion und zieht sich wohl länger hin.",
+          "quelle": "Pasquale Pillitteri",
+          "url": "https://www.google.com/search?q=Siri%20AI%20startet%20im%20Herbst%20%E2%80%93%20EU-iPhones%20bleiben%20wegen%20Digital%20Markets%20Act%20vorerst%20au%C3%9Fen%20vor%20Pasquale%20Pillitteri",
+          "datum": "08.08.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "OpenAI Presence: BBVA und SoftBank erproben KI-Agenten für kritische Prozesse",
+          "zusammenfassung": "OpenAI stellt 'Presence' vor, eine Plattform für KI-Agenten im Unternehmenseinsatz. BBVA, SoftBank und IAG evaluieren die Plattform bereits für geschäftskritische Operationen in Banken, Telko und Versicherungen.",
+          "branche": "Banken, Telko, Versicherungen",
+          "quelle": "Mindverse",
+          "url": "https://www.google.com/search?q=OpenAI%20Presence%3A%20BBVA%20und%20SoftBank%20erproben%20KI-Agenten%20f%C3%BCr%20kritische%20Prozesse%20Mindverse",
+          "datum": "03.08.2026"
+        },
+        {
+          "titel": "CTK Poliklinik erprobt KI-Telefonassistenten und automatische Gesprächstranskription",
+          "zusammenfassung": "Die CTK Poliklinik Cottbus erprobt einen KI-Telefonassistenten, der Anrufe entgegennimmt und Anliegen erfasst. Ein Testlauf für automatische Transkriptionen von Arzt-Patienten-Gesprächen soll den Dokumentationsaufwand reduzieren.",
+          "branche": "Gesundheit",
+          "quelle": "Radio Cottbus",
+          "url": "https://www.google.com/search?q=CTK%20Poliklinik%20erprobt%20KI-Telefonassistenten%20und%20automatische%20Gespr%C3%A4chstranskription%20Radio%20Cottbus",
+          "datum": "05.08.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Anthropic führt mit Version 2.1.224 von Claude Code ein Cross-Session-Messaging für macOS und Linux ein. Das verbessert den Informationsaustausch zwischen Agenten-Sitzungen.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=Anthropic%20f%C3%BChrt%20mit%20Version%202.1.224%20von%20Claude%20Code%20ein%20Cross-Session-Messaging%20f%C3%BCr%20macOS%20und%20Linux%20ein.%20Das%20verbessert%20den%20Informationsaustausch%20zwischen%20Agenten-Sitzungen.%20BornCity"
+        },
+        {
+          "text": "ZoomIt von Sysinternals steht jetzt als kostenloses Open-Source-Tool für macOS bereit. Es bietet Zoom, Anmerkungen, lokale OCR und Videoaufnahme.",
+          "quelle": "Pasquale Pillitteri",
+          "url": "https://www.google.com/search?q=ZoomIt%20von%20Sysinternals%20steht%20jetzt%20als%20kostenloses%20Open-Source-Tool%20f%C3%BCr%20macOS%20bereit.%20Es%20bietet%20Zoom%2C%20Anmerkungen%2C%20lokale%20OCR%20und%20Videoaufnahme.%20Pasquale%20Pillitteri"
+        },
+        {
+          "text": "Golem.de analysiert, wie Edge AI das Latenzproblem bei zeitkritischen KI-Anwendungen löst, besonders relevant für Telekommunikationsnetze.",
+          "quelle": "Golem.de",
+          "url": "https://www.golem.de/news/edge-ai-gegen-ki-mit-langer-leitung-2608-128216.html"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "09.08.2026",
+  "last_sent": "10.08.2026",
   "sent_log": {
-    "date": "09.08.2026",
+    "date": "10.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
