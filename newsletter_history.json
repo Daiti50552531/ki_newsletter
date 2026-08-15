@@ -1,55 +1,6 @@
 {
   "editions": [
     {
-      "date": "05.08.2026",
-      "top_news": [
-        {
-          "titel": "Update: OpenAI senkt KI-Kosten um 90% für Text-Analysen und beschleunigt Sol-Modell",
-          "zusammenfassung": "OpenAI senkt die Kosten für Text-Analysen in der ChatGPT App um 90% – was eine 10-Euro-Rechnung auf 1 Euro schrumpfen lässt. Dies gelingt durch die Umstellung der Auto-Review-Funktion auf GPT-5.6 Luna. Zudem schaltet das Unternehmen einen 'Fast'-Modus für sein leichtgewichtiges Sol-Modell frei, der dessen API-Geschwindigkeit deutlich erhöht.",
-          "warum": "Wer regelmässig Texte zusammenfasst oder analysiert, spart jetzt erheblich – prüfen Sie, ob Ihre internen Tools die neue, günstigere API nutzen.",
-          "quelle": "The Macro Wire",
-          "url": "https://themacrowire.substack.com/p/evening-ai-digest-august-4-2026",
-          "datum": "05.08.2026"
-        },
-        {
-          "titel": "Update: OpenAI veröffentlicht zehn mathematische Fortschritte des Astra-Modells – inklusive Beweisen",
-          "zusammenfassung": "OpenAI veröffentlichte zehn Forschungsergebnisse in Mathematik und theoretischer Informatik, die das unpublizierte Astra-Modell generierte. Die Dokumente umfassen Manuskripte, Lean-Zertifikate und rekonstruierte Begründungen, die Forscher nun prüfen.",
-          "warum": "Astra löst komplexe Probleme. Ignorieren Sie es nicht: Das Modell zeigt, wie KI die Forschung radikal umkrempelt und uns alle künftig beeinflusst.",
-          "quelle": "TechCrunch",
-          "url": "https://techcrunch.com/category/artificial-intelligence/",
-          "datum": "05.08.2026"
-        },
-        {
-          "titel": "X (ehemals Twitter) muss 140 Millionen Euro Strafe zahlen – EU setzt DSA durch",
-          "zusammenfassung": "Die Europäische Union verhängt gegen X eine Strafe von 140 Millionen Euro wegen Nichteinhaltung des Digital Services Act. Die EU kritisierte die Plattform für Mängel bei der Kontrolle schädlicher Inhalte und unzureichenden Zugang für Forscher.",
-          "warum": "Die EU setzt ein Exempel: Unternehmen müssen ihre KI-Systeme und Plattformen konsequent regulieren. Prüfen Sie jetzt Ihre Compliance-Prozesse, um Strafen zu entgehen.",
-          "quelle": "Facebook (The Macro Sift)",
-          "url": "https://www.facebook.com/TheMacroSift/posts/pfbid025Fv3e2wS73E47u7641nB3p1jV32jXg7N6A7P6x4E6k5F4D3W2Q8",
-          "datum": "04.08.2026"
-        },
-        {
-          "titel": "ServiceNow führt 'Autonomous Workforce' ein: KI-Agenten übernehmen ganze Workflows",
-          "zusammenfassung": "ServiceNow stellt 'Autonomous Workforce' vor, eine Lösung, bei der KI-Experten mit Geschäftskontext und Berechtigungen komplexe Workflows von A bis Z selbstständig erledigen. Sie automatisiert mehr als nur isolierte Aufgaben.",
-          "warum": "Ihre KI erledigt bald ganze Projekte, nicht nur Aufgaben. Beobachten Sie diese Entwicklung: Sie wird Ihren Projektalltag fundamental umgestalten.",
-          "quelle": "ServiceNow",
-          "url": "https://www.servicenow.com/de/solutions/sales-automation/",
-          "datum": "04.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Die neue App ChatOne bietet KI-Chat-Assistenten und Bildgenerierung, um Inhalte zu erstellen, Ideen zu sammeln und den Arbeitsablauf zu verbessern.",
-          "quelle": "Apple App Store",
-          "url": "https://www.google.com/search?q=Die%20neue%20App%20ChatOne%20bietet%20KI-Chat-Assistenten%20und%20Bildgenerierung%2C%20um%20Inhalte%20zu%20erstellen%2C%20Ideen%20zu%20sammeln%20und%20den%20Arbeitsablauf%20zu%20verbessern.%20Apple%20App%20Store"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "Melisa Tokmak: Stop Using AI to Cut Costs. Use It to Sell More Roofs.",
-        "podcast_name": "No Priors"
-      }
-    },
-    {
       "date": "06.08.2026",
       "top_news": [
         {
@@ -475,11 +426,76 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "15.08.2026",
+      "top_news": [
+        {
+          "titel": "Claude schreibt bereits den Großteil seines Codes. Regulierer greifen ein.",
+          "zusammenfassung": "Claude generiert bereits den Großteil seines Produktionscodes, beschleunigt damit die KI-Forschung. Experten warnen vor unkontrollierbaren Systemen; die US-Regierung verhängte temporäre Zugangssperren.",
+          "warum": "KI entwickelt sich rasant. Beobachte regulatorische Schritte und Modellzugang, um Risiken für dein Unternehmen frühzeitig zu erkennen.",
+          "quelle": "Mindverse",
+          "url": "https://www.google.com/search?q=Claude%20schreibt%20bereits%20den%20Gro%C3%9Fteil%20seines%20Codes.%20Regulierer%20greifen%20ein.%20Mindverse",
+          "datum": "14.08.2026"
+        },
+        {
+          "titel": "OpenAI's LifeSciBench: KI scheitert an biologischen Forschungsfragen",
+          "zusammenfassung": "OpenAI's LifeSciBench testet KI-Modelle mit Aufgaben aus den Biowissenschaften. GPT-Rosalind übertrifft GPT-5.5, erreicht aber nur 36,1 Prozent exakte Bestehensquote – das ist weniger als zwei von fünf Fragen korrekt.",
+          "warum": "Erkenne die Grenzen aktueller KI: Komplexe Forschungsarbeiten erfordern weiterhin menschliches Urteilsvermögen. Setze KI nur für klar definierte, unterstützende Aufgaben ein.",
+          "quelle": "ChatGPT Deutsch",
+          "url": "https://www.google.com/search?q=OpenAI%27s%20LifeSciBench%3A%20KI%20scheitert%20an%20biologischen%20Forschungsfragen%20ChatGPT%20Deutsch",
+          "datum": "14.08.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "InsurTech omni:us automatisiert Schadensfälle – adesso übernimmt",
+          "zusammenfassung": "adesso übernimmt das InsurTech omni:us, spezialisiert auf KI-gestützte Schadensfallbearbeitung für Versicherer. Die Technologie analysiert Dokumente und bearbeitet Standardfälle weitgehend automatisch.",
+          "branche": "Versicherungen",
+          "quelle": "Dr. Web",
+          "url": "https://www.google.com/search?q=InsurTech%20omni%3Aus%20automatisiert%20Schadensf%C3%A4lle%20%E2%80%93%20adesso%20%C3%BCbernimmt%20Dr.%20Web",
+          "datum": "14.08.2026"
+        },
+        {
+          "titel": "Mittelstand setzt auf lokale Open-Source-KI: Automobilzulieferer automatisiert Einkaufsprozesse",
+          "zusammenfassung": "FERCHAU half einem Automobilzulieferer, Purchase Requests mit einem KI-Agenten zu automatisieren und Datenhoheit zu sichern. Lokale Open-Source-KI bietet eine sichere, wirtschaftliche Alternative zu Cloud-Lösungen.",
+          "branche": "Industrie",
+          "quelle": "Ferchau",
+          "url": "https://www.google.com/search?q=Mittelstand%20setzt%20auf%20lokale%20Open-Source-KI%3A%20Automobilzulieferer%20automatisiert%20Einkaufsprozesse%20Ferchau",
+          "datum": "14.08.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Parallel bietet neue Web-Infrastruktur für KI-Agenten und liefert Echtzeit-Suchergebnisse mit Zitaten für aktuelle Kontexte.",
+          "quelle": "Parallel",
+          "url": "https://www.google.com/search?q=Parallel%20bietet%20neue%20Web-Infrastruktur%20f%C3%BCr%20KI-Agenten%20und%20liefert%20Echtzeit-Suchergebnisse%20mit%20Zitaten%20f%C3%BCr%20aktuelle%20Kontexte.%20Parallel"
+        },
+        {
+          "text": "BetterDB AI SDK erweitert KI-Agenten um Langzeitgedächtnis und semantisches Caching für ultraschnelle Antworten. Open-Source verfügbar.",
+          "quelle": "PitchWall",
+          "url": "https://www.google.com/search?q=BetterDB%20AI%20SDK%20erweitert%20KI-Agenten%20um%20Langzeitged%C3%A4chtnis%20und%20semantisches%20Caching%20f%C3%BCr%20ultraschnelle%20Antworten.%20Open-Source%20verf%C3%BCgbar.%20PitchWall"
+        },
+        {
+          "text": "Morphic veröffentlicht KI-gestützten Generator für Erklärvideos, der API-Dokumentationen in animierte Walkthroughs verwandelt.",
+          "quelle": "Morphic",
+          "url": "https://www.google.com/search?q=Morphic%20ver%C3%B6ffentlicht%20KI-gest%C3%BCtzten%20Generator%20f%C3%BCr%20Erkl%C3%A4rvideos%2C%20der%20API-Dokumentationen%20in%20animierte%20Walkthroughs%20verwandelt.%20Morphic"
+        },
+        {
+          "text": "Das Open-Source-Tool „watermarks-remover“ (über 4.500 GitHub-Sterne) verspricht die Entfernung von KI-Wasserzeichen. Entwickler nennen jedoch technische Grenzen.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=Das%20Open-Source-Tool%20%E2%80%9Ewatermarks-remover%E2%80%9C%20%28%C3%BCber%204.500%20GitHub-Sterne%29%20verspricht%20die%20Entfernung%20von%20KI-Wasserzeichen.%20Entwickler%20nennen%20jedoch%20technische%20Grenzen.%20BornCity"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "14.08.2026",
+  "last_sent": "15.08.2026",
   "sent_log": {
-    "date": "14.08.2026",
+    "date": "15.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
