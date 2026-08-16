@@ -1,53 +1,6 @@
 {
   "editions": [
     {
-      "date": "06.08.2026",
-      "top_news": [
-        {
-          "titel": "Meta rollt Muse Code aus: Günstiger KI-Programmieragent fordert OpenAI heraus",
-          "zusammenfassung": "Meta präsentiert Muse Code, einen neuen KI-Programmieragenten, der als preiswerte Alternative zu OpenAI und Anthropic antritt. Meta-Mitarbeiter nutzen den Agenten bereits, um ihre Workflows zu beschleunigen.",
-          "warum": "Prüfe den Agenten bei öffentlicher Verfügbarkeit. Er verspricht substanzielle Kostensenkungen bei Programmieraufgaben und könnte dein Budget entlasten.",
-          "quelle": "BigGo Finance",
-          "url": "https://www.google.com/search?q=Meta%20rollt%20Muse%20Code%20aus%3A%20G%C3%BCnstiger%20KI-Programmieragent%20fordert%20OpenAI%20heraus%20BigGo%20Finance",
-          "datum": "05.08.2026"
-        },
-        {
-          "titel": "Cloudflare startet Open-Source-KI-Agenten-Arbeitsbereich und VibeSDK für Unternehmen",
-          "zusammenfassung": "Cloudflare stellt eine quelloffene Version von Cloudflare OS als KI-Agenten-Arbeitsbereich für Unternehmen vor und gibt das VibeSDK für Entwickler frei. Ziel ist die schnelle Entwicklung und Bereitstellung intelligenter, adaptiver KI-Agenten.",
-          "warum": "IT-Teams erhalten hier mehr Kontrolle und Flexibilität. Prüft das VibeSDK, wenn ihr eine eigene, skalierbare Agenten-Infrastruktur aufbauen möchtet.",
-          "quelle": "Cloudflare",
-          "url": "https://www.cloudflare.com/press-releases/2026/cloudflare-os-is-the-first-ai-workspace-built-around-how-companies-actually-work/",
-          "datum": "05.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "HappyRobot automatisiert monatlich 28.000 Arbeitsstunden bei Kunden",
-          "zusammenfassung": "HappyRobot erhält 150 Millionen USD für seine Enterprise Superintelligence-Plattform, die KI-Agenten zur Automatisierung komplexer Betriebsabläufe einsetzt. Diese Agenten automatisieren bei Kunden monatlich 28.000 Arbeitsstunden und lösen über 70 Prozent der Kundendienstanfragen autonom.",
-          "branche": "Allgemein",
-          "quelle": "Vestbee",
-          "url": "https://www.google.com/search?q=HappyRobot%20automatisiert%20monatlich%2028.000%20Arbeitsstunden%20bei%20Kunden%20Vestbee",
-          "datum": "05.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Slack erweitert seinen Workflow-Builder um neue KI-Schritte. Du erstellst damit automatisierte Abläufe ohne Code, die direkt KI-Antworten generieren.",
-          "quelle": "Slack",
-          "url": "https://www.google.com/search?q=Slack%20erweitert%20seinen%20Workflow-Builder%20um%20neue%20KI-Schritte.%20Du%20erstellst%20damit%20automatisierte%20Abl%C3%A4ufe%20ohne%20Code%2C%20die%20direkt%20KI-Antworten%20generieren.%20Slack"
-        },
-        {
-          "text": "Das neueste Google Home Update liefert 'Interaktive Storytime mit Gemini'. Nutzer erstellen damit gemeinsam mit der KI maßgeschneiderte Geschichten und ändern den Plot.",
-          "quelle": "Android Police",
-          "url": "https://www.google.com/search?q=Das%20neueste%20Google%20Home%20Update%20liefert%20%27Interaktive%20Storytime%20mit%20Gemini%27.%20Nutzer%20erstellen%20damit%20gemeinsam%20mit%20der%20KI%20ma%C3%9Fgeschneiderte%20Geschichten%20und%20%C3%A4ndern%20den%20Plot.%20Android%20Police"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "The Next AI Crisis Won't Be Hallucinations",
-        "podcast_name": "Beginner's Guide to AI Podcast"
-      }
-    },
-    {
       "date": "07.08.2026",
       "top_news": [
         {
@@ -491,11 +444,58 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "16.08.2026",
+      "top_news": [
+        {
+          "titel": "Update: Microsoft Copilot: Eine App für alle, aber ohne Podcasts und Gruppenchats",
+          "zusammenfassung": "Microsoft führt seine Copilot-Anwendungen für private und geschäftliche Nutzung in einer einzigen App zusammen. Ab dem 18. August streicht der Konzern Funktionen wie Podcasts und Gruppenchats, was Millionen Nutzer auf verschiedenen Plattformen betrifft.",
+          "warum": "Prüfe betroffene Copilot-Funktionen und sichere Inhalte vor dem 18. August. Die neue App vereinfacht den Kontextwechsel.",
+          "quelle": "gHacks Tech News",
+          "url": "https://www.ghacks.net/2026/08/15/microsoft-merges-its-two-copilot-apps-into-one-and-retires-podcasts-deep-research-and-group-chat/",
+          "datum": "15.08.2026"
+        },
+        {
+          "titel": "DeepSeek-V4-Pro-0813: Eine Million Token Kontext und Opus-Leistung",
+          "zusammenfassung": "DeepSeek stellt DeepSeek-V4-Pro-0813 vor, ein Open-Weight-Modell, das in Leistungstests Claude Opus 4 erreicht. Es bietet ein Kontextfenster von einer Million Token – das entspricht etwa 1.250 Romanseiten oder drei Harry-Potter-Bänden. Ideal für sehr lange Dokumente und große Codebasen.",
+          "warum": "Prüfe dieses Open-Source-Modell für komplexe Aufgaben mit hohem Kontextbedarf. Eine starke Alternative zu teureren Modellen.",
+          "quelle": "Unsloth Documentation",
+          "url": "https://www.google.com/search?q=DeepSeek-V4-Pro-0813%3A%20Eine%20Million%20Token%20Kontext%20und%20Opus-Leistung%20Unsloth%20Documentation",
+          "datum": "15.08.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Alsaif Gallery (Handel) steigert Effizienz mit eigener KI-Plattform",
+          "zusammenfassung": "Die saudi-arabische Einzelhandelskette Alsaif Gallery implementiert eine selbst entwickelte KI-Agentenplattform. Mit Tencent Cloud verbessert sie betriebliche Effizienz und Kundeninteraktionen, sowohl intern als auch kundennahe.",
+          "branche": "Handel",
+          "quelle": "Tencent Cloud",
+          "url": "https://www.marketwatch.com/press-release/tencent-cloud-powers-alsaif-gallerys-enterprise-ai-transformation-in-saudi-arabia-29b11b7d",
+          "datum": "15.08.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Google Assistant weicht Gemini: Ab dem 4. September ersetzt Google seinen Assistant auf Android-Geräten vollständig durch Gemini und zwingt so Millionen Nutzer zur Umstellung.",
+          "quelle": "UNILAD Tech",
+          "url": "https://www.google.com/search?q=Google%20Assistant%20weicht%20Gemini%3A%20Ab%20dem%204.%20September%20ersetzt%20Google%20seinen%20Assistant%20auf%20Android-Ger%C3%A4ten%20vollst%C3%A4ndig%20durch%20Gemini%20und%20zwingt%20so%20Millionen%20Nutzer%20zur%20Umstellung.%20UNILAD%20Tech"
+        },
+        {
+          "text": "ChatGPT jetzt als Linux-App: OpenAI bringt eine native ChatGPT Desktop-App für Linux (Ubuntu, Debian, Fedora) heraus, die Zugriff und Nutzung dort vereinfacht.",
+          "quelle": "OpenAI Help Center",
+          "url": "https://help.openai.com/en/articles/8627768-chatgpt-release-notes"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "15.08.2026",
+  "last_sent": "16.08.2026",
   "sent_log": {
-    "date": "15.08.2026",
+    "date": "16.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
