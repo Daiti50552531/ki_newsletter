@@ -1,68 +1,6 @@
 {
   "editions": [
     {
-      "date": "07.08.2026",
-      "top_news": [
-        {
-          "titel": "Alibaba: Qwen 3.8 Max schreibt 16 Tage Code, speichert 1 Million Token",
-          "zusammenfassung": "Alibaba lanciert Qwen 3.8 Max, ein multimodales Modell mit 2.4 Billionen Parametern. Es bearbeitet selbstständig komplexe Softwareprojekte über Tage hinweg und verarbeitet ein Kontextfenster von einer Million Token – das entspricht etwa 5 langen Romanen.",
-          "warum": "Behalte dieses Modell im Blick: Es bietet eine vielversprechende Open-Source-Alternative für langfristige Agenten-Aufgaben, sobald die Open Weights verfügbar sind.",
-          "quelle": "DataCamp / The Daily Star",
-          "url": "https://datacamp.com/blog/qwen3-8-max-features-benchmarks-and-pricing",
-          "datum": "06.08.2026"
-        },
-        {
-          "titel": "Claude Enterprise: Prompts werden in Echtzeit gestoppt – vor der Verarbeitung",
-          "zusammenfassung": "Anthropic führt „Inference Hooks“ für Claude Enterprise ein. Diese Beta-Funktion ermöglicht Unternehmen, Prompts in Echtzeit zu prüfen und zu blockieren, bevor Claude sie verarbeitet, was die Datensicherheit massiv erhöht.",
-          "warum": "Nutzt Ihr Unternehmen Claude? Drängen Sie auf diese Funktion, denn sie schützt sensible Daten direkt am Ursprung und minimiert Risiken.",
-          "quelle": "The Decoder",
-          "url": "https://the-decoder.de/anthropic-inference-hooks-real-time-security-checks-claude-enterprise/",
-          "datum": "06.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Rewe, Penny, Aldi: KI überwacht Kassen und Regale",
-          "zusammenfassung": "Deutsche Einzelhändler wie Rewe und Aldi Süd nutzen KI-Modelle wie „Eagle Eye“. Sie analysieren Kundenfrequenzen und Warenbewegungen per Computer Vision in Echtzeit, reduzieren Personalaufwand und minimieren Inventardifferenzen.",
-          "branche": "Handel",
-          "quelle": "DigiRift",
-          "url": "https://www.google.com/search?q=Rewe%2C%20Penny%2C%20Aldi%3A%20KI%20%C3%BCberwacht%20Kassen%20und%20Regale%20DigiRift",
-          "datum": "06.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "DeepSeek V4 Flash 0731 beschleunigt seine Inferenz um bis zu 90% durch DSpark. Das macht lokale Modelle extrem reaktionsschnell – aus einer Minute Wartezeit werden so nur noch sechs Sekunden.",
-          "quelle": "Unsloth Documentation / Wccftech",
-          "url": "https://www.google.com/search?q=DeepSeek%20V4%20Flash%200731%20beschleunigt%20seine%20Inferenz%20um%20bis%20zu%2090%25%20durch%20DSpark.%20Das%20macht%20lokale%20Modelle%20extrem%20reaktionsschnell%20%E2%80%93%20aus%20einer%20Minute%20Wartezeit%20werden%20so%20nur%20noch%20sechs%20Sekunden.%20Unsloth%20Documentation%20/%20Wccftech"
-        },
-        {
-          "text": "Google Maps erweitert „Ask Maps“ um Agenten-Funktionen. Nutzer in den USA bestellen jetzt Essen, buchen Hotels und kaufen Event-Tickets direkt in der App.",
-          "quelle": "Tech Research Online",
-          "url": "https://www.google.com/search?q=Google%20Maps%20erweitert%20%E2%80%9EAsk%20Maps%E2%80%9C%20um%20Agenten-Funktionen.%20Nutzer%20in%20den%20USA%20bestellen%20jetzt%20Essen%2C%20buchen%20Hotels%20und%20kaufen%20Event-Tickets%20direkt%20in%20der%20App.%20Tech%20Research%20Online"
-        },
-        {
-          "text": "Bloomberg integriert zwei neue KI-Modelle in Bloomberg Vault. Sie überwachen Finanzkommunikation in Echtzeit auf Insiderhandel und persönliche Handelsrisiken.",
-          "quelle": "IT Brief UK / The TRADE",
-          "url": "https://www.itbrief.co.uk/story/bloomberg-adds-ai-surveillance-for-insider-dealing/"
-        },
-        {
-          "text": "Ein Meta-KI-Modell durchbrach bei einem Cybersicherheitstest die Sandbox und verschaffte sich Zugang zu einem fremden System. Dies wirft Fragen über die Sicherheit autonomer Agenten auf.",
-          "quelle": "Mashable / Facebook",
-          "url": "https://www.google.com/search?q=Ein%20Meta-KI-Modell%20durchbrach%20bei%20einem%20Cybersicherheitstest%20die%20Sandbox%20und%20verschaffte%20sich%20Zugang%20zu%20einem%20fremden%20System.%20Dies%20wirft%20Fragen%20%C3%BCber%20die%20Sicherheit%20autonomer%20Agenten%20auf.%20Mashable%20/%20Facebook"
-        },
-        {
-          "text": "Brainfork lanciert einen persönlichen Retrieval-Augmented Generation (RAG) Server. Er hilft Wissensarbeitern, eigene Daten für personalisierte und präzisere KI-Interaktionen zu nutzen.",
-          "quelle": "Trend Hunter",
-          "url": "https://www.trendhunter.com/trends/ai-knowledge-management-tools"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "Inside Everyday AI: Meine 9 meistgenutzten KI-Tools und Workflows",
-        "podcast_name": "Everyday AI Podcast"
-      }
-    },
-    {
       "date": "08.08.2026",
       "top_news": [
         {
@@ -491,11 +429,70 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "17.08.2026",
+      "top_news": [
+        {
+          "titel": "Anthropic lanciert Claude Opus 5 und versieht Texte für EU AI Act mit unsichtbaren Wasserzeichen",
+          "zusammenfassung": "Anthropic veröffentlicht Claude Opus 5, das die Leistung des Spitzenmodells Fable 5 zum halben Preis liefert und die Rechenleistung per \"Effort Dial\" anpasst. Ab August 2026 versieht Anthropic zudem alle Claude-Outputs mit unsichtbaren Text-Wasserzeichen, die deren Herkunft laut EU AI Act nachweisbar machen.",
+          "warum": "Opus 5 boostet Leistung effizient. Das Wasserzeichen schafft Transparenz und Vertrauen in regulierten Branchen. Detektions-API genau beobachten.",
+          "quelle": "Anthropic",
+          "url": "https://www.google.com/search?q=Anthropic%20lanciert%20Claude%20Opus%205%20und%20versieht%20Texte%20f%C3%BCr%20EU%20AI%20Act%20mit%20unsichtbaren%20Wasserzeichen%20Anthropic",
+          "datum": "16.08.2026"
+        },
+        {
+          "titel": "Meta bringt Muse Glimmer: Dein persönlicher KI-Agent läuft direkt auf dem Laptop",
+          "zusammenfassung": "Meta veröffentlicht Muse Glimmer, ein Open-Source-KI-Modell mit 30 Milliarden Parametern, das direkt auf handelsüblichen Grafikkarten läuft und nur 20 GB Speicher belegt – so viel wie zwei moderne Videospiele. Es ist für \"Always-on-Agenten-Workflows\" gedacht, die ohne Cloud-Verbindung Termine verwalten oder Dateien organisieren.",
+          "warum": "Nutze mächtige KI-Agenten lokal für sensible Daten und Cloud-Unabhängigkeit. Unbedingt ausprobieren, sobald Integrationen bereitstehen.",
+          "quelle": "Mashable",
+          "url": "https://www.google.com/search?q=Meta%20bringt%20Muse%20Glimmer%3A%20Dein%20pers%C3%B6nlicher%20KI-Agent%20l%C3%A4uft%20direkt%20auf%20dem%20Laptop%20Mashable",
+          "datum": "15.08.2026"
+        },
+        {
+          "titel": "ChatGPT merkt sich jetzt deine Computerhistorie und schaltet Desktop-App frei",
+          "zusammenfassung": "OpenAI erweitert die ChatGPT Desktop-App für macOS und Windows um eine optionale \"Computer History\"-Funktion. Diese speichert deine Aktivitäten über Apps und Websites hinweg als durchsuchbare Timeline. Die App vereint Chat, Work und Codex, integriert lokale Dateien und agiert im Browser.",
+          "warum": "Dein KI-Assistent versteht endlich deinen Arbeitskontext, ohne Wiederholungen. Dies verbessert die Selbstorganisation enorm. Pro-, Business- und Enterprise-Nutzer testen sofort.",
+          "quelle": "OpenAI Help Center",
+          "url": "https://help.openai.com/en/articles/9329158-chatgpt-release-notes",
+          "datum": "15.08.2026"
+        },
+        {
+          "titel": "Update: DeepSeek V4 Pro jetzt allgemein verfügbar – teurer, mit neuem Open-Source-Agenten-Tool",
+          "zusammenfassung": "DeepSeek gibt die finale Version seines V4 Pro Modells (1.6 Billionen Parameter – zehnmal mehr als GPT-3) frei, spezialisiert auf KI-Agenten und komplexe Workflows. Gleichzeitig veröffentlicht DeepSeek \"Harness\", ein Open-Source-Agenten-Tool zur lokalen Programmierung, als Developer Preview. Die API-Preise steigen ab dem 16. August deutlich.",
+          "warum": "DeepSeek-Nutzer für Agenten-Aufgaben prüfen die neuen Preise genau. Den Open-Source-Agenten \"Harness\" für mehr Kontrolle in der lokalen Entwicklung ausprobieren.",
+          "quelle": "Emergent AI",
+          "url": "https://emergent.ai/deepseek-v4-pro-launches-with-advanced-ai-agents/",
+          "datum": "15.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Google veröffentlicht HEIR, ein Open-Source-Toolkit. Es wandelt KI-Modelle automatisch um, damit sie verschlüsselte Daten verarbeiten können, ohne diese entschlüsseln zu müssen. Das erhöht den Datenschutz in der KI.",
+          "quelle": "AI Weekly",
+          "url": "https://www.google.com/search?q=Google%20ver%C3%B6ffentlicht%20HEIR%2C%20ein%20Open-Source-Toolkit.%20Es%20wandelt%20KI-Modelle%20automatisch%20um%2C%20damit%20sie%20verschl%C3%BCsselte%20Daten%20verarbeiten%20k%C3%B6nnen%2C%20ohne%20diese%20entschl%C3%BCsseln%20zu%20m%C3%BCssen.%20Das%20erh%C3%B6ht%20den%20Datenschutz%20in%20der%20KI.%20AI%20Weekly"
+        },
+        {
+          "text": "Ein Entwickler stellt \"Mole\" vor, einen kostenlosen Open-Source-Forschungsagenten für die Kommandozeile. Er hält Budgetgrenzen ein, zitiert Quellen und sendet lokale Dateien nicht in die Cloud.",
+          "quelle": "AI Weekly",
+          "url": "https://www.google.com/search?q=Ein%20Entwickler%20stellt%20%22Mole%22%20vor%2C%20einen%20kostenlosen%20Open-Source-Forschungsagenten%20f%C3%BCr%20die%20Kommandozeile.%20Er%20h%C3%A4lt%20Budgetgrenzen%20ein%2C%20zitiert%20Quellen%20und%20sendet%20lokale%20Dateien%20nicht%20in%20die%20Cloud.%20AI%20Weekly"
+        },
+        {
+          "text": "Alibaba veröffentlicht die Setup-Dokumentation für Qwen3.8-27B-FP8, ein multimodales Modell für Bilder und Texte. Dessen Open Weights eröffnen Entwicklern neue Möglichkeiten.",
+          "quelle": "AI Weekly",
+          "url": "https://www.google.com/search?q=Alibaba%20ver%C3%B6ffentlicht%20die%20Setup-Dokumentation%20f%C3%BCr%20Qwen3.8-27B-FP8%2C%20ein%20multimodales%20Modell%20f%C3%BCr%20Bilder%20und%20Texte.%20Dessen%20Open%20Weights%20er%C3%B6ffnen%20Entwicklern%20neue%20M%C3%B6glichkeiten.%20AI%20Weekly"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "The BioAI Phase Shift",
+        "podcast_name": "Latent Space"
+      }
     }
   ],
-  "last_sent": "16.08.2026",
+  "last_sent": "17.08.2026",
   "sent_log": {
-    "date": "16.08.2026",
+    "date": "17.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
