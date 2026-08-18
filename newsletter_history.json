@@ -1,49 +1,6 @@
 {
   "editions": [
     {
-      "date": "08.08.2026",
-      "top_news": [
-        {
-          "titel": "Sicherheits-Schock: Einfache E-Mails kapern fünf große KI-Browser wie Claude und Gemini",
-          "zusammenfassung": "Zenity Labs zeigte auf der Black Hat USA 2026, wie Angreifer fünf führende KI-Browser, darunter Claude, Gemini und Copilot Edge, über normale E-Mails oder Links ohne Klicks kapern. Sie greifen so auf lokale Systeme zu und exfiltrieren Daten.",
-          "warum": "Handeln Sie jetzt: Prüfen Sie die Sicherheitseinstellungen Ihrer KI-Browser und ignorieren Sie verdächtige E-Mails oder Links, selbst wenn kein Klick nötig ist.",
-          "quelle": "Notebookcheck",
-          "url": "https://www.notebookcheck.com/Claude-Gemini-Comet-five-AI-browsers-hijacked-by-a-single-email.842790.0.html",
-          "datum": "07.08.2026"
-        },
-        {
-          "titel": "Update: ChatGPT Luna entfesselt unbegrenzte Chats und den 'Think'-Button für alle",
-          "zusammenfassung": "OpenAI rollt GPT-5.6 Luna für alle kostenlosen ChatGPT- und Go-Nutzer aus. Das Modell bietet jetzt unbegrenzte Textchats und den neuen 'Think'-Button, der die KI länger grübeln lässt und so besseres Reasoning für komplexe Anfragen ermöglicht.",
-          "warum": "Nutzen Sie den 'Think'-Button bei kniffligen Aufgaben; er lässt die KI länger grübeln und liefert oft deutlich bessere Ergebnisse. Probieren Sie es aus!",
-          "quelle": "OpenAI",
-          "url": "https://www.binance.com/en/feed/post/2026-08-08-openai-sets-2027-launch-for-screenless-smart-speaker-priced-above-300-4740158428801",
-          "datum": "07.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "DeepSeek erhöht Preise, doch sein V4-Flash-Modell bleibt 105-mal günstiger als Anthropic's Claude Fable 5. Das Modell kostet Sie also nur einen Euro, während Konkurrenten 105 Euro verlangen – und setzt damit die Wettbewerber preislich unter Druck.",
-          "quelle": "ForkLog",
-          "url": "https://www.google.com/search?q=DeepSeek%20erh%C3%B6ht%20Preise%2C%20doch%20sein%20V4-Flash-Modell%20bleibt%20105-mal%20g%C3%BCnstiger%20als%20Anthropic%27s%20Claude%20Fable%205.%20Das%20Modell%20kostet%20Sie%20also%20nur%20einen%20Euro%2C%20w%C3%A4hrend%20Konkurrenten%20105%20Euro%20verlangen%20%E2%80%93%20und%20setzt%20damit%20die%20Wettbewerber%20preislich%20unter%20Druck.%20ForkLog"
-        },
-        {
-          "text": "OpenAI entwickelt angeblich einen bildschirmfreien, sprachgesteuerten KI-Computer. Er soll 2027 auf den Markt kommen und über 300 US-Dollar kosten.",
-          "quelle": "RestProperty",
-          "url": "https://www.binance.com/en/feed/post/2026-08-08-openai-sets-2027-launch-for-screenless-smart-speaker-priced-above-300-4740158428801"
-        },
-        {
-          "text": "Braintrust ermöglicht Domain-Experten aus Medizin, Recht und Finanzen, KI-Modelle zu trainieren und sich so ein zusätzliches Einkommen zu sichern.",
-          "quelle": "Braintrust",
-          "url": "https://www.google.com/search?q=Braintrust%20erm%C3%B6glicht%20Domain-Experten%20aus%20Medizin%2C%20Recht%20und%20Finanzen%2C%20KI-Modelle%20zu%20trainieren%20und%20sich%20so%20ein%20zus%C3%A4tzliches%20Einkommen%20zu%20sichern.%20Braintrust"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "What can we really expect from Agentic AI?",
-        "podcast_name": "SCC Simplify Podcast"
-      }
-    },
-    {
       "date": "09.08.2026",
       "top_news": [
         {
@@ -488,11 +445,47 @@
         "episoden_titel": "The BioAI Phase Shift",
         "podcast_name": "Latent Space"
       }
+    },
+    {
+      "date": "18.08.2026",
+      "top_news": [
+        {
+          "titel": "Google Search integriert Gemini 3.7 Flash: Präzisere Antworten für AI Pro & Ultra Abonnenten",
+          "zusammenfassung": "Google integriert sein neuestes KI-Modell Gemini 3.7 Flash in den AI Mode der Google Suche. Es liefert Abonnenten von Google AI Pro & Ultra global präzisere Antworten, indem es Anweisungen und Nutzerabsicht besser versteht.",
+          "warum": "Besitzt du ein Google AI Pro- oder Ultra-Abonnement? Teste die Funktion, um Recherchen zu optimieren und Informationen effizienter zu finden.",
+          "quelle": "Search Engine Roundtable",
+          "url": "https://www.seroundtable.com/google-search-gemini-3-7-flash-ai-mode-37597.html",
+          "datum": "17.08.2026"
+        },
+        {
+          "titel": "Stripe übernimmt OpenRouter für 7 Mrd. Dollar: Formt einen 'Stripe für KI'-Dienst",
+          "zusammenfassung": "Stripe übernimmt OpenRouter, einen Dienst für das Routing von Anfragen an über 400 KI-Modelle, für mehr als 7 Milliarden Dollar – das entspricht dem Wert von etwa 70.000 Luxusautos. OpenRouter ermöglicht Unternehmen den Zugriff auf verschiedene KI-Anbieter über ein einziges Dashboard.",
+          "warum": "Stripe vereinfacht die Nutzung verschiedener KI-Modelle. Behalte diese Akquisition im Blick, falls du mehrere KI-Dienste in Projekte integrierst.",
+          "quelle": "TechCrunch",
+          "url": "https://techcrunch.com/category/artificial-intelligence/",
+          "datum": "17.08.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Sainsbury's stoppt KI-Scans: System bezichtigt Kunden fälschlich des Diebstahls",
+          "zusammenfassung": "Die britische Supermarktkette Sainsbury's stoppt den Einsatz von KI-gestützten Scansystemen in einigen Filialen. Das System bezichtigte zuvor Kunden fälschlicherweise des Ladendiebstahls.",
+          "branche": "Handel",
+          "quelle": "The Guardian",
+          "url": "https://www.google.com/search?q=Sainsbury%27s%20stoppt%20KI-Scans%3A%20System%20bezichtigt%20Kunden%20f%C3%A4lschlich%20des%20Diebstahls%20The%20Guardian",
+          "datum": "17.08.2026"
+        }
+      ],
+      "schnelldurchlauf": [],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "17.08.2026",
+  "last_sent": "18.08.2026",
   "sent_log": {
-    "date": "17.08.2026",
+    "date": "18.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
