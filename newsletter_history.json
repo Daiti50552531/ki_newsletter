@@ -1,53 +1,6 @@
 {
   "editions": [
     {
-      "date": "09.08.2026",
-      "top_news": [
-        {
-          "titel": "Mistral AI: Shieldstral 1.0 3B sichert Inhalte, schlägt Giganten",
-          "zusammenfassung": "Mistral AI veröffentlicht Shieldstral 1.0 3B, einen quelloffenen, multimodal anpassbaren Sicherheitsklassifizierer. Er ermöglicht Unternehmen, Moderationsrichtlinien in Klartext zu definieren und erreicht die Text-Sicherheitsbewertung von Modellen, die siebenmal größer sind.",
-          "warum": "Betreiben Sie Moderations-KI lokal und sparen Sie Kosten. Das Modell liefert hohe Sicherheitseinstufungen effizient. Prüfen Sie es für Ihre internen Richtlinien.",
-          "quelle": "MarkTechPost",
-          "url": "https://www.marktechpost.com/2026/08/08/mistral-ai-releases-shieldstral-1-0-3b-an-open-weights-policy-adaptive-multimodal-safety-classifier-matching-models-7x-its-size/",
-          "datum": "08.08.2026"
-        },
-        {
-          "titel": "Update: OpenAI stoppt Astra-Freigabe – Cyber-Fähigkeiten zu kritisch",
-          "zusammenfassung": "OpenAI stuft das kommende Astra-Modell nach internen Tests als potenziell gefährlich ein, da es „kritische Cyber-Fähigkeiten“ zeigt. Das Unternehmen erweitert Sicherheitstests und pausiert die Entwicklung, die strengere Anforderungen nicht erfüllt.",
-          "warum": "KI-Sicherheit fordert selbst Top-Labs heraus. Beobachten Sie OpenAIs Lösung, bevor Ihre Agenten frei agieren. Vorsicht ist hier oberstes Gebot.",
-          "quelle": "OpenAI Blog",
-          "url": "https://openai.com/blog/responding-to-the-next-frontier-of-critical-cyber-capabilities",
-          "datum": "07.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Baumarkt-KI Homie AI berät 50.000 Kunden täglich – erfolgreich im Praxistest",
-          "zusammenfassung": "Homie AI integriert KI-gestützte Beratungs- und Verkaufsassistenten bei Händlern wie Hornbach und Bauhaus. Diese Assistenten beantworten täglich über 50.000 Kundenanfragen kanalübergreifend – im Onlineshop, an Terminals und per QR-Code auf dem Smartphone. Das entspricht der Beratung einer Kleinstadtbevölkerung pro Tag.",
-          "branche": "Handel",
-          "quelle": "diy online",
-          "url": "https://www.google.com/search?q=Baumarkt-KI%20Homie%20AI%20ber%C3%A4t%2050.000%20Kunden%20t%C3%A4glich%20%E2%80%93%20erfolgreich%20im%20Praxistest%20diy%20online",
-          "datum": "07.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Google zieht KI-Bildgenerator Nano Banana 2 aus Google Earth zurück, da Nutzer ihn für Falschinformationen missbrauchten.",
-          "quelle": "Mashable",
-          "url": "https://www.google.com/search?q=Google%20zieht%20KI-Bildgenerator%20Nano%20Banana%202%20aus%20Google%20Earth%20zur%C3%BCck%2C%20da%20Nutzer%20ihn%20f%C3%BCr%20Falschinformationen%20missbrauchten.%20Mashable"
-        },
-        {
-          "text": "Cisco veröffentlicht Google AI Mode Control. Sie ermöglicht IT-Administratoren, KI-gestützte Sucherlebnisse in Unternehmen zu steuern und abzusichern.",
-          "quelle": "Cisco Community",
-          "url": "https://community.cisco.com/t5/security-blogs/announcement-ga-release-of-google-ai-mode-control/ba-p/50000000000455806"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "10.08.2026",
       "top_news": [
         {
@@ -481,11 +434,52 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "19.08.2026",
+      "top_news": [
+        {
+          "titel": "Update: Anthropic hält neues Top-Modell zurück – zu gefährlich für die Öffentlichkeit",
+          "zusammenfassung": "Anthropic veröffentlicht einen Risikobericht zu \"Model 2\". Das Modell übertrifft Claude Mythos 5, bleibt aber wegen erhöhter Sicherheitsrisiken und drei unbefugten Zugriffsversuchen intern. Das Unternehmen stuft das Risiko für Fehlsteuerung von \"sehr niedrig\" auf \"niedrig\" hoch und definiert neue Sicherheitsziele.",
+          "warum": "Top-Labs stoppen gefährliche KI-Modelle. Überprüfe kritisch, welche Modelle du in sensible Prozesse integrierst, um Risiken zu vermeiden.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=Update%3A%20Anthropic%20h%C3%A4lt%20neues%20Top-Modell%20zur%C3%BCck%20%E2%80%93%20zu%20gef%C3%A4hrlich%20f%C3%BCr%20die%20%C3%96ffentlichkeit%20BornCity",
+          "datum": "18.08.2026"
+        },
+        {
+          "titel": "ByteDance und MPA einigen sich bei KI-Urheberrechten: Das setzt den Standard für generative KI",
+          "zusammenfassung": "ByteDance und die Motion Picture Association (MPA) vereinbaren formellen Urheberrechtsschutz für generative KI-Modelle wie Seedance und Seedream. Die Einigung folgt auf Konflikte um geschütztes Material und zeigt den Weg für außergerichtliche Lösungen.",
+          "warum": "Nutzer generativer KI müssen Urheberrechte respektieren. Diese Einigung bietet dir eine klare Handlungsgrundlage für KI-generierte Inhalte. Beachte sie.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=ByteDance%20und%20MPA%20einigen%20sich%20bei%20KI-Urheberrechten%3A%20Das%20setzt%20den%20Standard%20f%C3%BCr%20generative%20KI%20BornCity",
+          "datum": "18.08.2026"
+        },
+        {
+          "titel": "Spanien präzisiert DSGVO für KI: Deine Datenqualität entscheidet über Rechtmäßigkeit",
+          "zusammenfassung": "Die spanische Datenschutzaufsichtsbehörde AEPD konkretisiert die DSGVO-Anforderungen an Datenqualität in KI-Systemen, besonders bei Richtigkeit und Datenminimierung. Sie verlangt diese Prinzipien für Entwicklung und Einsatz von KI.",
+          "warum": "Die EU fordert saubere KI-Daten. Ohne diese drohen rechtliche Probleme. Überprüfe umgehend deine Datenstrategie, um Konformität zu sichern.",
+          "quelle": "it-daily.net",
+          "url": "https://www.google.com/search?q=Spanien%20pr%C3%A4zisiert%20DSGVO%20f%C3%BCr%20KI%3A%20Deine%20Datenqualit%C3%A4t%20entscheidet%20%C3%BCber%20Rechtm%C3%A4%C3%9Figkeit%20it-daily.net",
+          "datum": "18.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Google bietet auf Coursera einen Kurs an, der dir zeigt, wie du mit Google AI Studio und Gemini eigene Apps planst, testest und debuggst – selbst ohne Code-Kenntnisse.",
+          "quelle": "Coursera",
+          "url": "https://www.google.com/search?q=Google%20bietet%20auf%20Coursera%20einen%20Kurs%20an%2C%20der%20dir%20zeigt%2C%20wie%20du%20mit%20Google%20AI%20Studio%20und%20Gemini%20eigene%20Apps%20planst%2C%20testest%20und%20debuggst%20%E2%80%93%20selbst%20ohne%20Code-Kenntnisse.%20Coursera"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "18.08.2026",
+  "last_sent": "19.08.2026",
   "sent_log": {
-    "date": "18.08.2026",
+    "date": "19.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
