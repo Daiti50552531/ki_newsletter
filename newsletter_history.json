@@ -1,58 +1,6 @@
 {
   "editions": [
     {
-      "date": "10.08.2026",
-      "top_news": [
-        {
-          "titel": "Siri AI startet im Herbst – EU-iPhones bleiben wegen Digital Markets Act vorerst außen vor",
-          "zusammenfassung": "Apple verschiebt die Einführung von Siri AI auf EU-iPhones diesen Herbst. Der Konzern begründet dies mit dem Digital Markets Act (DMA) und sieht keine sicheren technischen Schutzmaßnahmen, um Drittanbietern den geforderten Zugriff auf Geräte und Daten zu garantieren.",
-          "warum": "Wartest du in der EU auf die neuen Siri-Funktionen? Ignoriere die Versprechungen fürs Erste. Die Verzögerung betrifft eine zentrale OS-Funktion und zieht sich wohl länger hin.",
-          "quelle": "Pasquale Pillitteri",
-          "url": "https://www.google.com/search?q=Siri%20AI%20startet%20im%20Herbst%20%E2%80%93%20EU-iPhones%20bleiben%20wegen%20Digital%20Markets%20Act%20vorerst%20au%C3%9Fen%20vor%20Pasquale%20Pillitteri",
-          "datum": "08.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "OpenAI Presence: BBVA und SoftBank erproben KI-Agenten für kritische Prozesse",
-          "zusammenfassung": "OpenAI stellt 'Presence' vor, eine Plattform für KI-Agenten im Unternehmenseinsatz. BBVA, SoftBank und IAG evaluieren die Plattform bereits für geschäftskritische Operationen in Banken, Telko und Versicherungen.",
-          "branche": "Banken, Telko, Versicherungen",
-          "quelle": "Mindverse",
-          "url": "https://www.google.com/search?q=OpenAI%20Presence%3A%20BBVA%20und%20SoftBank%20erproben%20KI-Agenten%20f%C3%BCr%20kritische%20Prozesse%20Mindverse",
-          "datum": "03.08.2026"
-        },
-        {
-          "titel": "CTK Poliklinik erprobt KI-Telefonassistenten und automatische Gesprächstranskription",
-          "zusammenfassung": "Die CTK Poliklinik Cottbus erprobt einen KI-Telefonassistenten, der Anrufe entgegennimmt und Anliegen erfasst. Ein Testlauf für automatische Transkriptionen von Arzt-Patienten-Gesprächen soll den Dokumentationsaufwand reduzieren.",
-          "branche": "Gesundheit",
-          "quelle": "Radio Cottbus",
-          "url": "https://www.google.com/search?q=CTK%20Poliklinik%20erprobt%20KI-Telefonassistenten%20und%20automatische%20Gespr%C3%A4chstranskription%20Radio%20Cottbus",
-          "datum": "05.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Anthropic führt mit Version 2.1.224 von Claude Code ein Cross-Session-Messaging für macOS und Linux ein. Das verbessert den Informationsaustausch zwischen Agenten-Sitzungen.",
-          "quelle": "BornCity",
-          "url": "https://www.google.com/search?q=Anthropic%20f%C3%BChrt%20mit%20Version%202.1.224%20von%20Claude%20Code%20ein%20Cross-Session-Messaging%20f%C3%BCr%20macOS%20und%20Linux%20ein.%20Das%20verbessert%20den%20Informationsaustausch%20zwischen%20Agenten-Sitzungen.%20BornCity"
-        },
-        {
-          "text": "ZoomIt von Sysinternals steht jetzt als kostenloses Open-Source-Tool für macOS bereit. Es bietet Zoom, Anmerkungen, lokale OCR und Videoaufnahme.",
-          "quelle": "Pasquale Pillitteri",
-          "url": "https://www.google.com/search?q=ZoomIt%20von%20Sysinternals%20steht%20jetzt%20als%20kostenloses%20Open-Source-Tool%20f%C3%BCr%20macOS%20bereit.%20Es%20bietet%20Zoom%2C%20Anmerkungen%2C%20lokale%20OCR%20und%20Videoaufnahme.%20Pasquale%20Pillitteri"
-        },
-        {
-          "text": "Golem.de analysiert, wie Edge AI das Latenzproblem bei zeitkritischen KI-Anwendungen löst, besonders relevant für Telekommunikationsnetze.",
-          "quelle": "Golem.de",
-          "url": "https://www.golem.de/news/edge-ai-gegen-ki-mit-langer-leitung-2608-128216.html"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "11.08.2026",
       "top_news": [
         {
@@ -475,11 +423,44 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "20.08.2026",
+      "top_news": [
+        {
+          "titel": "Update: Microsofts Copilot wird zur Office-Zentrale – Dateien direkt im Chat bearbeiten",
+          "zusammenfassung": "Microsoft integriert Chat und Bildgenerierung in die Copilot-App und ermöglicht direkten Zugriff auf Word, Excel und Outlook. Nutzer melden sich nun mit Arbeits-, Schul- oder Privatkonten an und nutzen Copilot als zentrale Schnittstelle für alle Microsoft 365-Anwendungen.",
+          "warum": "Diese App spart Zeit und Klicks im Arbeitsalltag. Testen Sie sie, um Ihre Microsoft 365-Nutzung zu optimieren.",
+          "quelle": "Microsoft",
+          "url": "https://www.google.com/search?q=Update%3A%20Microsofts%20Copilot%20wird%20zur%20Office-Zentrale%20%E2%80%93%20Dateien%20direkt%20im%20Chat%20bearbeiten%20Microsoft",
+          "datum": "20.08.2026"
+        },
+        {
+          "titel": "OpenAI schützt Unternehmensdaten: Prompts bleiben bei Missbrauchskontrolle privat",
+          "zusammenfassung": "OpenAI testet 'Private Safety Processing' für seine kostenpflichtige API. Das System erkennt Missbrauch, ohne Kundenprompts oder -antworten zu speichern. Dies löst den Konflikt zwischen Datenschutz und Sicherheitsüberwachung und gibt Unternehmen mehr Datenkontrolle.",
+          "warum": "Entscheidend für Unternehmen mit strengen Datenschutzvorgaben. Verfolgen Sie die Rollout-Details genau, um Compliance zu sichern.",
+          "quelle": "OpenAI",
+          "url": "https://openai.com/blog/offering-zero-data-retention-for-frontier-models",
+          "datum": "19.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Google Gemini visualisiert jetzt interaktive 3D-Modelle und Diagramme direkt im Chat. Das macht komplexe Konzepte – etwa eine Molekülstruktur so greifbar wie ein Legostein – sofort verständlich.",
+          "quelle": "Digital Trends",
+          "url": "https://www.google.com/search?q=Google%20Gemini%20visualisiert%20jetzt%20interaktive%203D-Modelle%20und%20Diagramme%20direkt%20im%20Chat.%20Das%20macht%20komplexe%20Konzepte%20%E2%80%93%20etwa%20eine%20Molek%C3%BClstruktur%20so%20greifbar%20wie%20ein%20Legostein%20%E2%80%93%20sofort%20verst%C3%A4ndlich.%20Digital%20Trends"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "19.08.2026",
+  "last_sent": "20.08.2026",
   "sent_log": {
-    "date": "19.08.2026",
+    "date": "20.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
