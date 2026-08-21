@@ -1,44 +1,6 @@
 {
   "editions": [
     {
-      "date": "11.08.2026",
-      "top_news": [
-        {
-          "titel": "Update: Google stoppt Gemini 3.5 Pro – Fokus auf Gemini 4",
-          "zusammenfassung": "Google stoppt die Entwicklung von Gemini 3.5 Pro wegen Performance-Problemen und konzentriert sich stattdessen auf Gemini 4. Gemini 3.6 Flash dient als Übergangslösung für schnelle Anfragen.",
-          "warum": "Ignorieren Sie Gemini 3.5 Pro. Konzentrieren Sie sich auf stabile Modelle; die KI-Landschaft ändert sich schnell. Beobachten Sie Gemini 4 für echte Fortschritte.",
-          "quelle": "NokiaPowerUser",
-          "url": "https://www.google.com/search?q=Update%3A%20Google%20stoppt%20Gemini%203.5%20Pro%20%E2%80%93%20Fokus%20auf%20Gemini%204%20NokiaPowerUser",
-          "datum": "10.08.2026"
-        },
-        {
-          "titel": "Update: Microsoft Copilot führt 'Credits' ein – Was das für Ihre Kosten bedeutet",
-          "zusammenfassung": "Microsoft führt 'Copilot Credits' für erweiterte KI- und Agenten-Workloads ein, die über das Basis-Abonnement hinausgehen. Das Unternehmen verbessert zudem die Nutzungsberichte für Microsoft 365 Copilot mit schnelleren Aktualisierungen und detaillierteren Metriken.",
-          "warum": "Überprüfen Sie Ihre Copilot-Nutzung sofort. Kalkulieren Sie potenzielle Zusatzkosten für erweiterte Agenten-Funktionen, um Überraschungen zu vermeiden.",
-          "quelle": "Topedia Blog",
-          "url": "https://www.google.com/search?q=Update%3A%20Microsoft%20Copilot%20f%C3%BChrt%20%27Credits%27%20ein%20%E2%80%93%20Was%20das%20f%C3%BCr%20Ihre%20Kosten%20bedeutet%20Topedia%20Blog",
-          "datum": "10.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "OpenAI schaltet GPT-5.6-Cyber frei, ein spezialisiertes KI-Modell, das 95% der fortgeschrittenen Cybersicherheitsanfragen löst und Zero-Day-Schwachstellen aufspürt – so effizient, als würde es 19 von 20 Cyberangriffen im Keim ersticken.",
-          "quelle": "AI Release Tracker",
-          "url": "https://www.google.com/search?q=OpenAI%20schaltet%20GPT-5.6-Cyber%20frei%2C%20ein%20spezialisiertes%20KI-Modell%2C%20das%2095%25%20der%20fortgeschrittenen%20Cybersicherheitsanfragen%20l%C3%B6st%20und%20Zero-Day-Schwachstellen%20aufsp%C3%BCrt%20%E2%80%93%20so%20effizient%2C%20als%20w%C3%BCrde%20es%2019%20von%2020%20Cyberangriffen%20im%20Keim%20ersticken.%20AI%20Release%20Tracker"
-        },
-        {
-          "text": "Meta aktualisiert seine Ray-Ban und Oakley Smart Glasses mit besserer Videoqualität, Garmin-Integration und Meta AI für Gesundheitsinformationen sowie Echtzeit-Sprachupdates.",
-          "quelle": "Lifehacker",
-          "url": "https://www.google.com/search?q=Meta%20aktualisiert%20seine%20Ray-Ban%20und%20Oakley%20Smart%20Glasses%20mit%20besserer%20Videoqualit%C3%A4t%2C%20Garmin-Integration%20und%20Meta%20AI%20f%C3%BCr%20Gesundheitsinformationen%20sowie%20Echtzeit-Sprachupdates.%20Lifehacker"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "12.08.2026",
       "top_news": [],
       "praxis": [
@@ -456,11 +418,44 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "21.08.2026",
+      "top_news": [
+        {
+          "titel": "Mistral AI baut Rechenzentren in Europa: Volle Datenhoheit sichert sensible Industriewerte",
+          "zusammenfassung": "Mistral AI errichtet eigene europäische Rechenzentren. Dies sichert maximale Datenhoheit, umgeht den US CLOUD Act und schützt sensible Daten von Industriegrößen wie Airbus und BMW.",
+          "warum": "Prüfen Sie diese vertraglich abgesicherte Alternative zu US-Cloud-Infrastrukturen. Sie bietet europäischen Unternehmen echte Datenhoheit und schützt vor dem US CLOUD Act.",
+          "quelle": "Xpert.Digital",
+          "url": "https://www.google.com/search?q=Mistral%20AI%20baut%20Rechenzentren%20in%20Europa%3A%20Volle%20Datenhoheit%20sichert%20sensible%20Industriewerte%20Xpert.Digital",
+          "datum": "20.08.2026"
+        },
+        {
+          "titel": "OpenAI stoppt Astra-Training: Sicherheitslücken verhindern Top-Modell-Start",
+          "zusammenfassung": "OpenAI unterbricht das Training seines KI-Modells Astra für zwei Wochen. Sicherheits- und Ausrichtungsprobleme führten zur Pause, da interne Tests zeigten: Astras Cyberangriffsfähigkeiten übertrafen die Sicherheitsmaßnahmen.",
+          "warum": "Behalten Sie OpenAIs zukünftige Modellveröffentlichungen im Blick. Diese Pause zeigt: Sicherheit hat Priorität über Geschwindigkeit, was den Release-Zyklus beeinflusst.",
+          "quelle": "Futurism, TechTarget",
+          "url": "https://openai.com/blog/pacing-model-development-in-an-era-of-cyber-critical-capabilities",
+          "datum": "20.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Meta AI für Mac integriert Bildschirmfreigabe und neue Business-Tools. Nutzer verbinden jetzt professionelle Facebook-, Instagram-Accounts und Google Workspace.",
+          "quelle": "TechRepublic",
+          "url": "https://www.google.com/search?q=Meta%20AI%20f%C3%BCr%20Mac%20integriert%20Bildschirmfreigabe%20und%20neue%20Business-Tools.%20Nutzer%20verbinden%20jetzt%20professionelle%20Facebook-%2C%20Instagram-Accounts%20und%20Google%20Workspace.%20TechRepublic"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "20.08.2026",
+  "last_sent": "21.08.2026",
   "sent_log": {
-    "date": "20.08.2026",
+    "date": "21.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
