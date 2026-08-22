@@ -1,36 +1,6 @@
 {
   "editions": [
     {
-      "date": "12.08.2026",
-      "top_news": [],
-      "praxis": [
-        {
-          "titel": "Update: KI beschleunigt Software-Debugging um das 20-fache und spart Juristen halbe Arbeitstage",
-          "zusammenfassung": "Insight Enterprises demonstriert, wie KI Rollen von Softwareentwicklern bis zu Juristen entlastet: Bugs sind 20-mal schneller behoben – ein 20-Minuten-Problem wird zur Ein-Minuten-Aufgabe. Rechtsabteilungen sparen bei Vertragsprüfungen bis zu einem halben Arbeitstag.",
-          "branche": "IT/Beratung",
-          "quelle": "Insight Enterprises",
-          "url": "https://www.insight.com/en_US/content/google-cloud-ai-business-use-cases-ai-for-every-role.html",
-          "datum": "11.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "New Yorks Empire AI Beta nimmt den vollen Betrieb auf und erhöht die KI-Trainingskapazität um das Elffache – so trainiert man 11 Modelle statt einem – und die Inferenzleistung um das 40-fache für akademische Forschung.",
-          "quelle": "UBNow",
-          "url": "https://www.google.com/search?q=New%20Yorks%20Empire%20AI%20Beta%20nimmt%20den%20vollen%20Betrieb%20auf%20und%20erh%C3%B6ht%20die%20KI-Trainingskapazit%C3%A4t%20um%20das%20Elffache%20%E2%80%93%20so%20trainiert%20man%2011%20Modelle%20statt%20einem%20%E2%80%93%20und%20die%20Inferenzleistung%20um%20das%2040-fache%20f%C3%BCr%20akademische%20Forschung.%20UBNow"
-        },
-        {
-          "text": "IBM Research veröffentlichte einen 'unified neural solver' für Stromnetze. Dieser löst komplexe Optimierungsprobleme in der Energieversorgung.",
-          "quelle": "IBM Research",
-          "url": "https://www.ibm.com/blogs/research/2026/08/11/unified-neural-solver-power-grid/"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "13.08.2026",
       "top_news": [
         {
@@ -451,11 +421,67 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "22.08.2026",
+      "top_news": [
+        {
+          "titel": "KI-Modell knackt den Schalter der Genaktivierung",
+          "zusammenfassung": "Forschende entwickeln ein neues KI-Modell, das den charakteristischen DNA-Code des Initiators entschlüsselt, der Gene an- und abschaltet. Die Entdeckung erlaubt die Vorhersage von DNA-Mutationen, die genetische Störungen auslösen.",
+          "warum": "Diese Forschung beschleunigt die Therapieentwicklung und vertieft das Krankheitsverständnis. Beobachten Sie, wie sie die Medizin beeinflusst – sie bietet konkrete Ansatzpunkte für neue Behandlungen.",
+          "quelle": "News-Medical",
+          "url": "https://www.google.com/search?q=KI-Modell%20knackt%20den%20Schalter%20der%20Genaktivierung%20News-Medical",
+          "datum": "22.08.2026"
+        },
+        {
+          "titel": "Ox Alpha: Mysteriöses KI-Modell überflügelt Coding-Benchmarks und bleibt kostenfrei",
+          "zusammenfassung": "Ein mysteriöses KI-Modell, Ox Alpha, erscheint auf OpenRouter und OpenCode. Es dominiert Coding-Benchmarks mit einem 1-Million-Token-Kontextfenster – das entspricht etwa 2.000 Seiten Text –, unterstützt multimodale Eingaben und ist derzeit kostenfrei nutzbar.",
+          "warum": "Testen Sie Ox Alpha, wenn Sie ein leistungsstarkes und kostenfreies Coding-Modell suchen, das mit den Top-Playern konkurriert. Die Gratisphase läuft jetzt.",
+          "quelle": "Startup Fortune",
+          "url": "https://startupfortune.com/a-mystery-model-called-ox-alpha-just-topped-coding-benchmarks-for-free/",
+          "datum": "21.08.2026"
+        },
+        {
+          "titel": "Update: DeepSeek und GLM-5.3 übertreffen proprietäre Modelle bei Cyber-Sicherheitsbenchmarks",
+          "zusammenfassung": "Open-Source-Modelle wie DeepSeek V4 Pro 0813 und GLM-5.3 überflügeln in aktuellen Benchmarks proprietäre Konkurrenzmodelle bei der Erkennung von Sicherheitslücken. DeepSeek V4 Pro findet in drei Durchläufen 28 von 32 Schwachstellen und kostet deutlich weniger als Opus 5 oder Grok.",
+          "warum": "Diese Open-Source-Modelle liefern kostengünstige, leistungsstarke Optionen für Cybersicherheit. Beobachten Sie sie genau, um Ihr Budget zu schonen und Schwachstellen effektiv zu finden.",
+          "quelle": "Aikido Security",
+          "url": "https://aikidosec.com/blog/we-burned-11-7bn-tokens-to-find-the-best-cyber-ai-model",
+          "datum": "21.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Google Research stellt ME-POIs vor, ein Framework, das KI-Modellen hilft, Aktivitätsrhythmen von Orten zu verstehen. Es verbessert Vorhersagen über Öffnungszeiten oder Auslastung um bis zu 81,9% – das bedeutet, wo früher 100 Fehler passierten, bleiben nur noch 18.",
+          "quelle": "Google Research",
+          "url": "https://www.google.com/search?q=Google%20Research%20stellt%20ME-POIs%20vor%2C%20ein%20Framework%2C%20das%20KI-Modellen%20hilft%2C%20Aktivit%C3%A4tsrhythmen%20von%20Orten%20zu%20verstehen.%20Es%20verbessert%20Vorhersagen%20%C3%BCber%20%C3%96ffnungszeiten%20oder%20Auslastung%20um%20bis%20zu%2081%2C9%25%20%E2%80%93%20das%20bedeutet%2C%20wo%20fr%C3%BCher%20100%20Fehler%20passierten%2C%20bleiben%20nur%20noch%2018.%20Google%20Research"
+        },
+        {
+          "text": "Die AI Alliance GitHub Organisation bündelt Open-Source-Projekte im Bereich generativer KI, darunter Initiativen für verteilte Modellentwicklung.",
+          "quelle": "GitHub",
+          "url": "https://github.com/the-ai-alliance"
+        },
+        {
+          "text": "Open Generative AI stellt ein kostenloses, selbst hostbares Open-Source-Studio für KI-Bild- und Videogenerierung bereit. Es kommt ohne Inhaltsfilter aus und läuft sogar direkt im Browser.",
+          "quelle": "GitHub (Anil-matcha)",
+          "url": "https://github.com/Anil-matcha/Open-Generative-AI"
+        },
+        {
+          "text": "Ein World Bank Blog warnt: KI-Modelle in Sprachen aus einkommensschwachen Ländern sind untertrainiert, da Trainingsdaten im Internet ungleich verteilt sind.",
+          "quelle": "World Bank Blogs",
+          "url": "https://www.google.com/search?q=Ein%20World%20Bank%20Blog%20warnt%3A%20KI-Modelle%20in%20Sprachen%20aus%20einkommensschwachen%20L%C3%A4ndern%20sind%20untertrainiert%2C%20da%20Trainingsdaten%20im%20Internet%20ungleich%20verteilt%20sind.%20World%20Bank%20Blogs"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "21.08.2026",
+  "last_sent": "22.08.2026",
   "sent_log": {
-    "date": "21.08.2026",
+    "date": "22.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
