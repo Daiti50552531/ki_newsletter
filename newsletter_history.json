@@ -1,66 +1,6 @@
 {
   "editions": [
     {
-      "date": "14.08.2026",
-      "top_news": [
-        {
-          "titel": "Microsoft bündelt Copilot-Funktionen zur 'Super-App': Adieu, Feature-Chaos",
-          "zusammenfassung": "Microsoft bündelt seine Copilot-Varianten in einer 'Super-App' für direkten Zugriff auf Word, Excel und Outlook. Achtung: Funktionen wie Deep Research und Gruppenchats verschwinden am 18. August.",
-          "warum": "Sichere relevante Inhalte aus den entfallenden Funktionen. Gewöhne dich frühzeitig an die neue, zentrale Oberfläche für effizienteres Arbeiten.",
-          "quelle": "Gizmodo",
-          "url": "https://gizmodo.com/microsoft-is-combining-its-copilot-ai-into-one-app-tha-1859944633",
-          "datum": "13.08.2026"
-        },
-        {
-          "titel": "OpenAI: GPT-5.6 Sol wird 14-mal schneller – Echtzeit-KI für Unternehmenskunden",
-          "zusammenfassung": "OpenAI führt den 'Ultrafast Mode' für GPT-5.6 Sol ein, beschleunigt die Verarbeitung um das 14-fache auf 750 Tokens pro Sekunde – das entspricht etwa einer Buchseite pro Sekunde. Ausgewählte Unternehmenskunden testen die Funktion bereits.",
-          "warum": "Arbeitest du mit zeitkritischen Unternehmensprozessen? Behalte diese Entwicklung im Blick; sie verkürzt KI-Reaktionszeiten drastisch.",
-          "quelle": "Cerebras",
-          "url": "https://www.google.com/search?q=OpenAI%3A%20GPT-5.6%20Sol%20wird%2014-mal%20schneller%20%E2%80%93%20Echtzeit-KI%20f%C3%BCr%20Unternehmenskunden%20Cerebras",
-          "datum": "13.08.2026"
-        },
-        {
-          "titel": "Mistral AI baut europäische 'Neocloud': 1 Gigawatt Rechenleistung bis 2030",
-          "zusammenfassung": "Mistral AI sichert sich 1 Gigawatt Rechenkapazität bis 2030 und etabliert sich als europäischer Infrastrukturanbieter. Das Unternehmen bietet nun auch Drittmodelle wie GLM-5.2 auf eigener Infrastruktur an, um regionale Datenhoheit zu gewährleisten.",
-          "warum": "Legst du Wert auf Datenhoheit? Prüfe die Regional Endpoints von Mistral AI als attraktive Alternative zu US-Anbietern.",
-          "quelle": "Trending Topics",
-          "url": "https://www.google.com/search?q=Mistral%20AI%20baut%20europ%C3%A4ische%20%27Neocloud%27%3A%201%20Gigawatt%20Rechenleistung%20bis%202030%20Trending%20Topics",
-          "datum": "13.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "PwC US-Chef Paul Griggs steuert Strategie mit 'PG's Whisperer'",
-          "zusammenfassung": "Paul Griggs, CEO von PwC US, setzt den selbst konfigurierten KI-Assistenten 'PG's Whisperer' für strategische Entscheidungen und Dokumentenanalyse ein. Er kombiniert zwei Sprachmodelle und beschleunigt Griggs' Informationsverarbeitung enorm.",
-          "branche": "Beratung",
-          "quelle": "INTENTURE NEWS",
-          "url": "https://www.google.com/search?q=PwC%20US-Chef%20Paul%20Griggs%20steuert%20Strategie%20mit%20%27PG%27s%20Whisperer%27%20INTENTURE%20NEWS",
-          "datum": "14.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Taiwan meldet 'abnormalen' Cyber-Angriff, bei dem KI-Technologie die Angreifer unterstützte.",
-          "quelle": "The Guardian",
-          "url": "https://www.google.com/search?q=Taiwan%20meldet%20%27abnormalen%27%20Cyber-Angriff%2C%20bei%20dem%20KI-Technologie%20die%20Angreifer%20unterst%C3%BCtzte.%20The%20Guardian"
-        },
-        {
-          "text": "Lam Research investiert über 3 Milliarden Dollar in sein globales Lab-Netzwerk, um die KI-Innovationsgeschwindigkeit zu erhöhen.",
-          "quelle": "PR Newswire",
-          "url": "https://www.google.com/search?q=Lam%20Research%20investiert%20%C3%BCber%203%20Milliarden%20Dollar%20in%20sein%20globales%20Lab-Netzwerk%2C%20um%20die%20KI-Innovationsgeschwindigkeit%20zu%20erh%C3%B6hen.%20PR%20Newswire"
-        },
-        {
-          "text": "Mistral AI stellt Voxtral Mini 3B 2507 vor: ein neues Modell zur Sprach- und Audioerkennung für Transkription und Übersetzung.",
-          "quelle": "OpenRouter",
-          "url": "https://openrouter.ai/models/mistralai/voxtral-mini-3b-2507"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "15.08.2026",
       "top_news": [
         {
@@ -507,11 +447,38 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "24.08.2026",
+      "top_news": [
+        {
+          "titel": "OpenAI warnt vor anhaltenden KI-Cyberangriffen",
+          "zusammenfassung": "OpenAI-Führungskräfte warnen: Routinemäßige KI-gesteuerte Cyberangriffe stehen bevor, während Modelle autonomer agieren. Sie fordern neue Sicherheitsstandards, um diese Risiken zu minimieren.",
+          "warum": "Erwarten Sie neue Bedrohungen und prüfen Sie Ihre Sicherheitsstrategien. KI-Sicherheit wird zum Dauerjob, selbst für Entwickler.",
+          "quelle": "The Guardian",
+          "url": "https://www.google.com/search?q=OpenAI%20warnt%20vor%20anhaltenden%20KI-Cyberangriffen%20The%20Guardian",
+          "datum": "23.08.2026"
+        },
+        {
+          "titel": "Parallel startet Web-Agenten: Echtzeit-Recherche und Datenanreicherung mit Zitationen",
+          "zusammenfassung": "Parallel startet spezialisierte Web-Agenten für Online-Recherche, Portfolio-Monitoring und Datenanreicherung. Diese Agenten nutzen proprietäre Web-Suchtechnologie, liefern zitierfähige Echtzeitantworten und erstellen Hunderte Berichte in Minuten.",
+          "warum": "Nutzen Sie Parallel, um veraltete Daten zu umgehen und fundierte Entscheidungen zu treffen, statt stundenlang manuell zu suchen.",
+          "quelle": "Parallel",
+          "url": "https://parallel.ai/",
+          "datum": "23.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "23.08.2026",
+  "last_sent": "24.08.2026",
   "sent_log": {
-    "date": "23.08.2026",
+    "date": "24.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
