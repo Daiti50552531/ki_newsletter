@@ -1,71 +1,6 @@
 {
   "editions": [
     {
-      "date": "15.08.2026",
-      "top_news": [
-        {
-          "titel": "Claude schreibt bereits den Großteil seines Codes. Regulierer greifen ein.",
-          "zusammenfassung": "Claude generiert bereits den Großteil seines Produktionscodes, beschleunigt damit die KI-Forschung. Experten warnen vor unkontrollierbaren Systemen; die US-Regierung verhängte temporäre Zugangssperren.",
-          "warum": "KI entwickelt sich rasant. Beobachte regulatorische Schritte und Modellzugang, um Risiken für dein Unternehmen frühzeitig zu erkennen.",
-          "quelle": "Mindverse",
-          "url": "https://www.google.com/search?q=Claude%20schreibt%20bereits%20den%20Gro%C3%9Fteil%20seines%20Codes.%20Regulierer%20greifen%20ein.%20Mindverse",
-          "datum": "14.08.2026"
-        },
-        {
-          "titel": "OpenAI's LifeSciBench: KI scheitert an biologischen Forschungsfragen",
-          "zusammenfassung": "OpenAI's LifeSciBench testet KI-Modelle mit Aufgaben aus den Biowissenschaften. GPT-Rosalind übertrifft GPT-5.5, erreicht aber nur 36,1 Prozent exakte Bestehensquote – das ist weniger als zwei von fünf Fragen korrekt.",
-          "warum": "Erkenne die Grenzen aktueller KI: Komplexe Forschungsarbeiten erfordern weiterhin menschliches Urteilsvermögen. Setze KI nur für klar definierte, unterstützende Aufgaben ein.",
-          "quelle": "ChatGPT Deutsch",
-          "url": "https://www.google.com/search?q=OpenAI%27s%20LifeSciBench%3A%20KI%20scheitert%20an%20biologischen%20Forschungsfragen%20ChatGPT%20Deutsch",
-          "datum": "14.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "InsurTech omni:us automatisiert Schadensfälle – adesso übernimmt",
-          "zusammenfassung": "adesso übernimmt das InsurTech omni:us, spezialisiert auf KI-gestützte Schadensfallbearbeitung für Versicherer. Die Technologie analysiert Dokumente und bearbeitet Standardfälle weitgehend automatisch.",
-          "branche": "Versicherungen",
-          "quelle": "Dr. Web",
-          "url": "https://www.google.com/search?q=InsurTech%20omni%3Aus%20automatisiert%20Schadensf%C3%A4lle%20%E2%80%93%20adesso%20%C3%BCbernimmt%20Dr.%20Web",
-          "datum": "14.08.2026"
-        },
-        {
-          "titel": "Mittelstand setzt auf lokale Open-Source-KI: Automobilzulieferer automatisiert Einkaufsprozesse",
-          "zusammenfassung": "FERCHAU half einem Automobilzulieferer, Purchase Requests mit einem KI-Agenten zu automatisieren und Datenhoheit zu sichern. Lokale Open-Source-KI bietet eine sichere, wirtschaftliche Alternative zu Cloud-Lösungen.",
-          "branche": "Industrie",
-          "quelle": "Ferchau",
-          "url": "https://www.google.com/search?q=Mittelstand%20setzt%20auf%20lokale%20Open-Source-KI%3A%20Automobilzulieferer%20automatisiert%20Einkaufsprozesse%20Ferchau",
-          "datum": "14.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Parallel bietet neue Web-Infrastruktur für KI-Agenten und liefert Echtzeit-Suchergebnisse mit Zitaten für aktuelle Kontexte.",
-          "quelle": "Parallel",
-          "url": "https://www.google.com/search?q=Parallel%20bietet%20neue%20Web-Infrastruktur%20f%C3%BCr%20KI-Agenten%20und%20liefert%20Echtzeit-Suchergebnisse%20mit%20Zitaten%20f%C3%BCr%20aktuelle%20Kontexte.%20Parallel"
-        },
-        {
-          "text": "BetterDB AI SDK erweitert KI-Agenten um Langzeitgedächtnis und semantisches Caching für ultraschnelle Antworten. Open-Source verfügbar.",
-          "quelle": "PitchWall",
-          "url": "https://www.google.com/search?q=BetterDB%20AI%20SDK%20erweitert%20KI-Agenten%20um%20Langzeitged%C3%A4chtnis%20und%20semantisches%20Caching%20f%C3%BCr%20ultraschnelle%20Antworten.%20Open-Source%20verf%C3%BCgbar.%20PitchWall"
-        },
-        {
-          "text": "Morphic veröffentlicht KI-gestützten Generator für Erklärvideos, der API-Dokumentationen in animierte Walkthroughs verwandelt.",
-          "quelle": "Morphic",
-          "url": "https://www.google.com/search?q=Morphic%20ver%C3%B6ffentlicht%20KI-gest%C3%BCtzten%20Generator%20f%C3%BCr%20Erkl%C3%A4rvideos%2C%20der%20API-Dokumentationen%20in%20animierte%20Walkthroughs%20verwandelt.%20Morphic"
-        },
-        {
-          "text": "Das Open-Source-Tool „watermarks-remover“ (über 4.500 GitHub-Sterne) verspricht die Entfernung von KI-Wasserzeichen. Entwickler nennen jedoch technische Grenzen.",
-          "quelle": "BornCity",
-          "url": "https://www.google.com/search?q=Das%20Open-Source-Tool%20%E2%80%9Ewatermarks-remover%E2%80%9C%20%28%C3%BCber%204.500%20GitHub-Sterne%29%20verspricht%20die%20Entfernung%20von%20KI-Wasserzeichen.%20Entwickler%20nennen%20jedoch%20technische%20Grenzen.%20BornCity"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "16.08.2026",
       "top_news": [
         {
@@ -474,11 +409,62 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "25.08.2026",
+      "top_news": [
+        {
+          "titel": "ChatGPT für Mac: OpenAI liest jetzt deinen Bildschirm und folgt Sprachbefehlen",
+          "zusammenfassung": "OpenAI stattet die ChatGPT-App für macOS mit 'Agentic'-Funktionen aus. Sie liest nun Bildschirminhalte aus über 30 Apps wie Notion oder Apple Notes und führt auf Sprachbefehl Aktionen aus. Ein erweiterter Sprachmodus fördert die intuitive Interaktion.",
+          "warum": "Unbedingt ausprobieren: Die App erledigt app-übergreifende Aufgaben wie Textzusammenfassungen jetzt effizienter. Für Abonnenten sofort nutzbar.",
+          "quelle": "TechCrunch",
+          "url": "https://techcrunch.com/category/artificial-intelligence/",
+          "datum": "24.08.2026"
+        },
+        {
+          "titel": "Anthropic: Claude Tags Slack-Agent mischt sich 30% präziser in Konversationen ein",
+          "zusammenfassung": "Anthropic aktualisiert Claude Tag, seinen KI-Agenten in Slack-Channels: Er liest jetzt ganze Konversationen statt einzelner Nachrichten. Dadurch entscheidet er 30 Prozent präziser, wann er proaktiv eingreift, und verbessert so die Teamzusammenarbeit als wertvollerer Kollege.",
+          "warum": "Behalten Sie ihn im Blick: Er liefert weniger Rauschen und mehr wertvolle Beiträge. Teams profitieren direkt von der erhöhten Relevanz seiner Empfehlungen.",
+          "quelle": "VentureBeat",
+          "url": "https://venturebeat.com/ai/anthropics-new-claude-tag-update-lets-its-slack-agent-read-the-full-conversation-and-jump-in-unprompted/",
+          "datum": "24.08.2026"
+        },
+        {
+          "titel": "Mistral AI: Agentic Search findet Fakten 86% genauer in Dokumentenbergen",
+          "zusammenfassung": "Mistral AI führt 'Agentic Search' ein, ein mehrstufiges System, das Modelle befähigt, Dokumente zu durchsuchen, zu navigieren und gezielt zu analysieren. Dies steigert die Genauigkeit bei Finanzunterlagen von 26,7 Prozent auf 86 Prozent und reduziert die Latenz um bis zu 39,6 Prozent – was eine Suche, die eine Minute dauerte, auf 36 Sekunden verkürzt.",
+          "warum": "Unbedingt im Blick behalten: Es beschleunigt die Faktensuche in großen Dokumentenmengen erheblich. Treffen Sie fundiertere Entscheidungen mit präziseren Ergebnissen.",
+          "quelle": "daily.dev",
+          "url": "https://www.google.com/search?q=Mistral%20AI%3A%20Agentic%20Search%20findet%20Fakten%2086%25%20genauer%20in%20Dokumentenbergen%20daily.dev",
+          "datum": "23.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Meta AI analysiert jetzt deine Werbekampagnen und Google Workspace-Daten, schlägt Optimierungen vor und erstellt Berichte.",
+          "quelle": "ALM Corp",
+          "url": "https://almcorp.com/meta-ai-now-analyzes-ad-campaigns-google-workspace-data"
+        },
+        {
+          "text": "Googles 'Anti-Gravity'-Update steuert und überwacht deine KI-Agenten jetzt direkt vom Mobilgerät im Browser.",
+          "quelle": "YouTube",
+          "url": "https://www.youtube.com/watch?v=n-Wz_z_0y1I"
+        },
+        {
+          "text": "Anthropic behebt Ausfall verschiedener Claude-Modelle und Dienste.",
+          "quelle": "PCMag",
+          "url": "https://www.google.com/search?q=Anthropic%20behebt%20Ausfall%20verschiedener%20Claude-Modelle%20und%20Dienste.%20PCMag"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Simulation: the new Scaling Law",
+        "podcast_name": "Latent Space"
+      }
     }
   ],
-  "last_sent": "24.08.2026",
+  "last_sent": "25.08.2026",
   "sent_log": {
-    "date": "24.08.2026",
+    "date": "25.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
