@@ -1,65 +1,6 @@
 {
   "editions": [
     {
-      "date": "17.08.2026",
-      "top_news": [
-        {
-          "titel": "Anthropic lanciert Claude Opus 5 und versieht Texte für EU AI Act mit unsichtbaren Wasserzeichen",
-          "zusammenfassung": "Anthropic veröffentlicht Claude Opus 5, das die Leistung des Spitzenmodells Fable 5 zum halben Preis liefert und die Rechenleistung per \"Effort Dial\" anpasst. Ab August 2026 versieht Anthropic zudem alle Claude-Outputs mit unsichtbaren Text-Wasserzeichen, die deren Herkunft laut EU AI Act nachweisbar machen.",
-          "warum": "Opus 5 boostet Leistung effizient. Das Wasserzeichen schafft Transparenz und Vertrauen in regulierten Branchen. Detektions-API genau beobachten.",
-          "quelle": "Anthropic",
-          "url": "https://www.google.com/search?q=Anthropic%20lanciert%20Claude%20Opus%205%20und%20versieht%20Texte%20f%C3%BCr%20EU%20AI%20Act%20mit%20unsichtbaren%20Wasserzeichen%20Anthropic",
-          "datum": "16.08.2026"
-        },
-        {
-          "titel": "Meta bringt Muse Glimmer: Dein persönlicher KI-Agent läuft direkt auf dem Laptop",
-          "zusammenfassung": "Meta veröffentlicht Muse Glimmer, ein Open-Source-KI-Modell mit 30 Milliarden Parametern, das direkt auf handelsüblichen Grafikkarten läuft und nur 20 GB Speicher belegt – so viel wie zwei moderne Videospiele. Es ist für \"Always-on-Agenten-Workflows\" gedacht, die ohne Cloud-Verbindung Termine verwalten oder Dateien organisieren.",
-          "warum": "Nutze mächtige KI-Agenten lokal für sensible Daten und Cloud-Unabhängigkeit. Unbedingt ausprobieren, sobald Integrationen bereitstehen.",
-          "quelle": "Mashable",
-          "url": "https://www.google.com/search?q=Meta%20bringt%20Muse%20Glimmer%3A%20Dein%20pers%C3%B6nlicher%20KI-Agent%20l%C3%A4uft%20direkt%20auf%20dem%20Laptop%20Mashable",
-          "datum": "15.08.2026"
-        },
-        {
-          "titel": "ChatGPT merkt sich jetzt deine Computerhistorie und schaltet Desktop-App frei",
-          "zusammenfassung": "OpenAI erweitert die ChatGPT Desktop-App für macOS und Windows um eine optionale \"Computer History\"-Funktion. Diese speichert deine Aktivitäten über Apps und Websites hinweg als durchsuchbare Timeline. Die App vereint Chat, Work und Codex, integriert lokale Dateien und agiert im Browser.",
-          "warum": "Dein KI-Assistent versteht endlich deinen Arbeitskontext, ohne Wiederholungen. Dies verbessert die Selbstorganisation enorm. Pro-, Business- und Enterprise-Nutzer testen sofort.",
-          "quelle": "OpenAI Help Center",
-          "url": "https://help.openai.com/en/articles/9329158-chatgpt-release-notes",
-          "datum": "15.08.2026"
-        },
-        {
-          "titel": "Update: DeepSeek V4 Pro jetzt allgemein verfügbar – teurer, mit neuem Open-Source-Agenten-Tool",
-          "zusammenfassung": "DeepSeek gibt die finale Version seines V4 Pro Modells (1.6 Billionen Parameter – zehnmal mehr als GPT-3) frei, spezialisiert auf KI-Agenten und komplexe Workflows. Gleichzeitig veröffentlicht DeepSeek \"Harness\", ein Open-Source-Agenten-Tool zur lokalen Programmierung, als Developer Preview. Die API-Preise steigen ab dem 16. August deutlich.",
-          "warum": "DeepSeek-Nutzer für Agenten-Aufgaben prüfen die neuen Preise genau. Den Open-Source-Agenten \"Harness\" für mehr Kontrolle in der lokalen Entwicklung ausprobieren.",
-          "quelle": "Emergent AI",
-          "url": "https://emergent.ai/deepseek-v4-pro-launches-with-advanced-ai-agents/",
-          "datum": "15.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Google veröffentlicht HEIR, ein Open-Source-Toolkit. Es wandelt KI-Modelle automatisch um, damit sie verschlüsselte Daten verarbeiten können, ohne diese entschlüsseln zu müssen. Das erhöht den Datenschutz in der KI.",
-          "quelle": "AI Weekly",
-          "url": "https://www.google.com/search?q=Google%20ver%C3%B6ffentlicht%20HEIR%2C%20ein%20Open-Source-Toolkit.%20Es%20wandelt%20KI-Modelle%20automatisch%20um%2C%20damit%20sie%20verschl%C3%BCsselte%20Daten%20verarbeiten%20k%C3%B6nnen%2C%20ohne%20diese%20entschl%C3%BCsseln%20zu%20m%C3%BCssen.%20Das%20erh%C3%B6ht%20den%20Datenschutz%20in%20der%20KI.%20AI%20Weekly"
-        },
-        {
-          "text": "Ein Entwickler stellt \"Mole\" vor, einen kostenlosen Open-Source-Forschungsagenten für die Kommandozeile. Er hält Budgetgrenzen ein, zitiert Quellen und sendet lokale Dateien nicht in die Cloud.",
-          "quelle": "AI Weekly",
-          "url": "https://www.google.com/search?q=Ein%20Entwickler%20stellt%20%22Mole%22%20vor%2C%20einen%20kostenlosen%20Open-Source-Forschungsagenten%20f%C3%BCr%20die%20Kommandozeile.%20Er%20h%C3%A4lt%20Budgetgrenzen%20ein%2C%20zitiert%20Quellen%20und%20sendet%20lokale%20Dateien%20nicht%20in%20die%20Cloud.%20AI%20Weekly"
-        },
-        {
-          "text": "Alibaba veröffentlicht die Setup-Dokumentation für Qwen3.8-27B-FP8, ein multimodales Modell für Bilder und Texte. Dessen Open Weights eröffnen Entwicklern neue Möglichkeiten.",
-          "quelle": "AI Weekly",
-          "url": "https://www.google.com/search?q=Alibaba%20ver%C3%B6ffentlicht%20die%20Setup-Dokumentation%20f%C3%BCr%20Qwen3.8-27B-FP8%2C%20ein%20multimodales%20Modell%20f%C3%BCr%20Bilder%20und%20Texte.%20Dessen%20Open%20Weights%20er%C3%B6ffnen%20Entwicklern%20neue%20M%C3%B6glichkeiten.%20AI%20Weekly"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "The BioAI Phase Shift",
-        "podcast_name": "Latent Space"
-      }
-    },
-    {
       "date": "18.08.2026",
       "top_news": [
         {
@@ -483,11 +424,49 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "27.08.2026",
+      "top_news": [
+        {
+          "titel": "ChatGPT Work: KI meldet sich sicher auf Webseiten an, automatisiert Aufgaben",
+          "zusammenfassung": "OpenAI erweitert ChatGPT Work: Die KI meldet sich nun sicher auf Webseiten an und automatisiert komplexe Aufgaben. Ein Cloud-Browser trennt Anmeldedaten vom KI-Modell, was die Sicherheit erhöht und das Teilen von Passwörtern überflüssig macht.",
+          "warum": "Nutzen Sie diese Funktion, wenn Sie repetitive Online-Aufgaben haben. Sie spart Ihnen künftig manuelle Arbeit und ist ab sofort verfügbar.",
+          "quelle": "Mindverse Studio",
+          "url": "https://www.google.com/search?q=ChatGPT%20Work%3A%20KI%20meldet%20sich%20sicher%20auf%20Webseiten%20an%2C%20automatisiert%20Aufgaben%20Mindverse%20Studio",
+          "datum": "26.08.2026"
+        },
+        {
+          "titel": "Claude erinnert sich: KI speichert jetzt Ihre Vorlieben automatisch",
+          "zusammenfassung": "Anthropic stattet Claude für Team- und Enterprise-Kunden mit einer automatischen Gedächtnisfunktion aus. Sie speichert Details aus früheren Gesprächen, passt Antworten kontextbezogen an und erspart Nutzern das ständige Wiederholen von Präferenzen.",
+          "warum": "Aktivieren Sie dieses Feature sofort, wenn Sie Claude beruflich nutzen. Sie arbeiten effizienter und setzen die KI als echten Assistenten ein.",
+          "quelle": "Facebook (BusinessToday)",
+          "url": "https://www.facebook.com/BusinessToday/posts/claude-cowork-gets-shared-memory-with-chat-what-it-means-for-you/10162031023709667/",
+          "datum": "26.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Microsoft bündelt KI-Funktionen wie Programmierung, Agenten und Chat in einer neuen 'Copilot Super-App'. So schafft das Unternehmen integrierte Plattformlösungen.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=Microsoft%20b%C3%BCndelt%20KI-Funktionen%20wie%20Programmierung%2C%20Agenten%20und%20Chat%20in%20einer%20neuen%20%27Copilot%20Super-App%27.%20So%20schafft%20das%20Unternehmen%20integrierte%20Plattforml%C3%B6sungen.%20BornCity"
+        },
+        {
+          "text": "Googles neuestes Gemini-Update offenbart ein Branding-Problem: Zu viele separate Features wie Chat, Spark und Daily Brief verwirren Nutzer und komplizieren die Bedienung unnötig. Das ist, als müsste man für jede Küchenaufgabe eine neue App öffnen, statt eine zentrale zu nutzen.",
+          "quelle": "Google (via LinkedIn/Facebook)",
+          "url": "https://www.google.com/search?q=Googles%20neuestes%20Gemini-Update%20offenbart%20ein%20Branding-Problem%3A%20Zu%20viele%20separate%20Features%20wie%20Chat%2C%20Spark%20und%20Daily%20Brief%20verwirren%20Nutzer%20und%20komplizieren%20die%20Bedienung%20unn%C3%B6tig.%20Das%20ist%2C%20als%20m%C3%BCsste%20man%20f%C3%BCr%20jede%20K%C3%BCchenaufgabe%20eine%20neue%20App%20%C3%B6ffnen%2C%20statt%20eine%20zentrale%20zu%20nutzen.%20Google%20%28via%20LinkedIn/Facebook%29"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "26.08.2026",
+  "last_sent": "27.08.2026",
   "sent_log": {
-    "date": "26.08.2026",
+    "date": "27.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
