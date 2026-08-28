@@ -1,42 +1,6 @@
 {
   "editions": [
     {
-      "date": "18.08.2026",
-      "top_news": [
-        {
-          "titel": "Google Search integriert Gemini 3.7 Flash: Präzisere Antworten für AI Pro & Ultra Abonnenten",
-          "zusammenfassung": "Google integriert sein neuestes KI-Modell Gemini 3.7 Flash in den AI Mode der Google Suche. Es liefert Abonnenten von Google AI Pro & Ultra global präzisere Antworten, indem es Anweisungen und Nutzerabsicht besser versteht.",
-          "warum": "Besitzt du ein Google AI Pro- oder Ultra-Abonnement? Teste die Funktion, um Recherchen zu optimieren und Informationen effizienter zu finden.",
-          "quelle": "Search Engine Roundtable",
-          "url": "https://www.seroundtable.com/google-search-gemini-3-7-flash-ai-mode-37597.html",
-          "datum": "17.08.2026"
-        },
-        {
-          "titel": "Stripe übernimmt OpenRouter für 7 Mrd. Dollar: Formt einen 'Stripe für KI'-Dienst",
-          "zusammenfassung": "Stripe übernimmt OpenRouter, einen Dienst für das Routing von Anfragen an über 400 KI-Modelle, für mehr als 7 Milliarden Dollar – das entspricht dem Wert von etwa 70.000 Luxusautos. OpenRouter ermöglicht Unternehmen den Zugriff auf verschiedene KI-Anbieter über ein einziges Dashboard.",
-          "warum": "Stripe vereinfacht die Nutzung verschiedener KI-Modelle. Behalte diese Akquisition im Blick, falls du mehrere KI-Dienste in Projekte integrierst.",
-          "quelle": "TechCrunch",
-          "url": "https://techcrunch.com/category/artificial-intelligence/",
-          "datum": "17.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Sainsbury's stoppt KI-Scans: System bezichtigt Kunden fälschlich des Diebstahls",
-          "zusammenfassung": "Die britische Supermarktkette Sainsbury's stoppt den Einsatz von KI-gestützten Scansystemen in einigen Filialen. Das System bezichtigte zuvor Kunden fälschlicherweise des Ladendiebstahls.",
-          "branche": "Handel",
-          "quelle": "The Guardian",
-          "url": "https://www.google.com/search?q=Sainsbury%27s%20stoppt%20KI-Scans%3A%20System%20bezichtigt%20Kunden%20f%C3%A4lschlich%20des%20Diebstahls%20The%20Guardian",
-          "datum": "17.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "19.08.2026",
       "top_news": [
         {
@@ -462,11 +426,81 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "28.08.2026",
+      "top_news": [
+        {
+          "titel": "Gemini Notebook liest Ihre Fachbücher: Antworten und Infografiken direkt aus E-Books",
+          "zusammenfassung": "Google integriert die \"Expert Intelligence\" in Gemini Notebook. Nutzer fügen erworbene E-Books von Google Play Books als Quellen hinzu. Die KI beantwortet Fragen zum Buchinhalt, fasst zusammen oder erstellt Infografiken.",
+          "warum": "Vereinfachen Sie Wissensaneignung und Recherche. Nutzen Sie Gemini, um direkt aus Fachbüchern Antworten zu erhalten und Lernprozesse effizienter zu gestalten.",
+          "quelle": "PCMag",
+          "url": "https://www.pcmag.com/news/gemini-notebook-can-now-dig-into-ebooks-you-bought-on-google-play",
+          "datum": "28.08.2026"
+        },
+        {
+          "titel": "DeepSeek programmiert sich selbst: KI entwickelt Code eigenständig",
+          "zusammenfassung": "DeepSeek stellte ein KI-System vor, das sich selbst aktualisiert und erweitert, indem es eigenen Code modifiziert. Die KI generiert so eigenständig Datenanalyse-Methoden oder Testumgebungen.",
+          "warum": "Automatisieren Sie Prozesse: Geben Sie der KI Ziele vor, die sie eigenständig umsetzt. Prüfen Sie, wie solche autonomen Systeme Ihre Entwicklungsprozesse beeinflussen.",
+          "quelle": "Geeky Gadgets",
+          "url": "https://www.google.com/search?q=DeepSeek%20programmiert%20sich%20selbst%3A%20KI%20entwickelt%20Code%20eigenst%C3%A4ndig%20Geeky%20Gadgets",
+          "datum": "27.08.2026"
+        },
+        {
+          "titel": "Copilot schreibt Outlook-Mails direkt auf dem Handy – kein App-Wechsel mehr",
+          "zusammenfassung": "Microsoft erweitert Copilot für Outlook Mobile: Nutzer entwerfen und prüfen E-Mails direkt im Copilot Chat und verschieben sie nach Outlook Mobile. Das eliminiert den App-Wechsel.",
+          "warum": "Optimieren Sie Ihren mobilen E-Mail-Workflow. Prüfen Sie die Verfügbarkeit bis Mitte September und integrieren Sie Copilot für effizientere Kommunikation.",
+          "quelle": "Dellenny",
+          "url": "https://www.google.com/search?q=Copilot%20schreibt%20Outlook-Mails%20direkt%20auf%20dem%20Handy%20%E2%80%93%20kein%20App-Wechsel%20mehr%20Dellenny",
+          "datum": "27.08.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Rewe Digital: Camunda orchestriert Prozesse, KI-Integration für Logistik geplant",
+          "zusammenfassung": "Rewe Digital erweiterte die Camunda-plattform zur Orchestrierung kritischer Prozesse in Warenwirtschaft und Logistik. Das Unternehmen plant, KI-Anwendungen für effizientere Bestell- und Rechnungsverwaltung zu integrieren.",
+          "branche": "Handel",
+          "quelle": "Retail Optimiser",
+          "url": "https://www.google.com/search?q=Rewe%20Digital%3A%20Camunda%20orchestriert%20Prozesse%2C%20KI-Integration%20f%C3%BCr%20Logistik%20geplant%20Retail%20Optimiser",
+          "datum": "27.08.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Das EU Joint Research Centre testet KI-Systeme zur schnelleren Erkennung epidemischer Signale, betont jedoch die unersetzliche Rolle menschlicher Aufsicht.",
+          "quelle": "Joint Research Centre",
+          "url": "https://www.google.com/search?q=Das%20EU%20Joint%20Research%20Centre%20testet%20KI-Systeme%20zur%20schnelleren%20Erkennung%20epidemischer%20Signale%2C%20betont%20jedoch%20die%20unersetzliche%20Rolle%20menschlicher%20Aufsicht.%20Joint%20Research%20Centre"
+        },
+        {
+          "text": "Microsoft Purview erweitert Funktionen zur Überwachung von Insider-Risiken durch KI-Agenten in regulierten Workflows. Das erhöht die Datensicherheit.",
+          "quelle": "Microsoft Security Blog",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/08/27/whats-new-in-microsoft-security-august-2026/"
+        },
+        {
+          "text": "Eine Studie zeigt: 95% der generativen KI-Pilotprojekte in Unternehmen brachten keinen messbaren Gewinn – das entspricht 19 von 20 Versuchen. Oft lehnen Mitarbeiter KI aus Jobangst ab.",
+          "quelle": "Computerworld",
+          "url": "https://www.google.com/search?q=Eine%20Studie%20zeigt%3A%2095%25%20der%20generativen%20KI-Pilotprojekte%20in%20Unternehmen%20brachten%20keinen%20messbaren%20Gewinn%20%E2%80%93%20das%20entspricht%2019%20von%2020%20Versuchen.%20Oft%20lehnen%20Mitarbeiter%20KI%20aus%20Jobangst%20ab.%20Computerworld"
+        },
+        {
+          "text": "Das chinesische KI-Unternehmen Moonshot AI verhandelt mit Microsoft, Amazon und Google über das Hosting seines Kimi K3-Modells in deren Clouds. Das fördert eine engere globale Verknüpfung der KI-Ökosysteme.",
+          "quelle": "AIdapted",
+          "url": "https://www.google.com/search?q=Das%20chinesische%20KI-Unternehmen%20Moonshot%20AI%20verhandelt%20mit%20Microsoft%2C%20Amazon%20und%20Google%20%C3%BCber%20das%20Hosting%20seines%20Kimi%20K3-Modells%20in%20deren%20Clouds.%20Das%20f%C3%B6rdert%20eine%20engere%20globale%20Verkn%C3%BCpfung%20der%20KI-%C3%96kosysteme.%20AIdapted"
+        },
+        {
+          "text": "Bill Gates mahnt: KI führt zu massiver Arbeitslosigkeit, wenn Regierungen und KI-Labs keine sofortigen Pläne zur gesellschaftlichen Vorbereitung entwickeln.",
+          "quelle": "MediaPost",
+          "url": "https://www.mediapost.com/publications/article/417242/leaders-must-make-plans-to-usher-in-ai-bill-gates-warns.html"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "Meta Shifts the Blame + Do Data Center Bans Work? + The Final HatGPT",
+        "podcast_name": "Hard Fork"
+      }
     }
   ],
-  "last_sent": "27.08.2026",
+  "last_sent": "28.08.2026",
   "sent_log": {
-    "date": "27.08.2026",
+    "date": "28.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
