@@ -1,39 +1,6 @@
 {
   "editions": [
     {
-      "date": "20.08.2026",
-      "top_news": [
-        {
-          "titel": "Update: Microsofts Copilot wird zur Office-Zentrale – Dateien direkt im Chat bearbeiten",
-          "zusammenfassung": "Microsoft integriert Chat und Bildgenerierung in die Copilot-App und ermöglicht direkten Zugriff auf Word, Excel und Outlook. Nutzer melden sich nun mit Arbeits-, Schul- oder Privatkonten an und nutzen Copilot als zentrale Schnittstelle für alle Microsoft 365-Anwendungen.",
-          "warum": "Diese App spart Zeit und Klicks im Arbeitsalltag. Testen Sie sie, um Ihre Microsoft 365-Nutzung zu optimieren.",
-          "quelle": "Microsoft",
-          "url": "https://www.google.com/search?q=Update%3A%20Microsofts%20Copilot%20wird%20zur%20Office-Zentrale%20%E2%80%93%20Dateien%20direkt%20im%20Chat%20bearbeiten%20Microsoft",
-          "datum": "20.08.2026"
-        },
-        {
-          "titel": "OpenAI schützt Unternehmensdaten: Prompts bleiben bei Missbrauchskontrolle privat",
-          "zusammenfassung": "OpenAI testet 'Private Safety Processing' für seine kostenpflichtige API. Das System erkennt Missbrauch, ohne Kundenprompts oder -antworten zu speichern. Dies löst den Konflikt zwischen Datenschutz und Sicherheitsüberwachung und gibt Unternehmen mehr Datenkontrolle.",
-          "warum": "Entscheidend für Unternehmen mit strengen Datenschutzvorgaben. Verfolgen Sie die Rollout-Details genau, um Compliance zu sichern.",
-          "quelle": "OpenAI",
-          "url": "https://openai.com/blog/offering-zero-data-retention-for-frontier-models",
-          "datum": "19.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Google Gemini visualisiert jetzt interaktive 3D-Modelle und Diagramme direkt im Chat. Das macht komplexe Konzepte – etwa eine Molekülstruktur so greifbar wie ein Legostein – sofort verständlich.",
-          "quelle": "Digital Trends",
-          "url": "https://www.google.com/search?q=Google%20Gemini%20visualisiert%20jetzt%20interaktive%203D-Modelle%20und%20Diagramme%20direkt%20im%20Chat.%20Das%20macht%20komplexe%20Konzepte%20%E2%80%93%20etwa%20eine%20Molek%C3%BClstruktur%20so%20greifbar%20wie%20ein%20Legostein%20%E2%80%93%20sofort%20verst%C3%A4ndlich.%20Digital%20Trends"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "21.08.2026",
       "top_news": [
         {
@@ -520,11 +487,57 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "30.08.2026",
+      "top_news": [
+        {
+          "titel": "BDH-CQ: Dieses neue KI-Modell senkt Kosten um das Elffache gegenüber OpenAI-Topmodellen",
+          "zusammenfassung": "Pathway entwickelte BDH-CQ, ein KI-Modell mit vektorbasiertem Kognitionsansatz. Forscher beziffern die Betriebskosten auf bis zu elfmal geringer als bei führenden OpenAI-Modellen.",
+          "warum": "Beobachten Sie Pathway: Das Modell senkt KI-Kosten drastisch. Es ermöglicht leistungsstarke Anwendungen auch bei kleineren Budgets.",
+          "quelle": "Live Science",
+          "url": "https://www.google.com/search?q=BDH-CQ%3A%20Dieses%20neue%20KI-Modell%20senkt%20Kosten%20um%20das%20Elffache%20gegen%C3%BCber%20OpenAI-Topmodellen%20Live%20Science",
+          "datum": "29.08.2026"
+        },
+        {
+          "titel": "Update: ChatGPT Desktop-App konsolidiert Chat, Work und Codex",
+          "zusammenfassung": "OpenAI konsolidiert die separate Codex-App in der ChatGPT Desktop-App und vereint damit Chat, Work und Codex. Ihre bestehenden Chats und Projekte bleiben erhalten; die App startet für Codex-Nutzer direkt im gewohnten Bereich.",
+          "warum": "Prüfen Sie die neue App: Sie vereinfacht Ihren Workflow und integriert alle Funktionen nahtlos. So behalten Sie den Überblick.",
+          "quelle": "OpenAI Help Center",
+          "url": "https://help.openai.com/en/articles/9140409-moving-to-the-new-chatgpt-desktop-app",
+          "datum": "29.08.2026"
+        },
+        {
+          "titel": "Update: Claude Desktop wechselt KI-Modelle nahtlos mit Ollama 0.33",
+          "zusammenfassung": "Ollama 0.33 ermöglicht Mac-Nutzern von Claude Desktop, nahtlos zwischen lokalen und Cloud-basierten Ollama- sowie Anthropic-Modellen zu wechseln. Die vertraute Oberfläche bleibt erhalten, die flexible KI-Engine-Nutzung wächst.",
+          "warum": "Nutzen Sie diese Funktion (Mac-exklusiv): Sie vereinfacht den Modellwechsel und stärkt Ihre Datenkontrolle erheblich. Ignorieren Sie sie bei anderen Systemen.",
+          "quelle": "daily.dev",
+          "url": "https://www.google.com/search?q=Update%3A%20Claude%20Desktop%20wechselt%20KI-Modelle%20nahtlos%20mit%20Ollama%200.33%20daily.dev",
+          "datum": "29.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Eine Kaspersky-Umfrage zeigt: 31 Prozent der 18- bis 28-Jährigen behandeln KI wie einen Freund und suchen emotionalen Rückhalt.",
+          "quelle": "Retail-News.de",
+          "url": "https://www.google.com/search?q=Eine%20Kaspersky-Umfrage%20zeigt%3A%2031%20Prozent%20der%2018-%20bis%2028-J%C3%A4hrigen%20behandeln%20KI%20wie%20einen%20Freund%20und%20suchen%20emotionalen%20R%C3%BCckhalt.%20Retail-News.de"
+        },
+        {
+          "text": "Eine Anleitung zeigt, wie Sie KI-Chatbots (z.B. LM Studio, Jan) ohne Programmierkenntnisse direkt auf Ihrem Rechner installieren. Das gibt Ihnen volle Datenkontrolle.",
+          "quelle": "Apfeltalk",
+          "url": "https://www.apfeltalk.de/magazin/news/so-laeuft-ein-ki-chatbot-direkt-auf-eurem-eigenen-rechner/"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "29.08.2026",
+  "last_sent": "30.08.2026",
   "sent_log": {
-    "date": "29.08.2026",
+    "date": "30.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
