@@ -1,39 +1,6 @@
 {
   "editions": [
     {
-      "date": "21.08.2026",
-      "top_news": [
-        {
-          "titel": "Mistral AI baut Rechenzentren in Europa: Volle Datenhoheit sichert sensible Industriewerte",
-          "zusammenfassung": "Mistral AI errichtet eigene europäische Rechenzentren. Dies sichert maximale Datenhoheit, umgeht den US CLOUD Act und schützt sensible Daten von Industriegrößen wie Airbus und BMW.",
-          "warum": "Prüfen Sie diese vertraglich abgesicherte Alternative zu US-Cloud-Infrastrukturen. Sie bietet europäischen Unternehmen echte Datenhoheit und schützt vor dem US CLOUD Act.",
-          "quelle": "Xpert.Digital",
-          "url": "https://www.google.com/search?q=Mistral%20AI%20baut%20Rechenzentren%20in%20Europa%3A%20Volle%20Datenhoheit%20sichert%20sensible%20Industriewerte%20Xpert.Digital",
-          "datum": "20.08.2026"
-        },
-        {
-          "titel": "OpenAI stoppt Astra-Training: Sicherheitslücken verhindern Top-Modell-Start",
-          "zusammenfassung": "OpenAI unterbricht das Training seines KI-Modells Astra für zwei Wochen. Sicherheits- und Ausrichtungsprobleme führten zur Pause, da interne Tests zeigten: Astras Cyberangriffsfähigkeiten übertrafen die Sicherheitsmaßnahmen.",
-          "warum": "Behalten Sie OpenAIs zukünftige Modellveröffentlichungen im Blick. Diese Pause zeigt: Sicherheit hat Priorität über Geschwindigkeit, was den Release-Zyklus beeinflusst.",
-          "quelle": "Futurism, TechTarget",
-          "url": "https://openai.com/blog/pacing-model-development-in-an-era-of-cyber-critical-capabilities",
-          "datum": "20.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Meta AI für Mac integriert Bildschirmfreigabe und neue Business-Tools. Nutzer verbinden jetzt professionelle Facebook-, Instagram-Accounts und Google Workspace.",
-          "quelle": "TechRepublic",
-          "url": "https://www.google.com/search?q=Meta%20AI%20f%C3%BCr%20Mac%20integriert%20Bildschirmfreigabe%20und%20neue%20Business-Tools.%20Nutzer%20verbinden%20jetzt%20professionelle%20Facebook-%2C%20Instagram-Accounts%20und%20Google%20Workspace.%20TechRepublic"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "22.08.2026",
       "top_news": [
         {
@@ -533,11 +500,52 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "31.08.2026",
+      "top_news": [
+        {
+          "titel": "Finanzstabilitätsrat warnt: KI-Modelle bedrohen Finanzsystem direkt",
+          "zusammenfassung": "Der FSB-Vorsitzende warnt G20-Aufsichtsbehörden vor KI-Risiken für die globale Finanzstabilität. Besonders Cyberrisiken bereiten Sorge, da KI Angriffe beschleunigt und ausweitet.",
+          "warum": "Unternehmen, besonders im Finanzsektor, prüfen ihre Cyber-Abwehr. Handeln Sie proaktiv und bauen Sie Resilienz auf, da KI-Bedrohungen sich beschleunigen.",
+          "quelle": "Investing.com",
+          "url": "https://de.investing.com/news/economy/fsbchef-bailey-warnt-neue-kimodelle-sind-ein-wachsendes-risiko-fur-die-finanzstabilitat-2767078",
+          "datum": "31.08.2026"
+        },
+        {
+          "titel": "Amazon integriert führende KI-Modelle in sichere AWS GovCloud",
+          "zusammenfassung": "AWS erweitert sein GovCloud (US)-Angebot und integriert Modelle von Anthropic, Meta, OpenAI und xAI. Regierungsbehörden und Unternehmen nutzen so fortschrittliche KI in einer isolierten, konformen Umgebung.",
+          "warum": "US-Regierungsbehörden und Unternehmen mit hohen Compliance-Anforderungen prüfen dies. Es bietet sicheren Zugang zu leistungsstarken KI-Modellen in konformer Umgebung.",
+          "quelle": "Seeking Alpha",
+          "url": "https://seekingalpha.com/news/3998980-amazon-brings-openai-meta-anthropic-ai-models-to-aws-govcloud",
+          "datum": "31.08.2026"
+        },
+        {
+          "titel": "OpenAI schaltet wichtige KI-Modelle und APIs ab: Handlungsbedarf jetzt",
+          "zusammenfassung": "OpenAI stellte wichtige KI-Modelle und API-Endpunkte ein, darunter Assistants API (26. August) und DALL-E GPT (30. August). Betroffene Unternehmen passen Workflows umgehend an.",
+          "warum": "Prüfen Sie sofort Ihre KI-Integrationen. Falls betroffen, migrieren Sie auf alternative APIs, um die Funktionalität Ihrer Anwendungen zu sichern.",
+          "quelle": "Codelevate",
+          "url": "https://www.google.com/search?q=OpenAI%20schaltet%20wichtige%20KI-Modelle%20und%20APIs%20ab%3A%20Handlungsbedarf%20jetzt%20Codelevate",
+          "datum": "29.08.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "OpenAI meldete am 30. August einen erneuten ChatGPT- und Codex-Ausfall. Dies betraf einige Nutzer und wirft Fragen zur Skalierbarkeit sowie Widerstandsfähigkeit komplexer KI-Systeme auf.",
+          "quelle": "DesignTAXI Community",
+          "url": "https://community.designtaxi.com/posts/138133-openai-codex-down-august-30-2026"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "30.08.2026",
+  "last_sent": "31.08.2026",
   "sent_log": {
-    "date": "30.08.2026",
+    "date": "31.08.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
