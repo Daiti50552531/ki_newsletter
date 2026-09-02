@@ -1,84 +1,6 @@
 {
   "editions": [
     {
-      "date": "23.08.2026",
-      "top_news": [
-        {
-          "titel": "DeepSeek führt Wochenend-Flatrate für API-Nutzung ein: Kosten sinken spürbar",
-          "zusammenfassung": "DeepSeek führt eine neue Wochenend-Flatrate für API-Nutzer ein, gültig ab 23. August 2026. Sie ersetzt die bisherige Preisstruktur, bei der Spitzenraten doppelt so hoch waren. Entwickler senken Rechnungen, indem sie Batch-Aufgaben auf das Wochenende legen.",
-          "warum": "Blocke Wochenenden für rechenintensive DeepSeek-API-Aufgaben; das senkt Kosten und schafft Planbarkeit.",
-          "quelle": "KuCoin",
-          "url": "https://www.google.com/search?q=DeepSeek%20f%C3%BChrt%20Wochenend-Flatrate%20f%C3%BCr%20API-Nutzung%20ein%3A%20Kosten%20sinken%20sp%C3%BCrbar%20KuCoin",
-          "datum": "23.08.2026"
-        },
-        {
-          "titel": "DeepSeek-V4-Flash-Vision-Exp fordert Anthropic Opus 4.8 heraus: Neues Multimodal-Modell analysiert Bilder und Text",
-          "zusammenfassung": "DeepSeek veröffentlicht ein experimentelles multimodales KI-Modell, DeepSeek-V4-Flash-Vision-Exp. Es analysiert Bilder, Screenshots und Text, führt autonome Aufgaben aus und erreicht angeblich fast die Leistung von Anthropic’s Opus 4.8.",
-          "warum": "Behalte DeepSeek im Blick: Dieses Modell bietet eine leistungsstarke, potenziell kostengünstigere Alternative für multimodale KI-Anwendungen.",
-          "quelle": "Roic News, Deccan Chronicle",
-          "url": "https://www.google.com/search?q=DeepSeek-V4-Flash-Vision-Exp%20fordert%20Anthropic%20Opus%204.8%20heraus%3A%20Neues%20Multimodal-Modell%20analysiert%20Bilder%20und%20Text%20Roic%20News%2C%20Deccan%20Chronicle",
-          "datum": "22.08.2026"
-        },
-        {
-          "titel": "Update: Meta AI Mac App erhält Business-Turbo und Echtzeit-Bilder – direkte Integration in deinen Arbeitsalltag",
-          "zusammenfassung": "Meta erweitert die Meta AI Mac App um systemweite Diktierfunktion und Bildschirmkontext, integriert sie so direkt in Arbeitsabläufe. Nutzer verbinden Instagram-, Facebook- und Google Workspace-Konten für Kampagnen- oder Dokumentenanalysen. Meta AI generiert Bilder jetzt in Echtzeit beim Tippen und animiert diese.",
-          "warum": "Installiere die Mac App: Nutze Meta AI als intelligenten Assistenten für Dokumente und Social-Media-Analysen; Echtzeit-Bilder beschleunigen Visuals.",
-          "quelle": "Facebook, Medium, APKMirror",
-          "url": "https://www.google.com/search?q=Update%3A%20Meta%20AI%20Mac%20App%20erh%C3%A4lt%20Business-Turbo%20und%20Echtzeit-Bilder%20%E2%80%93%20direkte%20Integration%20in%20deinen%20Arbeitsalltag%20Facebook%2C%20Medium%2C%20APKMirror",
-          "datum": "21.08.2026"
-        },
-        {
-          "titel": "OpenAI senkt API-Preise: GPT-5.6 Luna um 80 Prozent, Terra um 20 Prozent günstiger",
-          "zusammenfassung": "OpenAI senkt API-Preise für die GPT-5.6-Modelle Terra und Luna erheblich; der Preis für Flaggschiff Sol bleibt stabil. Luna wird 80 Prozent günstiger – ein Task, der gestern 10 Euro kostete, kostet heute nur noch 2 Euro. Terra wird 20 Prozent günstiger. Sol erhält einen neuen 'Fast Mode', der bis zu 2,5-mal schneller ist, aber doppelt so viel kostet.",
-          "warum": "Prüfe den Wechsel von Sol zu Terra oder Luna für bestimmte Aufgaben, um API-Kosten massiv zu senken – Luna ist jetzt ein echtes Schnäppchen.",
-          "quelle": "OpenAI (via Vertex AI Search), The Information",
-          "url": "https://www.google.com/search?q=OpenAI%20senkt%20API-Preise%3A%20GPT-5.6%20Luna%20um%2080%20Prozent%2C%20Terra%20um%2020%20Prozent%20g%C3%BCnstiger%20OpenAI%20%28via%20Vertex%20AI%20Search%29%2C%20The%20Information",
-          "datum": "21.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Fion Energy: KI optimiert Stromspeicher-Nutzung und erschließt neue Geschäftsmodelle",
-          "zusammenfassung": "Das deutsche Unternehmen Fion Energy nutzt KI, um die Fahrweise von Stromspeichern zu optimieren und neue Geschäftsmodelle zu erschließen. Die KI berechnet fortlaufend die wirtschaftlichste Anwendung und bestimmt den Speichereinsatz in jedem 15-Minuten-Takt.",
-          "branche": "Energie",
-          "quelle": "Energate Messenger",
-          "url": "https://www.google.com/search?q=Fion%20Energy%3A%20KI%20optimiert%20Stromspeicher-Nutzung%20und%20erschlie%C3%9Ft%20neue%20Gesch%C3%A4ftsmodelle%20Energate%20Messenger",
-          "datum": "21.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "OpenAI bietet ein ChatGPT-Plugin für Apple Messages an, um Texte auf deinem Mac zu lesen, schreiben und versenden.",
-          "quelle": "UNILAD, The Independent",
-          "url": "https://www.google.com/search?q=OpenAI%20bietet%20ein%20ChatGPT-Plugin%20f%C3%BCr%20Apple%20Messages%20an%2C%20um%20Texte%20auf%20deinem%20Mac%20zu%20lesen%2C%20schreiben%20und%20versenden.%20UNILAD%2C%20The%20Independent"
-        },
-        {
-          "text": "Google AI Studio bietet jetzt Zwei-Wege-Synchronisation mit GitHub, ermöglicht so nahtlosen Code-Austausch zwischen AI Studio und Repositories.",
-          "quelle": "YouTube, Reddit",
-          "url": "https://www.google.com/search?q=Google%20AI%20Studio%20bietet%20jetzt%20Zwei-Wege-Synchronisation%20mit%20GitHub%2C%20erm%C3%B6glicht%20so%20nahtlosen%20Code-Austausch%20zwischen%20AI%20Studio%20und%20Repositories.%20YouTube%2C%20Reddit"
-        },
-        {
-          "text": "Google führt im Discover Feed eine KI-Prompt-Box ein, mit der du die Art der angezeigten Artikel per Texteingabe anpasst.",
-          "quelle": "PCMag",
-          "url": "https://www.google.com/search?q=Google%20f%C3%BChrt%20im%20Discover%20Feed%20eine%20KI-Prompt-Box%20ein%2C%20mit%20der%20du%20die%20Art%20der%20angezeigten%20Artikel%20per%20Texteingabe%20anpasst.%20PCMag"
-        },
-        {
-          "text": "xAI's Grok 4.6 erreicht im neuen 'Extra High Thinking'-Modus Spitzenwerte auf dem Coding-Benchmark CursorBench 3.2 und übertrifft Fable 5 Max.",
-          "quelle": "BASENOR",
-          "url": "https://www.google.com/search?q=xAI%27s%20Grok%204.6%20erreicht%20im%20neuen%20%27Extra%20High%20Thinking%27-Modus%20Spitzenwerte%20auf%20dem%20Coding-Benchmark%20CursorBench%203.2%20und%20%C3%BCbertrifft%20Fable%205%20Max.%20BASENOR"
-        },
-        {
-          "text": "Llama.cpp veröffentlicht Version 0.2.0 mit Performance-Verbesserungen und optimierten Kerneln für diverse Hardware-Konfigurationen.",
-          "quelle": "Reddit, YouTube",
-          "url": "https://www.google.com/search?q=Llama.cpp%20ver%C3%B6ffentlicht%20Version%200.2.0%20mit%20Performance-Verbesserungen%20und%20optimierten%20Kerneln%20f%C3%BCr%20diverse%20Hardware-Konfigurationen.%20Reddit%2C%20YouTube"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "24.08.2026",
       "top_news": [
         {
@@ -526,11 +448,57 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "02.09.2026",
+      "top_news": [
+        {
+          "titel": "OpenAI lanciert Astra: KI findet Cybersicherheitslücken autonom",
+          "zusammenfassung": "OpenAI stellt Astra vor, das erste KI-Modell, das selbstständig unbekannte Cybersicherheitslücken findet. Nur ein kleiner Kreis erhält Zugang zu den fortschrittlichsten Funktionen.",
+          "warum": "Das Modell definiert KI-Fähigkeiten neu, wirft aber auch Sicherheitsfragen auf. Beobachten Sie, wie sich der limitierte Zugang entwickelt, um Chancen früh zu erkennen.",
+          "quelle": "Forbes",
+          "url": "https://www.forbes.com/sites/forbestechcouncil/2026/09/01/openai-will-soon-launch-its-competitor-to-anthropics-mythos/",
+          "datum": "01.09.2026"
+        },
+        {
+          "titel": "Deutschland gründet KI-Sicherheitsinstitut AISI in Berlin: Fokus auf Modell-Risiken",
+          "zusammenfassung": "Die Bundesregierung gründet das AI Security and Safety Institute (AISI) in Berlin. Es bewertet Chancen und Risiken fortschrittlicher KI-Modelle; BSI und Bundesnetzagentur bilden den Kern.",
+          "warum": "Das Institut zentralisiert die technische Bewertung von KI-Systemen. Verfolgen Sie die Veröffentlichungen, um Risiken frühzeitig zu identifizieren und Ihre Strategie anzupassen.",
+          "quelle": "Forschung & Lehre",
+          "url": "https://www.google.com/search?q=Deutschland%20gr%C3%BCndet%20KI-Sicherheitsinstitut%20AISI%20in%20Berlin%3A%20Fokus%20auf%20Modell-Risiken%20Forschung%20%26%20Lehre",
+          "datum": "01.09.2026"
+        },
+        {
+          "titel": "EU-Pflicht: Deepfakes und KI-Texte zu öffentlichen Themen kennzeichnen",
+          "zusammenfassung": "Ab dem 2. August 2026 kennzeichnet die EU KI-generierte Deepfakes und öffentliche Texte verpflichtend. Die Bundesnetzagentur überwacht den Markt und nimmt Beschwerden entgegen.",
+          "warum": "Missachten Sie die Kennzeichnungspflicht, drohen bis zu 15 Millionen Euro Strafe. Überprüfen Sie jetzt Ihre Prozesse, um diese Transparenzpflichten einzuhalten.",
+          "quelle": "Anwalt.de",
+          "url": "https://www.anwalt.de/rechtstipps/ki-inhalte-kennzeichnen-was-seit-dem-2-august-2026-fuer-unternehmen-gilt-209211.html",
+          "datum": "01.09.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Google erweitert Gemini um 'Find Hub': Speichern und rufen Sie den Ablageort von Gegenständen ohne Tracker per Sprachbefehl ab.",
+          "quelle": "9to5Google",
+          "url": "https://www.google.com/search?q=Google%20erweitert%20Gemini%20um%20%27Find%20Hub%27%3A%20Speichern%20und%20rufen%20Sie%20den%20Ablageort%20von%20Gegenst%C3%A4nden%20ohne%20Tracker%20per%20Sprachbefehl%20ab.%209to5Google"
+        },
+        {
+          "text": "Google Messages integriert Google Keep. Teams erstellen und bearbeiten gemeinsame Notizen und Listen direkt in Chats.",
+          "quelle": "9to5Google",
+          "url": "https://www.google.com/search?q=Google%20Messages%20integriert%20Google%20Keep.%20Teams%20erstellen%20und%20bearbeiten%20gemeinsame%20Notizen%20und%20Listen%20direkt%20in%20Chats.%209to5Google"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "01.09.2026",
+  "last_sent": "02.09.2026",
   "sent_log": {
-    "date": "01.09.2026",
+    "date": "02.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
