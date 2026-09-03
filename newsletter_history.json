@@ -1,33 +1,6 @@
 {
   "editions": [
     {
-      "date": "24.08.2026",
-      "top_news": [
-        {
-          "titel": "OpenAI warnt vor anhaltenden KI-Cyberangriffen",
-          "zusammenfassung": "OpenAI-Führungskräfte warnen: Routinemäßige KI-gesteuerte Cyberangriffe stehen bevor, während Modelle autonomer agieren. Sie fordern neue Sicherheitsstandards, um diese Risiken zu minimieren.",
-          "warum": "Erwarten Sie neue Bedrohungen und prüfen Sie Ihre Sicherheitsstrategien. KI-Sicherheit wird zum Dauerjob, selbst für Entwickler.",
-          "quelle": "The Guardian",
-          "url": "https://www.google.com/search?q=OpenAI%20warnt%20vor%20anhaltenden%20KI-Cyberangriffen%20The%20Guardian",
-          "datum": "23.08.2026"
-        },
-        {
-          "titel": "Parallel startet Web-Agenten: Echtzeit-Recherche und Datenanreicherung mit Zitationen",
-          "zusammenfassung": "Parallel startet spezialisierte Web-Agenten für Online-Recherche, Portfolio-Monitoring und Datenanreicherung. Diese Agenten nutzen proprietäre Web-Suchtechnologie, liefern zitierfähige Echtzeitantworten und erstellen Hunderte Berichte in Minuten.",
-          "warum": "Nutzen Sie Parallel, um veraltete Daten zu umgehen und fundierte Entscheidungen zu treffen, statt stundenlang manuell zu suchen.",
-          "quelle": "Parallel",
-          "url": "https://parallel.ai/",
-          "datum": "23.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "25.08.2026",
       "top_news": [
         {
@@ -494,11 +467,89 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "03.09.2026",
+      "top_news": [
+        {
+          "titel": "Copilot agiert als autonomer Büro-Agent: Excel-Analysen und Berichte auf Zuruf erstellen.",
+          "zusammenfassung": "Microsoft Copilot schaltet einen 'Agent Mode' in Office-Anwendungen frei, der mehrstufige Aufgaben in Word, Excel und PowerPoint autonom ausführt. 'Analyst'- und 'Researcher'-Agenten rufen Daten von LinkedIn oder Jira ab und erstellen komplette Berichte.",
+          "warum": "Testen Sie den 'Agent Mode' für automatisierte Routinearbeit. Er verwandelt Copilot in einen echten Mitarbeiter. Achtung: In der EU bestehen womöglich DMA-Einschränkungen.",
+          "quelle": "Microsoft / TechCrunch",
+          "url": "https://techcrunch.com/category/artificial-intelligence/",
+          "datum": "02.09.2026"
+        },
+        {
+          "titel": "Update: Claude Fable 5.1 meistert stundenlange Projekte – Ihr neuer KI-Kollege für komplexe Aufgaben.",
+          "zusammenfassung": "Anthropic veröffentlicht Claude Fable 5.1, ein Modell für lange, komplexe Aufgaben wie Softwareentwicklung, autonome Agenten und mehrstufige Forschung. Es nutzt Tools, erholt sich von Fehlern und verifiziert Ergebnisse eigenständig.",
+          "warum": "Prüfen Sie, ob es Ihre aufwendigsten Projekte automatisiert. Dieses Modell verschiebt Grenzen bei langen Aufgaben; die Sicherheit verbesserte sich.",
+          "quelle": "Medium / The Neuron / Anthropic",
+          "url": "https://www.google.com/search?q=Update%3A%20Claude%20Fable%205.1%20meistert%20stundenlange%20Projekte%20%E2%80%93%20Ihr%20neuer%20KI-Kollege%20f%C3%BCr%20komplexe%20Aufgaben.%20Medium%20/%20The%20Neuron%20/%20Anthropic",
+          "datum": "02.09.2026"
+        },
+        {
+          "titel": "Google Gemini 3.8 Flash: Leistungsstärker für Agenten, attraktiver im Preis.",
+          "zusammenfassung": "Google veröffentlicht Gemini 3.8 Flash, ein leistungsstarkes Modell für autonome Agenten und komplexe Unternehmensabläufe. Es übertrifft frühere Versionen in Softwareentwicklung und spezialisierten Bereichen bei geringeren Kosten.",
+          "warum": "Testen Sie es für Ihre Agenten-Workflows. Das Modell bietet mehr Leistung für anspruchsvolle Aufgaben zu attraktiven Preisen und spart Kosten.",
+          "quelle": "9to5Google / Google Blog",
+          "url": "https://www.google.com/search?q=Google%20Gemini%203.8%20Flash%3A%20Leistungsst%C3%A4rker%20f%C3%BCr%20Agenten%2C%20attraktiver%20im%20Preis.%209to5Google%20/%20Google%20Blog",
+          "datum": "02.09.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Einzelhandel implementiert KI-Agenten: Von Retouren bis Regaloptimierung.",
+          "zusammenfassung": "Handelsunternehmen integrieren autonome KI-Agenten, welche Kundenanfragen ('Wo ist meine Bestellung?') direkt bearbeiten und Retourenprozesse vereinfachen. Sie nutzen zudem Computer Vision, um Regale in Echtzeit zu überwachen und die Bestandsgenauigkeit um bis zu 15% zu steigern.",
+          "branche": "Handel",
+          "quelle": "NeuroX AI / YOOBIC",
+          "url": "https://www.google.com/search?q=Einzelhandel%20implementiert%20KI-Agenten%3A%20Von%20Retouren%20bis%20Regaloptimierung.%20NeuroX%20AI%20/%20YOOBIC",
+          "datum": "27.08.2026"
+        },
+        {
+          "titel": "Telekommunikation: KI-Agenten etablieren 'selbstheilende' Netze – weniger Ausfälle garantiert.",
+          "zusammenfassung": "Telekommunikationsunternehmen implementieren KI-Agenten, um Netzfehler zu erkennen, zu diagnostizieren und automatisch zu beheben, bevor Kunden sie bemerken. Die Agenten arbeiten kooperativ, analysieren Funk-, Transport- und Kernnetzprobleme und finden die sicherste Lösung.",
+          "branche": "Telko",
+          "quelle": "10Pearls / TelcoMind AI Insights",
+          "url": "https://www.google.com/search?q=Telekommunikation%3A%20KI-Agenten%20etablieren%20%27selbstheilende%27%20Netze%20%E2%80%93%20weniger%20Ausf%C3%A4lle%20garantiert.%2010Pearls%20/%20TelcoMind%20AI%20Insights",
+          "datum": "28.08.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Notion AI erweitert seine 'Custom Agents' zu flexiblen KI-Teammitgliedern, die komplexe Workflows automatisieren und Informationen basierend auf Ihrem Unternehmenswissen organisieren.",
+          "quelle": "Notion",
+          "url": "https://www.google.com/search?q=Notion%20AI%20erweitert%20seine%20%27Custom%20Agents%27%20zu%20flexiblen%20KI-Teammitgliedern%2C%20die%20komplexe%20Workflows%20automatisieren%20und%20Informationen%20basierend%20auf%20Ihrem%20Unternehmenswissen%20organisieren.%20Notion"
+        },
+        {
+          "text": "Orchestry führt 'AI & Agents' für Microsoft 365 Governance ein. Damit überwachen IT-Teams alle KI-Agenten im Tenant, bewerten Risiken und steuern sie.",
+          "quelle": "AiThority",
+          "url": "https://www.google.com/search?q=Orchestry%20f%C3%BChrt%20%27AI%20%26%20Agents%27%20f%C3%BCr%20Microsoft%20365%20Governance%20ein.%20Damit%20%C3%BCberwachen%20IT-Teams%20alle%20KI-Agenten%20im%20Tenant%2C%20bewerten%20Risiken%20und%20steuern%20sie.%20AiThority"
+        },
+        {
+          "text": "Brightcove startet eine Gen 2 Video-Plattform mit einem 'AI Agentic Hub', der KI-Agenten zur Analyse von Videodaten, Generierung von Erkenntnissen und Automatisierung von Workflows einsetzt.",
+          "quelle": "CMOtech UK",
+          "url": "https://www.google.com/search?q=Brightcove%20startet%20eine%20Gen%202%20Video-Plattform%20mit%20einem%20%27AI%20Agentic%20Hub%27%2C%20der%20KI-Agenten%20zur%20Analyse%20von%20Videodaten%2C%20Generierung%20von%20Erkenntnissen%20und%20Automatisierung%20von%20Workflows%20einsetzt.%20CMOtech%20UK"
+        },
+        {
+          "text": "Google Translate führt einen KI-gestützten Übungsmodus ein, der Ihre Sprachkenntnisse in Echtzeit verbessert.",
+          "quelle": "Google / Digital Trends",
+          "url": "https://www.google.com/search?q=Google%20Translate%20f%C3%BChrt%20einen%20KI-gest%C3%BCtzten%20%C3%9Cbungsmodus%20ein%2C%20der%20Ihre%20Sprachkenntnisse%20in%20Echtzeit%20verbessert.%20Google%20/%20Digital%20Trends"
+        },
+        {
+          "text": "Die Browser-Erweiterung Trancy nutzt DeepL für duale Untertitel auf YouTube. So sehen Sie täglich 40 Videos kostenlos in zwei Sprachen gleichzeitig.",
+          "quelle": "Trancy",
+          "url": "https://www.google.com/search?q=Die%20Browser-Erweiterung%20Trancy%20nutzt%20DeepL%20f%C3%BCr%20duale%20Untertitel%20auf%20YouTube.%20So%20sehen%20Sie%20t%C3%A4glich%2040%20Videos%20kostenlos%20in%20zwei%20Sprachen%20gleichzeitig.%20Trancy"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "02.09.2026",
+  "last_sent": "03.09.2026",
   "sent_log": {
-    "date": "02.09.2026",
+    "date": "03.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
