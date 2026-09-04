@@ -1,57 +1,6 @@
 {
   "editions": [
     {
-      "date": "25.08.2026",
-      "top_news": [
-        {
-          "titel": "ChatGPT für Mac: OpenAI liest jetzt deinen Bildschirm und folgt Sprachbefehlen",
-          "zusammenfassung": "OpenAI stattet die ChatGPT-App für macOS mit 'Agentic'-Funktionen aus. Sie liest nun Bildschirminhalte aus über 30 Apps wie Notion oder Apple Notes und führt auf Sprachbefehl Aktionen aus. Ein erweiterter Sprachmodus fördert die intuitive Interaktion.",
-          "warum": "Unbedingt ausprobieren: Die App erledigt app-übergreifende Aufgaben wie Textzusammenfassungen jetzt effizienter. Für Abonnenten sofort nutzbar.",
-          "quelle": "TechCrunch",
-          "url": "https://techcrunch.com/category/artificial-intelligence/",
-          "datum": "24.08.2026"
-        },
-        {
-          "titel": "Anthropic: Claude Tags Slack-Agent mischt sich 30% präziser in Konversationen ein",
-          "zusammenfassung": "Anthropic aktualisiert Claude Tag, seinen KI-Agenten in Slack-Channels: Er liest jetzt ganze Konversationen statt einzelner Nachrichten. Dadurch entscheidet er 30 Prozent präziser, wann er proaktiv eingreift, und verbessert so die Teamzusammenarbeit als wertvollerer Kollege.",
-          "warum": "Behalten Sie ihn im Blick: Er liefert weniger Rauschen und mehr wertvolle Beiträge. Teams profitieren direkt von der erhöhten Relevanz seiner Empfehlungen.",
-          "quelle": "VentureBeat",
-          "url": "https://venturebeat.com/ai/anthropics-new-claude-tag-update-lets-its-slack-agent-read-the-full-conversation-and-jump-in-unprompted/",
-          "datum": "24.08.2026"
-        },
-        {
-          "titel": "Mistral AI: Agentic Search findet Fakten 86% genauer in Dokumentenbergen",
-          "zusammenfassung": "Mistral AI führt 'Agentic Search' ein, ein mehrstufiges System, das Modelle befähigt, Dokumente zu durchsuchen, zu navigieren und gezielt zu analysieren. Dies steigert die Genauigkeit bei Finanzunterlagen von 26,7 Prozent auf 86 Prozent und reduziert die Latenz um bis zu 39,6 Prozent – was eine Suche, die eine Minute dauerte, auf 36 Sekunden verkürzt.",
-          "warum": "Unbedingt im Blick behalten: Es beschleunigt die Faktensuche in großen Dokumentenmengen erheblich. Treffen Sie fundiertere Entscheidungen mit präziseren Ergebnissen.",
-          "quelle": "daily.dev",
-          "url": "https://www.google.com/search?q=Mistral%20AI%3A%20Agentic%20Search%20findet%20Fakten%2086%25%20genauer%20in%20Dokumentenbergen%20daily.dev",
-          "datum": "23.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Meta AI analysiert jetzt deine Werbekampagnen und Google Workspace-Daten, schlägt Optimierungen vor und erstellt Berichte.",
-          "quelle": "ALM Corp",
-          "url": "https://almcorp.com/meta-ai-now-analyzes-ad-campaigns-google-workspace-data"
-        },
-        {
-          "text": "Googles 'Anti-Gravity'-Update steuert und überwacht deine KI-Agenten jetzt direkt vom Mobilgerät im Browser.",
-          "quelle": "YouTube",
-          "url": "https://www.youtube.com/watch?v=n-Wz_z_0y1I"
-        },
-        {
-          "text": "Anthropic behebt Ausfall verschiedener Claude-Modelle und Dienste.",
-          "quelle": "PCMag",
-          "url": "https://www.google.com/search?q=Anthropic%20behebt%20Ausfall%20verschiedener%20Claude-Modelle%20und%20Dienste.%20PCMag"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "Simulation: the new Scaling Law",
-        "podcast_name": "Latent Space"
-      }
-    },
-    {
       "date": "26.08.2026",
       "top_news": [
         {
@@ -545,11 +494,59 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "04.09.2026",
+      "top_news": [
+        {
+          "titel": "Nvidia schluckt Hugging Face für 12,9 Mrd. Dollar: Wie das Open-Source-KI neu ausrichtet",
+          "zusammenfassung": "Nvidia sichert sich die KI-Plattform Hugging Face für 12,9 Mrd. Dollar. Der Kauf soll die Verbreitung offener KI-Modelle beschleunigen und Nvidias Position im KI-Ökosystem stärken. Es ist Nvidias größter Erwerb, um die KI-Akzeptanz und Kundenbasis auszubauen.",
+          "warum": "Nvidia festigt seinen Einfluss. Dies beschleunigt die Entwicklung offener Modelle; beobachten Sie die Auswirkungen auf Modellqualität und -zugang, um strategische Vorteile zu sichern.",
+          "quelle": "CommonWealth Magazine",
+          "url": "https://english.cw.com.tw/article/article.action?id=30218",
+          "datum": "04.09.2026"
+        },
+        {
+          "titel": "Meta Muse Spark 1.3: Effizientere KI für Agenten und Code-Aufgaben",
+          "zusammenfassung": "Meta lanciert Muse Spark 1.3, ein KI-Modell, das Agenten- und Programmierfähigkeiten optimiert. Es reduziert Tool-Aufrufe um 20% und Tokens um 25% gegenüber dem Vorgänger. Eine Aufgabe, die zuvor 100 Tokens verbrauchte, erledigt es nun mit 75, was einem Viertel weniger Ressourcen entspricht.",
+          "warum": "Dieses Modell optimiert Agenten- und Coding-Workflows erheblich. Prüfen Sie die API für eine direkte Integration, um Kosten und Rechenzeit signifikant zu senken.",
+          "quelle": "MarkTechPost",
+          "url": "https://www.marktechpost.com/2026/09/03/meta-ai-released-muse-spark-1-3-an-agentic-coding-model-that-uses-20-fewer-tool-calls-and-25-fewer-tokens-than-muse-spark-1-2/",
+          "datum": "03.09.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "US-Senatoren fordern ein Gesetz, das die Entwicklung und den Einsatz künstlicher Superintelligenz dauerhaft verbietet und fortgeschrittene KI vorübergehend pausiert.",
+          "quelle": "Sen. Bernie Sanders",
+          "url": "https://www.google.com/search?q=US-Senatoren%20fordern%20ein%20Gesetz%2C%20das%20die%20Entwicklung%20und%20den%20Einsatz%20k%C3%BCnstlicher%20Superintelligenz%20dauerhaft%20verbietet%20und%20fortgeschrittene%20KI%20vor%C3%BCbergehend%20pausiert.%20Sen.%20Bernie%20Sanders"
+        },
+        {
+          "text": "Meta passt Leistungsbeurteilung an: Mitarbeiter bewerten sie künftig nach tatsächlichem Arbeitsergebnis, statt nur nach KI-Tool-Nutzung.",
+          "quelle": "Digital Trends",
+          "url": "https://www.digitaltrends.com/computing/meta-changing-how-judges-employees-after-unusual-ai-experiment/"
+        },
+        {
+          "text": "Ping Identity lanciert eine Lösung, die Unternehmen befähigt, persönliche KI-Agenten zu überwachen und deren Zugriff in Echtzeit zu kontrollieren.",
+          "quelle": "Help Net Security",
+          "url": "https://www.helpnetsecurity.com/2026/09/04/new-infosec-products-of-the-week-september-4-2026/"
+        },
+        {
+          "text": "MINISFORUM zeigt auf der IFA 2026 neue Edge-KI-Computerlösungen mit AMD Ryzen AI MAX+ PRO 495 Prozessoren, die 131 TOPS KI-Rechenleistung liefern.",
+          "quelle": "EQS News",
+          "url": "https://www.eqs-news.com/news/corporate/minisforum-unveils-next-gen-edge-ai-computing-solutions-powered-by-amd-ryzen-ai-max-pro-495-at-ifa-2026/1944807"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "03.09.2026",
+  "last_sent": "04.09.2026",
   "sent_log": {
-    "date": "03.09.2026",
+    "date": "04.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
