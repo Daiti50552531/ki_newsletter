@@ -1,76 +1,6 @@
 {
   "editions": [
     {
-      "date": "26.08.2026",
-      "top_news": [
-        {
-          "titel": "EU-KI-Gesetz: Erste Kernvorschriften treten in Kraft – Unternehmen müssen jetzt handeln",
-          "zusammenfassung": "Die Europäische Union setzt seit dem 2. August erste zentrale Bestimmungen des KI-Gesetzes durch, verbietet bestimmte KI-Praktiken und fordert Transparenz von Chatbots. Unternehmen müssen ihre KI-Systeme prüfen.",
-          "warum": "Prüfe deine KI-Systeme umgehend auf Konformität. Das Gesetz betrifft jedes Unternehmen, das KI in der EU nutzt, und droht mit Strafen von bis zu 3% des Umsatzes.",
-          "quelle": "The Heartland Institute, Efficiently Connected",
-          "url": "https://www.google.com/search?q=EU-KI-Gesetz%3A%20Erste%20Kernvorschriften%20treten%20in%20Kraft%20%E2%80%93%20Unternehmen%20m%C3%BCssen%20jetzt%20handeln%20The%20Heartland%20Institute%2C%20Efficiently%20Connected",
-          "datum": "25.08.2026"
-        },
-        {
-          "titel": "OpenAI's Jalapeño-Chip: KI-Leistung verdoppelt, Kosten gesenkt",
-          "zusammenfassung": "OpenAI präsentiert erste Ergebnisse seines Jalapeño-Chips. Er steigert die AI-Inferenzleistung pro Watt um das 1,5- bis 1,9-fache und senkt Latenzen um das 1,7- bis 3,6-fache – eine Wartezeit von 10 Sekunden auf bis zu 3 Sekunden reduziert. Kunden erhalten so schnellere Antworten und nutzen KI effizienter.",
-          "warum": "Behalte diesen Chip im Blick: Er macht KI günstiger und schneller. Das beschleunigt die Entwicklung von Modellen wie GPT-OSS erheblich und demokratisiert KI-Zugang.",
-          "quelle": "OpenAI",
-          "url": "https://openai.com/blog/jalapeno-first-results-show-industry-leading-speed-and-efficiency-in-ai-inference",
-          "datum": "25.08.2026"
-        },
-        {
-          "titel": "Google bringt Gemini in Kanzleien: KI automatisiert Rechts- und Finanzaufgaben",
-          "zusammenfassung": "Google erweitert seine Gemini Enterprise-Plattform um Tools für Anwaltskanzleien. Diese automatisieren Routineaufgaben wie Recherchen und Schriftsätze. Weitere Branchenlösungen für den Finanzsektor folgen, um Wissensarbeiter zu entlasten und Kosten zu senken.",
-          "warum": "Arbeitest du in Recht oder Finanzen? Probiere Gemini aus. Die KI entlastet bei Routineaufgaben und schafft Zeit für komplexere Herausforderungen. KI wird fester Bestandteil deines Alltags.",
-          "quelle": "Reuters, PYMNTS.com",
-          "url": "https://www.reuters.com/technology/google-expands-gemini-enterprise-ai-platform-law-firms-lawyers-2026-08-25/",
-          "datum": "25.08.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Reisebranche reagiert: Leitfaden zur KI-Kennzeichnung nach EU-Gesetz",
-          "zusammenfassung": "Der Kompetenzkreis KI im Tourismus veröffentlicht ein Praxispapier zur Kennzeichnungspflicht von KI-generierten Inhalten, die seit dem 2. August gilt. Es hilft Reiseveranstaltern und Hotels, KI-Bilder, -Videos und -Texte korrekt auszuweisen.",
-          "branche": "Tourismus",
-          "quelle": "v-i-r.de",
-          "url": "https://www.google.com/search?q=Reisebranche%20reagiert%3A%20Leitfaden%20zur%20KI-Kennzeichnung%20nach%20EU-Gesetz%20v-i-r.de",
-          "datum": "25.08.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Der neue KI-Assistent Instinct fasst E-Mails zusammen und bucht Termine. Seine weitreichenden Zugriffsrechte und die Fähigkeit, rechtsverbindliche Aktionen auszuführen, wecken ernsthafte Datenschutzbedenken.",
-          "quelle": "KI-News Daily",
-          "url": "https://www.google.com/search?q=Der%20neue%20KI-Assistent%20Instinct%20fasst%20E-Mails%20zusammen%20und%20bucht%20Termine.%20Seine%20weitreichenden%20Zugriffsrechte%20und%20die%20F%C3%A4higkeit%2C%20rechtsverbindliche%20Aktionen%20auszuf%C3%BChren%2C%20wecken%20ernsthafte%20Datenschutzbedenken.%20KI-News%20Daily"
-        },
-        {
-          "text": "DeepSeek veröffentlicht \"Harness\", eine Open-Source-Software. Sie verwaltet KI-Workflows komplett lokal auf eigenen Maschinen und reduziert damit die Abhängigkeit von Cloud-Diensten.",
-          "quelle": "Geeky Gadgets",
-          "url": "https://www.google.com/search?q=DeepSeek%20ver%C3%B6ffentlicht%20%22Harness%22%2C%20eine%20Open-Source-Software.%20Sie%20verwaltet%20KI-Workflows%20komplett%20lokal%20auf%20eigenen%20Maschinen%20und%20reduziert%20damit%20die%20Abh%C3%A4ngigkeit%20von%20Cloud-Diensten.%20Geeky%20Gadgets"
-        },
-        {
-          "text": "Llama.cpp's neue \"adaptive speculation\"-Funktion steigert die Token-Generierung für lokale LLMs, insbesondere Qwen3.8, um bis zu 50% – sie reduziert die Wartezeit also um die Hälfte.",
-          "quelle": "Reddit (r/LocalLLaMA)",
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1c3d1f3/new_llamapp_adaptive_speculation_for_faster/"
-        },
-        {
-          "text": "Meta verschiebt die Veröffentlichung seines generativen KI-Modells Llama 4 Behemoth erneut. Interne Bedenken über die tatsächliche Leistungssteigerung sind der Grund.",
-          "quelle": "TechRepublic",
-          "url": "https://www.techrepublic.com/article/meta-delays-next-ai-launch/"
-        },
-        {
-          "text": "Anthropic startet ein 5-Millionen-Dollar-Förderprogramm für unabhängige Forschung. Diese untersucht, wie KI das Wohlbefinden der Nutzer beeinflusst, um Standards für verantwortungsvolle Modelle zu entwickeln.",
-          "quelle": "Anthropic",
-          "url": "https://www.google.com/search?q=Anthropic%20startet%20ein%205-Millionen-Dollar-F%C3%B6rderprogramm%20f%C3%BCr%20unabh%C3%A4ngige%20Forschung.%20Diese%20untersucht%2C%20wie%20KI%20das%20Wohlbefinden%20der%20Nutzer%20beeinflusst%2C%20um%20Standards%20f%C3%BCr%20verantwortungsvolle%20Modelle%20zu%20entwickeln.%20Anthropic"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "27.08.2026",
       "top_news": [
         {
@@ -542,11 +472,50 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "05.09.2026",
+      "top_news": [
+        {
+          "titel": "Broadcom verdoppelt KI-Umsätze: Hyperscaler bauen über 20 Gigawatt Rechenzentren",
+          "zusammenfassung": "Broadcom prognostiziert eine Verdopplung seiner KI-Umsätze und investiert stark in XPU- und Netzwerklösungen für Hyperscaler wie Google, Anthropic, OpenAI und Meta. Diese erweitern ihre KI-Rechenleistung bis 2028 um über 20 Gigawatt – die Kapazität von 20 Großkraftwerken.",
+          "warum": "Behalten Sie Broadcoms Hardware-Fokus im Blick. KI-Projekte benötigen zunehmend spezialisierte Infrastruktur; planen Sie Ihre Budgets entsprechend ein.",
+          "quelle": "wallstreetONLINE",
+          "url": "https://www.wallstreet-online.de/nachricht/18973796-broadcom-fokus-broadcom-ai-umsatze-verdoppeln",
+          "datum": "04.09.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Wiener Kindergärten: AIT-App WISPER fördert spielerisch den Spracherwerb mit KI",
+          "zusammenfassung": "Das AIT Center for Technology Experience entwickelte mit der Stadt Wien die KI-App WISPER. Sie unterstützt Drei- bis Sechsjährige spielerisch beim Spracherwerb und personalisiert Lernprozesse.",
+          "branche": "Bildung",
+          "quelle": "AIT Austrian Institute Of Technology",
+          "url": "https://www.ait.ac.at/presse/pressemeldungen/detail/ait-und-stadt-wien-innovative-sprachfoerderung-im-kindergarten",
+          "datum": "04.09.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Neue Studien zeigen: Über 80 Prozent der KI-Online-Quellen stammen von manipulierten Websites, gezielt für Maschinenlesbarkeit optimiert.",
+          "quelle": "Heute.at",
+          "url": "https://www.heute.at/s/ki-studie-fake-websites-tricken-ki-aus-120038848"
+        },
+        {
+          "text": "Audacity veröffentlicht Version 4.0 mit neuer Oberfläche, überarbeitetem Clip-Modell und dem .aup4-Format für die Audio-Software.",
+          "quelle": "heise online",
+          "url": "https://www.heise.de/thema/Kuenstliche-Intelligenz"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "04.09.2026",
+  "last_sent": "05.09.2026",
   "sent_log": {
-    "date": "04.09.2026",
+    "date": "05.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
