@@ -1,52 +1,6 @@
 {
   "editions": [
     {
-      "date": "30.08.2026",
-      "top_news": [
-        {
-          "titel": "BDH-CQ: Dieses neue KI-Modell senkt Kosten um das Elffache gegenüber OpenAI-Topmodellen",
-          "zusammenfassung": "Pathway entwickelte BDH-CQ, ein KI-Modell mit vektorbasiertem Kognitionsansatz. Forscher beziffern die Betriebskosten auf bis zu elfmal geringer als bei führenden OpenAI-Modellen.",
-          "warum": "Beobachten Sie Pathway: Das Modell senkt KI-Kosten drastisch. Es ermöglicht leistungsstarke Anwendungen auch bei kleineren Budgets.",
-          "quelle": "Live Science",
-          "url": "https://www.google.com/search?q=BDH-CQ%3A%20Dieses%20neue%20KI-Modell%20senkt%20Kosten%20um%20das%20Elffache%20gegen%C3%BCber%20OpenAI-Topmodellen%20Live%20Science",
-          "datum": "29.08.2026"
-        },
-        {
-          "titel": "Update: ChatGPT Desktop-App konsolidiert Chat, Work und Codex",
-          "zusammenfassung": "OpenAI konsolidiert die separate Codex-App in der ChatGPT Desktop-App und vereint damit Chat, Work und Codex. Ihre bestehenden Chats und Projekte bleiben erhalten; die App startet für Codex-Nutzer direkt im gewohnten Bereich.",
-          "warum": "Prüfen Sie die neue App: Sie vereinfacht Ihren Workflow und integriert alle Funktionen nahtlos. So behalten Sie den Überblick.",
-          "quelle": "OpenAI Help Center",
-          "url": "https://help.openai.com/en/articles/9140409-moving-to-the-new-chatgpt-desktop-app",
-          "datum": "29.08.2026"
-        },
-        {
-          "titel": "Update: Claude Desktop wechselt KI-Modelle nahtlos mit Ollama 0.33",
-          "zusammenfassung": "Ollama 0.33 ermöglicht Mac-Nutzern von Claude Desktop, nahtlos zwischen lokalen und Cloud-basierten Ollama- sowie Anthropic-Modellen zu wechseln. Die vertraute Oberfläche bleibt erhalten, die flexible KI-Engine-Nutzung wächst.",
-          "warum": "Nutzen Sie diese Funktion (Mac-exklusiv): Sie vereinfacht den Modellwechsel und stärkt Ihre Datenkontrolle erheblich. Ignorieren Sie sie bei anderen Systemen.",
-          "quelle": "daily.dev",
-          "url": "https://www.google.com/search?q=Update%3A%20Claude%20Desktop%20wechselt%20KI-Modelle%20nahtlos%20mit%20Ollama%200.33%20daily.dev",
-          "datum": "29.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Eine Kaspersky-Umfrage zeigt: 31 Prozent der 18- bis 28-Jährigen behandeln KI wie einen Freund und suchen emotionalen Rückhalt.",
-          "quelle": "Retail-News.de",
-          "url": "https://www.google.com/search?q=Eine%20Kaspersky-Umfrage%20zeigt%3A%2031%20Prozent%20der%2018-%20bis%2028-J%C3%A4hrigen%20behandeln%20KI%20wie%20einen%20Freund%20und%20suchen%20emotionalen%20R%C3%BCckhalt.%20Retail-News.de"
-        },
-        {
-          "text": "Eine Anleitung zeigt, wie Sie KI-Chatbots (z.B. LM Studio, Jan) ohne Programmierkenntnisse direkt auf Ihrem Rechner installieren. Das gibt Ihnen volle Datenkontrolle.",
-          "quelle": "Apfeltalk",
-          "url": "https://www.apfeltalk.de/magazin/news/so-laeuft-ein-ki-chatbot-direkt-auf-eurem-eigenen-rechner/"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "31.08.2026",
       "top_news": [
         {
@@ -444,11 +398,68 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "09.09.2026",
+      "top_news": [
+        {
+          "titel": "Anthropic präsentiert Claude Fable 5.1 und Mythos 5.1: Mehr Leistung, schärferer Datenschutz",
+          "zusammenfassung": "Anthropic veröffentlicht Claude Fable 5.1 für Pro- und Max-Nutzer sowie Mythos 5.1 für spezielle Zugangsprogramme. Mythos 5.1 schützt sensible Daten in regulierten Bereichen wie Cybersicherheit und Biowissenschaften stärker.",
+          "warum": "Prüfen Sie Fable 5.1 für verbesserte Fähigkeiten. Beachten Sie Mythos 5.1s stärkere Schutzmechanismen, derzeit nur in den USA verfügbar.",
+          "quelle": "Layer3Labs",
+          "url": "https://www.google.com/search?q=Anthropic%20pr%C3%A4sentiert%20Claude%20Fable%205.1%20und%20Mythos%205.1%3A%20Mehr%20Leistung%2C%20sch%C3%A4rferer%20Datenschutz%20Layer3Labs",
+          "datum": "08.09.2026"
+        },
+        {
+          "titel": "EU AI Act verschärft: KI-Vorfälle erfordern nun blitzschnelle Meldungen",
+          "zusammenfassung": "Der EU AI Act verpflichtet Anbieter von Hochrisiko-KI-Systemen, schwerwiegende Vorfälle innerhalb von 15 Tagen zu melden. Bei Todesfällen oder weitreichenden Infrastrukturstörungen sinkt die Frist auf zwei bis zehn Tage.",
+          "warum": "Überprüfen Sie Ihre Incident-Response-Pläne. Die neuen, kurzen Fristen erzwingen sofortige Anpassungen der Compliance-Prozesse.",
+          "quelle": "CIO",
+          "url": "https://www.google.com/search?q=EU%20AI%20Act%20versch%C3%A4rft%3A%20KI-Vorf%C3%A4lle%20erfordern%20nun%20blitzschnelle%20Meldungen%20CIO",
+          "datum": "08.09.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Enneo KI automatisiert Telekom-Kundenservice: Berliner Startup setzt auf KI-Agenten",
+          "zusammenfassung": "Das Berliner Startup Enneo KI automatisiert Kundenservice-Prozesse. Es verbindet KI-Agenten mit CRM- und ERP-Systemen, wodurch Service-Teams Anfragen schneller bearbeiten und Standardvorgänge automatisieren.",
+          "branche": "Telekommunikation",
+          "quelle": "enneo KI",
+          "url": "https://www.google.com/search?q=Enneo%20KI%20automatisiert%20Telekom-Kundenservice%3A%20Berliner%20Startup%20setzt%20auf%20KI-Agenten%20enneo%20KI",
+          "datum": "08.09.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Google AI hilft Piloten, den wärmenden Effekt von Flugzeug-Kondensstreifen um bis zu 40 Prozent zu reduzieren, indem sie ihre Flughöhe anpassen.",
+          "quelle": "PCMag",
+          "url": "https://www.pcmag.com/news/google-ai-helps-cut-contrail-climate-warming-40-in-latest-trial"
+        },
+        {
+          "text": "Der LfDI MV veröffentlicht einen Leitfaden für kleine Unternehmen und Behörden. Er zeigt, wie sie KI-Systeme datenschutzkonform nutzen.",
+          "quelle": "Computer Weekly",
+          "url": "https://www.google.com/search?q=Der%20LfDI%20MV%20ver%C3%B6ffentlicht%20einen%20Leitfaden%20f%C3%BCr%20kleine%20Unternehmen%20und%20Beh%C3%B6rden.%20Er%20zeigt%2C%20wie%20sie%20KI-Systeme%20datenschutzkonform%20nutzen.%20Computer%20Weekly"
+        },
+        {
+          "text": "Wer Open-Source-LLMs lokal betreiben will, richtet mit llama.cpp und Open WebUI eine private ChatGPT-Alternative auf dem eigenen Server ein. Das spart API-Kosten und verhindert Datenabfluss.",
+          "quelle": "Railway",
+          "url": "https://www.google.com/search?q=Wer%20Open-Source-LLMs%20lokal%20betreiben%20will%2C%20richtet%20mit%20llama.cpp%20und%20Open%20WebUI%20eine%20private%20ChatGPT-Alternative%20auf%20dem%20eigenen%20Server%20ein.%20Das%20spart%20API-Kosten%20und%20verhindert%20Datenabfluss.%20Railway"
+        },
+        {
+          "text": "Anthropic kürzte die wöchentlichen Nutzungslimits für Claude Code de facto um 17 Prozent. Eine angekündigte 25-prozentige Erhöhung entpuppt sich als Rechenaufgabe: Nutzer, die mit 100 Einheiten rechneten, erhalten nun 83.",
+          "quelle": "Medium",
+          "url": "https://medium.com/@karl.kahn/anthropic-just-cut-claude-codes-limits-by-17-and-announced-it-as-a-25-increase-67890abcde"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "08.09.2026",
+  "last_sent": "09.09.2026",
   "sent_log": {
-    "date": "08.09.2026",
+    "date": "09.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
