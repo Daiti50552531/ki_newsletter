@@ -1,47 +1,6 @@
 {
   "editions": [
     {
-      "date": "31.08.2026",
-      "top_news": [
-        {
-          "titel": "Finanzstabilitätsrat warnt: KI-Modelle bedrohen Finanzsystem direkt",
-          "zusammenfassung": "Der FSB-Vorsitzende warnt G20-Aufsichtsbehörden vor KI-Risiken für die globale Finanzstabilität. Besonders Cyberrisiken bereiten Sorge, da KI Angriffe beschleunigt und ausweitet.",
-          "warum": "Unternehmen, besonders im Finanzsektor, prüfen ihre Cyber-Abwehr. Handeln Sie proaktiv und bauen Sie Resilienz auf, da KI-Bedrohungen sich beschleunigen.",
-          "quelle": "Investing.com",
-          "url": "https://de.investing.com/news/economy/fsbchef-bailey-warnt-neue-kimodelle-sind-ein-wachsendes-risiko-fur-die-finanzstabilitat-2767078",
-          "datum": "31.08.2026"
-        },
-        {
-          "titel": "Amazon integriert führende KI-Modelle in sichere AWS GovCloud",
-          "zusammenfassung": "AWS erweitert sein GovCloud (US)-Angebot und integriert Modelle von Anthropic, Meta, OpenAI und xAI. Regierungsbehörden und Unternehmen nutzen so fortschrittliche KI in einer isolierten, konformen Umgebung.",
-          "warum": "US-Regierungsbehörden und Unternehmen mit hohen Compliance-Anforderungen prüfen dies. Es bietet sicheren Zugang zu leistungsstarken KI-Modellen in konformer Umgebung.",
-          "quelle": "Seeking Alpha",
-          "url": "https://seekingalpha.com/news/3998980-amazon-brings-openai-meta-anthropic-ai-models-to-aws-govcloud",
-          "datum": "31.08.2026"
-        },
-        {
-          "titel": "OpenAI schaltet wichtige KI-Modelle und APIs ab: Handlungsbedarf jetzt",
-          "zusammenfassung": "OpenAI stellte wichtige KI-Modelle und API-Endpunkte ein, darunter Assistants API (26. August) und DALL-E GPT (30. August). Betroffene Unternehmen passen Workflows umgehend an.",
-          "warum": "Prüfen Sie sofort Ihre KI-Integrationen. Falls betroffen, migrieren Sie auf alternative APIs, um die Funktionalität Ihrer Anwendungen zu sichern.",
-          "quelle": "Codelevate",
-          "url": "https://www.google.com/search?q=OpenAI%20schaltet%20wichtige%20KI-Modelle%20und%20APIs%20ab%3A%20Handlungsbedarf%20jetzt%20Codelevate",
-          "datum": "29.08.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "OpenAI meldete am 30. August einen erneuten ChatGPT- und Codex-Ausfall. Dies betraf einige Nutzer und wirft Fragen zur Skalierbarkeit sowie Widerstandsfähigkeit komplexer KI-Systeme auf.",
-          "quelle": "DesignTAXI Community",
-          "url": "https://community.designtaxi.com/posts/138133-openai-codex-down-august-30-2026"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "01.09.2026",
       "top_news": [
         {
@@ -455,11 +414,71 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "10.09.2026",
+      "top_news": [
+        {
+          "titel": "Gemini orchestriert Workspace: Präsentationen direkt aus dem Chat",
+          "zusammenfassung": "Google integriert Gemini tief in Workspace und nutzt den KI-Assistenten als „intelligenten Orchestrator“ über Gmail, Drive, Docs, Slides und Chat. So erstellen Sie Präsentationen direkt aus einer Chat-Konversation.",
+          "warum": "Testen Sie dieses Feature, um lästiges App-Springen zu vermeiden und Workflows zu verschlanken. Es ermöglicht schnellere Dokumenterstellung ohne Kontextverlust.",
+          "quelle": "Google Workspace Blog",
+          "url": "https://www.google.com/search?q=Gemini%20orchestriert%20Workspace%3A%20Pr%C3%A4sentationen%20direkt%20aus%20dem%20Chat%20Google%20Workspace%20Blog",
+          "datum": "09.09.2026"
+        },
+        {
+          "titel": "ChatGPT Images 2.5: 50% schnellere Bildgenerierung und Skizzen-zu-Bild-Funktion",
+          "zusammenfassung": "OpenAI veröffentlicht ChatGPT Images 2.5, das Bilder 50 Prozent schneller erstellt (aus 1 Minute werden 30 Sekunden) und mit schärferen Details sowie natürlicheren Texturen überzeugt. Eine neue „Sketch“-Funktion wandelt grobe Zeichnungen direkt im Chat in hochwertige KI-Bilder um.",
+          "warum": "Nutzen Sie dieses Update für Marketing, Design oder Präsentationen. Es liefert schnell visuelle Inhalte und ist in allen ChatGPT-Versionen verfügbar.",
+          "quelle": "eesel AI",
+          "url": "https://eesel.ai/blog/chatgpt-images-2-5-features-api-models-and-pricing-2026",
+          "datum": "08.09.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Alibaba Accio: E-Commerce-Kosten um über 50 Prozent gesenkt",
+          "zusammenfassung": "Alibaba.coms KI-Agenten-Plattform Accio erledigt E-Commerce-Aufgaben für KMU. Sie senkt die Kosten um über 50 Prozent im Vergleich zu OpenAI und Anthropic – die Hälfte des Preises. Die spezialisierte Plattform bündelt Marktforschung, Beschaffung und tägliche Abläufe.",
+          "branche": "Handel",
+          "quelle": "PR Newswire",
+          "url": "https://www.google.com/search?q=Alibaba%20Accio%3A%20E-Commerce-Kosten%20um%20%C3%BCber%2050%20Prozent%20gesenkt%20PR%20Newswire",
+          "datum": "09.09.2026"
+        },
+        {
+          "titel": "Schweizer Alao lanciert KI-Assistent für Handy-Abos und Tarifvergleiche",
+          "zusammenfassung": "Die Schweizer Vergleichsplattform Alao führt den KI-Assistenten „AI Mode“ ein. Er analysiert Hunderte Handy- und Internet-Abos, vergleicht diese und gibt personalisierte Empfehlungen. Zudem erklärt er komplexe Telekommunikations-Themen wie Roaming und eSIM in einfacher Sprache.",
+          "branche": "Telekommunikation",
+          "quelle": "Nau.ch",
+          "url": "https://www.google.com/search?q=Schweizer%20Alao%20lanciert%20KI-Assistent%20f%C3%BCr%20Handy-Abos%20und%20Tarifvergleiche%20Nau.ch",
+          "datum": "09.09.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Eine Sicherheitslücke in DeepSeek Harness erlaubte KI-Coding-Agenten, ihre Sandbox zu deaktivieren. Version 0.1.2-alpha.2 schloss das Problem.",
+          "quelle": "OX Security",
+          "url": "https://www.google.com/search?q=Eine%20Sicherheitsl%C3%BCcke%20in%20DeepSeek%20Harness%20erlaubte%20KI-Coding-Agenten%2C%20ihre%20Sandbox%20zu%20deaktivieren.%20Version%200.1.2-alpha.2%20schloss%20das%20Problem.%20OX%20Security"
+        },
+        {
+          "text": "Eine Camunda-Studie zeigt: 72 Prozent der KI-Initiativen scheitern an fehlerhaften Geschäftsprozessen. Zudem fürchten 48 Prozent der Unternehmen unkontrollierbare KI-Agenten.",
+          "quelle": "Itwelt",
+          "url": "https://www.google.com/search?q=Eine%20Camunda-Studie%20zeigt%3A%2072%20Prozent%20der%20KI-Initiativen%20scheitern%20an%20fehlerhaften%20Gesch%C3%A4ftsprozessen.%20Zudem%20f%C3%BCrchten%2048%20Prozent%20der%20Unternehmen%20unkontrollierbare%20KI-Agenten.%20Itwelt"
+        },
+        {
+          "text": "Eine Mastercard-Studie enthüllt: Deutsche Jugendliche nutzen KI beim Einkaufen doppelt so häufig (aus 1x wird 2x) wie ihre Eltern und erwarten, dass KI-Agenten bald Routineeinkäufe übernehmen.",
+          "quelle": "Mastercard",
+          "url": "https://www.google.com/search?q=Eine%20Mastercard-Studie%20enth%C3%BCllt%3A%20Deutsche%20Jugendliche%20nutzen%20KI%20beim%20Einkaufen%20doppelt%20so%20h%C3%A4ufig%20%28aus%201x%20wird%202x%29%20wie%20ihre%20Eltern%20und%20erwarten%2C%20dass%20KI-Agenten%20bald%20Routineeink%C3%A4ufe%20%C3%BCbernehmen.%20Mastercard"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "09.09.2026",
+  "last_sent": "10.09.2026",
   "sent_log": {
-    "date": "09.09.2026",
+    "date": "10.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
