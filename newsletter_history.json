@@ -1,52 +1,6 @@
 {
   "editions": [
     {
-      "date": "02.09.2026",
-      "top_news": [
-        {
-          "titel": "OpenAI lanciert Astra: KI findet Cybersicherheitslücken autonom",
-          "zusammenfassung": "OpenAI stellt Astra vor, das erste KI-Modell, das selbstständig unbekannte Cybersicherheitslücken findet. Nur ein kleiner Kreis erhält Zugang zu den fortschrittlichsten Funktionen.",
-          "warum": "Das Modell definiert KI-Fähigkeiten neu, wirft aber auch Sicherheitsfragen auf. Beobachten Sie, wie sich der limitierte Zugang entwickelt, um Chancen früh zu erkennen.",
-          "quelle": "Forbes",
-          "url": "https://www.forbes.com/sites/forbestechcouncil/2026/09/01/openai-will-soon-launch-its-competitor-to-anthropics-mythos/",
-          "datum": "01.09.2026"
-        },
-        {
-          "titel": "Deutschland gründet KI-Sicherheitsinstitut AISI in Berlin: Fokus auf Modell-Risiken",
-          "zusammenfassung": "Die Bundesregierung gründet das AI Security and Safety Institute (AISI) in Berlin. Es bewertet Chancen und Risiken fortschrittlicher KI-Modelle; BSI und Bundesnetzagentur bilden den Kern.",
-          "warum": "Das Institut zentralisiert die technische Bewertung von KI-Systemen. Verfolgen Sie die Veröffentlichungen, um Risiken frühzeitig zu identifizieren und Ihre Strategie anzupassen.",
-          "quelle": "Forschung & Lehre",
-          "url": "https://www.google.com/search?q=Deutschland%20gr%C3%BCndet%20KI-Sicherheitsinstitut%20AISI%20in%20Berlin%3A%20Fokus%20auf%20Modell-Risiken%20Forschung%20%26%20Lehre",
-          "datum": "01.09.2026"
-        },
-        {
-          "titel": "EU-Pflicht: Deepfakes und KI-Texte zu öffentlichen Themen kennzeichnen",
-          "zusammenfassung": "Ab dem 2. August 2026 kennzeichnet die EU KI-generierte Deepfakes und öffentliche Texte verpflichtend. Die Bundesnetzagentur überwacht den Markt und nimmt Beschwerden entgegen.",
-          "warum": "Missachten Sie die Kennzeichnungspflicht, drohen bis zu 15 Millionen Euro Strafe. Überprüfen Sie jetzt Ihre Prozesse, um diese Transparenzpflichten einzuhalten.",
-          "quelle": "Anwalt.de",
-          "url": "https://www.anwalt.de/rechtstipps/ki-inhalte-kennzeichnen-was-seit-dem-2-august-2026-fuer-unternehmen-gilt-209211.html",
-          "datum": "01.09.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "Google erweitert Gemini um 'Find Hub': Speichern und rufen Sie den Ablageort von Gegenständen ohne Tracker per Sprachbefehl ab.",
-          "quelle": "9to5Google",
-          "url": "https://www.google.com/search?q=Google%20erweitert%20Gemini%20um%20%27Find%20Hub%27%3A%20Speichern%20und%20rufen%20Sie%20den%20Ablageort%20von%20Gegenst%C3%A4nden%20ohne%20Tracker%20per%20Sprachbefehl%20ab.%209to5Google"
-        },
-        {
-          "text": "Google Messages integriert Google Keep. Teams erstellen und bearbeiten gemeinsame Notizen und Listen direkt in Chats.",
-          "quelle": "9to5Google",
-          "url": "https://www.google.com/search?q=Google%20Messages%20integriert%20Google%20Keep.%20Teams%20erstellen%20und%20bearbeiten%20gemeinsame%20Notizen%20und%20Listen%20direkt%20in%20Chats.%209to5Google"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "03.09.2026",
       "top_news": [
         {
@@ -475,11 +429,49 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "12.09.2026",
+      "top_news": [
+        {
+          "titel": "KI-Agenten: Truefoundry stellt Schichten für Kontrolle und Testbarkeit vor",
+          "zusammenfassung": "Truefoundry führt einen \"Managed Agent Layer\" ein, der Agenten-Logik von der Infrastruktur trennt und so die Testbarkeit erhöht. Die Architektur senkt den Code-Aufwand für wiederkehrende Aufgaben wie Authentifizierung oder Fehlerbehandlung erheblich.",
+          "warum": "Wer KI-Agenten einsetzt, prüft diesen Ansatz: Er verbessert die Testbarkeit und Kontrolle, senkt den Code-Aufwand und erhöht die Sicherheit Ihrer Agenten.",
+          "quelle": "Truefoundry",
+          "url": "https://www.google.com/search?q=KI-Agenten%3A%20Truefoundry%20stellt%20Schichten%20f%C3%BCr%20Kontrolle%20und%20Testbarkeit%20vor%20Truefoundry",
+          "datum": "11.09.2026"
+        },
+        {
+          "titel": "Qwen3.8 Max dominiert BenchLM: Alibaba krönt sich zum neuen Open-Source-LLM-Champion",
+          "zusammenfassung": "Alibabas Qwen3.8 Max erobert mit 71,6 Punkten die Spitze im BenchLM Open-Source-LLM-Ranking. Es überflügelt Modelle wie GLM-5.3 und GLM-5.2 und beweist die Wettbewerbsfähigkeit quelloffener Modelle.",
+          "warum": "Nutzer von Open-Source-Modellen prüfen Qwen3.8 Max: Es liefert Spitzenleistung und volle Kontrolle über Ihre Daten. Ein klarer Wettbewerbsvorteil.",
+          "quelle": "BenchLM.ai",
+          "url": "https://www.google.com/search?q=Qwen3.8%20Max%20dominiert%20BenchLM%3A%20Alibaba%20kr%C3%B6nt%20sich%20zum%20neuen%20Open-Source-LLM-Champion%20BenchLM.ai",
+          "datum": "10.09.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Eine Studie des US Census Bureau enthüllt: Hochschulabsolventen in stark KI-exponierten Bereichen verlieren fünf Prozentpunkte an Beschäftigung und 13 Prozent Einkommen – das entspricht fast einem Siebtel ihres Gehalts.",
+          "quelle": "U.S. Census Bureau",
+          "url": "https://www.google.com/search?q=Eine%20Studie%20des%20US%20Census%20Bureau%20enth%C3%BCllt%3A%20Hochschulabsolventen%20in%20stark%20KI-exponierten%20Bereichen%20verlieren%20f%C3%BCnf%20Prozentpunkte%20an%20Besch%C3%A4ftigung%20und%2013%20Prozent%20Einkommen%20%E2%80%93%20das%20entspricht%20fast%20einem%20Siebtel%20ihres%20Gehalts.%20U.S.%20Census%20Bureau"
+        },
+        {
+          "text": "KI-Audio erobert das Verlagswesen: Im vierten Quartal 2025 übertrafen Podcasts erstmals das Radio beim Konsum gesprochener Inhalte und beanspruchten 40 % der gesamten Hörzeit. Das ist fast die Hälfte aller Ohren.",
+          "quelle": "ElevenLabs",
+          "url": "https://www.google.com/search?q=KI-Audio%20erobert%20das%20Verlagswesen%3A%20Im%20vierten%20Quartal%202025%20%C3%BCbertrafen%20Podcasts%20erstmals%20das%20Radio%20beim%20Konsum%20gesprochener%20Inhalte%20und%20beanspruchten%2040%20%25%20der%20gesamten%20H%C3%B6rzeit.%20Das%20ist%20fast%20die%20H%C3%A4lfte%20aller%20Ohren.%20ElevenLabs"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "OpenAI pausiert neue 200-Dollar-Pro-Anmeldungen",
+        "podcast_name": "The Signal / Superpower Daily"
+      }
     }
   ],
-  "last_sent": "11.09.2026",
+  "last_sent": "12.09.2026",
   "sent_log": {
-    "date": "11.09.2026",
+    "date": "12.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
