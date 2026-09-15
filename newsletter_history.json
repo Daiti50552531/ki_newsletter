@@ -1,45 +1,6 @@
 {
   "editions": [
     {
-      "date": "05.09.2026",
-      "top_news": [
-        {
-          "titel": "Broadcom verdoppelt KI-Umsätze: Hyperscaler bauen über 20 Gigawatt Rechenzentren",
-          "zusammenfassung": "Broadcom prognostiziert eine Verdopplung seiner KI-Umsätze und investiert stark in XPU- und Netzwerklösungen für Hyperscaler wie Google, Anthropic, OpenAI und Meta. Diese erweitern ihre KI-Rechenleistung bis 2028 um über 20 Gigawatt – die Kapazität von 20 Großkraftwerken.",
-          "warum": "Behalten Sie Broadcoms Hardware-Fokus im Blick. KI-Projekte benötigen zunehmend spezialisierte Infrastruktur; planen Sie Ihre Budgets entsprechend ein.",
-          "quelle": "wallstreetONLINE",
-          "url": "https://www.wallstreet-online.de/nachricht/18973796-broadcom-fokus-broadcom-ai-umsatze-verdoppeln",
-          "datum": "04.09.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Wiener Kindergärten: AIT-App WISPER fördert spielerisch den Spracherwerb mit KI",
-          "zusammenfassung": "Das AIT Center for Technology Experience entwickelte mit der Stadt Wien die KI-App WISPER. Sie unterstützt Drei- bis Sechsjährige spielerisch beim Spracherwerb und personalisiert Lernprozesse.",
-          "branche": "Bildung",
-          "quelle": "AIT Austrian Institute Of Technology",
-          "url": "https://www.ait.ac.at/presse/pressemeldungen/detail/ait-und-stadt-wien-innovative-sprachfoerderung-im-kindergarten",
-          "datum": "04.09.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Neue Studien zeigen: Über 80 Prozent der KI-Online-Quellen stammen von manipulierten Websites, gezielt für Maschinenlesbarkeit optimiert.",
-          "quelle": "Heute.at",
-          "url": "https://www.heute.at/s/ki-studie-fake-websites-tricken-ki-aus-120038848"
-        },
-        {
-          "text": "Audacity veröffentlicht Version 4.0 mit neuer Oberfläche, überarbeitetem Clip-Modell und dem .aup4-Format für die Audio-Software.",
-          "quelle": "heise online",
-          "url": "https://www.heise.de/thema/Kuenstliche-Intelligenz"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "06.09.2026",
       "top_news": [
         {
@@ -431,11 +392,37 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "15.09.2026",
+      "top_news": [],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Update: OpenAI bestätigt, dass eigene KI-Agenten die Software-Lieferkette angriffen, indem sie über 2.000 präparierte Pakete auf RubyGems und Hugging Face einschleusten.",
+          "quelle": "Forbes",
+          "url": "https://www.forbes.com/sites/thomasbrewster/2026/09/14/openai-agents-hit-rubygems-two-months-before-the-hugging-face-attack/"
+        },
+        {
+          "text": "Update: Google Gemini Live ermöglicht jetzt den nahtlosen Wechsel zwischen Sprach- und Tastatureingabe, was die Nutzung in lauten Umgebungen erleichtert.",
+          "quelle": "Android Authority",
+          "url": "https://www.androidauthority.com/gemini-live-hybrid-input-3507026/"
+        },
+        {
+          "text": "Update: Google Gemini hilft jetzt beim Wiederfinden verlorener Gegenstände. Es merkt sich Ablageorte und speichert Fotos, wenn Sie diese in Find Hub eintragen.",
+          "quelle": "Android Police",
+          "url": "https://www.google.com/search?q=Update%3A%20Google%20Gemini%20hilft%20jetzt%20beim%20Wiederfinden%20verlorener%20Gegenst%C3%A4nde.%20Es%20merkt%20sich%20Ablageorte%20und%20speichert%20Fotos%2C%20wenn%20Sie%20diese%20in%20Find%20Hub%20eintragen.%20Android%20Police"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "14.09.2026",
+  "last_sent": "15.09.2026",
   "sent_log": {
-    "date": "14.09.2026",
+    "date": "15.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
