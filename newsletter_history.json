@@ -1,66 +1,6 @@
 {
   "editions": [
     {
-      "date": "06.09.2026",
-      "top_news": [
-        {
-          "titel": "Update: OpenAI veröffentlicht GPT-6 Astra – Cyber-Sicherheitsstufe 'Critical' erreicht",
-          "zusammenfassung": "OpenAI stellt GPT-6 Astra als leistungsfähigstes und breit verfügbares Modell vor, das erstmals die 'Critical'-Stufe der Cybersicherheit erreicht. Das Modell verbessert die Abwehr gegen Cyberangriffe und widersteht Jailbreaks effektiver.",
-          "warum": "Behalten Sie dieses Modell im Blick. Es definiert KI-Sicherheit neu; prüfen Sie die Eignung für defensive Cyber-Anwendungen in Ihrem Unternehmen.",
-          "quelle": "The Hacker News",
-          "url": "https://thehackernews.com/2026/09/thousands-of-openai-agents-quietly.html",
-          "datum": "05.09.2026"
-        },
-        {
-          "titel": "Google beerdigt Assistant: Gemini steuert künftig alle Android-Geräte",
-          "zusammenfassung": "Google beendet den Support für Google Assistant auf Android und Wear OS und ersetzt ihn vollständig durch Gemini. Die Umstellung betrifft Smartphones, Tablets, Smartwatches und Android Auto.",
-          "warum": "Ignorieren Sie Gemini nicht. Lernen Sie es jetzt als primären Assistenten kennen, um mobil effizient zu bleiben.",
-          "quelle": "The Decoder",
-          "url": "https://the-decoder.de/google-will-shut-down-google-assistant-starting-september-2026-as-gemini-takes-over-on-android-and-wear-os/",
-          "datum": "05.09.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "GK Agentic liefert KI-Agenten für den Einzelhandel: Neue Ära im Filialalltag",
-          "zusammenfassung": "GK Software stellt GK Agentic vor, ein Framework und eine Agentenbibliothek, die es speziell für den Einzelhandel entwickelte. Das System nutzt große Sprachmodelle, um konkrete Anwendungsfälle entlang der gesamten Wertschöpfungskette zu unterstützen.",
-          "branche": "Handel",
-          "quelle": "PresseBox",
-          "url": "https://www.pressebox.de/pressemitteilung/gk-software-se/GK-Agentic-bringt-KI-Agenten-in-den-Filialalltag/boxid/1310510",
-          "datum": "01.09.2026"
-        },
-        {
-          "titel": "KPMG-Studie: KI-Agenten bestimmen Kaufentscheidungen im deutschen Einzelhandel",
-          "zusammenfassung": "Eine KPMG-Analyse zeigt: KI wird für deutsche Einzelhändler zum entscheidenden Wettbewerbsfaktor. Die Studie betont, dass KI-Agenten Kaufentscheidungen eigenständig treffen.",
-          "branche": "Handel",
-          "quelle": "KPMG International",
-          "url": "https://www.google.com/search?q=KPMG-Studie%3A%20KI-Agenten%20bestimmen%20Kaufentscheidungen%20im%20deutschen%20Einzelhandel%20KPMG%20International",
-          "datum": "04.09.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "EY definiert 'Physical AI' als die Intelligenzschicht, die Maschinen und physischen Systemen das Denken und autonome Handeln in der realen Welt ermöglicht – quasi das Gehirn für Roboter.",
-          "quelle": "EY - Netherlands",
-          "url": "https://www.google.com/search?q=EY%20definiert%20%27Physical%20AI%27%20als%20die%20Intelligenzschicht%2C%20die%20Maschinen%20und%20physischen%20Systemen%20das%20Denken%20und%20autonome%20Handeln%20in%20der%20realen%20Welt%20erm%C3%B6glicht%20%E2%80%93%20quasi%20das%20Gehirn%20f%C3%BCr%20Roboter.%20EY%20-%20Netherlands"
-        },
-        {
-          "text": "Bill Gates warnt vor einer turbulenten KI-Ära. Er betont, dass heutige Entscheidungen über Risiken wie Betrug und Desinformation sowie Chancen in Gesundheit und Landwirtschaft den Kurs maßgeblich bestimmen.",
-          "quelle": "Bill Gates",
-          "url": "https://www.gatesnotes.com/The-choices-we-make-about-AI-now-are-critical"
-        },
-        {
-          "text": "Telekom-Vorstand Rodrigo Deal erwartet in den nächsten fünf Jahren einen 'iPhone-Moment' durch KI, der Wirtschaft und Gesellschaft tiefgreifend verändert.",
-          "quelle": "Made in Bocholt",
-          "url": "https://www.madeinbocholt.de/telekom-vorstand-rechnet-mit-neuem-iphone-moment-durch-ki/"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "07.09.2026",
       "top_news": [],
       "praxis": [],
@@ -418,11 +358,54 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "16.09.2026",
+      "top_news": [
+        {
+          "titel": "Microsofts KI-Kodex: Der Mensch steuert, die Maschine dient",
+          "zusammenfassung": "Microsoft veröffentlicht einen Entwurf seines KI-Verhaltenskodex zur öffentlichen Konsultation. Dieser stellt den Menschen klar vor die KI und fordert menschliche Kontrolle sowie die Möglichkeit zum Abschalten. Das Unternehmen lehnt zudem Rechte oder Rechtspersönlichkeit für KI-Modelle ab.",
+          "warum": "Der Kodex definiert klare Regeln. Achten Sie darauf, dass Ihre KI abschaltbar bleibt und Sie die Kontrolle behalten.",
+          "quelle": "Microsoft AI Blog",
+          "url": "https://www.google.com/search?q=Microsofts%20KI-Kodex%3A%20Der%20Mensch%20steuert%2C%20die%20Maschine%20dient%20Microsoft%20AI%20Blog",
+          "datum": "14.09.2026"
+        },
+        {
+          "titel": "Anthropic lanciert Claude für Finanzberater: KI entlastet die Recherche",
+          "zusammenfassung": "Anthropic hat 'Claude for Financial Advisors' vorgestellt, eine KI-Toolsuite, die Vermögensverwalter bei Recherche, Portfolio-Überwachung und administrativen Aufgaben unterstützt. Die Lösung integriert Claude in bestehende Plattformen von Anbietern wie Charles Schwab und BlackRock.",
+          "warum": "KI spezialisiert sich. Prüfen Sie, ob Ihr Finanzberater diese Tools nutzt, um seine Leistung für Sie zu verbessern.",
+          "quelle": "The Daily Upside",
+          "url": "https://dailyupside.com/anthropic-moves-deeper-into-financial-services-with-claude-for-advisors/",
+          "datum": "14.09.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Microsoft, AFT und UFT haben verbindliche KI-Regeln für US-Schulen festgelegt, die Schülerdaten schützen und KI-Überwachung von Lernenden ausschließen, gültig ab November 2026.",
+          "quelle": "BornCity",
+          "url": "https://www.google.com/search?q=Microsoft%2C%20AFT%20und%20UFT%20haben%20verbindliche%20KI-Regeln%20f%C3%BCr%20US-Schulen%20festgelegt%2C%20die%20Sch%C3%BClerdaten%20sch%C3%BCtzen%20und%20KI-%C3%9Cberwachung%20von%20Lernenden%20ausschlie%C3%9Fen%2C%20g%C3%BCltig%20ab%20November%202026.%20BornCity"
+        },
+        {
+          "text": "Apple rollt die nächste Generation von Siri AI als Teil von Apple Intelligence aus, die personalisierte Unterstützung mit Kontextverständnis und systemweiten App-Aktionen bietet, vorerst in Beta auf Englisch. Hinweis: Apple hält Siri AI auf iOS, iPadOS und watchOS in der EU vorerst zurück.",
+          "quelle": "Apple",
+          "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/"
+        },
+        {
+          "text": "Ein Anthropic-Forscher trat wegen Bedenken bezüglich der KI-Auslöschung zurück.",
+          "quelle": "Forbes",
+          "url": "https://www.forbes.com/sites/siladityaray/2026/09/09/anthropic-alignment-lead-issues-warning-about-ai-killing-humans-as-researcher-resigns/"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "15.09.2026",
+  "last_sent": "16.09.2026",
   "sent_log": {
-    "date": "15.09.2026",
+    "date": "16.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
