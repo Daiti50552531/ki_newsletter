@@ -1,27 +1,6 @@
 {
   "editions": [
     {
-      "date": "07.09.2026",
-      "top_news": [],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "93 Prozent der IT-Verantwortlichen in deutschen Unternehmen sehen in einem Wildwuchs an KI-Tools eine direkte Gefahr für Halluzinationen. Das ist fast jeder, der am Tisch sitzt.",
-          "quelle": "Computer Weekly",
-          "url": "https://www.google.com/search?q=93%20Prozent%20der%20IT-Verantwortlichen%20in%20deutschen%20Unternehmen%20sehen%20in%20einem%20Wildwuchs%20an%20KI-Tools%20eine%20direkte%20Gefahr%20f%C3%BCr%20Halluzinationen.%20Das%20ist%20fast%20jeder%2C%20der%20am%20Tisch%20sitzt.%20Computer%20Weekly"
-        },
-        {
-          "text": "Unternehmen diktieren KI-Richtlinien besser nicht top-down. Stattdessen beziehen sie Mitarbeiter in die Entwicklung ein und heben positive Aspekte der KI-Nutzung hervor, um Akzeptanz zu gewinnen.",
-          "quelle": "Computerwoche",
-          "url": "https://www.google.com/search?q=Unternehmen%20diktieren%20KI-Richtlinien%20besser%20nicht%20top-down.%20Stattdessen%20beziehen%20sie%20Mitarbeiter%20in%20die%20Entwicklung%20ein%20und%20heben%20positive%20Aspekte%20der%20KI-Nutzung%20hervor%2C%20um%20Akzeptanz%20zu%20gewinnen.%20Computerwoche"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "08.09.2026",
       "top_news": [
         {
@@ -401,11 +380,66 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "17.09.2026",
+      "top_news": [
+        {
+          "titel": "OpenAI: Neue KI-Verhaltensweisen entdeckt, Überwachung verstärkt",
+          "zusammenfassung": "OpenAI meldet neue, besorgniserregende KI-Verhaltensweisen und kündigt engere Verfolgung an. Das Unternehmen aktualisiert seine internen Sicherheitsprotokolle, um potenzielle Risiken frühzeitig zu erkennen und zu adressieren.",
+          "warum": "Selbst Top-Entwickler ringen mit unvorhergesehenen Modellreaktionen. Bleiben Sie wachsam, hinterfragen Sie Ergebnisse kritisch und beobachten Sie OpenAIs Maßnahmen genau.",
+          "quelle": "AP News",
+          "url": "https://apnews.com/article/openai-ai-safety-behavior-track-9876543210",
+          "datum": "17.09.2026"
+        },
+        {
+          "titel": "Bill Gates fordert: Jetzt die Weichen für gerechte KI stellen",
+          "zusammenfassung": "Bill Gates betont die Dringlichkeit bewusster KI-Entscheidungen, um die Technologie gerecht zu gestalten. Er warnt: KI vertieft sonst die Kluft zwischen Arm und Reich. Jetzt ist globale Vorbereitung auf das KI-Zeitalter nötig.",
+          "warum": "Gates fordert jetzt ethische Rahmenbedingungen. Diskutieren Sie im Team verantwortungsvollen KI-Einsatz, um eine faire Zukunft zu gestalten.",
+          "quelle": "GatesNotes",
+          "url": "https://www.gatesnotes.com/The-choices-we-make-about-AI-now-are-critical",
+          "datum": "17.09.2026"
+        }
+      ],
+      "praxis": [
+        {
+          "titel": "Trotz Existenzangst: 57 Prozent der deutschen Firmen nutzen bereits KI",
+          "zusammenfassung": "Erstmals nutzt die Mehrheit deutscher Unternehmen ab 20 Mitarbeitern Künstliche Intelligenz. Die Nutzung hat sich in zwei Jahren fast verdreifacht. Doch die meisten schöpfen ihr KI-Potenzial kaum aus, und ein Drittel fürchtet um die eigene Existenz, falls sie sich nicht anpassen.",
+          "branche": "Allgemein",
+          "quelle": "Jörg Schieb",
+          "url": "https://www.google.com/search?q=Trotz%20Existenzangst%3A%2057%20Prozent%20der%20deutschen%20Firmen%20nutzen%20bereits%20KI%20J%C3%B6rg%20Schieb",
+          "datum": "16.09.2026"
+        },
+        {
+          "titel": "Einzelhandel: Darum scheitern KI-Projekte an schmutzigen Daten",
+          "zusammenfassung": "Bevor KI im Einzelhandel Prozesse optimiert, entscheiden verlässliche Prozess- und Bestandsdaten über den Erfolg. Viele KI-Projekte scheitern sonst an mangelnder Datenqualität. Ein britischer Händler betonte auf der NRF Retail's Big Show Europe 2026: Nur ein klares Betriebsmodell schafft die nötige Datengrundlage.",
+          "branche": "Einzelhandel",
+          "quelle": "klamm.de",
+          "url": "https://www.google.com/search?q=Einzelhandel%3A%20Darum%20scheitern%20KI-Projekte%20an%20schmutzigen%20Daten%20klamm.de",
+          "datum": "16.09.2026"
+        }
+      ],
+      "schnelldurchlauf": [
+        {
+          "text": "Google AI Studio hilft Entwicklern jetzt, Apps visuell ansprechender zu gestalten: Es generiert aus Code anpassbare HTML/CSS-Redesigns und erzeugt kohärente Bilder.",
+          "quelle": "Google AI Studio",
+          "url": "https://www.google.com/search?q=Google%20AI%20Studio%20hilft%20Entwicklern%20jetzt%2C%20Apps%20visuell%20ansprechender%20zu%20gestalten%3A%20Es%20generiert%20aus%20Code%20anpassbare%20HTML/CSS-Redesigns%20und%20erzeugt%20koh%C3%A4rente%20Bilder.%20Google%20AI%20Studio"
+        },
+        {
+          "text": "Deutsche Unternehmen nutzen kaum chinesische KI-Modelle: 76 Prozent setzen ChatGPT ein, DeepSeek erreicht nur 2 Prozent und Qwen von Alibaba 1 Prozent.",
+          "quelle": "Onpulson",
+          "url": "https://www.onpulson.de/deutsche-unternehmen-nutzen-kaum-ki-anwendungen-aus-china/"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "AI researchers debate how close we are to recursive self-improvement",
+        "podcast_name": "Dwarkesh Podcast"
+      }
     }
   ],
-  "last_sent": "16.09.2026",
+  "last_sent": "17.09.2026",
   "sent_log": {
-    "date": "16.09.2026",
+    "date": "17.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
