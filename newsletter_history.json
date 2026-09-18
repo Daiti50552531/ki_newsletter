@@ -1,31 +1,6 @@
 {
   "editions": [
     {
-      "date": "08.09.2026",
-      "top_news": [
-        {
-          "titel": "Mistral AI sichert 3 Milliarden Euro: Europas Weg zur souveränen KI für Unternehmen",
-          "zusammenfassung": "Mistral AI erhält in einer Series-D-Runde 3 Milliarden Euro, angeführt von Samsung Electronics, und erreicht eine Bewertung von über 21 Milliarden Euro. Das Kapital beschleunigt Forschung und Infrastruktur für 'Sovereign AI'-Lösungen.",
-          "warum": "Unternehmen, die Datenhoheit priorisieren, finden in Mistrals Ansatz eine willkommene Alternative zu US-Modellen. Behalten Sie diese Entwicklung im Auge.",
-          "quelle": "Tech.eu",
-          "url": "https://www.google.com/search?q=Mistral%20AI%20sichert%203%20Milliarden%20Euro%3A%20Europas%20Weg%20zur%20souver%C3%A4nen%20KI%20f%C3%BCr%20Unternehmen%20Tech.eu",
-          "datum": "08.09.2026"
-        }
-      ],
-      "praxis": [],
-      "schnelldurchlauf": [
-        {
-          "text": "OpenAI testet eine „Writing Style“-Funktion für ChatGPT. Sie lernt aus Apps wie Slack und Gmail den Nutzerstil, als hätte sie Ihre letzten 100 E-Mails studiert.",
-          "quelle": "BetaNews",
-          "url": "https://www.google.com/search?q=OpenAI%20testet%20eine%20%E2%80%9EWriting%20Style%E2%80%9C-Funktion%20f%C3%BCr%20ChatGPT.%20Sie%20lernt%20aus%20Apps%20wie%20Slack%20und%20Gmail%20den%20Nutzerstil%2C%20als%20h%C3%A4tte%20sie%20Ihre%20letzten%20100%20E-Mails%20studiert.%20BetaNews"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "09.09.2026",
       "top_news": [
         {
@@ -435,11 +410,59 @@
         "episoden_titel": "AI researchers debate how close we are to recursive self-improvement",
         "podcast_name": "Dwarkesh Podcast"
       }
+    },
+    {
+      "date": "18.09.2026",
+      "top_news": [
+        {
+          "titel": "Gemini 3.8 Live: Google gibt KI-Agenten eine Stimme – und lässt sie denken, während sie reden",
+          "zusammenfassung": "Google präsentiert Gemini 3.8 Live und Live Extended Thinking. Die neuen Audio-Modelle ermöglichen KI-Agenten tiefere Argumentation und flüssige Konversation. Sie führen API-Aufrufe aus und verstehen visuelle Eingaben, während sie Audio-Antworten streamen.",
+          "warum": "Beobachten Sie diese Modelle: Sie definieren interaktive KI neu. Prüfen Sie Einsatzmöglichkeiten für Kundenservice oder innovative Anwendungen.",
+          "quelle": "Google Blog",
+          "url": "https://www.google.com/search?q=Gemini%203.8%20Live%3A%20Google%20gibt%20KI-Agenten%20eine%20Stimme%20%E2%80%93%20und%20l%C3%A4sst%20sie%20denken%2C%20w%C3%A4hrend%20sie%20reden%20Google%20Blog",
+          "datum": "17.09.2026"
+        },
+        {
+          "titel": "OpenAI startet 'Astra for Law': KI-Lösung speziell für Juristen",
+          "zusammenfassung": "OpenAI führt 'Astra for Law' ein, eine spezialisierte Lösung für den Rechtsbereich. Sie bietet Plugin-Tools und verbesserte Suchfunktionen für Rechtsfälle. Basis ist OpenAIs fortschrittlichstes Modell GPT-6 Astra, ausgerichtet auf große Anwaltskanzleien.",
+          "warum": "Beachten Sie den Trend zu Branchen-KI. Prüfen Sie, welche spezifischen Lösungen für Ihren Geschäftsbereich existieren oder entwickelt werden könnten.",
+          "quelle": "OpenAI",
+          "url": "https://openai.com/blog/astra-for-law",
+          "datum": "17.09.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "Firefox integriert Mistral Small 4 in sein Smart Window, eine KI-Assistenz direkt im Browser. Verfügbar ab heute in Frankreich, kommt sie 2026 nach Deutschland – mit Fokus auf Datenschutz.",
+          "quelle": "Mozilla",
+          "url": "https://www.google.com/search?q=Firefox%20integriert%20Mistral%20Small%204%20in%20sein%20Smart%20Window%2C%20eine%20KI-Assistenz%20direkt%20im%20Browser.%20Verf%C3%BCgbar%20ab%20heute%20in%20Frankreich%2C%20kommt%20sie%202026%20nach%20Deutschland%20%E2%80%93%20mit%20Fokus%20auf%20Datenschutz.%20Mozilla"
+        },
+        {
+          "text": "Anthropic startet Claude Code Projects in der Beta. Entwickler erhalten persistente, parallele Cloud-Sessions für langlaufende Programmieraufgaben, die auch nach dem Schließen des Laptops weiterlaufen.",
+          "quelle": "VentureBeat",
+          "url": "https://venturebeat.com/ai/anthropic-launches-claude-code-projects/"
+        },
+        {
+          "text": "OpenAI veröffentlicht ein neues Rahmenwerk zur Offenlegung von Modell-Fehlverhalten. Es enthält sechs detaillierte Berichte aus dem RL-Training und erhöht damit Transparenz und Sicherheit.",
+          "quelle": "OpenAI",
+          "url": "https://openai.com/blog/our-framework-for-reporting-model-misalignment"
+        },
+        {
+          "text": "Google DeepMind gründet das DeepMind Institute. Es dient als öffentliche Plattform für die interdisziplinäre Debatte über die Auswirkungen Künstlicher Allgemeiner Intelligenz (AGI) auf Wissenschaft und Gesellschaft.",
+          "quelle": "The Rundown AI",
+          "url": "https://www.google.com/search?q=Google%20DeepMind%20gr%C3%BCndet%20das%20DeepMind%20Institute.%20Es%20dient%20als%20%C3%B6ffentliche%20Plattform%20f%C3%BCr%20die%20interdisziplin%C3%A4re%20Debatte%20%C3%BCber%20die%20Auswirkungen%20K%C3%BCnstlicher%20Allgemeiner%20Intelligenz%20%28AGI%29%20auf%20Wissenschaft%20und%20Gesellschaft.%20The%20Rundown%20AI"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "17.09.2026",
+  "last_sent": "18.09.2026",
   "sent_log": {
-    "date": "17.09.2026",
+    "date": "18.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
