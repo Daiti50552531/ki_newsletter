@@ -1,63 +1,6 @@
 {
   "editions": [
     {
-      "date": "09.09.2026",
-      "top_news": [
-        {
-          "titel": "Anthropic präsentiert Claude Fable 5.1 und Mythos 5.1: Mehr Leistung, schärferer Datenschutz",
-          "zusammenfassung": "Anthropic veröffentlicht Claude Fable 5.1 für Pro- und Max-Nutzer sowie Mythos 5.1 für spezielle Zugangsprogramme. Mythos 5.1 schützt sensible Daten in regulierten Bereichen wie Cybersicherheit und Biowissenschaften stärker.",
-          "warum": "Prüfen Sie Fable 5.1 für verbesserte Fähigkeiten. Beachten Sie Mythos 5.1s stärkere Schutzmechanismen, derzeit nur in den USA verfügbar.",
-          "quelle": "Layer3Labs",
-          "url": "https://www.google.com/search?q=Anthropic%20pr%C3%A4sentiert%20Claude%20Fable%205.1%20und%20Mythos%205.1%3A%20Mehr%20Leistung%2C%20sch%C3%A4rferer%20Datenschutz%20Layer3Labs",
-          "datum": "08.09.2026"
-        },
-        {
-          "titel": "EU AI Act verschärft: KI-Vorfälle erfordern nun blitzschnelle Meldungen",
-          "zusammenfassung": "Der EU AI Act verpflichtet Anbieter von Hochrisiko-KI-Systemen, schwerwiegende Vorfälle innerhalb von 15 Tagen zu melden. Bei Todesfällen oder weitreichenden Infrastrukturstörungen sinkt die Frist auf zwei bis zehn Tage.",
-          "warum": "Überprüfen Sie Ihre Incident-Response-Pläne. Die neuen, kurzen Fristen erzwingen sofortige Anpassungen der Compliance-Prozesse.",
-          "quelle": "CIO",
-          "url": "https://www.google.com/search?q=EU%20AI%20Act%20versch%C3%A4rft%3A%20KI-Vorf%C3%A4lle%20erfordern%20nun%20blitzschnelle%20Meldungen%20CIO",
-          "datum": "08.09.2026"
-        }
-      ],
-      "praxis": [
-        {
-          "titel": "Enneo KI automatisiert Telekom-Kundenservice: Berliner Startup setzt auf KI-Agenten",
-          "zusammenfassung": "Das Berliner Startup Enneo KI automatisiert Kundenservice-Prozesse. Es verbindet KI-Agenten mit CRM- und ERP-Systemen, wodurch Service-Teams Anfragen schneller bearbeiten und Standardvorgänge automatisieren.",
-          "branche": "Telekommunikation",
-          "quelle": "enneo KI",
-          "url": "https://www.google.com/search?q=Enneo%20KI%20automatisiert%20Telekom-Kundenservice%3A%20Berliner%20Startup%20setzt%20auf%20KI-Agenten%20enneo%20KI",
-          "datum": "08.09.2026"
-        }
-      ],
-      "schnelldurchlauf": [
-        {
-          "text": "Google AI hilft Piloten, den wärmenden Effekt von Flugzeug-Kondensstreifen um bis zu 40 Prozent zu reduzieren, indem sie ihre Flughöhe anpassen.",
-          "quelle": "PCMag",
-          "url": "https://www.pcmag.com/news/google-ai-helps-cut-contrail-climate-warming-40-in-latest-trial"
-        },
-        {
-          "text": "Der LfDI MV veröffentlicht einen Leitfaden für kleine Unternehmen und Behörden. Er zeigt, wie sie KI-Systeme datenschutzkonform nutzen.",
-          "quelle": "Computer Weekly",
-          "url": "https://www.google.com/search?q=Der%20LfDI%20MV%20ver%C3%B6ffentlicht%20einen%20Leitfaden%20f%C3%BCr%20kleine%20Unternehmen%20und%20Beh%C3%B6rden.%20Er%20zeigt%2C%20wie%20sie%20KI-Systeme%20datenschutzkonform%20nutzen.%20Computer%20Weekly"
-        },
-        {
-          "text": "Wer Open-Source-LLMs lokal betreiben will, richtet mit llama.cpp und Open WebUI eine private ChatGPT-Alternative auf dem eigenen Server ein. Das spart API-Kosten und verhindert Datenabfluss.",
-          "quelle": "Railway",
-          "url": "https://www.google.com/search?q=Wer%20Open-Source-LLMs%20lokal%20betreiben%20will%2C%20richtet%20mit%20llama.cpp%20und%20Open%20WebUI%20eine%20private%20ChatGPT-Alternative%20auf%20dem%20eigenen%20Server%20ein.%20Das%20spart%20API-Kosten%20und%20verhindert%20Datenabfluss.%20Railway"
-        },
-        {
-          "text": "Anthropic kürzte die wöchentlichen Nutzungslimits für Claude Code de facto um 17 Prozent. Eine angekündigte 25-prozentige Erhöhung entpuppt sich als Rechenaufgabe: Nutzer, die mit 100 Einheiten rechneten, erhalten nun 83.",
-          "quelle": "Medium",
-          "url": "https://medium.com/@karl.kahn/anthropic-just-cut-claude-codes-limits-by-17-and-announced-it-as-a-25-increase-67890abcde"
-        }
-      ],
-      "podcast": {
-        "episoden_titel": "",
-        "podcast_name": ""
-      }
-    },
-    {
       "date": "10.09.2026",
       "top_news": [
         {
@@ -458,11 +401,59 @@
         "episoden_titel": "",
         "podcast_name": ""
       }
+    },
+    {
+      "date": "19.09.2026",
+      "top_news": [
+        {
+          "titel": "Anthropic: Claude leitet physische Experimente in neuem Biolabor",
+          "zusammenfassung": "Anthropic eröffnet ein Biolabor in der San Francisco Bay Area. Dort steuert KI-Modell Claude Roboter bei physischen Experimenten und erweitert die KI-Forschung über reine Computersimulationen hinaus.",
+          "warum": "Behalte es im Blick: Claude treibt die KI-Autonomie voran. Das beeinflusst zukünftige Anwendungsfelder der Automatisierung und Forschung direkt.",
+          "quelle": "Engadget",
+          "url": "https://www.google.com/search?q=Anthropic%3A%20Claude%20leitet%20physische%20Experimente%20in%20neuem%20Biolabor%20Engadget",
+          "datum": "18.09.2026"
+        },
+        {
+          "titel": "Alibaba Qwen3.8-Omni-Flash: 1 Million Token Kontext für multimodale Agenten",
+          "zusammenfassung": "Alibaba veröffentlicht Qwen3.8-Omni-Flash, ein omnimodales Modell, das Text, Bilder, Audio und Video verarbeitet. Es bietet ein 1-Millionen-Token-Kontextfenster für Agenten-Fähigkeiten in Audio- und Video-Workflows und unterbietet viele Konkurrenten preislich.",
+          "warum": "Probiere es aus: Das Open-Source-Modell verarbeitet den Inhalt von über 50 Harry-Potter-Bänden und unterbietet die Konkurrenz. Ideal für Audio-/Video-Projekte.",
+          "quelle": "TechNode",
+          "url": "https://www.google.com/search?q=Alibaba%20Qwen3.8-Omni-Flash%3A%201%20Million%20Token%20Kontext%20f%C3%BCr%20multimodale%20Agenten%20TechNode",
+          "datum": "18.09.2026"
+        }
+      ],
+      "praxis": [],
+      "schnelldurchlauf": [
+        {
+          "text": "NASA und IBM veröffentlichen das erste Open-Source-KI-Modell für die Mondforschung. Es reduziert Fehler bei der Erkennung von Eisvorkommen um 22 Prozent.",
+          "quelle": "Newswav",
+          "url": "https://www.google.com/search?q=NASA%20und%20IBM%20ver%C3%B6ffentlichen%20das%20erste%20Open-Source-KI-Modell%20f%C3%BCr%20die%20Mondforschung.%20Es%20reduziert%20Fehler%20bei%20der%20Erkennung%20von%20Eisvorkommen%20um%2022%20Prozent.%20Newswav"
+        },
+        {
+          "text": "Zhipu AIs GLM-5.2 erzielt 99,2 Prozent, die höchste Punktzahl im AIME 2026 Mathe-Benchmark, und beweist starke mathematische Argumentationsfähigkeiten.",
+          "quelle": "LLM Stats",
+          "url": "https://www.google.com/search?q=Zhipu%20AIs%20GLM-5.2%20erzielt%2099%2C2%20Prozent%2C%20die%20h%C3%B6chste%20Punktzahl%20im%20AIME%202026%20Mathe-Benchmark%2C%20und%20beweist%20starke%20mathematische%20Argumentationsf%C3%A4higkeiten.%20LLM%20Stats"
+        },
+        {
+          "text": "Kalifornien prüft die Einführung eines 'Notschalters' für KI, um die Kontrolle über fortschrittliche Systeme zu behalten.",
+          "quelle": "Deutschlandfunk",
+          "url": "https://www.deutschlandfunk.de/kalifornien-prueft-notschalter-fuer-kuenstliche-intelligenz-100.html"
+        },
+        {
+          "text": "Higgsfield startet eine Pay-as-you-go-API für KI-Bild- und Videoerstellung. Sie unterbietet vergleichbare Abo-Modelle um bis zu 15 Prozent.",
+          "quelle": "daily.dev",
+          "url": "https://www.google.com/search?q=Higgsfield%20startet%20eine%20Pay-as-you-go-API%20f%C3%BCr%20KI-Bild-%20und%20Videoerstellung.%20Sie%20unterbietet%20vergleichbare%20Abo-Modelle%20um%20bis%20zu%2015%20Prozent.%20daily.dev"
+        }
+      ],
+      "podcast": {
+        "episoden_titel": "",
+        "podcast_name": ""
+      }
     }
   ],
-  "last_sent": "18.09.2026",
+  "last_sent": "19.09.2026",
   "sent_log": {
-    "date": "18.09.2026",
+    "date": "19.09.2026",
     "to": [
       "David.aiprojekte@gmail.com",
       "Davidleinders@web.de",
